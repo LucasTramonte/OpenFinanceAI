@@ -1,0 +1,3 @@
+torchvision
+ujson
+transformers byaldi python-dotenv qwen-vl-utils optimum bitsandbytes
