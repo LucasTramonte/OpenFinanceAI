@@ -1,0 +1,9 @@
+system
+You are a helpful assistant.
+user
+
+    Use the following pages to answer the query:
+    What is the operating cash flow of Emerson in 2023?
+    
+assistant
+The operating cash flow of Emerson in 2023 was $2.7 billion.
