@@ -9,6 +9,7 @@ This repository contains the code and resources for an open-source project focus
 - [Usage Instructions](#usage-instructions)
 - [Output Files Explained](#output-files-explained)
 - [Problems](#actual-problems)
+- [Next Steps](#future-directions)
 - [Authors](#authors) 
 
 ## Project Structure
@@ -23,8 +24,13 @@ OpenFinanceAI/
 │   ├── similarity_maps/            # Stores similarity map visualizations
 │   ├── generated_responses.txt     # Final generated responses
 │   └── similarity_scores.txt       # Similarity scores for each token and document
+├── streamlit/                      # Directory containing Streamlit application
+│   ├── output/                     # Output folder for Streamlit results
+│   ├── temp_files/                 # Temporary files generated during Streamlit execution
+│   ├── uploaded_pdfs/              # Uploaded PDFs from Streamlit app
 ├── data/                           # Dataset provided
 ├── data_test/                      # Smaller dataset to run to test PDFs
+│   ├── ardian_dataset_test.csv     # CSV file for analyzing pipeline performance
 ├── README.md                       # Project documentation
 └── requirements.txt                # Python dependencies
 ```
@@ -77,7 +83,7 @@ The output directory contains the following key files and folders:
      ```
 
 ## Actual problems : 
-
+### 1. Resource Generation Issues
 This problem occurs when a lot of jobs are being launched at the same time in the DCE! However we managed to run our code and obtain generation results with Qwen2-VL-2B-Instruct. 
 
 Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:01<00:00,  1.48it/s]
@@ -89,6 +95,32 @@ Traceback (most recent call last):
     .
     .
 torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 19.68 GiB. GPU 0 has a total capacity of 23.68 GiB of which 11.88 GiB is free. Including non-PyTorch memory, this process has 11.79 GiB memory in use. Of the allocated memory 11.44 GiB is allocated by PyTorch, and 43.59 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+### 2. Streamlit Interface Compatibility with DCE
+The Streamlit interface currently cannot be executed directly on the DCE environment due to restrictions on network ports and real-time web server requirements.
+
+## Future Directions
+
+### 1. Streamlit Application
+We want to implement and deploy a Streamlit application :
+1. Ensure all dependencies are installed:
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. Run the application:
+   ```bash
+   streamlit run streamlit_app.py
+   ```
+3. Open the browser at the URL displayed (typically `http://localhost:8501`).
+
+Example screenshot of the Streamlit interface:
+
+<p align="center">
+  <img src="assets/example_streamlit_interface.png" alt="Example Streamlit Interface" width="80%">
+</p>
+
+### 2. Scaling Colpali with Vespa + ameliorating general pipeline
+### 3. Finish dataset for performance evaluation 
 
 ## Authors
 - **Gabriel Trier**  
