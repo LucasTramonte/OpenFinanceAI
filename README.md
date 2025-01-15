@@ -115,9 +115,7 @@ We want to implement and deploy a Streamlit application :
 
 Example screenshot of the Streamlit interface:
 
-<p align="center">
-  <img src="assets/example_streamlit_interface.png" alt="Example Streamlit Interface" width="80%">
-</p>
+![Example Streamlit Interface](assets/example_streamlit_interface.png)
 
 ### 2. Scaling Colpali with Vespa + ameliorating general pipeline
 ### 3. Finish dataset for performance evaluation 
