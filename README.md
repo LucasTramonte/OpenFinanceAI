@@ -23,8 +23,9 @@ Open-source project focused on developing a generative AI agent for financial an
 ```plaintext
 OpenFinanceAI/
 
-├── Colpali_Qwen.py                 # Main script to process PDFs and generate responses
-├── Colpali_Qwen_ResponsePerPage.py # Alternate script for per-page responses (under testing)
+├── data/                           # Dataset provided
+├── data_test/                      # Smaller dataset to run to test PDFs
+│   ├── ardian_dataset_test.csv     # CSV file for analyzing pipeline performance
 ├── output/                         # Directory for generated results
 │   ├── relevant_documents/         # Stores the top-K most relevant document images
 │   ├── similarity_maps/            # Stores similarity map visualizations
@@ -34,13 +35,14 @@ OpenFinanceAI/
 │   ├── output/                     # Output folder for Streamlit results
 │   ├── temp_files/                 # Temporary files generated during Streamlit execution
 │   ├── uploaded_pdfs/              # Uploaded PDFs from Streamlit app
-├── data/                           # Dataset provided
-├── data_test/                      # Smaller dataset to run to test PDFs
 │   ├── ardian_dataset_test.csv     # CSV file for analyzing pipeline performance
+├── Colpali_Qwen_ResponsePerPage.py # Alternate script for per-page responses (under testing)
+├── Colpali_Qwen.py                 # Main script to process PDFs and generate responses with Qwen2-VL-2B-Instruct
+├── Colpali_Qwen_2_5.py             # Main script to process PDFs and generate responses with Qwen/Qwen2.5-VL-7B-Instruct
 └── eval_finqa.py                   # Evaluating the Visual Language Model
 ├── README.md                       # Project documentation
 └── requirements.txt                # Python dependencies
-└── streamlit_app.py                # Streamlit Application
+└── app.py                          # Streamlit Application
 ```
 
 ## Usage Instructions
@@ -125,22 +127,8 @@ The output directory contains the following key files and folders:
      ```
 
 ## Actual problems : 
-### 1. Resource Generation Issues
-This problem occurs when a lot of jobs are being launched at the same time in the DCE! However we managed to run our code and obtain generation results with Qwen2-VL-2B-Instruct. 
-
-Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:01<00:00,  1.48it/s]
-Image index : 12
-Traceback (most recent call last):
-  File "/usr/users/openfinanceai/tramonte_luc/Colpali_Vision_RAG.py", line 77, in <module>
-    generated_ids = model.generate(**inputs, max_new_tokens=2)
-    .
-    .
-    .
-torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 19.68 GiB. GPU 0 has a total capacity of 23.68 GiB of which 11.88 GiB is free. Including non-PyTorch memory, this process has 11.79 GiB memory in use. Of the allocated memory 11.44 GiB is allocated by PyTorch, and 43.59 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
-
-## Future Directions
-
-### 1. Streamlit Application
+### 1. Resource Generation Issues with Streamlit Application
+This issue arises when multiple jobs are launched simultaneously in the DCE. We successfully ran our code and generated results using Qwen2-VL-2B-Instruct and Qwen/Qwen2.5-VL-7B-Instruct with the scripts `Colpali_Qwen.py` and `Colpali_Qwen2_5.py`. However, we encounter a CUDA out-of-memory error when attempting to use the Streamlit Application.
 
 1. Go to  the [interactive desktop](https://dev.dce-cs.fr/pun/sys/dashboard/batch_connect/sys/bc_desktop/dce/session_contexts/new) from DCE 
 
@@ -152,11 +140,14 @@ torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 19.68 GiB. GPU 0 h
    ```bash
    streamlit run streamlit_app.py
    ```
-4. Open the browser at the URL displayed (typically `http://localhost:8501`).
 
 Example screenshot of the Streamlit interface:
 
 ![Example Streamlit Interface](Assets/Images/example_streamlit_interface.png)
+
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 19.68 GiB. GPU 0 has a total capacity of 23.68 GiB of which 11.88 GiB is free. Including non-PyTorch memory, this process has 11.79 GiB memory in use. Of the allocated memory 11.44 GiB is allocated by PyTorch, and 43.59 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+## Future Directions
 
 ### 2. Enhancing Performance 
 
