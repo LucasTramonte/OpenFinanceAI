@@ -1,7 +1,10 @@
 torchvision
 ujson
-transformers byaldi python-dotenv qwen-vl-utils optimum bitsandbytes
+#transformers byaldi python-dotenv qwen-vl-utils optimum bitsandbytes
+transformers==4.47.0 
 einops
 pdf2image
 colpali_engine
 qwen_vl_utils
+vidore-benchmark[all-retrievers]
+git+https://github.com/huggingface/transformers accelerate

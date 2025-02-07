@@ -8,9 +8,10 @@ from colpali_engine.interpretability import (
 )
 from torch.utils.data import DataLoader
 from tqdm import tqdm
-from transformers import Qwen2VLForConditionalGeneration, AutoProcessor, AutoTokenizer
+from transformers import Qwen2_5_VLForConditionalGeneration, Qwen2VLForConditionalGeneration, AutoProcessor, AutoTokenizer
 from qwen_vl_utils import process_vision_info
 import logging
+import matplotlib.pyplot as plt
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
@@ -74,7 +75,6 @@ def save_similarity_scores_and_maps(images, embeddings_list, top_k_indices, quer
             # Save relevant image
             relevant_path = os.path.join(RELEVANT_DIR, f"relevant_doc_{i + 1}.jpg")
             image.save(relevant_path)
-            logger.info(f"Saved relevant document to {relevant_path}")
 
             # Generate and save similarity maps
             n_patches = processor.get_n_patches(image_size=image.size, patch_size=model.patch_size)
@@ -110,7 +110,7 @@ def save_similarity_scores_and_maps(images, embeddings_list, top_k_indices, quer
                 fig.tight_layout()
                 fig_path = os.path.join(SIMILARITY_DIR, f"doc_{i + 1}_token_{token_idx + 1}.png")
                 fig.savefig(fig_path, dpi=100)
-                #logger.info(f"Saved similarity map to {fig_path}")
+                plt.close(fig)  # Close the figure to free up memory
 
                 # Save similarity score to text file
                 score_file.write(
@@ -135,11 +135,11 @@ def generate_responses(query: str, relevant_dir: str, top_k: int = 3):
     """Generate responses based on the top-k relevant pages."""
     try:
         # Load the model and processor
-        gen_model = Qwen2VLForConditionalGeneration.from_pretrained(
-            "vidore/colqwen2-base", torch_dtype=torch.bfloat16
+        gen_model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
+            "Qwen/Qwen2.5-VL-7B-Instruct", torch_dtype=torch.bfloat16
         ).cuda().eval()
         max_pixels = 512 * 28 * 28
-        gen_processor = AutoProcessor.from_pretrained("Qwen/Qwen2-VL-2B-Instruct", max_pixels=max_pixels)
+        gen_processor = AutoProcessor.from_pretrained("Qwen/Qwen2.5-VL-7B-Instruct", max_pixels=max_pixels)
 
         # Load the relevant documents
         relevant_files = sorted(os.listdir(relevant_dir))[:top_k]
