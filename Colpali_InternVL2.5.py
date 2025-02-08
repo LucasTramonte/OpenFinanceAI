@@ -8,7 +8,7 @@ from colpali_engine.interpretability import (
 )
 from torch.utils.data import DataLoader
 from tqdm import tqdm
-from transformers import Qwen2_5_VLForConditionalGeneration, AutoProcessor
+from transformers import AutoProcessor, AutoModel
 from qwen_vl_utils import process_vision_info
 import logging
 import matplotlib.pyplot as plt
@@ -135,11 +135,15 @@ def generate_responses(query: str, relevant_dir: str, top_k: int = 3):
     """Generate responses based on the top-k relevant pages."""
     try:
         # Load the model and processor
-        gen_model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
-            "Qwen/Qwen2.5-VL-7B-Instruct", torch_dtype=torch.bfloat16
-        ).cuda().eval()
+        
+        gen_model = AutoModel.from_pretrained(
+            "OpenGVLab/InternVL2_5-78B-MPO",
+            torch_dtype=torch.bfloat16,
+            low_cpu_mem_usage=True,
+            use_flash_attn=True,
+            trust_remote_code=True).eval().cuda()
         max_pixels = 512 * 28 * 28
-        gen_processor = AutoProcessor.from_pretrained("Qwen/Qwen2.5-VL-7B-Instruct", max_pixels=max_pixels)
+        gen_processor = AutoProcessor.from_pretrained("OpenGVLab/InternVL2_5-78B-MPO", max_pixels=max_pixels)
 
         # Load the relevant documents
         relevant_files = sorted(os.listdir(relevant_dir))[:top_k]

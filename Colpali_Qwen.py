@@ -8,7 +8,7 @@ from colpali_engine.interpretability import (
 )
 from torch.utils.data import DataLoader
 from tqdm import tqdm
-from transformers import Qwen2VLForConditionalGeneration, AutoProcessor, AutoTokenizer
+from transformers import Qwen2VLForConditionalGeneration, AutoProcessor
 from qwen_vl_utils import process_vision_info
 import logging
 

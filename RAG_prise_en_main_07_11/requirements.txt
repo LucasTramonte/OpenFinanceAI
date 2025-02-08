@@ -1,0 +1,8 @@
+pyPDF2
+faiss-cpu
+sentence_transformers
+huggingface_hub
+langchain-community
+sentence-transformers
+-y poppler-utils
+pdf2image pillow matplotlib
