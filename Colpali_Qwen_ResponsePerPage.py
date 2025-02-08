@@ -9,31 +9,39 @@ from colpali_engine.interpretability import (
 )
 from torch.utils.data import DataLoader
 from tqdm import tqdm
-from transformers import Qwen2VLForConditionalGeneration, AutoProcessor, AutoTokenizer
+from transformers import Qwen2VLForConditionalGeneration, AutoProcessor
 from qwen_vl_utils import process_vision_info
+import logging
 
-# Répertoires de sortie
-output_directory = "./output"
-similarity_dir = os.path.join(output_directory, "similarity_maps")
-relevant_dir = os.path.join(output_directory, "relevant_documents")
-os.makedirs(similarity_dir, exist_ok=True)
-os.makedirs(relevant_dir, exist_ok=True)
+# Setup logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
-# Fonction 1 : Indexation et génération des cartes de similarité
-def index_and_save_documents(pdf_path: str, query: str, top_k: int = 3):
-    # Modèle et processeur ColPALI
+# Output directories
+OUTPUT_DIRECTORY = "./output"
+SIMILARITY_DIR = os.path.join(OUTPUT_DIRECTORY, "similarity_maps")
+RELEVANT_DIR = os.path.join(OUTPUT_DIRECTORY, "relevant_documents")
+os.makedirs(SIMILARITY_DIR, exist_ok=True)
+os.makedirs(RELEVANT_DIR, exist_ok=True)
+
+def load_model_and_processor():
+    """Load the ColPALI model and processor."""
     model = ColPali.from_pretrained(
         "vidore/colpali-v1.2",
         torch_dtype=torch.bfloat16,
         device_map="cuda:0"
     ).eval()
     processor = ColPaliProcessor.from_pretrained("vidore/colpali-v1.2")
+    return model, processor
 
-    # Conversion PDF en images
+def convert_pdf_to_images(pdf_path):
+    """Convert a PDF file to a list of images."""
     images = convert_from_path(pdf_path)
-    print(f"PDF converti en {len(images)} pages.")
+    logger.info(f"PDF converted into {len(images)} pages.")
+    return images
 
-    # Embeddings pour chaque page
+def generate_embeddings(images, processor, model):
+    """Generate embeddings for each image."""
     dataloader = DataLoader(
         dataset=images,
         batch_size=2,
@@ -41,34 +49,34 @@ def index_and_save_documents(pdf_path: str, query: str, top_k: int = 3):
         collate_fn=lambda x: processor.process_images(x),
     )
     embeddings_list = []
-    for batch in tqdm(dataloader, desc="Génération des embeddings"):
+    for batch in tqdm(dataloader, desc="Generating embeddings"):
         with torch.no_grad():
             batch = {k: v.to(model.device) for k, v in batch.items()}
             embeddings = model(**batch)
         embeddings_list.extend(embeddings.cpu().unbind())
+    return embeddings_list
 
-    # Fonction pour récupérer les indices pertinents
-    def get_results(query: str):
-        batch_queries = processor.process_queries([query]).to(model.device)
-        with torch.no_grad():
-            query_embeddings = model(**batch_queries)
-        scores = processor.score_multi_vector(query_embeddings, embeddings_list)
-        return scores[0].topk(top_k).indices.tolist()
+def get_top_k_indices(query, processor, model, embeddings_list, top_k):
+    """Retrieve the indices of the top-k relevant pages based on the query."""
+    batch_queries = processor.process_queries([query]).to(model.device)
+    with torch.no_grad():
+        query_embeddings = model(**batch_queries)
+    scores = processor.score_multi_vector(query_embeddings, embeddings_list)
+    return scores[0].topk(top_k).indices.tolist()
 
-    top_k_indices = get_results(query)
-
-    # Sauvegarder les documents pertinents et les cartes de similarité
-    similarity_scores_path = os.path.join(output_directory, "similarity_scores.txt")
+def save_relevant_documents_and_similarity_maps(images, embeddings_list, top_k_indices, processor, model, query):
+    """Save the top-k relevant documents and their similarity maps."""
+    similarity_scores_path = os.path.join(OUTPUT_DIRECTORY, "similarity_scores.txt")
     with open(similarity_scores_path, "w") as score_file:
         for i, idx in enumerate(top_k_indices):
             im = images[idx]
             embeddings = embeddings_list[idx]
 
-            # Sauvegarder l'image pertinente
-            relevant_path = os.path.join(relevant_dir, f"relevant_doc_{i + 1}.jpg")
+            # Save the relevant image
+            relevant_path = os.path.join(RELEVANT_DIR, f"relevant_doc_{i + 1}.jpg")
             im.save(relevant_path)
 
-            # Générer et sauvegarder les cartes de similarité
+            # Generate and save similarity maps
             n_patches = processor.get_n_patches(
                 image_size=im.size,
                 patch_size=model.patch_size,
@@ -104,24 +112,34 @@ def index_and_save_documents(pdf_path: str, query: str, top_k: int = 3):
                     fontsize=10,
                 )
                 fig.tight_layout()
-                fig_path = os.path.join(similarity_dir, f"doc_{i + 1}_token_{token_idx + 1}.png")
+                fig_path = os.path.join(SIMILARITY_DIR, f"doc_{i + 1}_token_{token_idx + 1}.png")
                 fig.savefig(fig_path, dpi=100)
-                print(f"Saved similarity map to {fig_path}")
 
-                # Sauvegarder le score de similarité dans le fichier texte
+                # Save similarity score to text file
                 score_file.write(
                     f"Document {i + 1}, Token #{token_idx + 1} (`{query_tokens[token_idx]}`): MaxSim score = {max_sim_score:.2f}\n"
                 )
-    print(f"Scores de similarité sauvegardés dans {similarity_scores_path}")
-    return relevant_dir
+    logger.info(f"Similarity scores saved in {similarity_scores_path}")
+
+def index_and_save_documents(pdf_path: str, query: str, top_k: int = 3):
+    """Index the PDF document and save the top-k relevant pages and their similarity maps."""
+    try:
+        model, processor = load_model_and_processor()
+        images = convert_pdf_to_images(pdf_path)
+        embeddings_list = generate_embeddings(images, processor, model)
+        top_k_indices = get_top_k_indices(query, processor, model, embeddings_list, top_k)
+        save_relevant_documents_and_similarity_maps(images, embeddings_list, top_k_indices, processor, model, query)
+        return RELEVANT_DIR
+    except Exception as e:
+        logger.error(f"An error occurred: {e}")
+        raise
 
 def generate_responses(query: str, relevant_dir: str, top_k: int = 3):
-    # Charger le modèle et le processeur
-    gen_model = Qwen2VLForConditionalGeneration.from_pretrained("vidore/colqwen2-base",torch_dtype=torch.bfloat16).cuda().eval()  
-    max_pixels = 512*28*28    
+    """Generate responses based on the top-k relevant pages."""
+    gen_model = Qwen2VLForConditionalGeneration.from_pretrained("vidore/colqwen2-base", torch_dtype=torch.bfloat16).cuda().eval()
+    max_pixels = 512 * 28 * 28
     gen_processor = AutoProcessor.from_pretrained("Qwen/Qwen2-VL-2B-Instruct", max_pixels=max_pixels)
 
-    # Charger les documents pertinents
     relevant_files = sorted(os.listdir(relevant_dir))[:top_k]
     responses = []
     PROMPT = f"""
@@ -130,10 +148,9 @@ def generate_responses(query: str, relevant_dir: str, top_k: int = 3):
     PDF pages:
     """
     for i, file_name in enumerate(relevant_files):
-        im_path = os.path.join(relevant_dir, file_name)
+        im_path = os.path.join(RELEVANT_DIR, file_name)
         im = Image.open(im_path)
 
-        # Préparer le prompt et les entrées
         messages = [
             {
                 "role": "user",
@@ -155,7 +172,6 @@ def generate_responses(query: str, relevant_dir: str, top_k: int = 3):
             return_tensors="pt",
         ).to("cuda")
 
-        # Générer la réponse
         torch.cuda.empty_cache()
         generated_ids = gen_model.generate(**inputs, max_new_tokens=30)
         output_text = gen_processor.batch_decode(
@@ -163,17 +179,15 @@ def generate_responses(query: str, relevant_dir: str, top_k: int = 3):
         )[0]
         responses.append(output_text)
 
-        print(f"Réponse générée pour le document {i + 1} : {output_text}")
+        logger.info(f"Generated response for document {i + 1} : {output_text}")
 
-    # Sauvegarder les réponses générées
-    response_path = os.path.join(output_directory, "generated_responses.txt")
+    response_path = os.path.join(OUTPUT_DIRECTORY, "generated_responses.txt")
     with open(response_path, "w") as f:
         for i, response in enumerate(responses):
             f.write(f"Document {i + 1}:\n{response}\n\n")
-    print(f"Réponses générées sauvegardées dans {response_path}")
+    logger.info(f"Generated responses saved in {response_path}")
 
-    
-# Exécution
+# Execution
 pdf_path = "./data_test/AMEX_EMR_2023.pdf"
 query = "What is the operating cash flow of Emerson in 2023?"
 relevant_dir = index_and_save_documents(pdf_path, query, top_k=3)
