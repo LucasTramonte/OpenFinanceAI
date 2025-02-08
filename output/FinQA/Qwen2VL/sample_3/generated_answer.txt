@@ -1,0 +1,12 @@
+Float number to two decimal point precision and no units
+
+assistant
+Explanation: The cash flow hedges in 2011 were $153.7 million and in 2010 were $139.9 million. The percentage change in cash flow hedges in 2011 compared to 2010 is calculated as follows:
+
+(153.7 million - 139.9 million) / 139.9 million * 100%
+
+Explanation: The cash flow hedges in 2011 were $153.7 million and in 2010 were $139.9 million. The percentage change in cash flow hedges in 2011 compared to 2010 is calculated as follows:
+
+(153.7 million - 139.9 million) / 139.9 million * 100%
+
+Explanation: The cash flow hedges in 2011 were

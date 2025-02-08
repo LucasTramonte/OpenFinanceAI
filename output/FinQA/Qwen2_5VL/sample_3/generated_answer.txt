@@ -1,0 +1,11 @@
+Float number to two decimal point precision and no units
+
+assistant
+Explanation: To calculate the percentage change in cash flow hedges from 2010 to 2011, we use the formula:
+
+\[ \text{Percentage Change} = \left( \frac{\text{New Value} - \text{Old Value}}{\text{Old Value}} \right) \times 100 \]
+
+Here, the new value is the cash flow hedges in 2011 ($153.7 million), and the old value is the cash flow hedges in 2010 ($139.9 million).
+
+\[ \text{Percentage Change} = \left( \frac{153.7 - 139.9}{139.9} \right) \times 100 \]
+\[ \text{Percentage Change} = \left( \frac{13.8}{139.9} \right) \times 100

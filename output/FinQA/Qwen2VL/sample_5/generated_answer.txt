@@ -1,0 +1,4 @@
+Float number to two decimal point precision and no units
+
+assistant
+Explanation: The cumulative total shareholder return on Masco common stock is calculated by subtracting the closing price of Masco common stock from $100 and then dividing by $100. The cumulative total shareholder return on the S&P 500 index is calculated by subtracting the closing price of the S&P 500 index from $100 and then dividing by $100. The difference in percentage cumulative total shareholder return on Masco common stock versus the S&P 500 index for the five year period ended 2017 is calculated by subtracting the cumulative total shareholder return on Masco common stock from the cumulative total shareholder return on the S&P 500 index and then dividing by the cumulative total shareholder return on the S&P 500 index. The difference in percentage cumulative total shareholder return on Masco common stock versus the S&P 500 index for the five year period ended 2017 is

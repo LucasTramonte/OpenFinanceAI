@@ -1,0 +1,13 @@
+Float number to two decimal point precision and no units
+
+assistant
+Explanation: To calculate the percentage change in deferred tax assets and regulatory assets from 2013 to 2014, we need to follow these steps:
+
+1. Identify the values for deferred tax assets and regulatory assets for both years.
+2. Calculate the difference between the values for 2014 and 2013.
+3. Divide the difference by the value for 2013.
+4. Multiply the result by 100 to get the percentage change.
+
+From the context, we know that the company recorded a reduction in deferred tax assets and an increase in its regulatory assets amounting to $6348 and $6241 at December 31, 2014 and 2013, respectively.
+
+Let's assume the values for deferred tax assets and regulatory assets for 2013 were $X and $Y, respectively. The values for 2014 would then be $X -

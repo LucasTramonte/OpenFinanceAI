@@ -30,7 +30,11 @@ OpenFinanceAI/
 │   ├── relevant_documents/         # Stores the top-K most relevant document images
 │   ├── similarity_maps/            # Stores similarity map visualizations
 │   ├── generated_responses.txt     # Final generated responses
-│   └── similarity_scores.txt       # Similarity scores for each token and document
+│   ├── similarity_scores.txt       # Similarity scores for each token and document
+│   ├── FinQA/                      # Directory for FinQA evaluation results
+│       ├── Qwen2VL/                # Results for Qwen2VL model
+│       ├── Qwen2_5VL/              # Results for Qwen2_5VL model
+│       └── evaluation_results.txt  # Final comparison results
 ├── streamlit/                      # Directory containing Streamlit application
 │   ├── output/                     # Output folder for Streamlit results
 │   ├── temp_files/                 # Temporary files generated during Streamlit execution
@@ -61,7 +65,7 @@ srun -p gpu_inter -t 00:30:00 --nodelist=sh03 --pty bash
 Execute the main script as follows
 
 ```bash
-python Colpali_Qwen.py
+python Colpali_Qwen2_5.py
 ```
 Please note that there is another vesrion that we are testing ```Colpali_Qwen_ResponsePerPage.py``` that generates a response for every single K documents. 
 
@@ -125,6 +129,14 @@ The output directory contains the following key files and folders:
      Document 1, Token #2 (`Query`): MaxSim score = 0.24
      ...
      ```
+
+5. **`FinQA/`**
+   - **Description**: Contains the results of the FinQA evaluation.
+   - **Details**: This directory includes subfolders with a prompt, target, and generated answer for each sample and for each model evaluated, as well as a final comparison results file.
+   - **Subfolders**:
+     - **`Qwen2VL/`**: Contains the results for the Qwen2VL model.
+     - **`Qwen2_5VL/`**: Contains the results for the Qwen2_5VL model.
+     - **`evaluation_results.txt`**: Final comparison results of the models' accuracy.
 
 ## Actual problems : 
 ### 1. Resource Generation Issues with Streamlit Application

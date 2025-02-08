@@ -1,0 +1,11 @@
+Float number to two decimal point precision and no units
+
+assistant
+Explanation: To calculate the growth rate in the balance of standby letters of credit from 2006 to 2007, we use the formula:
+
+\[ \text{Growth Rate} = \left( \frac{\text{New Value} - \text{Old Value}}{\text{Old Value}} \right) \times 100\% \]
+
+Here, the old value is the balance of standby letters of credit in 2006, which is $4,926 million, and the new value is the balance of standby letters of credit in 2007, which is $4,711 million.
+
+\[ \text{Growth Rate} = \left( \frac{4,711 - 4,926}{4,926} \right) \times 100\% \]
+\[ \text{Growth Rate} = \left( \frac{-

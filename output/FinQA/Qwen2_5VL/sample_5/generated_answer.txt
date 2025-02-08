@@ -1,0 +1,18 @@
+Float number to two decimal point precision and no units
+
+assistant
+Explanation: To calculate the difference in percentage cumulative total shareholder return between Masco common stock and the S&P 500 index over the five-year period ending December 31, 2017, we need to follow these steps:
+
+1. Calculate the cumulative total shareholder return for Masco common stock.
+2. Calculate the cumulative total shareholder return for the S&P 500 index.
+3. Subtract the S&P 500 index's cumulative total shareholder return from Masco's.
+
+For Masco:
+- Initial investment: $100
+- Final value: $318.46
+- Cumulative total shareholder return = (Final value - Initial investment) / Initial investment
+- Cumulative total shareholder return = ($318.46 - $100) / $100 = 2.1846
+
+For the S&P 500 index:
+- Initial investment: $100
+-

@@ -1,0 +1,14 @@
+Float number to two decimal point precision and no units
+
+assistant
+Explanation: The average net annual change in discounted future net cash flows for the years 2011, 2010, and 2009 can be calculated by taking the average of the net changes in discounted future net cash flows for each year. The net changes in discounted future net cash flows for each year are as follows:
+
+2011: -7922
+2010: -6330
+2009: -4876
+
+To find the average, we add up the net changes and divide by the number of years:
+
+(-7922 + -6330 + -4876) / 3 = -6621 / 3 = -2207
+
+Therefore, the average net annual change in discounted future net cash flows for the years 2011, 2010, and 2009 is -2207
