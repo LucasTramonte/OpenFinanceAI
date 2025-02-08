@@ -40,13 +40,14 @@ OpenFinanceAI/
 │   ├── temp_files/                 # Temporary files generated during Streamlit execution
 │   ├── uploaded_pdfs/              # Uploaded PDFs from Streamlit app
 │   ├── ardian_dataset_test.csv     # CSV file for analyzing pipeline performance
+├── Colpali_InternVL2.5.py          # Main script to process PDFs and generate responses with InternVL2_5-78B-MPO (CUDA out of memory)
 ├── Colpali_Qwen_ResponsePerPage.py # Alternate script for per-page responses (under testing)
 ├── Colpali_Qwen.py                 # Main script to process PDFs and generate responses with Qwen2-VL-2B-Instruct
 ├── Colpali_Qwen_2_5.py             # Main script to process PDFs and generate responses with Qwen/Qwen2.5-VL-7B-Instruct
 └── eval_finqa.py                   # Evaluating the Visual Language Model
 ├── README.md                       # Project documentation
 └── requirements.txt                # Python dependencies
-└── app.py                          # Streamlit Application
+└── app.py                          # Streamlit Application (CUDA out of memory)
 ```
 
 ## Usage Instructions
