@@ -1,0 +1,12 @@
+Float number to two decimal point precision and no units
+
+assistant
+Explanation: To calculate the percentage of the total shares bought after 11/25/2018, we need to sum the shares purchased after this date and divide by the total shares purchased over the entire period.
+
+The shares purchased after 11/25/2018 are:
+- 335,000 shares on 10/28/18 to 11/24/18
+- 205,000 shares on 11/25/18 to 12/29/18
+
+Total shares purchased after 11/25/2018 = 335,000 + 205,000 = 540,000
+
+Total shares purchased over the entire period = 90,000 + 335,000 + 205,00

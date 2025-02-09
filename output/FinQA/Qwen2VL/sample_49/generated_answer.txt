@@ -1,0 +1,4 @@
+Float number to two decimal point precision and no units
+
+assistant
+Explanation: The warrant was issued to purchase 557,620,800 shares of the company's common stock at an exercise price of $53.80 per share. The exercise price is $53.80, and the warrant is exercisable for 557,620,800 shares of the company's common stock. The warrant is exercisable for 557,620,800 shares of the company's common stock, and the warrant is exercisable for 557,620,800 shares of the company's common stock. The warrant is exercisable for 557,620,800 shares of the company's common stock, and the warrant is exercisable for 557,620,800 shares of the company's common stock. The warrant is exercisable for 557,620,

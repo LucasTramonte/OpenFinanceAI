@@ -2,7 +2,7 @@ import os
 import torch
 from pdf2image import convert_from_path
 from PIL import Image
-from colpali_engine.models import ColPali, ColPaliProcessor
+from colpali_engine.models import ColQwen2, ColQwen2Processor
 from colpali_engine.interpretability import (
     get_similarity_maps_from_embeddings,
     plot_similarity_map
@@ -26,12 +26,12 @@ os.makedirs(RELEVANT_DIR, exist_ok=True)
 
 def load_model_and_processor():
     """Load the ColPALI model and processor."""
-    model = ColPali.from_pretrained(
-        "vidore/colpali-v1.2",
+    model = ColQwen2.from_pretrained(
+        "vidore/colqwen2-v1.0",
         torch_dtype=torch.bfloat16,
         device_map="cuda:0"
     ).eval()
-    processor = ColPaliProcessor.from_pretrained("vidore/colpali-v1.2")
+    processor = ColQwen2Processor.from_pretrained("vidore/colqwen2-v1.0")
     return model, processor
 
 def convert_pdf_to_images(pdf_path):
@@ -80,7 +80,8 @@ def save_relevant_documents_and_similarity_maps(images, embeddings_list, top_k_i
             n_patches = processor.get_n_patches(
                 image_size=im.size,
                 patch_size=model.patch_size,
-            )
+                spatial_merge_size=2)
+
             image_mask = processor.get_image_mask(processor.process_images([im]))
             batch_queries = processor.process_queries([query]).to(model.device)
             with torch.no_grad():

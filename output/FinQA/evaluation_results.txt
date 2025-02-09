@@ -1,8 +1,12 @@
-Processor: Qwen/Qwen2-VL-2B-Instruct
-Model: vidore/colqwen2-base
-Accuracy: 0.00%
+Processor: OpenGVLab/InternVL2_5-8B-MPO
+Model: OpenGVLab/InternVL2_5-8B-MPO
+Accuracy: 20.00%
 
 Processor: Qwen/Qwen2.5-VL-7B-Instruct
 Model: Qwen/Qwen2.5-VL-7B-Instruct
-Accuracy: 33.33%
+Accuracy: 28.00%
+
+Processor: Qwen/Qwen2-VL-2B-Instruct
+Model: Qwen/Qwen2-VL-2B-Instruct
+Accuracy: 0.00%
 

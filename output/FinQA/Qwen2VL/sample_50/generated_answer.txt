@@ -1,0 +1,4 @@
+Float number to two decimal point precision and no units
+
+assistant
+Explanation: The share price of the warrants exercised in 2008 is not provided in the given context.

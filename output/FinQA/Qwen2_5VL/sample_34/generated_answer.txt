@@ -1,0 +1,11 @@
+Float number to two decimal point precision and no units
+
+assistant
+Explanation: To calculate the percentage of the square footage in Alpharetta, Georgia that was not yet leased, we need to subtract the amount of square footage that has been sublet or part of a facility restructuring from the total square footage in Alpharetta, Georgia.
+
+The total square footage in Alpharetta, Georgia is 219,000 square feet. According to the context, 166,000 square feet of this office space is not yet leased.
+
+Calculation: 
+\[ \text{Percentage not leased} = \left( \frac{\text{Total square footage in Alpharetta, Georgia} - \text{Square footage sublet or part of a facility restructuring}}{\text{Total square footage in Alpharetta, Georgia}} \right) \times 100 \]
+
+\[ \text{Percentage not leased} = \left( \frac{219,000 - 1

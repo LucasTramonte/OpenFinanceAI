@@ -1,0 +1,17 @@
+Float number to two decimal point precision and no units
+
+assistant
+Explanation: To calculate the percentage decrease in cash flows from operations from 2009 to 2010, we need to follow these steps:
+
+1. Identify the cash flows from operations for both years.
+   - Cash flows from operations in 2009: $559.7 million
+   - Cash flows from operations in 2010: $515.2 million
+
+2. Calculate the difference between the cash flows from operations in 2009 and 2010.
+   - Difference = $559.7 million - $515.2 million = $44.5 million
+
+3. Divide the difference by the cash flows from operations in 2009 to find the percentage decrease.
+   - Percentage decrease = ($44.5 million / $559.7 million) * 100%
+
+4. Perform the division and multiplication to get the percentage.
+   -

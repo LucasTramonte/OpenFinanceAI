@@ -1,0 +1,13 @@
+Float number to two decimal point precision and no units
+
+assistant
+Explanation: To calculate the percentage change in the share price from the highest to the lowest for the quarter ended March 31, 2015, we use the formula:
+
+\[ \text{Percentage Change} = \left( \frac{\text{Highest Price} - \text{Lowest Price}}{\text{Highest Price}} \right) \times 100 \]
+
+For the quarter ended March 31, 2015:
+- Highest Price = $101.88
+- Lowest Price = $93.21
+
+\[ \text{Percentage Change} = \left( \frac{101.88 - 93.21}{101.88} \right) \times 100 \]
+\[ \text{Percentage Change} = \left( \frac{8.67}{101.88} \right) \times 100

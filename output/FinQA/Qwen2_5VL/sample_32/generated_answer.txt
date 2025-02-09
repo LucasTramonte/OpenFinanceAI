@@ -1,0 +1,13 @@
+Float number to two decimal point precision and no units
+
+assistant
+Explanation: The problem involves understanding the changes in the balance of unrecognized tax benefits from April 1, 2007, to March 31, 2008. The provided data shows a reduction of $56 million due to tax positions for closing of the applicable statute of limitations. Starting from an initial balance of $224 million at April 1, 2007, the balance at March 31, 2008, would be calculated as follows:
+
+Initial balance at April 1, 2007: $224 million
+Reduction due to tax positions: -$56 million
+
+Ending balance at March 31, 2008 = Initial balance - Reduction
+Ending balance at March 31, 2008 = $224 million - $56 million
+Ending balance at March 31, 2008 = $168 million
+
+Formatted

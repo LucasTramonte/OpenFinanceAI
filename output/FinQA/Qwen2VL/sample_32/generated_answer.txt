@@ -1,0 +1,4 @@
+Float number to two decimal point precision and no units
+
+assistant
+Explanation: The calculation of the ending balance in unrecognized tax benefits for March 31, 2008, is based on the information provided in the note to the consolidated financial statements. The note states that the company has recorded a liability for unrecognized tax benefits in other liabilities including accrued interest, of $0.2 million at March 31, 2008. This amount is not significant and is recorded as part of the $0.3 million adjustment to the opening balance of retained earnings. Therefore, the ending balance in unrecognized tax benefits for March 31, 2008, would be $0.2 million.

@@ -1,0 +1,16 @@
+Float number to two decimal point precision and no units
+
+assistant
+Explanation: The context states that as of December 31, 2010 and 2009, cash in the amount of $25.0 billion and $24.0 billion, respectively, and securities with a fair value of $9.7 billion and $10.2 billion, respectively, were segregated in special bank accounts for the benefit of securities and futures brokerage customers.
+
+To find the total fair value in billions of assets segregated for the benefit of securities and futures brokerage customers, we need to sum the cash and the fair value of the securities for both years.
+
+For 2010:
+- Cash: $25.0 billion
+- Securities: $9.7 billion
+
+Total for 2010 = $25.0 + $9.7 = $34.7 billion
+
+For 2009:
+- Cash: $24.0 billion
+- Securities: $10.2 billion

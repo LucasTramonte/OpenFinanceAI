@@ -1,17 +1,18 @@
 import os
 import torch
 from pdf2image import convert_from_path
-from colpali_engine.models import ColPali, ColPaliProcessor
+from colpali_engine.models import ColQwen2, ColQwen2Processor
 from colpali_engine.interpretability import (
     get_similarity_maps_from_embeddings,
     plot_similarity_map
 )
 from torch.utils.data import DataLoader
 from tqdm import tqdm
-from transformers import AutoProcessor, AutoModel
+from transformers import AutoProcessor, AutoModel,AutoModelForCausalLM
 from qwen_vl_utils import process_vision_info
 import logging
 import matplotlib.pyplot as plt
+from PIL import Image
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
@@ -26,12 +27,12 @@ os.makedirs(RELEVANT_DIR, exist_ok=True)
 
 def load_model_and_processor():
     """Load the ColPALI model and processor."""
-    model = ColPali.from_pretrained(
-        "vidore/colpali-v1.2",
+    model = ColQwen2.from_pretrained(
+        "vidore/colqwen2-v1.0",
         torch_dtype=torch.bfloat16,
         device_map="cuda:0"
     ).eval()
-    processor = ColPaliProcessor.from_pretrained("vidore/colpali-v1.2")
+    processor = ColQwen2Processor.from_pretrained("vidore/colqwen2-v1.0")
     return model, processor
 
 def convert_pdf_to_images(pdf_path):
@@ -71,29 +72,24 @@ def save_similarity_scores_and_maps(images, embeddings_list, top_k_indices, quer
         for i, idx in enumerate(top_k_indices):
             image = images[idx]
             embeddings = embeddings_list[idx]
-
             # Save relevant image
-            relevant_path = os.path.join(RELEVANT_DIR, f"relevant_doc_{i + 1}.jpg")
+            relevant_path = os.path.join(OUTPUT_DIRECTORY, "relevant_documents", f"relevant_doc_{i + 1}.jpg")
             image.save(relevant_path)
-
             # Generate and save similarity maps
-            n_patches = processor.get_n_patches(image_size=image.size, patch_size=model.patch_size)
+            n_patches = processor.get_n_patches(image_size=image.size, patch_size=model.patch_size, spatial_merge_size=2)
             image_mask = processor.get_image_mask(processor.process_images([image]))
             batch_queries = processor.process_queries([query]).to(model.device)
             with torch.no_grad():
                 query_embeddings = model(**batch_queries)
-
             batched_similarity_maps = get_similarity_maps_from_embeddings(
                 image_embeddings=embeddings.unsqueeze(0).to("cuda"),
                 query_embeddings=query_embeddings,
                 n_patches=n_patches,
                 image_mask=image_mask,
             )
-
             query_tokens = processor.tokenizer.tokenize(
                 processor.decode(batch_queries.input_ids[0]).replace(processor.tokenizer.pad_token, "").strip()
             )
-
             similarity_maps = batched_similarity_maps[0]
             for token_idx, similarity_map in enumerate(similarity_maps[:len(query_tokens)]):
                 max_sim_score = similarity_map.max().item()
@@ -110,9 +106,7 @@ def save_similarity_scores_and_maps(images, embeddings_list, top_k_indices, quer
                 fig.tight_layout()
                 fig_path = os.path.join(SIMILARITY_DIR, f"doc_{i + 1}_token_{token_idx + 1}.png")
                 fig.savefig(fig_path, dpi=100)
-                plt.close(fig)  # Close the figure to free up memory
-
-                # Save similarity score to text file
+                plt.close(fig)
                 score_file.write(
                     f"Document {i + 1}, Token #{token_idx + 1} (`{query_tokens[token_idx]}`): MaxSim score = {max_sim_score:.2f}\n"
                 )
@@ -126,66 +120,68 @@ def index_and_save_documents(pdf_path: str, query: str, top_k: int = 3):
         embeddings_list = generate_embeddings(model, processor, images)
         top_k_indices = get_relevant_indices(model, processor, query, embeddings_list, top_k)
         save_similarity_scores_and_maps(images, embeddings_list, top_k_indices, query, model, processor)
-        return RELEVANT_DIR
+        return os.path.join(OUTPUT_DIRECTORY, "relevant_documents")
     except Exception as e:
         logger.error(f"An error occurred: {e}")
         raise
 
 def generate_responses(query: str, relevant_dir: str, top_k: int = 3):
-    """Generate responses based on the top-k relevant pages."""
+    """Generate responses based on the top-k relevant pages using InternVL2_5-8B-MPO."""
     try:
-        # Load the model and processor
-        
-        gen_model = AutoModel.from_pretrained(
-            "OpenGVLab/InternVL2_5-78B-MPO",
+        gen_model = AutoModelForCausalLM.from_pretrained(
+            "OpenGVLab/InternVL2_5-8B-MPO",
             torch_dtype=torch.bfloat16,
             low_cpu_mem_usage=True,
             use_flash_attn=True,
-            trust_remote_code=True).eval().cuda()
+            trust_remote_code=True
+        ).eval().cuda()
         max_pixels = 512 * 28 * 28
-        gen_processor = AutoProcessor.from_pretrained("OpenGVLab/InternVL2_5-78B-MPO", max_pixels=max_pixels)
+        gen_processor = AutoProcessor.from_pretrained(
+            "OpenGVLab/InternVL2_5-8B-MPO",
+            max_pixels=max_pixels,
+            trust_remote_code=True
+        )
 
-        # Load the relevant documents
         relevant_files = sorted(os.listdir(relevant_dir))[:top_k]
-        image_paths = [f"file://{os.path.abspath(os.path.join(relevant_dir, file_name))}" for file_name in relevant_files]
-
-        logger.info(f"Number of images passed: {len(image_paths)}")
-
-        # Prepare the prompt with the query
-        PROMPT = f"Use the following pages to answer the query:\n{query}\n"
-
-        # Prepare the messages with multiple images
-        messages = [
-            {
-                "role": "user",
-                "content": [
-                    {"type": "image", "image": image_paths[0]},
-                    {"type": "image", "image": image_paths[1]},
-                    {"type": "image", "image": image_paths[2]},
-                    {"type": "text", "text": PROMPT},
-                ],
-            }
-        ]
-        text = gen_processor.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+        images = [Image.open(os.path.join(relevant_dir, file_name)).convert("RGB") for file_name in relevant_files]
+        logger.info(f"Number of images passed: {len(images)}")
+        
+        # Ici, nous créons une conversation dont le contenu comprend plusieurs entrées de type "image"et une entrée de type "text" qui contient le prompt.
+        image_placeholders = " ".join(["<image>"] * top_k)
+        prompt = f"USER: {image_placeholders}\nUse the following pages to answer the query:\n{query}\nASSISTANT:"
+        
+        messages = [{
+            "role": "user",
+            "content": [
+                {"type": "image", "image": img} for img in images
+            ] + [{"type": "text", "text": prompt}]
+        }]
+        
+        text_prompt = gen_processor.apply_chat_template(messages, add_generation_prompt=True)
         image_inputs, video_inputs = process_vision_info(messages)
         inputs = gen_processor(
-            text=[text], images=image_inputs, videos=video_inputs, padding=True, return_tensors="pt"
+            text=[text_prompt],
+            images=image_inputs,
+            videos=video_inputs,
+            padding=True,
+            return_tensors="pt"
         ).to("cuda")
-
-        # Generate a unique response
+        
         torch.cuda.empty_cache()
+
+        # Générer la réponse
         generated_ids = gen_model.generate(**inputs, max_new_tokens=150)
         output_text = gen_processor.batch_decode(generated_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
-
+        
         logger.info("Final response:")
         logger.info(output_text)
-
-        # Save the generated response
+        
+        # Sauvegarder la réponse générée
         response_path = os.path.join(OUTPUT_DIRECTORY, "generated_responses.txt")
         with open(response_path, "w") as f:
             f.write(output_text)
         logger.info(f"Generated responses saved in {response_path}")
-
+    
     except Exception as e:
         logger.error(f"An error occurred during response generation: {e}")
         raise

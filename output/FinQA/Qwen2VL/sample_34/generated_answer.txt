@@ -1,0 +1,4 @@
+Float number to two decimal point precision and no units
+
+assistant
+219000 - 219000 / 219000 * 100 = 100.00%

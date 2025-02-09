@@ -1,0 +1,12 @@
+Float number to two decimal point precision and no units
+
+assistant
+Explanation: To calculate the percentage change in cash flows from operations from 2014 to 2015, we use the formula:
+
+\[ \text{Percentage Change} = \left( \frac{\text{New Value} - \text{Old Value}}{\text{Old Value}} \right) \times 100 \]
+
+Here, the new value is the cash flow from operations in 2015 ($1,131 million), and the old value is the cash flow from operations in 2014 ($1,165 million).
+
+\[ \text{Percentage Change} = \left( \frac{1131 - 1165}{1165} \right) \times 100 \]
+\[ \text{Percentage Change} = \left( \frac{-34}{1165} \right) \times 100 \]
+\[ \text{
