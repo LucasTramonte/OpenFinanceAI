@@ -23,31 +23,38 @@ Open-source project focused on developing a generative AI agent for financial an
 ```plaintext
 OpenFinanceAI/
 
-├── data/                           # Dataset provided
-├── data_test/                      # Smaller dataset to run to test PDFs
-│   ├── ardian_dataset_test.csv     # CSV file for analyzing pipeline performance
-├── output/                         # Directory for generated results
-│   ├── relevant_documents/         # Stores the top-K most relevant document images
-│   ├── similarity_maps/            # Stores similarity map visualizations
-│   ├── generated_responses.txt     # Final generated responses
-│   ├── similarity_scores.txt       # Similarity scores for each token and document
-│   ├── FinQA/                      # Directory for FinQA evaluation results
-│       ├── Qwen2VL/                # Results for Qwen2VL model
-│       ├── Qwen2_5VL/              # Results for Qwen2_5VL model
-│       └── evaluation_results.txt  # Final comparison results
-├── streamlit/                      # Directory containing Streamlit application
-│   ├── output/                     # Output folder for Streamlit results
-│   ├── temp_files/                 # Temporary files generated during Streamlit execution
-│   ├── uploaded_pdfs/              # Uploaded PDFs from Streamlit app
-│   ├── ardian_dataset_test.csv     # CSV file for analyzing pipeline performance
-├── Colpali_InternVL2.5.py          # Main script to process PDFs and generate responses with InternVL2_5-78B-MPO (CUDA out of memory)
-├── Colpali_Qwen_ResponsePerPage.py # Alternate script for per-page responses (under testing)
-├── Colpali_Qwen.py                 # Main script to process PDFs and generate responses with Qwen2-VL-2B-Instruct
-├── Colpali_Qwen_2_5.py             # Main script to process PDFs and generate responses with Qwen/Qwen2.5-VL-7B-Instruct
-└── eval_finqa.py                   # Evaluating the Visual Language Model
-├── README.md                       # Project documentation
-└── requirements.txt                # Python dependencies
-└── app.py                          # Streamlit Application (CUDA out of memory)
+├── Assets/                         
+│   ├── comptes_rendus/             
+│   ├── data/                           
+│   ├── data_test/                        # Smaller dataset to run to test PDFs
+│       ├── ardian_dataset_test.csv       # CSV file for analyzing pipeline performance
+│   ├── Images/                
+│   ├── output/                           # Directory for generated results
+│       ├── FinQA/                        # Directory for FinQA evaluation results
+│           ├── InternVL2_5MPO/           # Results for InternVL2_5-8B-MPO model
+│           ├── Qwen2_5VL/                # Results for Qwen2_5VL model
+│           ├── Qwen2VL/                  # Results for Qwen2VL model
+│           └── evaluation_results.txt    # Final comparison results
+│        ├── relevant_documents/          # Stores the top-K most relevant document images
+│        ├── similarity_maps/             # Stores similarity map visualizations
+│        ├── generated_responses.txt      # Final generated responses
+│        ├── similarity_scores.txt        # Similarity scores for each token and document
+│   ├── Presentations/      
+│   ├── report/      
+├── scripts/ 
+│   ├── Colpali_InternVL2.5.py            # Main script to process PDFs and generate responses with InternVL2_5-78B-MPO (CUDA out of memory)
+│   ├── Colpali_Qwen_ResponsePerPage.py   # Alternate script for per-page responses (under testing)
+│   ├── Colpali_Qwen.py                   # Main script to process PDFs and generate responses with Qwen2-VL-2B-Instruct
+│   ├── Colpali_Qwen_2_5.py               # Main script to process PDFs and generate responses with Qwen/Qwen2.5-VL-7B-Instruct
+│   └── eval_finqa.py                     # Evaluating the Visual Language Model                     
+├── streamlit/                            # Directory containing Streamlit application
+│   ├── output/                           # Output folder for Streamlit results
+│   ├── temp_files/                       # Temporary files generated during Streamlit execution
+│   ├── uploaded_pdfs/                    # Uploaded PDFs from Streamlit app
+│   ├── ardian_dataset_test.csv           # CSV file for analyzing pipeline performance
+│   └── app.py                            # Streamlit Application (CUDA out of memory)
+├── README.md                             # Project documentation
+└── requirements.txt                      # Python dependencies
 ```
 
 ## Usage Instructions

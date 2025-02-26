@@ -18,7 +18,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Output directories
-OUTPUT_DIRECTORY = "./output/FinQA"
+OUTPUT_DIRECTORY = "../Assets/output/FinQA"
 QWEN2VL_DIR = os.path.join(OUTPUT_DIRECTORY, "Qwen2VL")
 QWEN2_5VL_DIR = os.path.join(OUTPUT_DIRECTORY, "Qwen2_5VL")
 INTERN_DIR = os.path.join(OUTPUT_DIRECTORY, "InternVL2_5MPO")
