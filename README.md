@@ -187,6 +187,8 @@ torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 462.00 MiB. GPU 0 
 ### 3. Scaling Colpali with Vespa + ameliorating general pipeline
 ### 4. Finish dataset for performance evaluation 
 
+https://huggingface.co/blog/leaderboard-finbench
+
 ## Authors
 - **Gabriel Trier**  
 - **Lucas Tramonte**  
