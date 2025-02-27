@@ -13,4 +13,5 @@ colpali_engine
 qwen_vl_utils
 matplotlib
 seaborn
-#bert-score
+bert-score
+rouge_score
