@@ -4,6 +4,8 @@ byaldi
 python-dotenv  
 optimum 
 bitsandbytes
+seaborn
+git+https://github.com/huggingface/transformers accelerate
 transformers==4.47.0 
 einops
 pdf2image
@@ -11,3 +13,4 @@ colpali_engine
 qwen_vl_utils
 matplotlib
 seaborn
+#bert-score
