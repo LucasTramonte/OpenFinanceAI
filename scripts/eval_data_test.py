@@ -29,14 +29,14 @@ def evaluate_answers(row):
     
     # Skip processing if expected answer is empty
     if not expected:
-        return {f'{model}_{metric}': 0 for model in model_answers for metric in ['rouge', 'bert', 'flan-t5', 'emacc']}
+        return {f'{model}_{metric}': 0 for model in model_answers for metric in ['rouge', 'bert', 'flan-t5']}
     
     for model, candidate in model_answers.items():
         metrics = {}
         
         # Skip empty candidate answers
         if not candidate:
-            results.update({f'{model}_{metric}': 0 for metric in ['rouge', 'bert', 'flan-t5', 'emacc']})
+            results.update({f'{model}_{metric}': 0 for metric in ['rouge', 'bert', 'flan-t5']})
             continue
         
         # ROUGE Score
@@ -58,10 +58,7 @@ def evaluate_answers(row):
             t5_score = math.exp(avg_log_prob)  # Convert log probability to inverse perplexity
         
         metrics[f'{model}_flan-t5'] = t5_score
-        
-        # Exact Match Accuracy (EmAcc)
-        metrics[f'{model}_emacc'] = 1 if expected == candidate else 0
-        
+
         results.update(metrics)
     
     return results
@@ -70,7 +67,7 @@ def evaluate_answers(row):
 df = df.join(pd.DataFrame(df.apply(evaluate_answers, axis=1).tolist()))
 
 # Compute average scores
-metrics_list = ['rouge', 'bert', 'flan-t5', 'emacc']
+metrics_list = ['rouge', 'bert', 'flan-t5']
 models = ['Answer_Qwen2', 'Answer_Qwen2.5', 'Answer_OpenGVLab']
 average_metrics = {f'{metric} ({model})': df[f'{model}_{metric}'].mean() for model in models for metric in metrics_list}
 
