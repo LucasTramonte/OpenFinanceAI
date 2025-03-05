@@ -187,8 +187,8 @@ def generate_responses(query: str, relevant_dir: str, top_k: int = 3):
         raise
 
 def main():
-    pdf_path = "../Assets/data_test/AMEX_EMR_2018.pdf"
-    query = "What was in percent the growth in the US & Canada region in 2018?"
+    pdf_path = "../Assets/data_test/AMEX_EMR_2020.pdf"
+    query = "What was in percent the return on total capital in 2020?"
     relevant_dir = index_and_save_documents(pdf_path, query, top_k=3)
     generate_responses(query, relevant_dir, top_k=3)
 
