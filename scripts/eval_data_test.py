@@ -70,6 +70,7 @@ df = df.join(pd.DataFrame(df.apply(evaluate_answers, axis=1).tolist()))
 metrics_list = ['rouge', 'bert', 'flan-t5']
 models = ['Answer_Qwen2', 'Answer_Qwen2.5', 'Answer_OpenGVLab']
 average_metrics = {f'{metric} ({model})': df[f'{model}_{metric}'].mean() for model in models for metric in metrics_list}
+# TO DO : Other aggregation methods besides the average, such as the BORDA method
 
 # Log results
 logging.info("Model Evaluation Metrics:")
