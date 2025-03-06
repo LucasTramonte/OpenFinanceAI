@@ -1,0 +1,10 @@
+Model,Metric,Mean
+Answer_Qwen2,rouge,0.2900540585556543
+Answer_Qwen2,bert,0.6285445094108582
+Answer_Qwen2,flan-t5,0.0845101085907876
+Answer_Qwen2.5,rouge,0.30469465442062543
+Answer_Qwen2.5,bert,0.6295041441917419
+Answer_Qwen2.5,flan-t5,0.09055254107754429
+Answer_OpenGVLab,rouge,0.006779661016949153
+Answer_OpenGVLab,bert,0.2939333915710449
+Answer_OpenGVLab,flan-t5,0.010838436342300986
