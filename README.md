@@ -146,6 +146,61 @@ The output directory contains the following key files and folders:
      - **`Qwen2_5VL/`**: Contains the results for the Qwen2_5VL model.
      - **`evaluation_results.txt`**: Final comparison results of the models' accuracy.
 
+## Metrics for Evaluation
+
+To evaluate the performance of our models, we use a combination of automatic metrics and ranking methods. These metrics help us assess the quality of generated responses and compare different models effectively.
+
+
+### ROUGE (Recall-Oriented Understudy for Gisting Evaluation)
+- **ROUGE-1**: Measures overlap of unigrams between generated and reference text.  
+- **ROUGE-2**: Measures overlap of bigrams between generated and reference text.  
+- **ROUGE-L**: Measures the longest common subsequence between generated and reference text.  
+
+### BERTScore
+- Computes similarity between generated and reference text using contextual embeddings from BERT.
+
+### Flan-T5 Perplexity
+- Measures how well the generated text aligns with the expected output using the Flan-T5 model.
+
+### Numerical Accuracy
+- Specifically for tabular/chart questions, checks if numerical values in the generated response match the expected values within a **5% tolerance**.
+
+## Ranking Methods
+To compare models across multiple metrics, we use the **Borda Count method**:
+
+### Borda Count
+1. For each metric, models are ranked (1st, 2nd, 3rd).  
+2. Points are assigned:  
+   - 2 points for 1st place  
+   - 1 point for 2nd place  
+   - 0 points for 3rd place  
+3. The total Borda score is the sum of points across all metrics.
+
+## 3. Aggregation
+
+The aggregated metrics are saved in `Assets\data_test\aggregated_metrics.csv` with the following structure:
+
+| Model              | Metric         | Average  | Borda_Score |
+|--------------------|---------------|----------|-------------|
+| Answer_Qwen2      | rouge1        | 0.323893 | 6           |
+| Answer_Qwen2      | rouge2        | 0.177411 | 6           |
+| Answer_Qwen2      | rougeL        | 0.290054 | 6           |
+| Answer_Qwen2      | bert          | 0.628545 | 6           |
+| Answer_Qwen2      | flan-t5       | 0.091538 | 6           |
+| Answer_Qwen2      | numerical_acc | 0.370370 | 6           |
+| Answer_Qwen2.5    | rouge1        | 0.348651 | 12          |
+| Answer_Qwen2.5    | rouge2        | 0.187174 | 12          |
+| Answer_Qwen2.5    | rougeL        | 0.304695 | 12          |
+| Answer_Qwen2.5    | bert          | 0.629504 | 12          |
+| Answer_Qwen2.5    | flan-t5       | 0.092331 | 12          |
+| Answer_Qwen2.5    | numerical_acc | 0.592593 | 12          |
+| Answer_OpenGVLab  | rouge1        | 0.009040 | 0           |
+| Answer_OpenGVLab  | rouge2        | 0.006053 | 0           |
+| Answer_OpenGVLab  | rougeL        | 0.006780 | 0           |
+| Answer_OpenGVLab  | bert          | 0.293933 | 0           |
+| Answer_OpenGVLab  | flan-t5       | 0.017576 | 0           |
+| Answer_OpenGVLab  | numerical_acc | 0.000000 | 0           |
+
 ## Actual problems : 
 ### 1. Resource Generation Issues with Streamlit Application
 This issue arises when multiple jobs are launched simultaneously in the DCE. We successfully ran our code and generated results using Qwen2-VL-2B-Instruct and Qwen/Qwen2.5-VL-7B-Instruct with the scripts `Colpali_Qwen.py` and `Colpali_Qwen2_5.py`. However, we encounter a CUDA out-of-memory error when attempting to use the Streamlit Application.

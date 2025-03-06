@@ -1,0 +1,13 @@
+Model,Metric,Average,Borda
+Answer_Qwen2,rouge1,0.3238926039500734,6
+Answer_Qwen2,rouge2,0.1774108285445433,6
+Answer_Qwen2,rougeL,0.2900540585556543,6
+Answer_Qwen2,bert,0.6285446286201477,6
+Answer_Qwen2,flan-t5,0.09153771358681967,6
+Answer_Qwen2,numerical_acc,0.37037037037037035,6
+Answer_Qwen2.5,rouge1,0.3486506976131297,12
+Answer_Qwen2.5,rouge2,0.18717409746640945,12
+Answer_Qwen2.5,rougeL,0.30469465442062543,12
+Answer_Qwen2.5,bert,0.6295041441917419,12
+Answer_Qwen2.5,flan-t5,0.09233084310557549,12
+Answer_Qwen2.5,numerical_acc,0.5925925925925926,12
