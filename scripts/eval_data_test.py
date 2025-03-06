@@ -52,12 +52,11 @@ def evaluate_answers(row):
         candidate_ids = t5_tokenizer(candidate, return_tensors='pt', truncation=True, max_length=1024).input_ids
         
         with torch.no_grad():
-            logits = t5_model(input_ids=input_ids, decoder_input_ids=candidate_ids).logits
-            log_probs = torch.log_softmax(logits, dim=-1)
-            avg_log_prob = log_probs.mean().item()
-            t5_score = math.exp(avg_log_prob)  # Convert log probability to inverse perplexity
+            outputs = t5_model(input_ids=input_ids, labels=candidate_ids)
+            loss = outputs.loss
+            perplexity = torch.exp(loss).item()
         
-        metrics[f'{model}_flan-t5'] = t5_score
+        metrics[f'{model}_flan-t5'] = 1 / perplexity  # Inverse perplexity
 
         results.update(metrics)
     
@@ -69,13 +68,23 @@ df = df.join(pd.DataFrame(df.apply(evaluate_answers, axis=1).tolist()))
 # Compute average scores
 metrics_list = ['rouge', 'bert', 'flan-t5']
 models = ['Answer_Qwen2', 'Answer_Qwen2.5', 'Answer_OpenGVLab']
-average_metrics = {f'{metric} ({model})': df[f'{model}_{metric}'].mean() for model in models for metric in metrics_list}
-# TO DO : Other aggregation methods besides the average, such as the BORDA method
+
+# Compute mean scores
+average_metrics = []
+for model in models:
+    for metric in metrics_list:
+        mean_score = df[f'{model}_{metric}'].mean()
+        average_metrics.append({'Model': model, 'Metric': metric, 'Mean': mean_score})
+
+
+# Save aggregation results to CSV
+aggregation_df = pd.DataFrame(average_metrics)
+aggregation_df.to_csv('../Assets/data_test/agreggation_metrics.csv', index=False)
 
 # Log results
 logging.info("Model Evaluation Metrics:")
-for metric, value in average_metrics.items():
-    logging.info(f"{metric}: {value * 100:.2f}%")
+for _, row in aggregation_df.iterrows():
+    logging.info(f"{row['Metric']} ({row['Model']}): {row['Mean'] * 100:.2f}%")
 
 # Save results
 df.to_csv('../Assets/data_test/ardian_dataset_test_evaluation.csv', index=False)
