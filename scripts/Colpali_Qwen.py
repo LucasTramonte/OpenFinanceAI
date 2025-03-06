@@ -187,8 +187,8 @@ def generate_responses(query: str, relevant_dir: str, top_k: int = 3):
         raise
 
 def main():
-    pdf_path = "../Assets/data_test/AMEX_EMR_2022.pdf"
-    query = "What recent actions has Emerson taken to reinforce its commitment to environmental, social, and governance (ESG) initiatives in 2022?"
+    pdf_path = "../Assets/data_test/ASX_KFM_2023.pdf"
+    query = "Did the company have any consultancy fees, if so what was the amount?"
     relevant_dir = index_and_save_documents(pdf_path, query, top_k=3)
     generate_responses(query, relevant_dir, top_k=3)
 
