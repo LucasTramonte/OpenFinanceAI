@@ -1,5 +1,6 @@
 import pandas as pd
 import json
+import re
 from sklearn.feature_extraction.text import TfidfVectorizer
 from rouge_score import rouge_scorer
 from bert_score import score as bert_score
@@ -9,12 +10,31 @@ import logging
 import math
 import asyncio
 import time
+import numpy as np
 from requests.exceptions import ChunkedEncodingError 
 from ragas.dataset_schema import SingleTurnSample
 from ragas.metrics import StringPresence
+from tqdm import tqdm
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+# Helper function for numerical extraction
+def extract_numbers(text):
+    numbers = re.findall(
+        r'(?:\$|€|£)?\d{1,3}(?:,\d{3})*(?:\.\d+)?%?|\d+\.\d+%?', 
+        str(text)
+    )
+    parsed = []
+    for num in numbers:
+        try:
+            value = float(re.sub(r'[^\d.]', '', num))
+            if '%' in num:
+                value /= 100
+            parsed.append(value)
+        except ValueError:
+            continue
+    return parsed
 
 def load_json_file(file_path):
     try:
@@ -59,23 +79,24 @@ def get_string_presence(candidate, reference, max_retries=5, delay=2):
 
 def evaluate_answers(row):
     expected = str(row['Expected_Answer']).strip()
+    question = str(row['Question']).strip()
     results = {}
     
-    #Extraction des réponses candidates pour chaque modèle
+    # Extraction des réponses candidates pour chaque modèle
     model_answers = {model: str(row[model]).strip() for model in ['Answer_Qwen2', 'Answer_Qwen2.5']}
     
-    #Si la réponse attendue est vide, on renvoie 0 pour toutes les métriques
+    # Si la réponse attendue est vide, on renvoie 0 pour toutes les métriques
     if not expected:
         return {f'{model}_{metric}': 0 for model in model_answers 
-                for metric in ['rouge1', 'rouge2', 'rougeL', 'bert', 'flan-t5', 'string_presence']}
+                for metric in ['rouge1', 'rouge2', 'rougeL', 'bert', 'flan-t5', 'string_presence', 'numerical_acc']}
     
     for model, candidate in model_answers.items():
         metrics = {}
         
-        #Si la réponse candidate est vide, on assigne 0 pour ce modèle
+        # Si la réponse candidate est vide, on assigne 0 pour ce modèle
         if not candidate:
             results.update({f'{model}_{metric}': 0 for metric in 
-                             ['rouge1', 'rouge2', 'rougeL', 'bert', 'flan-t5', 'string_presence']})
+                             ['rouge1', 'rouge2', 'rougeL', 'bert', 'flan-t5', 'string_presence', 'numerical_acc']})
             continue
         
         # ROUGE Score
@@ -97,7 +118,7 @@ def evaluate_answers(row):
             perplexity = torch.exp(loss).item()
         metrics[f'{model}_flan-t5'] = 1 / perplexity  # Inverse perplexity
 
-        #String Presence Score : retourne 1 si la réponse contient au moins une des références attendues
+        # String Presence Score : retourne 1 si la réponse contient au moins une des références attendues
         reference_row = string_presence_df.loc[string_presence_df['Question_ID'] == row['Question_ID']]
         if not reference_row.empty:
             # Les références sont séparées par ";"
@@ -110,14 +131,46 @@ def evaluate_answers(row):
                     break
             metrics[f'{model}_string_presence'] = string_presence_score
         else:
-            metrics[f'{model}_string_presence'] = "None" #Les questions sans références ne sont pas évaluées
+            metrics[f'{model}_string_presence'] = "None" # Les questions sans références ne sont pas évaluées
+
+        # Numerical Accuracy
+        if row['Type'] in ['Tabular', 'Chart']:
+            expected_nums = extract_numbers(expected)
+            candidate_nums = extract_numbers(candidate)
+            
+            match = 0
+            tolerance = 0.05
+            for e in expected_nums:
+                for c in candidate_nums:
+                    if abs(e - c) <= max(tolerance * abs(e), 0.01):
+                        match = 1
+                        break
+                if match: break
+            metrics[f'{model}_numerical_acc'] = match
+        else:
+            metrics[f'{model}_numerical_acc'] = np.nan
 
         results.update(metrics)
     
     return results
 
+# Borda Count implementation
+def calculate_borda_scores(agg_df, metrics):
+    models = ['Answer_Qwen2', 'Answer_Qwen2.5']
+    borda_scores = {model: 0 for model in models}
+    
+    for metric in metrics:
+        # Rank models for each metric (higher is better)
+        ranked = agg_df[agg_df['Metric'] == metric].sort_values('Mean', ascending=False)
+        # Assign Borda points (2 for 1st, 1 for 2nd, 0 for 3rd)
+        for i, model in enumerate(ranked['Model']):
+            borda_scores[model] += (2 - i)
+    
+    return borda_scores
+
 # Appliquer la fonction d'évaluation sur chaque ligne du DataFrame
-df_results = df.apply(evaluate_answers, axis=1).tolist()
+tqdm.pandas(desc="Evaluating Answers")
+df_results = df.progress_apply(evaluate_answers, axis=1).tolist()
 df_results = pd.DataFrame(df_results)
 df = df.join(df_results)
 
@@ -125,7 +178,7 @@ df = df.join(df_results)
 df_string_presence = df[df['Question_ID'].isin(string_presence_df['Question_ID'])].copy()
 
 # Calcul des scores moyens pour chaque modèle et chaque métrique
-metrics_list = ['rouge1', 'rouge2', 'rougeL', 'bert', 'flan-t5', 'string_presence']
+metrics_list = ['rouge1', 'rouge2', 'rougeL', 'bert', 'flan-t5', 'string_presence', 'numerical_acc']
 models = ['Answer_Qwen2', 'Answer_Qwen2.5']
 average_metrics = []
 for model in models:
@@ -138,6 +191,12 @@ for model in models:
             mean_score = df[f'{model}_{metric}'].mean()
         average_metrics.append({'Model': model, 'Metric': metric, 'Mean': mean_score})
 aggregation_df = pd.DataFrame(average_metrics)
+
+# Calculate Borda scores
+borda_scores = calculate_borda_scores(aggregation_df, metrics_list)
+
+# Add Borda scores to the aggregation DataFrame
+aggregation_df['Borda'] = aggregation_df['Model'].map(borda_scores)
 
 # Sauvegarde des résultats d'agrégation en JSON
 with open('../Assets/data_test/agreggation_metrics.json', 'w', encoding='utf-8') as f:
@@ -160,23 +219,3 @@ for model in models:
 with open('../Assets/data_test/ardian_dataset_test_evaluation.json', 'w', encoding='utf-8') as f:
     json.dump(df.to_dict('records'), f, ensure_ascii=False, indent=2)
 logging.info("Résultats d'évaluation sauvegardés en JSON.")
-
-"""
-1.ROUGE (Recall-Oriented Understudy for Gisting Evaluation) :
-    ROUGE-1 : Mesure le nombre de mots unigrams (mots individuels) communs entre la réponse attendue et la réponse générée.
-    ROUGE-2 : Mesure le nombre de bigrams (paires de mots consécutifs) communs.
-    ROUGE-L : Mesure la plus longue sous-séquence commune (LCS) entre les deux textes.
-
-2.BERTScore :
-    Utilise des embeddings de BERT pour comparer les similarités sémantiques entre la réponse attendue et la réponse générée.
-    Calcule un score F1 basé sur ces similarités!
-
-3.Flan-T5 Score (Inverse Perplexity) :
-    Utilise le modèle Flan-T5 pour estimer la perplexité de la réponse générée par rapport à la réponse attendue.
-La perplexité est une mesure de la probabilité d'une séquence de mots. Une faible perplexité indique une séquence plus probable.
-Le score est l'inverse de la perplexité, donc une perplexité plus faible donne un score plus élevé.
-
-4.String Presence Score :
-    Utilise la métrique StringPresence pour évaluer la présence de chaînes spécifiques dans la réponse générée par rapport à la réponse attendue.
-
-"""
