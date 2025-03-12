@@ -1,166 +1,182 @@
 import pandas as pd
-import re
+import json
+from sklearn.feature_extraction.text import TfidfVectorizer
 from rouge_score import rouge_scorer
 from bert_score import score as bert_score
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 import torch
 import logging
-import numpy as np
-from tqdm import tqdm
+import math
+import asyncio
+import time
+from requests.exceptions import ChunkedEncodingError 
+from ragas.dataset_schema import SingleTurnSample
+from ragas.metrics import StringPresence
 
-# Initialize logging
+# Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-# Helper function for numerical extraction
-def extract_numbers(text):
-    numbers = re.findall(
-        r'(?:\$|€|£)?\d{1,3}(?:,\d{3})*(?:\.\d+)?%?|\d+\.\d+%?', 
-        str(text)
-    )
-    parsed = []
-    for num in numbers:
+def load_json_file(file_path):
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        logging.info(f"Fichier JSON chargé avec succès: {file_path}")
+        return pd.DataFrame(data)
+    except Exception as e:
+        logging.error(f"Erreur lors du chargement du fichier JSON {file_path}: {str(e)}")
+
+# Load the dataset from JSON
+file_path = '../Assets/data_test/ardian_dataset_test.json'
+df = load_json_file(file_path)
+
+# Load the string presence dataset from JSON
+string_presence_df = load_json_file('../Assets/data_test/ardian_dataset_string_presence_filtered.json')
+
+# Initialize ROUGE scorer, Flan-T5 model, and StringPresence scorer
+rouge = rouge_scorer.RougeScorer(['rouge1', 'rouge2', 'rougeL'], use_stemmer=True)
+t5_tokenizer = T5Tokenizer.from_pretrained('google/flan-t5-large')
+t5_model = T5ForConditionalGeneration.from_pretrained('google/flan-t5-large')
+string_presence_scorer = StringPresence()
+
+def get_string_presence(candidate, reference, max_retries=5, delay=2):
+    """
+    Retourne le score (1 ou 0) de StringPresence pour une paire (candidate, reference)
+    en exécutant la méthode asynchrone single_turn_ascore de manière synchrone.
+    """
+    sample = SingleTurnSample(response=candidate, reference=reference.strip())
+    for attempt in range(max_retries):
         try:
-            value = float(re.sub(r'[^\d.]', '', num))
-            if '%' in num:
-                value /= 100
-            parsed.append(value)
-        except ValueError:
-            continue
-    return parsed
+            #Exécute le coroutine de manière synchrone
+            score = asyncio.run(string_presence_scorer.single_turn_ascore(sample))
+            return score
+        except ChunkedEncodingError as ce:
+            logging.error(f"ChunkedEncodingError on attempt {attempt+1} for candidate '{candidate[:30]}...': {ce}")
+            time.sleep(delay)
+        except Exception as e:
+            logging.error(f"Error on attempt {attempt+1} for candidate '{candidate[:30]}...': {e}")
+            time.sleep(delay)
+    return 0
 
 def evaluate_answers(row):
     expected = str(row['Expected_Answer']).strip()
-    question = str(row['Question']).strip()
     results = {}
-    model_answers = {
-        model: str(row[model]).strip() 
-        for model in ['Answer_Qwen2', 'Answer_Qwen2.5']
-    }
-
+    
+    #Extraction des réponses candidates pour chaque modèle
+    model_answers = {model: str(row[model]).strip() for model in ['Answer_Qwen2', 'Answer_Qwen2.5']}
+    
+    #Si la réponse attendue est vide, on renvoie 0 pour toutes les métriques
     if not expected:
-        return results
-
+        return {f'{model}_{metric}': 0 for model in model_answers 
+                for metric in ['rouge1', 'rouge2', 'rougeL', 'bert', 'flan-t5', 'string_presence']}
+    
     for model, candidate in model_answers.items():
         metrics = {}
+        
+        #Si la réponse candidate est vide, on assigne 0 pour ce modèle
         if not candidate:
+            results.update({f'{model}_{metric}': 0 for metric in 
+                             ['rouge1', 'rouge2', 'rougeL', 'bert', 'flan-t5', 'string_presence']})
             continue
+        
+        # ROUGE Score
+        rouge_scores = rouge.score(expected, candidate)
+        metrics[f'{model}_rouge1'] = rouge_scores['rouge1'].fmeasure
+        metrics[f'{model}_rouge2'] = rouge_scores['rouge2'].fmeasure
+        metrics[f'{model}_rougeL'] = rouge_scores['rougeL'].fmeasure
+        
+        # BERTScore
+        _, _, bert_f1 = bert_score([candidate], [expected], lang='en', model_type='microsoft/deberta-large-mnli')
+        metrics[f'{model}_bert'] = bert_f1.numpy()[0]
+        
+        # Flan-T5 Score (inverse perplexity estimation)
+        input_ids = t5_tokenizer(expected, return_tensors='pt', truncation=True, max_length=1024).input_ids
+        candidate_ids = t5_tokenizer(candidate, return_tensors='pt', truncation=True, max_length=1024).input_ids
+        with torch.no_grad():
+            outputs = t5_model(input_ids=input_ids, labels=candidate_ids)
+            loss = outputs.loss
+            perplexity = torch.exp(loss).item()
+        metrics[f'{model}_flan-t5'] = 1 / perplexity  # Inverse perplexity
 
-        try:
-            # ROUGE Scores
-            rouge_scores = rouge_scorer.score(expected, candidate)
-            metrics.update({
-                f'{model}_rouge1': rouge_scores['rouge1'].fmeasure,
-                f'{model}_rouge2': rouge_scores['rouge2'].fmeasure,
-                f'{model}_rougeL': rouge_scores['rougeL'].fmeasure,
-            })
-        except Exception as e:
-            logging.error(f"ROUGE error: {str(e)}")
-            metrics.update({f'{model}_rouge{n}': 0 for n in ['1', '2', 'L']})
-
-        try:
-            # BERTScore
-            _, _, bert_f1 = bert_score([candidate], [expected], lang='en', 
-                                     model_type='microsoft/deberta-large-mnli')
-            metrics[f'{model}_bert'] = bert_f1.numpy()[0]
-        except Exception as e:
-            logging.error(f"BERTScore error: {str(e)}")
-            metrics[f'{model}_bert'] = 0
-
-        try:
-            # Flan-T5 Perplexity
-            inputs = t5_tokenizer(question, return_tensors='pt', 
-                                truncation=True, max_length=512)
-            targets = t5_tokenizer(candidate, return_tensors='pt', 
-                                 truncation=True, max_length=512)
-            with torch.no_grad():
-                outputs = t5_model(**inputs, labels=targets.input_ids)
-                loss = outputs.loss
-                metrics[f'{model}_flan-t5'] = 1 / torch.exp(loss).item()
-        except Exception as e:
-            logging.error(f"Flan-T5 error: {str(e)}")
-            metrics[f'{model}_flan-t5'] = 0
-
-        try:
-            # Numerical Accuracy
-            if row['Type'] in ['Tabular', 'Chart']:
-                expected_nums = extract_numbers(expected)
-                candidate_nums = extract_numbers(candidate)
-                
-                match = 0
-                tolerance = 0.05
-                for e in expected_nums:
-                    for c in candidate_nums:
-                        if abs(e - c) <= max(tolerance * abs(e), 0.01):
-                            match = 1
-                            break
-                    if match: break
-                metrics[f'{model}_numerical_acc'] = match
-            else:
-                metrics[f'{model}_numerical_acc'] = np.nan
-        except Exception as e:
-            logging.error(f"Numerical accuracy error: {str(e)}")
-            metrics[f'{model}_numerical_acc'] = 0
+        #String Presence Score : retourne 1 si la réponse contient au moins une des références attendues
+        reference_row = string_presence_df.loc[string_presence_df['Question_ID'] == row['Question_ID']]
+        if not reference_row.empty:
+            # Les références sont séparées par ";"
+            references = reference_row['References'].values[0].split(';')
+            string_presence_score = 0
+            for reference in references:
+                score = get_string_presence(candidate, reference)
+                if score == 1:
+                    string_presence_score = 1
+                    break
+            metrics[f'{model}_string_presence'] = string_presence_score
+        else:
+            metrics[f'{model}_string_presence'] = "None" #Les questions sans références ne sont pas évaluées
 
         results.update(metrics)
     
     return results
 
-# Borda Count implementation
-def calculate_borda_scores(agg_df, metrics):
-    models = ['Answer_Qwen2', 'Answer_Qwen2.5']
-    borda_scores = {model: 0 for model in models}
-    
-    for metric in metrics:
-        # Rank models for each metric (higher is better)
-        ranked = agg_df[agg_df['Metric'] == metric].sort_values('Average', ascending=False)
-        # Assign Borda points (2 for 1st, 1 for 2nd, 0 for 3rd)
-        for i, model in enumerate(ranked['Model']):
-            borda_scores[model] += (2 - i)
-    
-    return borda_scores
+# Appliquer la fonction d'évaluation sur chaque ligne du DataFrame
+df_results = df.apply(evaluate_answers, axis=1).tolist()
+df_results = pd.DataFrame(df_results)
+df = df.join(df_results)
 
-# Initialize components
-rouge_scorer = rouge_scorer.RougeScorer(['rouge1', 'rouge2', 'rougeL'], use_stemmer=True)
-t5_tokenizer = T5Tokenizer.from_pretrained('google/flan-t5-base')
-t5_model = T5ForConditionalGeneration.from_pretrained('google/flan-t5-base')
+# Pour le calcul de la métrique string_presence, on ne garde que les questions présentes dans string_presence_df
+df_string_presence = df[df['Question_ID'].isin(string_presence_df['Question_ID'])].copy()
 
-# Load data
-df = pd.read_csv('../Assets/data_test/ardian_dataset_test.csv')
-
-# Apply evaluation with tqdm progress bar
-tqdm.pandas(desc="Evaluating Answers")
-results = df.progress_apply(evaluate_answers, axis=1)
-df = df.join(pd.DataFrame(results.tolist()))
-
-# Calculate averages
-metrics = ['rouge1', 'rouge2', 'rougeL', 'bert', 'flan-t5', 'numerical_acc']
-aggregation = []
-
-for model in tqdm(['Answer_Qwen2', 'Answer_Qwen2.5'], desc="Aggregating Metrics"):
-    for metric in metrics:
-        if metric == 'numerical_acc':
-            valid_rows = df[df['Type'].isin(['Tabular', 'Chart'])]
-            avg = valid_rows[f'{model}_{metric}'].mean()
+# Calcul des scores moyens pour chaque modèle et chaque métrique
+metrics_list = ['rouge1', 'rouge2', 'rougeL', 'bert', 'flan-t5', 'string_presence']
+models = ['Answer_Qwen2', 'Answer_Qwen2.5']
+average_metrics = []
+for model in models:
+    for metric in metrics_list:
+        if metric == 'string_presence':
+            # Calculer la moyenne sur le sous-ensemble où la métrique n'est pas "None"
+            valid_values = df_string_presence[f'{model}_{metric}'].dropna()
+            mean_score = valid_values.mean() if not valid_values.empty else 0
         else:
-            avg = df[f'{model}_{metric}'].mean()
-        aggregation.append({
-            'Model': model,
-            'Metric': metric,
-            'Average': avg
-        })
+            mean_score = df[f'{model}_{metric}'].mean()
+        average_metrics.append({'Model': model, 'Metric': metric, 'Mean': mean_score})
+aggregation_df = pd.DataFrame(average_metrics)
 
-# Create aggregation DataFrame
-agg_df = pd.DataFrame(aggregation)
+# Sauvegarde des résultats d'agrégation en JSON
+with open('../Assets/data_test/agreggation_metrics.json', 'w', encoding='utf-8') as f:
+    json.dump(aggregation_df.to_dict('records'), f, ensure_ascii=False, indent=2)
+logging.info("Métriques d'agrégation sauvegardées en JSON.")
 
-# Calculate Borda scores
-borda_scores = calculate_borda_scores(agg_df, metrics)
+# Affichage des résultats moyens dans le log
+logging.info("Model Evaluation Metrics:")
+for _, row in aggregation_df.iterrows():
+    logging.info(f"{row['Metric']} ({row['Model']}): {row['Mean'] * 100:.2f}%")
 
-# Add Borda scores to the aggregation DataFrame
-agg_df['Borda'] = agg_df['Model'].map(borda_scores)
+# Affichage des statistiques spécifiques pour string_presence
+total_string_presence = df_string_presence.shape[0]
+logging.info(f"Nombre total de questions avec référence: {total_string_presence}")
+for model in models:
+    count_presence = df_string_presence[df_string_presence[f'{model}_string_presence'] == 1].shape[0]
+    logging.info(f"Pour le modèle {model}, {count_presence} questions sur {total_string_presence} ont un score string_presence de 1.")
 
-# Save results
-agg_df.to_csv('../Assets/data_test/aggregated_metrics.csv', index=False)
-df.to_csv('../Assets/data_test/evaluated_dataset.csv', index=False)
+# Sauvegarde des résultats finaux en JSON
+with open('../Assets/data_test/ardian_dataset_test_evaluation.json', 'w', encoding='utf-8') as f:
+    json.dump(df.to_dict('records'), f, ensure_ascii=False, indent=2)
+logging.info("Résultats d'évaluation sauvegardés en JSON.")
 
-logging.info("Final Aggregated Metrics:")
-logging.info(agg_df.to_string())
+"""
+1.ROUGE (Recall-Oriented Understudy for Gisting Evaluation) :
+    ROUGE-1 : Mesure le nombre de mots unigrams (mots individuels) communs entre la réponse attendue et la réponse générée.
+    ROUGE-2 : Mesure le nombre de bigrams (paires de mots consécutifs) communs.
+    ROUGE-L : Mesure la plus longue sous-séquence commune (LCS) entre les deux textes.
+
+2.BERTScore :
+    Utilise des embeddings de BERT pour comparer les similarités sémantiques entre la réponse attendue et la réponse générée.
+    Calcule un score F1 basé sur ces similarités!
+
+3.Flan-T5 Score (Inverse Perplexity) :
+    Utilise le modèle Flan-T5 pour estimer la perplexité de la réponse générée par rapport à la réponse attendue.
+La perplexité est une mesure de la probabilité d'une séquence de mots. Une faible perplexité indique une séquence plus probable.
+Le score est l'inverse de la perplexité, donc une perplexité plus faible donne un score plus élevé.
+
+4.String Presence Score :
+    Utilise la métrique StringPresence pour évaluer la présence de chaînes spécifiques dans la réponse générée par rapport à la réponse attendue.
+
+"""

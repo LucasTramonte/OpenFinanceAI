@@ -1,0 +1,62 @@
+[
+  {
+    "Model": "Answer_Qwen2",
+    "Metric": "rouge1",
+    "Mean": 0.3053642962057587
+  },
+  {
+    "Model": "Answer_Qwen2",
+    "Metric": "rouge2",
+    "Mean": 0.15934831562403037
+  },
+  {
+    "Model": "Answer_Qwen2",
+    "Metric": "rougeL",
+    "Mean": 0.2693103699971353
+  },
+  {
+    "Model": "Answer_Qwen2",
+    "Metric": "bert",
+    "Mean": 0.6150735020637512
+  },
+  {
+    "Model": "Answer_Qwen2",
+    "Metric": "flan-t5",
+    "Mean": 0.0817551356355015
+  },
+  {
+    "Model": "Answer_Qwen2",
+    "Metric": "string_presence",
+    "Mean": 0.45098039215686275
+  },
+  {
+    "Model": "Answer_Qwen2.5",
+    "Metric": "rouge1",
+    "Mean": 0.305935576660911
+  },
+  {
+    "Model": "Answer_Qwen2.5",
+    "Metric": "rouge2",
+    "Mean": 0.16277189211648363
+  },
+  {
+    "Model": "Answer_Qwen2.5",
+    "Metric": "rougeL",
+    "Mean": 0.2659404901847716
+  },
+  {
+    "Model": "Answer_Qwen2.5",
+    "Metric": "bert",
+    "Mean": 0.5969316959381104
+  },
+  {
+    "Model": "Answer_Qwen2.5",
+    "Metric": "flan-t5",
+    "Mean": 0.08331133216754612
+  },
+  {
+    "Model": "Answer_Qwen2.5",
+    "Metric": "string_presence",
+    "Mean": 0.5294117647058824
+  }
+]
