@@ -20,13 +20,13 @@
   {
     "Model": "Answer_Qwen2",
     "Metric": "bert",
-    "Mean": 0.6150735020637512,
+    "Mean": 0.6151686310768127,
     "Borda": 9
   },
   {
     "Model": "Answer_Qwen2",
     "Metric": "flan-t5",
-    "Mean": 0.0817551356355015,
+    "Mean": 0.08175633121533378,
     "Borda": 9
   },
   {
@@ -62,13 +62,13 @@
   {
     "Model": "Answer_Qwen2.5",
     "Metric": "bert",
-    "Mean": 0.5970510840415955,
+    "Mean": 0.5971462726593018,
     "Borda": 12
   },
   {
     "Model": "Answer_Qwen2.5",
     "Metric": "flan-t5",
-    "Mean": 0.08339532757117461,
+    "Mean": 0.0833965231510069,
     "Borda": 12
   },
   {
@@ -82,5 +82,47 @@
     "Metric": "numerical_acc",
     "Mean": 0.5,
     "Borda": 12
+  },
+  {
+    "Model": "Answer_Gemma_4B",
+    "Metric": "rouge1",
+    "Mean": 0.23168540261147982,
+    "Borda": 0
+  },
+  {
+    "Model": "Answer_Gemma_4B",
+    "Metric": "rouge2",
+    "Mean": 0.10031431750111483,
+    "Borda": 0
+  },
+  {
+    "Model": "Answer_Gemma_4B",
+    "Metric": "rougeL",
+    "Mean": 0.19022838546782989,
+    "Borda": 0
+  },
+  {
+    "Model": "Answer_Gemma_4B",
+    "Metric": "bert",
+    "Mean": 0.5594754219055176,
+    "Borda": 0
+  },
+  {
+    "Model": "Answer_Gemma_4B",
+    "Metric": "flan-t5",
+    "Mean": 0.04727759716997827,
+    "Borda": 0
+  },
+  {
+    "Model": "Answer_Gemma_4B",
+    "Metric": "string_presence",
+    "Mean": 0.35294117647058826,
+    "Borda": 0
+  },
+  {
+    "Model": "Answer_Gemma_4B",
+    "Metric": "numerical_acc",
+    "Mean": 0.375,
+    "Borda": 0
   }
 ]

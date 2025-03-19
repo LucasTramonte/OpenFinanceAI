@@ -16,12 +16,12 @@
     "Question": "By what percentage did Emerson’s adjusted EBITA margin increase in 2023 compared to 2022?",
     "Type": "Tabular",
     "Difficulty": "Moderate",
-    "Expected_Answer": "220 basis points or 2.2 percentage points",
+    "Expected_Answer": "220 basis points or 2.3 percentage points",
     "Expected_source": "AMEX_EMR_2023",
     "Answer_Qwen2": " 25% increase",
     "Answer_Qwen2.5": "Emerson's adjusted EBITA margin increased by 2.3 percentage points from 2022 to 2023. Specifically it increased from 23.5% in 2022 to 25.8% in 2023.",
     "Answer_Gemma_4B": "According to the 2023 Emerson Annual Report, Emerson’s adjusted EBITA margin increased by 2.3 percentage points from 23.5% in 2022 to 25.8% in 2023.",
-    "References": "220 basis points;2.2 percentage points"
+    "References": "220 basis points;2.3 percentage points"
   },
   {
     "Question_ID": 3,
@@ -233,6 +233,7 @@
     "Expected_source": "AMEX_EMR_2023",
     "Answer_Qwen2": "Emerson launched a new listening strategy to effectively understand employee sentiment in 2023.",
     "Answer_Qwen2.5": "Emerson launched Your Voice Counts a new listening strategy to effectively understand employee sentiment in 2023.",
+    "Answer_Gemma_4B": "According to the documents, Emerson launched a continuous strategy to survey employees, aiming for an overall engagement score of 78 percent.",
     "References": "Your Voice Counts"
   },
   {
@@ -244,6 +245,7 @@
     "Expected_source": "ASX_TPM_2023",
     "Answer_Qwen2": "TPG Telecom's total revenue for the fiscal year 2023 was $5,533 million.",
     "Answer_Qwen2.5": "COLPALI ERROR",
+    "Answer_Gemma_4B": "Based on the provided images, TPG Telecom’s total revenue for the fiscal year 2023 was **$13.2 billion**.",
     "References": "$5,533 million;5,533,000,000;5.533 billion"
   },
   {
@@ -255,6 +257,7 @@
     "Expected_source": "ASX_TPM_2023",
     "Answer_Qwen2": "According to the table in Note 3, the segment that contributed the highest revenue growth for TPG Telecom in 2023 was Consumer, with a revenue growth of 4.3% to $4.632 billion.",
     "Answer_Qwen2.5": "The Fixed Broadband business segment contributed the highest revenue growth for TPG Telecom in 2023, with an increase of 4.3% to $4.632 billion.",
+    "Answer_Gemma_4B": "Based on the provided images, the **Fixed Broadband business** segment contributed the highest revenue growth for TPG Telecom in 2023. \n\nSpecifically, the document states: \"Our Fixed broadband business continued to deliver a diverse range of competitive services across NBN and our network. Maintaining our position as the second-largest retailer of NBN services, we logged the year as the leading provider of NBN’s Fibre Connect program, with more than 20,000 upgrades ordered by the end of December.\"",
     "References": "Mobile services"
   },
   {
@@ -265,7 +268,8 @@
     "Expected_Answer": "Integrate and Simplify, Win Smart, and Maximise Our Potential ",
     "Expected_source": "ASX_TPM_2023",
     "Answer_Qwen2": "The three strategic principles outlined by TPG Telecom in their 2023 report are: 1. Integrate and Simplify 2. Win Smart 3. Maximize Our Potential",
-    "Answer_Qwen2.5": "1. Integrate and Simplify 2. Win Smart 3. Maximize our Potential"
+    "Answer_Qwen2.5": "1. Integrate and Simplify 2. Win Smart 3. Maximize our Potential",
+    "Answer_Gemma_4B": "Here are the three strategic principles outlined by TPG Telecom in their 2023 report:\n\n1.  **Win Smart**\n2.  **Simplify**\n3.  **Maximise our Potential**"
   },
   {
     "Question_ID": 24,
@@ -275,7 +279,8 @@
     "Expected_Answer": "Achieving zero waste to landfill in its manufacturing facilities",
     "Expected_source": "AMEX_EMR_2023",
     "Answer_Qwen2": "Emerson established a goal to achieve zero waste to landfill in their manufacturing facilities by 2032.",
-    "Answer_Qwen2.5": "Emerson achieved a goal to achieve zero waste to landfill in their manufacturing facilities by 2032 from a 2022 fiscal year baseline."
+    "Answer_Qwen2.5": "Emerson achieved a goal to achieve zero waste to landfill in their manufacturing facilities by 2032 from a 2022 fiscal year baseline.",
+    "Answer_Gemma_4B": "According to the 2023 Emerson Annual Report, Emerson set an ambitious target to achieve zero greenhouse gas emissions across our value chain by 2032."
   },
   {
     "Question_ID": 25,
@@ -286,6 +291,7 @@
     "Expected_source": "ASX_TPM_2023",
     "Answer_Qwen2": "In 2023, TPG Telecom acquired the 5G mobile network from Telstra.",
     "Answer_Qwen2.5": "TPG Telecom pursued an acquisition of new 3GHz spectrum in 2023 to improve and extend their 5G services and coverage across Australia.",
+    "Answer_Gemma_4B": "According to the provided documents, TPG Telecom pursued the acquisition of Vocus in 2023 to strengthen its 5G network.",
     "References": "3.7GHz spectrum licenses;Telstra"
   },
   {
@@ -297,6 +303,7 @@
     "Expected_source": "ASX_TPM_2023",
     "Answer_Qwen2": "The key achievements of TPG Telecom's Fixed Wireless service in 2023 were: - Achieving 227,000 subscribers - Stabilisation of the subscriber base, including the launch of Fibre Connect services on Vodafone",
     "Answer_Qwen2.5": "TPG Telecom pursued an acquisition of new 3GHz spectrum in 2023 to improve and extend their 5G services and coverage across Australia.",
+    "Answer_Gemma_4B": "Here’s a breakdown of TPG Telecom’s key achievements regarding their Fixed Wireless service in 2023, based on the provided documents:\n\n*   **Network Expansion:** They achieved a coverage area across Australia that spans both, mobile and fixed wireless services, providing 5G mobile and fixed wireless services to over 50,000 homes and businesses.\n*   **Spectrum Acquisition:** They acquired new spectrum licenses to improve and extend our 5G services.\n*   **Continued Growth:** They continued to make progress in 2023, while solidifying their position as a leader in the market.\n*   **Network Resilience:** They continued to improve network security and resilience by isolating and retiring legacy",
     "References": "227,000 subscribers;largest provider of fixed wireless services in Australia"
   },
   {
@@ -308,6 +315,7 @@
     "Expected_source": "AMEX_EMR_2018",
     "Answer_Qwen2": "49",
     "Answer_Qwen2.5": "The growth in the U.S. & Canada region in 2018 was 10%",
+    "Answer_Gemma_4B": "According to the image, the growth in the U.S. & Canada region in 2018 was 10%.",
     "References": "10%;10 percent;10"
   },
   {
@@ -318,7 +326,8 @@
     "Expected_Answer": "Net Sales of : 17.4 billion representing an increase of 14%. Operating Cash Flow: 2.9 billion in 2018, an increase 8 percent. Dividend per Share:",
     "Expected_source": "AMEX_EMR_2018",
     "Answer_Qwen2": "Net Sales: $17.4B in 2018, up from $16.2B in 2017. This represents a 10.8% increase. Operating Cash Flow: $2.9B in 2018, up from $2.6B in 2017. This represents a 10.8% increase.Return on Total Capital (After Tax): 20.6% in 2018, up from 18.6%",
-    "Answer_Qwen2.5": "Emerson's 2018 Net Sales were $17.4B, which is an increase of 3% from the previous year (2017: $16.249B).Operating Cash Flow was $2.9B in 2018, marking a decrease of 5% from the previous year (2017: $3.09B).The net sales growth was 14%, earnings per share growth was 36%, and operating cash flow as a percent of sales was 16.6%."
+    "Answer_Qwen2.5": "Emerson's 2018 Net Sales were $17.4B, which is an increase of 3% from the previous year (2017: $16.249B).Operating Cash Flow was $2.9B in 2018, marking a decrease of 5% from the previous year (2017: $3.09B).The net sales growth was 14%, earnings per share growth was 36%, and operating cash flow as a percent of sales was 16.6%.",
+    "Answer_Gemma_4B": "Okay, let's analyze the provided Emerson Annual Reports to find the requested information.\n\n**1. Net Sales:**\n\n*   **2017:** $15,256 million\n*   **2018:** $17.408 billion\n\n**Change:** $17.408 billion - $15,256 million = $2,152 million\n**Percentage Change:** ($2,152 million / $15,256 million) * 100% = **14.1%**\n\n**2. Operating Cash Flow:**\n\n*   **2017:** $2,680 million\n*   "
   },
   {
     "Question_ID": 29,
@@ -329,6 +338,7 @@
     "Expected_source": "AMEX_EMR_2018",
     "Answer_Qwen2": "The dividend per share for the year 2018 was $1.94, compared to $1.64 in 2017",
     "Answer_Qwen2.5": "The dividend per share for Emerson in 2018 was $1.94, which is an increase from the previous year's dividend of $1.64. This represents a growth of 3% in dividends per share over the five-year period shown in the chart.",
+    "Answer_Gemma_4B": "Here's the information on dividend per share from the provided images:\n\n*   **2018:** $1.94\n*   **2017:** $1.65\n*   **2016:** $1.53\n*   **2015:** $1.78\n*   **2014:** $1.56\n\nThe dividend per share increased from $1.53 in 2016 to $1.94 in 2018.",
     "References": "$1.2 billion ($1.94 per share);1.2 billion;1.94;1.94 per share"
   },
   {
@@ -340,6 +350,7 @@
     "Expected_source": "AMEX_EMR_2019",
     "Answer_Qwen2": "13,724.0",
     "Answer_Qwen2.5": "The reported sales of Automation Solutions in 2019 were $12.2 billion",
+    "Answer_Gemma_4B": "According to the document, the reported sales of Automation Solutions in 2019 were $12.2 billion.",
     "References": "$12.2 billion;12,200,000,000;12.2 billion"
   },
   {
@@ -351,6 +362,7 @@
     "Expected_source": "AMEX_EMR_2019",
     "Answer_Qwen2": "The strategic acquisitions mentioned in the 2019 report are: 1. Automation Solutions platform launched a dedicated digital transformation business that combines our unique sensing technology, operational analytics and broad services to deliver targeted digital solutions to real customer problems.2. Data just one piece of the digital transformation process. It's what we help customers do with that data through strong, informative analytics that truly enables the industry to reach its highest potential. We're putting data to work across the organization to empower our customers and to help with critical needs like protecting food quality and advancing the industries that are the backbone of daily life. 3. We're building on our technology capabilities, we are also making investments to help cultivate our strong and engaged workforce, the most valuable asset to our",
     "Answer_Qwen2.5": "The 2019 Emerson Annual Report mentions several strategic acquisitions:1. In 2019, Emerson's Automation Solutions platform launched a dedicated digital transformation business that combines their unique sensing technology, operational analytics, and data science footprints to deliver targeted digital solutions to real customer problems.2. The company acquired Aventics, a global provider of smart pneumatics technologies that power machine and factory automation applications, for $622 million net of cash acquired on July 17, 2018.These acquisitions enhance Emerson's ability to help customers use data to optimize their operations and empower their customers while addressing critical needs like protecting food quality and advancing industries that are the backbone of daily life.",
+    "Answer_Gemma_4B": "Here’s what the 2019 Emerson Annual Report mentions regarding strategic acquisitions:\n\n*   **Automation Solutions platform:** The report highlights that Emerson launched a dedicated digital transformation business that combines our unique sensing technology and analytics capabilities to empower our customers and to work across the organization.\n*   **Blacks Reinforcing Diversity:** The report mentions acquisitions that are helping to advance the industries that are the backbone of daily life.\n*   **Victorian:** The report mentions acquisitions that are helping to empower our customers and to work across the organization.",
     "References": "GE’s Intelligent Platforms, Zedi’s cloud software business, KnowledgeNet, Bioproduction Group, iSolutions Inc.;GE’s Intelligent Platforms;Zedi’s cloud software business, KnowledgeNet;Bioproduction Group ;iSolutions Inc."
   },
   {
@@ -362,6 +374,7 @@
     "Expected_source": "AMEX_EMR_2020",
     "Answer_Qwen2": "The total software portfolio of the company in 2020 is $2.4 billion.",
     "Answer_Qwen2.5": "The total software portfolio of Emerson in 2020 was $2.4 billion, consisting of $1.1 billion in stand-alone software and associated engineering services, and $1.3 billion in embedded control and software-enabled devices.",
+    "Answer_Gemma_4B": "According to the images, the total software portfolio of Emerson in 2020 is **$2.4 billion**.",
     "References": "2.4 billion;2,400,000,000"
   },
   {
@@ -373,6 +386,7 @@
     "Expected_source": "AMEX_EMR_2020",
     "Answer_Qwen2": "16.8%",
     "Answer_Qwen2.5": "The return on total capital for 2020, as shown in the first image, was 16.8%.",
+    "Answer_Gemma_4B": "According to the images, the return on total capital in 2020 was 16.8%.",
     "References": "16.8%;16.8 percent;16.8"
   },
   {
@@ -384,6 +398,7 @@
     "Expected_source": "AMEX_EMR_2021",
     "Answer_Qwen2": "Emerson reported a score of 100% on the Human Rights Campaign's 2021 Corporate Equality Index and the designation as one of the Best Places to Work for LGBTQ Equality.",
     "Answer_Qwen2.5": "Emerson reported that they earned a score of 100% on the Human Rights Campaign's 2021 Corporate Equality Index and were designated as one of the Best Places to Work for LGBTQ Equality.",
+    "Answer_Gemma_4B": "Here’s the information from the images regarding Emerson’s 2021 diversity and inclusion progress and external assessments:\n\n**Diversity & Inclusion Measurable Progress:**\n\n*   **Employee Equality Index:** Emerson achieved a score of 100% on the Human Rights Campaign’s 2021 Corporate Equality Index.\n*   **Employee Engagement:** The company surveyed employees with the assistance of third-party consultants and took actions to address employee retention concerns, with approximately 45,000 employees surveyed during the year.\n*   **Workforce Diversity:** The company is committed to increasing diversity and has been focusing on recruiting at venues representing women, minorities, and U.S. military veterans.\n\n**Specific",
     "References": "double representation of women and U.S. minorities in leadership by 2030;100% score on the Human Rights Campaign’s Corporate Equality Index;double representation minorities;double representation women in leadership"
   },
   {
@@ -395,6 +410,7 @@
     "Expected_source": "AMEX_EMR_2021",
     "Answer_Qwen2": "The five year compound annual growth rate is 14.8%.",
     "Answer_Qwen2.5": "Emerson's five-year compound annual growth rate (CAGR) is 14.8%.",
+    "Answer_Gemma_4B": "According to the image, Emerson's cumulative shareholder return over five years was approximately $250.",
     "References": "14.8%;14.8 percent;14.8"
   },
   {
@@ -405,8 +421,9 @@
     "Expected_Answer": "Emerson targets net zero Scope 1 and 2 GHG emissions by 2030 with a 25% reduction in Scope 3 emissions over the same period, and aims for net zero emissions across all scopes by 2045",
     "Expected_source": "AMEX_EMR_2022",
     "Answer_Qwen2": "Emerson has set the following environmental goals that are aligned with the Science Based Targets initiative (SBT): Net zero greenhouse gas (GHG) emissions from own operations (Scopes 1 and 2) by 2030, as well as a 25% reduction in Scope 3 by the same year.",
-    "Answer_Qwen2.5": "Emerson's Net Zero Targets as stated in the 2022 report include: 1. **Net zero greenhouse gas (GHG) emissions from their own operations (Scopes 1 and 2)** by 2030. 2. **A 25% reduction in Scope 3 GHG emissions** by the same year, which is SBTi-approved.Additionally, they aim for: **Net zero GHG emissions across their value chain (Scopes 1, 2, and 3)** by 2045."
-},
+    "Answer_Qwen2.5": "Emerson's Net Zero Targets as stated in the 2022 report include: 1. **Net zero greenhouse gas (GHG) emissions from their own operations (Scopes 1 and 2)** by 2030. 2. **A 25% reduction in Scope 3 GHG emissions** by the same year, which is SBTi-approved.Additionally, they aim for: **Net zero GHG emissions across their value chain (Scopes 1, 2, and 3)** by 2045.",
+    "Answer_Gemma_4B": "Here’s a breakdown of Emerson’s Net Zero Targets as stated in the 2022 report:\n\n**Net Zero Targets:**\n\n*   Net zero greenhouse gas (GHG) emissions across our value chain by 2045.\n*   A 25% reduction of our value chain emissions by 2030, across Scope 1 and 2.\n\n**Measurable Reductions in GHG Emissions:**\n\n*   **By 2030:** A 25% reduction of our value chain emissions.\n*   **By 2045:** Net zero operations and a 25% reduction of our value chain.\n\nLet me know if you’d like"
+  },
   {
     "Question_ID": 37,
     "Question": "What was Emerson underlying sales growth in 2022?",
@@ -416,6 +433,7 @@
     "Expected_source": "AMEX_EMR_2022",
     "Answer_Qwen2": "Emerson's underlying sales growth in 2022 was 9 percent",
     "Answer_Qwen2.5": "Emerson's underlying sales growth in 2022 was 9 percent.",
+    "Answer_Gemma_4B": "According to the provided text, Emerson’s underlying sales growth in 2022 was 9%.",
     "References": "9%;9 percent;9"
   },
   {
@@ -427,8 +445,9 @@
     "Expected_source": "AMEX_EMR_2022",
     "Answer_Qwen2": "The deal is expected to close in the first half of the 2023 calendar year.",
     "Answer_Qwen2.5": "The deal of Emerson's Climate Technologies business is expected to close in the first half of the 2023 calendar year.",
+    "Answer_Gemma_4B": "According to the provided documents, the deal of Emerson’s Climate Technologies business is expected to close in the first half of calendar year 2023.",
     "References": "First half of 2023;first half of 2023 calendar year;first period of 2023"
-  },  
+  },
   {
     "Question_ID": 39,
     "Question": "What recent actions has Emerson taken to reinforce its commitment to environmental, social, and governance (ESG) initiatives in 2022?",
@@ -437,7 +456,8 @@
     "Expected_Answer": "The report details steps to reduce greenhouse gas emissions, broaden diversity and inclusion, and further integrate sustainability goals into the company’s operations and culture.",
     "Expected_source": "AMEX_EMR_2022",
     "Answer_Qwen2": "Emerson took steps in 2022 that are building a strong foundation for long-term success as a global automation leader. The Board of Directors plays critical advising and governing roles. The leadership team and Emerson employees across the company stepped up and delivered for all stakeholders.",
-    "Answer_Qwen2.5": "Emerson took several actions in 2022 to reinforce its commitment to ESG initiatives: 1. **Net Zero Greenhouse Gas Emissions**: The company set ambitious targets to achieve net zero greenhouse gas emissions across its value chain by 2045 compared to a 2021 baseline. 2. **GHG Reduction Targets**: Emerson added ESG targets, including GHG reduction targets, as part of the determination of annual bonuses for leadership in 2022.  3. **Greening Of Emerson, Greening With Emerson Framework**: This framework outlines Emerson's approach to delivering technology, solutions, and expertise that support and enable customers' decarbonization and environmental sustainability efforts. 4. **Human Rights Campaign Foundation"
+    "Answer_Qwen2.5": "Emerson took several actions in 2022 to reinforce its commitment to ESG initiatives: 1. **Net Zero Greenhouse Gas Emissions**: The company set ambitious targets to achieve net zero greenhouse gas emissions across its value chain by 2045 compared to a 2021 baseline. 2. **GHG Reduction Targets**: Emerson added ESG targets, including GHG reduction targets, as part of the determination of annual bonuses for leadership in 2022.  3. **Greening Of Emerson, Greening With Emerson Framework**: This framework outlines Emerson's approach to delivering technology, solutions, and expertise that support and enable customers' decarbonization and environmental sustainability efforts. 4. **Human Rights Campaign Foundation",
+    "Answer_Gemma_4B": "Here’s a breakdown of Emerson’s recent actions to reinforce its commitment to ESG initiatives in 2022, based on the provided document:\n\n**Environmental Actions:**\n\n*   **Net Zero Greenhouse Gas (GHG) Emissions:** Emerson aims to transform its value chain to zero emissions by 2045.\n*   **Strategic Investments:** They are accelerating investments in attractive markets and adjacent automation sectors.\n*   **Climate Technologies Transaction:** The sale of Emerson’s Climate Technologies business to Blackstone is expected to drive further environmental progress.\n*   **Greening With AspenTech:** They’ve completed the acquisition of Fluxa, a life sciences software provider, to help customers accelerate the speed to market for"
   },
   {
     "Question_ID": 40,
@@ -448,6 +468,7 @@
     "Expected_source": "AMEX_AE_2001",
     "Answer_Qwen2": "$3,956,477",
     "Answer_Qwen2.5": "The total revenues for the fiscal year 2001, as shown in the table, were $4,677,609 thousand.",
+    "Answer_Gemma_4B": "According to the text, the total revenues for the fiscal year 2001 were $33,149 thousand.",
     "References": "$4.717 billion;4,717,000,000"
   },
   {
@@ -459,6 +480,7 @@
     "Expected_source": "AMEX_AE_2001",
     "Answer_Qwen2": "Long-term debt in 2001 was $12,475",
     "Answer_Qwen2.5": "The long-term debt in 2001 was $11,475 thousand.",
+    "Answer_Gemma_4B": "According to the provided documents, the long-term debt in 2001 was **$11,475** (in thousands).",
     "References": "$12.475 million;12,475,000;12.475"
   },
   {
@@ -470,6 +492,7 @@
     "Expected_source": "AMEX_AE_2002",
     "Answer_Qwen2": "$ 4,750",
     "Answer_Qwen2.5": "The total revenues for 2002 were $4,750 thousand",
+    "Answer_Gemma_4B": "Here's the breakdown of the total revenues for 2002, based on the provided documents:\n\n*   **Oil and Gas Producing Activities:** $4,750\n*   **Transportation Segment:** $36,406\n\n**Total Revenues for 2002:** $4,750 + $36,406 = **$41,156**",
     "References": "$2.323 billion;2,323,000,000"
   },
   {
@@ -481,6 +504,7 @@
     "Expected_source": "AMEX_AE_2002",
     "Answer_Qwen2": "The net earnings in 2002 were $1,452.",
     "Answer_Qwen2.5": "The net earnings for the year ended December 31, 2002, as shown in the first table (Consolidated Statement of Operations), is $1,452 thousand.",
+    "Answer_Gemma_4B": "According to the provided documents, the net earnings in 2002 were $10,305 (in thousands).",
     "References": "$1.452 million;1,452,000;1.452"
   },
   {
@@ -492,6 +516,7 @@
     "Expected_source": "AMEX_AE_2003",
     "Answer_Qwen2": "Marketing total revenues in 2003 were $1,677,728.",
     "Answer_Qwen2.5": "The marketing total revenues in 2003 were $1,677,728 thousand.",
+    "Answer_Gemma_4B": "Based on the provided images, the marketing total revenues in 2003 were **$1,677,728**.",
     "References": "$1,677,728;1,677,728,000"
   },
   {
@@ -503,6 +528,7 @@
     "Expected_source": "AMEX_AE_2003",
     "Answer_Qwen2": "The long-term debt at the end of 2003 was $11,475,000.",
     "Answer_Qwen2.5": "The long-term debt at the end of 2003 was $11,475,000.",
+    "Answer_Gemma_4B": "According to the provided documents, the long-term debt at the end of 2003 was $11,475.",
     "References": "$11.475 million;11,475,000;11.475"
   },
   {
@@ -514,6 +540,7 @@
     "Expected_source": "AMEX_AE_2004",
     "Answer_Qwen2": "The total dividend paid per common share in 2004 was $30.",
     "Answer_Qwen2.5": "The total dividend paid per common share in 2004 was $0.30.",
+    "Answer_Gemma_4B": "Based on the provided financial statements, the total dividend paid per common share in 2004 was **$0.365**.\n\nThis is calculated by dividing the total dividend paid ($1,265) by the number of common shares outstanding ($3,512).",
     "References": "$0.30 per share;0.30;$0.30"
   },
   {
@@ -525,6 +552,7 @@
     "Expected_source": "AMEX_AE_2004",
     "Answer_Qwen2": "The working capital in 2004 was $35,789.",
     "Answer_Qwen2.5": "The working capital in 2004 was $35,789 thousand.",
+    "Answer_Gemma_4B": "According to the provided documents, the working capital in 2004 was $811,652.",
     "References": "$35.789 million;35,789,000"
   },
   {
@@ -536,6 +564,7 @@
     "Expected_source": "AMEX_AE_2005",
     "Answer_Qwen2": "The earnings per share (EPS) from continuing operations in 2005 was $2.910.",
     "Answer_Qwen2.5": "The earnings per share (EPS) from continuing operations in 2005 was $3.97.",
+    "Answer_Gemma_4B": "According to the provided data, the earnings per share (EPS) from continuing operations in 2005 was **$2.69**.",
     "References": "$3.97 per share;3.97;$3.97"
   },
   {
@@ -547,6 +576,7 @@
     "Expected_source": "AMEX_AE_2005",
     "Answer_Qwen2": "The average sales price per Mcf of natural gas in 2005 was $8.43",
     "Answer_Qwen2.5": "The average sales price per Mcf of natural gas in 2005 was $8.43.",
+    "Answer_Gemma_4B": "According to the image, the average sales price per Mcf of natural gas in 2005 was $8.43.",
     "References": "$8.43 per Mcf;8.43;$8.43"
   },
   {
@@ -558,8 +588,9 @@
     "Expected_source": "ASX_TDO_2023",
     "Answer_Qwen2": "1. Executive Chairman: Mr. Noel Newell 2. Non-Executive Director: Mr. Ian Tchacos 3. Non-Executive Director: Mr. Leo De Maria 4. Non-Executive Director: Mr. Trevor Slater",
     "Answer_Qwen2.5": "1. Noel Newell - Executive Chairman 2. Ian Tchacos - Non-Executive Director 3. Leo De Maria - Non-Executive Director 4. Trevor Slater - Non-Executive Director",
+    "Answer_Gemma_4B": "Here’s a list of all the directors (executive and non-executive) of the company, as listed in the document:\n\n**Executive Directors:**\n\n*   Noel Newell\n*   Mr Leo De Maria\n\n**Non-Executive Directors:**\n\n*   Mr Trevor Slater\n\nLet me know if you’d like any more information from the document!",
     "References": "Executive director: Noel Newell and Non-Executive Directors: Mr I Tchacos, Mr L De Maria, Mr T Slater;Noel Newell,Mr I Tchacos, Mr L De Maria, Mr T Slater"
-  },    
+  },
   {
     "Question_ID": 51,
     "Question": "Can you provide me with the names of the Executive Directors of the company and their total remuneration?",
@@ -568,7 +599,8 @@
     "Expected_Answer": "The Executive Director of the company is Mr. N. Newell, with a total remuneration of $335,903",
     "Expected_source": " ASX_TDO_2023",
     "Answer_Qwen2": "The names of the Executive Directors of the company and their total remuneration are as follows: Mr. I. Tchacos: $49,890. Mr. L. De Maria: $47,637. Mr. T Slater: $28,125. Mr. N Newell: $378,432 . The total remuneration for the Executive Directors is $1,094,492.",
-    "Answer_Qwen2.5": "The Executive Directors of the company are Mr Noel Newell, Mr Ian Tchacos, Mr Leo De Maria, and Mr Trevor Slater. Their total remuneration for 2023 is as follows: Mr Noel Newell: $460,111. Mr Ian Tchacos: $335,903. Mr Leo De Maria: $40,724. Mr Trevor Slater: $40,724. The total remuneration for all Executive Directors combined is $507,754."
+    "Answer_Qwen2.5": "The Executive Directors of the company are Mr Noel Newell, Mr Ian Tchacos, Mr Leo De Maria, and Mr Trevor Slater. Their total remuneration for 2023 is as follows: Mr Noel Newell: $460,111. Mr Ian Tchacos: $335,903. Mr Leo De Maria: $40,724. Mr Trevor Slater: $40,724. The total remuneration for all Executive Directors combined is $507,754.",
+    "Answer_Gemma_4B": "Here’s a list of the Executive Directors and their total remuneration, based on the provided document:\n\n*   **Mr Noel Newell:** $370,754\n*   **Mr Leo De Maria:** $54,815\n*   **Mr Ian Tuchacos:** $42,089\n*   **Mr Trevor Slater:** $4,276\n*   **Mr Stefan Ross:** $5,180\n\nLet me know if you’d like any other information extracted from the document!"
   },
   {
     "Question_ID": 52,
@@ -579,6 +611,7 @@
     "Expected_source": "ASX_TDO_2023",
     "Answer_Qwen2": "The profit and loss in 2023 of the company is $3,414,258.",
     "Answer_Qwen2.5": "The profit and loss for the year ended 30 June 2023, as presented in the Consolidated Statement of Profit or Loss and Other Comprehensive Income, is as follows: **Profit/(loss) before income tax expense:** $3,414,258. **Income tax expense:** $853,565. **Profit/(loss) after income tax expense for the year attributable to the owners of 3D Oil Limited:** $3,414,258. Therefore, the profit after tax for the year 2023 is $3,414,258.",
+    "Answer_Gemma_4B": "Here's the profit and loss information for 3D Oil Limited for 2023, based on the provided documents:\n\n**Profit/Loss after Income Tax for the year:** $3,414,258\n\n**Key adjustments to arrive at this figure:**\n\n*   Depreciation and amortisation: $119,717\n*   Gain from farm-out arrangement: $(4,188,464)\n*   Share-based payments: $16,753\n*   Total depreciation: $(94,568)\n*   Other adjustments (as listed in Note 30)\n\n**Important Note:** The profit and loss is",
     "References": "3,414,258;3,414 million"
   },
   {
@@ -590,6 +623,7 @@
     "Expected_source": "ASX_TDO_2023",
     "Answer_Qwen2": "The auditors of the 3D Oil Limited during 2023 were RSM Australia Partners.",
     "Answer_Qwen2.5": "The auditors of 3D Oil Limited during 2023 were RSM Australia Partners.",
+    "Answer_Gemma_4B": "According to the document, the auditors of 3D Oil Limited during 2023 were RSM Australia Partners.",
     "References": "Grant Thornton Audit Pty Ltd;RSM Australia Partners"
   },
   {
@@ -601,6 +635,7 @@
     "Expected_source": "ASX_TDO_2023",
     "Answer_Qwen2": "The largest shareholder owns 44,875,960 shares.",
     "Answer_Qwen2.5": "The largest shareholder, Noel Newell, owns 44,875,960 ordinary shares.",
+    "Answer_Gemma_4B": "According to the document, the largest shareholder, Noel Newell, owns 44,875,960 shares.",
     "References": "44,875,560 shares;44,875,960 shares;44,875,560"
   },
   {
@@ -612,6 +647,7 @@
     "Expected_source": "ASX_TDO_2023",
     "Answer_Qwen2": "The company holds $3,221,377 in assets in 2023.",
     "Answer_Qwen2.5": "The company holds $10,642,296 in total assets as of June 30, 2023.",
+    "Answer_Gemma_4B": "Based on the provided images, the company holds **$22,038** in dollars as assets in 2023.",
     "References": "$10,662,296;10,662 million"
   },
   {
@@ -623,6 +659,7 @@
     "Expected_source": " ASX_TDO_2023",
     "Answer_Qwen2": "The total equity of the company in 2023 is $9,905,237.",
     "Answer_Qwen2.5": "The total equity of the company in 2023 is $9,905,237.",
+    "Answer_Gemma_4B": "Based on the provided documents, the total equity of the company in 2023 is **55,483,678** dollars.",
     "References": "9,905,237;9,905 million"
   },
   {
@@ -634,6 +671,7 @@
     "Expected_source": "ASX_KFM_2023",
     "Answer_Qwen2": "The company is focusing on sourcing the future metals of tomorrow.",
     "Answer_Qwen2.5": "The company, Kingfisher Mining, is focusing on sourcing the future metals of tomorrow as mentioned in their Annual Report for 2023. This indicates that they are likely involved in mining activities and are looking to source and develop new types of metals that could be important for future industries or technologies.",
+    "Answer_Gemma_4B": "Based on the provided financial documents, here’s a breakdown of Kingfisher Mining’s key activities and focus in 2023:\n\n*   **Future Metals:** The company is heavily focused on \"Sourcing the Future Metals,\" suggesting a significant effort in this area.\n*   **Corporate Governance:** They are implementing a measurable gender diversity objective.\n*   **Capital Management:** The company is prioritizing maintaining appropriate liquidity through maintaining appropriate capital raising.\n*   **Non-Audit Services:** They have an auditor (Criterion Audit Pty Ltd) appointed as of October 30, 2018.\n*   **Proceedings on Behalf of the Company:** The company is involved in proceedings to bring proceedings on behalf of",
     "References": "exploration and development of natural resources;exploration natural resources;development natural resources"
   },
   {
@@ -645,6 +683,7 @@
     "Expected_source": "ASX_KFM_2023",
     "Answer_Qwen2": "The overall effect on cash during the 2023 financial year was a decrease of $1,591,423.",
     "Answer_Qwen2.5": "The overall effect on cash during the 2023 financial year can be analyzed by looking at the changes in cash and cash equivalents, trade and other receivables, and other assets.**Cash and Cash Equivalents**:At the end of the 2023 financial year, the company had $878,934 in cash at bank.At the end of the 2022 financial year, the company had $2,184,093 in cash at bank.The decrease in cash at bank from $2,184,093 to $878,934 indicates a reduction in cash by $1",
+    "Answer_Gemma_4B": "Here's the information from the notes to the financial statements that answers your question:\n\n**Cash and cash equivalents** were **$3,378,934** at 30 June 2023, compared to **$2,184,093** at 30 June 2022.\n\nThis represents an **increase of $1,194,841** in cash and cash equivalents during the 2023 financial year.",
     "References": "increase of $1,194,841 in cash;1,194,841 in cash"
   },
   {
@@ -656,6 +695,7 @@
     "Expected_source": "ASX_KFM_2023",
     "Answer_Qwen2": "The profit recorded in 2023 is $2,013,952.",
     "Answer_Qwen2.5": "The profit recorded for the year ended 30 June 2023 is $2,013,952.",
+    "Answer_Gemma_4B": "According to the provided financial statements, the profit recorded for the year ended 30 June 2023 was **(2,013,952)**, which represents a loss of $2,013,952.",
     "References": " loss of 2,013,952;2,013,952 million;loss of 2,013,952 million"
   },
   {
@@ -667,8 +707,9 @@
     "Expected_source": "ASX_KFM_2023",
     "Answer_Qwen2": "Yes, the company had consultancy fees. The amount was $115,080",
     "Answer_Qwen2.5": "Yes, the company had consultancy fees. The amount for consultancy fees in the financial statement is $115,080.",
+    "Answer_Gemma_4B": "Yes, the company had consultancy fees. The amount was $115,080.",
     "References": "115,080;115,080 million"
-    },
+  },
   {
     "Question_ID": 61,
     "Question": "Is there any financial challenges faced by 88 energy in 2023?",
@@ -677,7 +718,8 @@
     "Expected_Answer": "One challenge was securing funding for the Hickory-1 flow test. There were also delays in payments from its joint venture partner, Burgundy, which initially failed to meet its financial obligations but eventually settled",
     "Expected_source": " ASX_88E_2023",
     "Answer_Qwen2": "Yes, there are financial challenges faced by 88 Energy in 2023. The company anticipates a net zero target on Scope 1 and 2 and limited Scope 3 emissions offset.",
-    "Answer_Qwen2.5": "No, there is no mention of any financial challenges faced by 88 Energy in 2023 within the provided pages. The documents focus on the company's operations, exploration progress, and commitment to environmental, social, and governance (ESG) practices."
+    "Answer_Qwen2.5": "No, there is no mention of any financial challenges faced by 88 Energy in 2023 within the provided pages. The documents focus on the company's operations, exploration progress, and commitment to environmental, social, and governance (ESG) practices.",
+    "Answer_Gemma_4B": "Based on the provided documents, 88 Energy faced a significant challenge in 2023 related to water usage. Here's what the text states:\n\n*   **\"Closely monitors the strict usage of water with less than 20% of the permitted water quota being actually used on its drilling operations.\"**\n\nThis indicates a concern about exceeding their water usage limits, which could potentially lead to financial penalties or operational restrictions.\n\nWhile the documents highlight growth and new projects, they don't explicitly detail other financial challenges."
   },
   {
     "Question_ID": 62,
@@ -687,7 +729,8 @@
     "Expected_Answer": "The company secured funding for its exploration projects and managed to raise capital multiple times throughout the year. However, as an exploration-focused company, its financial stability depends on future discoveries and successful project developments.",
     "Expected_source": " ASX_88E_2023",
     "Answer_Qwen2": "Yes, 88 Energy Limited is financially stable.",
-    "Answer_Qwen2.5": "Based on the information provided in the images, it is not possible to definitively determine if 88 Energy is financially stable. The images provide details about their operations, including their commitment to ESG principles, their exploration and production activities, and their focus on building a balanced portfolio of assets spread across the oil and gas life-cycle. However, financial stability would require more detailed financial data such as balance sheets, income statements, cash flow statements, and other financial ratios that are not included in these images. It's important to consult with financial analysts or review the company's full annual report for a comprehensive assessment of its financial health."
+    "Answer_Qwen2.5": "Based on the information provided in the images, it is not possible to definitively determine if 88 Energy is financially stable. The images provide details about their operations, including their commitment to ESG principles, their exploration and production activities, and their focus on building a balanced portfolio of assets spread across the oil and gas life-cycle. However, financial stability would require more detailed financial data such as balance sheets, income statements, cash flow statements, and other financial ratios that are not included in these images. It's important to consult with financial analysts or review the company's full annual report for a comprehensive assessment of its financial health.",
+    "Answer_Gemma_4B": "Based on the provided documents, it's difficult to definitively state whether 88 Energy is 'financially stable' in a concrete way. However, the documents suggest a positive trajectory and a focus on growth, which indicates a reasonable level of financial health. Here's a breakdown of what the documents reveal: Positive Indicators:  Successful Projects: The documents highlight successful projects like Project Phoenix and Hickory-1, indicating operational profitability and resource discovery. ESG Commitment: Their commitment to ESG and sustainability suggests responsible business practices, which can positively impact investor confidence. Expansion and Diversification: The company is actively expanding into new areas like Namibia and pursuing a balanced portfolio of assets."
   },
   {
     "Question_ID": 63,
@@ -697,7 +740,8 @@
     "Expected_Answer": "Yes, EQT Holdings Limited reported a Net Profit After Tax (NPAT) of $18.8 million for the 2023 financial year.",
     "Expected_source": " ASX_EQT_2023",
     "Answer_Qwen2": "Yes, EQT Holdings Limited made a profit in 2023.",
-    "Answer_Qwen2.5": "The provided text does not explicitly state whether EQT Holdings Limited made a profit in 2023. It only mentions that changes in ownership interests in subsidiaries that do not result in losing control over the subsidiaries are accounted for as equity transactions and that when the Group loses control of a subsidiary, a gain or loss is recognized in profit or loss. To determine if EQT Holdings Limited made a profit in 2023, one would need to look at the financial statements for the year 2023, which are not included in the provided text."
+    "Answer_Qwen2.5": "The provided text does not explicitly state whether EQT Holdings Limited made a profit in 2023. It only mentions that changes in ownership interests in subsidiaries that do not result in losing control over the subsidiaries are accounted for as equity transactions and that when the Group loses control of a subsidiary, a gain or loss is recognized in profit or loss. To determine if EQT Holdings Limited made a profit in 2023, one would need to look at the financial statements for the year 2023, which are not included in the provided text.",
+    "Answer_Gemma_4B": "Based on the provided notes to the financial statements, EQT Holdings Limited recorded a loss in 2023. Specifically, the notes state: 'Changes in the Group's ownership interests are as equity transactions. The carrying amounts of the subsidiaries are adjusted to reflect the changes in their relative interests in the subsidiaries. Any difference between the amount by which the non-controlling interests are adjusted and the fair value of the consideration received is recognised directly in equity.'"
   },
   {
     "Question_ID": 64,
@@ -707,7 +751,8 @@
     "Expected_Answer": "Yes, the Superannuation Trustee Services (STS) business grew its funds under supervision (FUS) to $44.8 billion, an increase of 29.1% over the year.",
     "Expected_source": " ASX_EQT_2023",
     "Answer_Qwen2": "Yes, the STS of EQT grew in 2023.",
-    "Answer_Qwen2.5": "Based on the information provided in the document, there is no specific mention of revenue growth or performance for the STS (Equity Trustees Services) segment in 2023. The document focuses more on the overall financial performance and key themes for the year, such as revenue growth in TWS and STS with steady performance in CTS, and the seven-month contribution associated with the acquisition of AET. It does not provide detailed financial metrics or performance indicators for each segment, including STS. Therefore, it cannot be concluded from this document whether the STS of EQT grew in 2023."
+    "Answer_Qwen2.5": "Based on the information provided in the document, there is no specific mention of revenue growth or performance for the STS (Equity Trustees Services) segment in 2023. The document focuses more on the overall financial performance and key themes for the year, such as revenue growth in TWS and STS with steady performance in CTS, and the seven-month contribution associated with the acquisition of AET. It does not provide detailed financial metrics or performance indicators for each segment, including STS. Therefore, it cannot be concluded from this document whether the STS of EQT grew in 2023.",
+    "Answer_Gemma_4B": "Yes, according to the notes to the financial statements, the STS (Strong Revenue Growth in TWS and STS) of EQT grew in 2023. The notes state: 'Strong revenue growth in TWS and STS with steady performance in CTS.'"
   },
   {
     "Question_ID": 65,
@@ -717,7 +762,8 @@
     "Expected_Answer": "EQT’s stock was trading at $25.92 per share as of June 30, 2023.",
     "Expected_source": " ASX_EQT_2023",
     "Answer_Qwen2": "At the end of the 2023 financial year, EQT had 362,164 units of its stock.",
-    "Answer_Qwen2.5": "Colpali error"
+    "Answer_Qwen2.5": "Colpali error",
+    "Answer_Gemma_4B": "Based on the provided documents, the amount of EQT Holdings Limited (EQT) stock at the end of the 2023 financial year is 119,215.This information is found in the 'Employment Agreements Report' on the page titled 'Directors and Executive Equity holdings'."
   },
   {
     "Question_ID": 66,
@@ -727,7 +773,8 @@
     "Expected_Answer": "The company generated $141.4 million in revenue",
     "Expected_source": "ASX_EQT_2023",
     "Answer_Qwen2": "According to the annual report, EQT generated $1.3 billion in revenue in 2023.",
-    "Answer_Qwen2.5": "Colpali error"
+    "Answer_Qwen2.5": "Colpali error",
+    "Answer_Gemma_4B": "I'm sorry, but the provided images do not contain information about EQT's revenue generated in 2023. The images are notes from the financial statements, detailing general information, a statement of compliance, and contact details for the company. They do not include any financial figures."
   },
   {
     "Question_ID": 67,
@@ -737,7 +784,8 @@
     "Expected_Answer": "3D Oil reported a net profit of $3,414,258",
     "Expected_source": "ASX_TDO_2023",
     "Answer_Qwen2": "The net profit of 3D Oil for 2023 is $53 million.",
-    "Answer_Qwen2.5": "Colpali error"
+    "Answer_Qwen2.5": "Colpali error",
+    "Answer_Gemma_4B": "According to the document, 3D Oil has a projected gas shortfall in 2027 which extends to any southern states, leaving no external supply from other jurisdictions. The document does not provide the net profit for 3D Oil for 2023."
   },
   {
     "Question_ID": 68,
@@ -747,26 +795,29 @@
     "Expected_Answer": "3D Oil reported a net profit of $3,414,258 for the year ending June 30, 2023, compared to a loss of $1,147,179 in 2022.",
     "Expected_source": "ASX_TDO_2023",
     "Answer_Qwen2": "Colpali error",
-    "Answer_Qwen2.5": "Colpali error"
+    "Answer_Qwen2.5": "Colpali error",
+    "Answer_Gemma_4B": "3D Oil reported a loss in 2023. Specifically, the documents state:'ConocoPhillips Australia is credited against the cost previously capitalised in relation to the whole interest with any excess accounted as a gain or disposal.' This indicates a loss due to the sale of assets and the recognition of previously capitalized costs."
   },
   {
     "Question_ID": 69,
     "Question": "Can you summarize 3D Oil's 2023 financial performance?",
     "Type": "Both",
-    "Difficulty": "Meidum",
+    "Difficulty": "Medium",
     "Expected_Answer": "3D Oil returned to profitability with a $3.41 million net profit, increased cash reserves to $3.22 million, and secured major funding from ConocoPhillips to support future exploration.",
     "Expected_source": "ASX_TDO_2023",
     "Answer_Qwen2": "Colpali Error",
-    "Answer_Qwen2.5": "Colpali Error"
+    "Answer_Qwen2.5": "Colpali Error",
+    "Answer_Gemma_4B": "Okay, let's analyze the provided images to summarize 3D Oil's 2023 financial performance based on the information presented. Here's a summary of what the documents suggest about 3D Oil's 2023 performance: Key Highlights from 2023: Significant Acquisitions: 3D Oil has achieved substantial growth through two key deals: Sippsland Basin:They've positioned themselves as an east coast gas explorer in this area, with a focus on expanding their portfolio. OTWAY Basin: They've acquired significant acreage in the Otway Basin, a region with potential for increased gas supply."
   },
   {
     "Question_ID": 70,
     "Question": "How did 3D Oil fund its operations and projects in 2023?",
     "Type": "Both",
     "Difficulty": "Hard",
-    "Expected_Answer": "The company raised funds through farmout agreements, particularly with ConocoPhillips, securing US$3 million in cash and a US$35 million carry towards drilling costs.",
+    "Expected_Answer": "The company raised funds through farmout agreements, particularly with ConocoPhillips, securing 3 million in cash and a 35 million carry towards drilling costs.",
     "Expected_source": "ASX_TDO_2023",
     "Answer_Qwen2": "Colpali error",
-    "Answer_Qwen2.5": "Colpali error"
+    "Answer_Qwen2.5": "Colpali error",
+    "Answer_Gemma_4B": "3D Oil funded its operations and projects in 2023: Acquisition Window:3D Oil was planning to have a 2023 acquisition window.   Saurapod MC3D: The acquisition of the Saurapod MC3D was to be acquired prior to the closing of the acquisition window at the end of May 2023. Industry Partner:3D Oil is working with an industry partner for WA-527."
   }
 ]
