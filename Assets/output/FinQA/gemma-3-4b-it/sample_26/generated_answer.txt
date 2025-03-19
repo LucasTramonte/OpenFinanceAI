@@ -1,0 +1,5 @@
+Explanation:
+The text states that in June 2015, Alexion borrowed $3500 under the term loan facility. The table shows the contractual maturities of long-term debt obligations due subsequent to December 31, 2016 as follows: 2017 ($175), 2018 ($150), 2019 ($175), and 2020 ($2756). To calculate the percentage, we need to sum the maturities for 2017, 2018, and 2019, which is $175 + $150 + $175 = $500. Then, we divide the term loan amount ($3500) by the total maturities ($500) and multiply by 100 to get the percentage.
+
+Calculation:
+($3500 / $50

@@ -5,9 +5,11 @@
     "Type": "Tabular",
     "Difficulty": "Easy",
     "Expected_Answer": "$15.2 billion",
-    "Expected_source": "Table in AMEX_EMR_2023.pdf",
+    "Expected_source": "AMEX_EMR_2023",
     "Answer_Qwen2": "630 million in 2022",
-    "Answer_Qwen2.5": "Emerson's reported net sales for the fiscal year 2023 were $17 billion"
+    "Answer_Qwen2.5": "Emerson's reported net sales for the fiscal year 2023 were $17 billion",
+    "Answer_Gemma_4B": "According to the provided documents, Emerson’s reported net sales for the fiscal year 2023 were $8.6 billion.",
+    "References": "$15.2 billion;15,200,000,000"
   },
   {
     "Question_ID": 2,
@@ -15,9 +17,11 @@
     "Type": "Tabular",
     "Difficulty": "Moderate",
     "Expected_Answer": "220 basis points or 2.2 percentage points",
-    "Expected_source": "Table in AMEX_EMR_2023.pdf",
+    "Expected_source": "AMEX_EMR_2023",
     "Answer_Qwen2": " 25% increase",
-    "Answer_Qwen2.5": "Emerson's adjusted EBITA margin increased by 2.3 percentage points from 2022 to 2023. Specifically it increased from 23.5% in 2022 to 25.8% in 2023."
+    "Answer_Qwen2.5": "Emerson's adjusted EBITA margin increased by 2.3 percentage points from 2022 to 2023. Specifically it increased from 23.5% in 2022 to 25.8% in 2023.",
+    "Answer_Gemma_4B": "According to the 2023 Emerson Annual Report, Emerson’s adjusted EBITA margin increased by 2.3 percentage points from 23.5% in 2022 to 25.8% in 2023.",
+    "References": "220 basis points;2.2 percentage points"
   },
   {
     "Question_ID": 3,
@@ -25,9 +29,11 @@
     "Type": "Textual",
     "Difficulty": "Easy",
     "Expected_Answer": "National Instruments Corporation (NI) with an equity value of $8.2 billion",
-    "Expected_source": "Narrative in AMEX_EMR_2023.pdf",
+    "Expected_source": "AMEX_EMR_2023",
     "Answer_Qwen2": "On October 11 2023: Emerson completed the acquisition of National Instruments Corporation (NI) at an equity value of $8.2 billion On October 11 2023",
-    "Answer_Qwen2.5": "Emerson completed the acquisition of National Instruments Corporation (NI) at an equity value of $8.2 billion."
+    "Answer_Qwen2.5": "Emerson completed the acquisition of National Instruments Corporation (NI) at an equity value of $8.2 billion.",
+    "Answer_Gemma_4B": "According to the document, Emerson completed the acquisition of National Instruments Corporation (NI) on October 11, 2023, for an equity value of $8.2 billion.",
+    "References": "National Instruments Corporation (NI);$8.2 billion"
   },
   {
     "Question_ID": 4,
@@ -35,9 +41,11 @@
     "Type": "Tabular",
     "Difficulty": "Easy",
     "Expected_Answer": "The Americas accounted for 51% of Emerson's sales",
-    "Expected_source": "Table in AMEX_EMR_2023.pdf",
+    "Expected_source": "AMEX_EMR_2023",
     "Answer_Qwen2": "The largest percentage of Emerson's sales in 2023 was in the Americas, with 51% of the total sales",
-    "Answer_Qwen2.5": "The largest percentage of Emerson's sales in 2023 was from the Americas which accounted for 31 percent of total sales"
+    "Answer_Qwen2.5": "The largest percentage of Emerson's sales in 2023 was from the Americas which accounted for 31 percent of total sales",
+    "Answer_Gemma_4B": "According to the document, the United States accounted for 58% of Emerson’s total sales in 2023.",
+    "References": "Americas;America"
   },
   {
     "Question_ID": 5,
@@ -45,9 +53,10 @@
     "Type": "Textual",
     "Difficulty": "Hard",
     "Expected_Answer": "The 'Greening Of' strategy focuses on improving internal environmental sustainability performance, including reducing GHG emissions and energy consumption.",
-    "Expected_source": "Narrative in AMEX_EMR_2023.pdf",
+    "Expected_source": "AMEX_EMR_2023",
     "Answer_Qwen2": "Emerson defines its 'Greening Of' strategy in its environmental sustainability framework by focusing on reducing its GHG emissions and energy and water consumption",
-    "Answer_Qwen2.5": "Emerson defines its Greening Of strategy in its environmental sustainability framework as follows:Greening Off Emerson: This refers to efforts to improve internal environmental sustainability performance including reducing GHG emissions and energy and water consumption."
+    "Answer_Qwen2.5": "Emerson defines its Greening Of strategy in its environmental sustainability framework as follows:Greening Off Emerson: This refers to efforts to improve internal environmental sustainability performance including reducing GHG emissions and energy and water consumption.",
+    "Answer_Gemma_4B": "According to the document, Emerson defines its “Greening Of” strategy as: Investing in our actions to achieve zero greenhouse gas emissions across our value chain by 2050, we will target net zero emissions by 2021 baseline.” It also mentions that ”Emerson demonstrates our efforts to improve environmental sustainability” and that this is summarized by the “Greening Of” framework."
   },
   {
     "Question_ID": 6,
@@ -55,9 +64,11 @@
     "Type": "Tabular",
     "Difficulty": "Easy",
     "Expected_Answer": "$7.8 billion",
-    "Expected_source": "Table in AMEX_EMR_2023.pdf",
+    "Expected_source": "AMEX_EMR_2023",
     "Answer_Qwen2": "The total backlog of orders at Emerson for 2023 was $6,988 million.",
-    "Answer_Qwen2.5": "The total backlog of orders at Emerson as of September 30, 2023, was $7.7 billion."
+    "Answer_Qwen2.5": "The total backlog of orders at Emerson as of September 30, 2023, was $7.7 billion.",
+    "Answer_Gemma_4B": "According to the provided text, the total backlog of orders at Emerson during 2023 was $11,808 million.",
+    "References": "$7.8 billion;7,800,000,000;7.8 billion"
   },
   {
     "Question_ID": 7,
@@ -65,9 +76,11 @@
     "Type": "Textual",
     "Difficulty": "Moderate",
     "Expected_Answer": "Final Control and Measurement & Analytical",
-    "Expected_source": "Narrative in AMEX_EMR_2023.pdf",
+    "Expected_source": "AMEX_EMR_2023",
     "Answer_Qwen2": "The two major product lines within Emerson's Intelligent Devices business group are Final Control and Measurement & Analytical.",
-    "Answer_Qwen2.5": "Two major product lines within Emerson's Intelligent Devices business group are Final Control and Measurement & Analytical."
+    "Answer_Qwen2.5": "Two major product lines within Emerson's Intelligent Devices business group are Final Control and Measurement & Analytical.",
+    "Answer_Gemma_4B": "According to the document, the two major product lines within Emerson’s Intelligent Devices business group are: Control Valves and Pressure Safety Valves",
+    "References": "Final Control, Measurement & Analytical;Final Control and Measurement & Analytical"
   },
   {
     "Question_ID": 8,
@@ -75,9 +88,11 @@
     "Type": "Textual",
     "Difficulty": "Easy",
     "Expected_Answer": "23%",
-    "Expected_source": "Narrative in AMEX_EMR_2023.pdf",
+    "Expected_source": "AMEX_EMR_2023",
     "Answer_Qwen2": "In 2023, the Company completed the diversification of leadership positions, with 23 percent of leadership positions held by women. Women represent 33 percent of the Company's global workforce and 21 percent of our leadership positions.",
-    "Answer_Qwen2.5": "According to the information provided, 21 percent of Emerson's leadership positions were held by women in 2023."
+    "Answer_Qwen2.5": "According to the information provided, 21 percent of Emerson's leadership positions were held by women in 2023.",
+    "Answer_Gemma_4B": "According to the 2023 Emerson Annual Report, 40 percent of women occupy leadership positions in the company.",
+    "References": "23%;23 percent;23"
   },
   {
     "Question_ID": 9,
@@ -85,9 +100,11 @@
     "Type": "Tabular",
     "Difficulty": "Easy",
     "Expected_Answer": "15.6%",
-    "Expected_source": "Table in AMEX_EMR_2023.pdf",
+    "Expected_source": "AMEX_EMR_2023",
     "Answer_Qwen2": "Emerson's free cash flow margin in 2023 was 8.5% of sales, which is 1.596 divided by 1,759.",
-    "Answer_Qwen2.5": "Emerson's free cash flow margin in 2023 was 15.6%."
+    "Answer_Qwen2.5": "Emerson's free cash flow margin in 2023 was 15.6%.",
+    "Answer_Gemma_4B": "According to the image, Emerson's free cash flow margin in 2023 was 2.4%.",
+    "References": "15.6%;15.6 percent;15.6"
   },
   {
     "Question_ID": 10,
@@ -95,9 +112,10 @@
     "Type": "Textual",
     "Difficulty": "Hard",
     "Expected_Answer": "Initiated a continuous listening strategy with surveys, achieving an overall engagement score of 78%",
-    "Expected_source": "Narrative in AMEX_EMR_2023.pdf",
+    "Expected_source": "AMEX_EMR_2023",
     "Answer_Qwen2": "Emerson’s strategy to address employee retention and engagement in 2023 was to assess and improve employee retention and engagement, conduct surveys, and take actions to address areas of employee concern.",
-    "Answer_Qwen2.5": "In 2023 Emerson addressed employee retention and engagement through several initiatives: 1. Leadership Development Programs: The Company developed intensive learning programs for new leaders as well as more established leaders. 2. Partnerships with Educational Institutions and Nonprofits: Emerson partnered with educational institutions and nonprofit organizations to help prepare current and future workers with the knowledge and skills they need to succeed. 3. Employee Surveys: The Company surveyed employees with the assistance of third-party consultants to assess and improve employee retention and engagement. 4. Actions to Address Areas of Employee Concern: Based on the survey results Emerson took actions to address areas of employee concern. These strategies contributed to an overall engagement score of 78 percent"
+    "Answer_Qwen2.5": "In 2023 Emerson addressed employee retention and engagement through several initiatives: 1. Leadership Development Programs: The Company developed intensive learning programs for new leaders as well as more established leaders. 2. Partnerships with Educational Institutions and Nonprofits: Emerson partnered with educational institutions and nonprofit organizations to help prepare current and future workers with the knowledge and skills they need to succeed. 3. Employee Surveys: The Company surveyed employees with the assistance of third-party consultants to assess and improve employee retention and engagement. 4. Actions to Address Areas of Employee Concern: Based on the survey results Emerson took actions to address areas of employee concern. These strategies contributed to an overall engagement score of 78 percent",
+    "Answer_Gemma_4B": "Here’s a breakdown of Emerson’s strategy to address employee retention and engagement in 2023, based on the provided documents: Let’s Go Initiative: This was a key initiative focused on inviting current and potential employees to join the company. It aimed to attract, develop, and retain key personnel. Employee Engagement Surveys: The company utilized a “Voice Counts” strategy, a new listening system, to effectively understand employee sentiment. This survey aimed to capture 78% engagement.Leadership Development Programs: Emerson invested in global training and development programs to build and strengthen employee leadership and professional skills."
   },
   {
     "Question_ID": 11,
@@ -105,9 +123,11 @@
     "Type": "Tabular",
     "Difficulty": "Easy",
     "Expected_Answer": "$2.363 billion",
-    "Expected_source": "Table in AMEX_EMR_2023.pdf",
+    "Expected_source": "AMEX_EMR_2023",
     "Answer_Qwen2": "Emerson's free cash flow for the fiscal year 2023 was $2.4B.",
-    "Answer_Qwen2.5": "Emerson's free cash flow for the fiscal year 2023 was $2.4B."
+    "Answer_Qwen2.5": "Emerson's free cash flow for the fiscal year 2023 was $2.4B.",
+    "Answer_Gemma_4B": "According to the provided documents, Emerson's free cash flow for the fiscal year 2023 was $2,363.",
+    "References": "$2.363 billion;2,363,000,000;2.363 billion"
   },
   {
     "Question_ID": 12,
@@ -115,9 +135,11 @@
     "Type": "Tabular",
     "Difficulty": "Moderate",
     "Expected_Answer": "Final Control with 26%",
-    "Expected_source": "Table in AMEX_EMR_2023.pdf",
+    "Expected_source": "AMEX_EMR_2023",
     "Answer_Qwen2": "According to the financial highlights provided in the document, the segment that contributed the highest percentage of sales in 2023 was AspenTech.The highest percentage (26%) is attributed to the Final Control segment.",
-    "Answer_Qwen2.5": "The segment that contributed the highest percentage of sales in 2023 is Intelligent Devices, with 17% of total sales."
+    "Answer_Qwen2.5": "The segment that contributed the highest percentage of sales in 2023 is Intelligent Devices, with 17% of total sales.",
+    "Answer_Gemma_4B": "According to the provided financial highlights, Intelligent Devices contributed the highest percentage of sales in 2023 at 17%.",
+    "References": "Final Control"
   },
   {
     "Question_ID": 13,
@@ -125,9 +147,11 @@
     "Type": "Tabular",
     "Difficulty": "Moderate",
     "Expected_Answer": "Adjusted diluted EPS increased from $3.64 in 2022 to $4.44 in 2023 (22% increase).",
-    "Expected_source": "Table in AMEX_EMR_2023.pdf",
+    "Expected_source": "AMEX_EMR_2023",
     "Answer_Qwen2": "Emerson's adjusted diluted EPS in terms of operations in 2023 was $3.82 compared to $4.44 in 2022.",
-    "Answer_Qwen2.5": "In 2023, Emerson's adjusted diluted EPS from continuing operations was $4.44 per share, which is an increase from $3.64 per share in 2022. This represents a 22% growth in adjusted diluted EPS from continuing operations between these two years."
+    "Answer_Qwen2.5": "In 2023, Emerson's adjusted diluted EPS from continuing operations was $4.44 per share, which is an increase from $3.64 per share in 2022. This represents a 22% growth in adjusted diluted EPS from continuing operations between these two years.",
+    "Answer_Gemma_4B": "According to the provided document, Emerson's adjusted diluted EPS from continuing operations in 2023 was $3.72, while in 2022 it was $3.36.",
+    "References": "Increased from $3.64 in 2022 to $4.44 in 2023;22% increase"
   },
   {
     "Question_ID": 14,
@@ -135,9 +159,11 @@
     "Type": "Tabular",
     "Difficulty": "Moderate",
     "Expected_Answer": "18.0%",
-    "Expected_source": "Table in AMEX_EMR_2023.pdf",
+    "Expected_source": "AMEX_EMR_2023",
     "Answer_Qwen2": "Emerson's reported pretax earnings margin (GAAP) in 2023 was 2.49, as shown in the table on page 19.",
-    "Answer_Qwen2.5": "Emerson's reported pretax earnings margin (GAAP) in 2023 was 18.0%"
+    "Answer_Qwen2.5": "Emerson's reported pretax earnings margin (GAAP) in 2023 was 18.0%",
+    "Answer_Gemma_4B": "According to the provided document, Emerson’s reported pretax earnings margin (GAAP) in 2023 was 18.0%.",
+    "References": "18.0%;18.0 percent;18.0"
   },
   {
     "Question_ID": 15,
@@ -145,9 +171,11 @@
     "Type": "Tabular",
     "Difficulty": "Moderate",
     "Expected_Answer": "75%",
-    "Expected_source": "Table in AMEX_EMR_2023.pdf",
+    "Expected_source": "AMEX_EMR_2023",
     "Answer_Qwen2": "Approximately 75 percent of the Company’s backlog is expected to be recognized as revenue over the next 12 months.",
-    "Answer_Qwen2.5": "According to the information provided, approximately 75 percent of the Company's consolidated backlog is expected to be recognized as revenue over the next 12 months"
+    "Answer_Qwen2.5": "According to the information provided, approximately 75 percent of the Company's consolidated backlog is expected to be recognized as revenue over the next 12 months",
+    "Answer_Gemma_4B": "According to the text, approximately 75 percent of Emerson’s consolidated backlog is expected to be recognized as revenue over the next 12 months.",
+    "References": "75%;75 percent;75"
   },
   {
     "Question_ID": 16,
@@ -155,9 +183,11 @@
     "Type": "Textual",
     "Difficulty": "Hard",
     "Expected_Answer": "Acquisition of National Instruments (NI).",
-    "Expected_source": "Narrative in AMEX_EMR_2023.pdf",
+    "Expected_source": "AMEX_EMR_2023",
     "Answer_Qwen2": "The acquisition that expanded Emerson's test and measurement capabilities in 2023 was the Copeland transaction",
-    "Answer_Qwen2.5": "Emerson expanded its test and measurement capabilities in 2023 with the acquisition of National Instruments Corporation (NI)."
+    "Answer_Qwen2.5": "Emerson expanded its test and measurement capabilities in 2023 with the acquisition of National Instruments Corporation (NI).",
+    "Answer_Gemma_4B": "According to the provided document, Emerson completed the acquisition of NI on October 11, 2023. This business will be referred to as Test & Measurement and reported as a new segment in 2024.",
+    "References": "Acquisition of National Instruments (NI);National Instruments (NI);National Instruments Corporation;NI"
   },
   {
     "Question_ID": 17,
@@ -165,9 +195,10 @@
     "Type": "Textual",
     "Difficulty": "Hard",
     "Expected_Answer": "Achieve zero waste to landfill by 2032.",
-    "Expected_source": "Narrative in AMEX_EMR_2023.pdf",
+    "Expected_source": "AMEX_EMR_2023",
     "Answer_Qwen2": "The goal set by Emerson for achieving zero waste in manufacturing facilities was to establish a new technology and Environmental Sustainability Board committee, which is tasked with overseeing strategy related to technology and R&D.",
-    "Answer_Qwen2.5": "The goal set by Emerson for achieving zero waste in manufacturing facilities is to achieve zero waste to landfill by 2032, from a 2022 fiscal year baseline."
+    "Answer_Qwen2.5": "The goal set by Emerson for achieving zero waste in manufacturing facilities is to achieve zero waste to landfill by 2032, from a 2022 fiscal year baseline.",
+    "Answer_Gemma_4B": "According to the text, Emerson set a goal to achieve zero greenhouse gas (GHG) emissions across our value chain by 2045, and to set up one right pathway to zero emissions by 2030."
   },
   {
     "Question_ID": 18,
@@ -175,9 +206,11 @@
     "Type": "Tabular",
     "Difficulty": "Moderate",
     "Expected_Answer": "7.6%",
-    "Expected_source": "Table in AMEX_EMR_2023.pdf",
+    "Expected_source": "AMEX_EMR_2023",
     "Answer_Qwen2": "The CAGR (Compound Annual Growth Rate) of Emerson's shareholder return from 2018 to 2023 is 7.6%.",
-    "Answer_Qwen2.5": "The CAGR (Compound Annual Growth Rate) of Emerson's shareholder return from 2018 to 2023 is 7.6%."
+    "Answer_Qwen2.5": "The CAGR (Compound Annual Growth Rate) of Emerson's shareholder return from 2018 to 2023 is 7.6%.",
+    "Answer_Gemma_4B": "Based on the provided documents, it's impossible to calculate the exact CAGR (Compound Annual Growth Rate) of Emerson's shareholder return from 2018 to 2023. Here's why: No Financial Data: The documents primarily focus on business operations, acquisitions, and investor relations. They do not contain historical stock prices or shareholder return figures.\n\nTo determine the CAGR, you would need access to Emerson's stock price data for those years.",
+    "References": "7.6%;7.6 percent;7.6"
   },
   {
     "Question_ID": 19,
@@ -185,9 +218,11 @@
     "Type": "Tabular",
     "Difficulty": "Easy",
     "Expected_Answer": "30%",
-    "Expected_source": "Table in AMEX_EMR_2023.pdf",
+    "Expected_source": "AMEX_EMR_2023",
     "Answer_Qwen2": "The percentage of sales in the Asia, Middle East & Africa region in 2023 was up 11 percent.",
-    "Answer_Qwen2.5": "The percentage of sales in the Asia, Middle East & Africa region in 2023 is 30%."
+    "Answer_Qwen2.5": "The percentage of sales in the Asia, Middle East & Africa region in 2023 is 30%.",
+    "Answer_Gemma_4B": "According to the provided images, the percentage of sales in the Asia, Middle East & Africa (AMEA) region in 2023 was 30%.",
+    "References": "30%;30 percent;30"
   },
   {
     "Question_ID": 20,
@@ -195,9 +230,10 @@
     "Type": "Textual",
     "Difficulty": "Hard",
     "Expected_Answer": "Your Voice Counts.",
-    "Expected_source": "Narrative in AMEX_EMR_2023.pdf",
+    "Expected_source": "AMEX_EMR_2023",
     "Answer_Qwen2": "Emerson launched a new listening strategy to effectively understand employee sentiment in 2023.",
-    "Answer_Qwen2.5": "Emerson launched Your Voice Counts a new listening strategy to effectively understand employee sentiment in 2023."
+    "Answer_Qwen2.5": "Emerson launched Your Voice Counts a new listening strategy to effectively understand employee sentiment in 2023.",
+    "References": "Your Voice Counts"
   },
   {
     "Question_ID": 21,
@@ -205,9 +241,10 @@
     "Type": "Tabular",
     "Difficulty": "Easy",
     "Expected_Answer": "$5,533 million",
-    "Expected_source": "TPG Annual Report 2023",
+    "Expected_source": "ASX_TPM_2023",
     "Answer_Qwen2": "TPG Telecom's total revenue for the fiscal year 2023 was $5,533 million.",
-    "Answer_Qwen2.5": "COLPALI ERROR"
+    "Answer_Qwen2.5": "COLPALI ERROR",
+    "References": "$5,533 million;5,533,000,000;5.533 billion"
   },
   {
     "Question_ID": 22,
@@ -215,9 +252,10 @@
     "Type": "Tabular",
     "Difficulty": "Moderate",
     "Expected_Answer": "Mobile services, with revenue growth of 9.3%, increasing to $2,155 million",
-    "Expected_source": "TPG Annual Report 2023",
+    "Expected_source": "ASX_TPM_2023",
     "Answer_Qwen2": "According to the table in Note 3, the segment that contributed the highest revenue growth for TPG Telecom in 2023 was Consumer, with a revenue growth of 4.3% to $4.632 billion.",
-    "Answer_Qwen2.5": "The Fixed Broadband business segment contributed the highest revenue growth for TPG Telecom in 2023, with an increase of 4.3% to $4.632 billion."
+    "Answer_Qwen2.5": "The Fixed Broadband business segment contributed the highest revenue growth for TPG Telecom in 2023, with an increase of 4.3% to $4.632 billion.",
+    "References": "Mobile services"
   },
   {
     "Question_ID": 23,
@@ -225,7 +263,7 @@
     "Type": "Textual",
     "Difficulty": "Hard",
     "Expected_Answer": "Integrate and Simplify, Win Smart, and Maximise Our Potential ",
-    "Expected_source": "TPG Annual Report 2023",
+    "Expected_source": "ASX_TPM_2023",
     "Answer_Qwen2": "The three strategic principles outlined by TPG Telecom in their 2023 report are: 1. Integrate and Simplify 2. Win Smart 3. Maximize Our Potential",
     "Answer_Qwen2.5": "1. Integrate and Simplify 2. Win Smart 3. Maximize our Potential"
   },
@@ -235,7 +273,7 @@
     "Type": "Textual",
     "Difficulty": "Hard",
     "Expected_Answer": "Achieving zero waste to landfill in its manufacturing facilities",
-    "Expected_source": "Emerson Annual Report 2023",
+    "Expected_source": "AMEX_EMR_2023",
     "Answer_Qwen2": "Emerson established a goal to achieve zero waste to landfill in their manufacturing facilities by 2032.",
     "Answer_Qwen2.5": "Emerson achieved a goal to achieve zero waste to landfill in their manufacturing facilities by 2032 from a 2022 fiscal year baseline."
   },
@@ -245,9 +283,10 @@
     "Type": "Textual",
     "Difficulty": "Moderate",
     "Expected_Answer": "TPG Telecom acquired new 3.7GHz spectrum licenses",
-    "Expected_source": "TPG Annual Report 2023",
+    "Expected_source": "ASX_TPM_2023",
     "Answer_Qwen2": "In 2023, TPG Telecom acquired the 5G mobile network from Telstra.",
-    "Answer_Qwen2.5": "TPG Telecom pursued an acquisition of new 3GHz spectrum in 2023 to improve and extend their 5G services and coverage across Australia."
+    "Answer_Qwen2.5": "TPG Telecom pursued an acquisition of new 3GHz spectrum in 2023 to improve and extend their 5G services and coverage across Australia.",
+    "References": "3.7GHz spectrum licenses;Telstra"
   },
   {
     "Question_ID": 26,
@@ -255,9 +294,10 @@
     "Type": "Textual",
     "Difficulty": "Moderate",
     "Expected_Answer": "Achieved 227,000 subscribers, establishing TPG Telecom as the largest provider of fixed wireless services in Australia",
-    "Expected_source": "TPG Annual Report 2023",
+    "Expected_source": "ASX_TPM_2023",
     "Answer_Qwen2": "The key achievements of TPG Telecom's Fixed Wireless service in 2023 were: - Achieving 227,000 subscribers - Stabilisation of the subscriber base, including the launch of Fibre Connect services on Vodafone",
-    "Answer_Qwen2.5": "TPG Telecom pursued an acquisition of new 3GHz spectrum in 2023 to improve and extend their 5G services and coverage across Australia."
+    "Answer_Qwen2.5": "TPG Telecom pursued an acquisition of new 3GHz spectrum in 2023 to improve and extend their 5G services and coverage across Australia.",
+    "References": "227,000 subscribers;largest provider of fixed wireless services in Australia"
   },
   {
     "Question_ID": 27,
@@ -267,7 +307,8 @@
     "Expected_Answer": "10% growth in the US & Canada",
     "Expected_source": "AMEX_EMR_2018",
     "Answer_Qwen2": "49",
-    "Answer_Qwen2.5": "The growth in the U.S. & Canada region in 2018 was 10%"
+    "Answer_Qwen2.5": "The growth in the U.S. & Canada region in 2018 was 10%",
+    "References": "10%;10 percent;10"
   },
   {
     "Question_ID": 28,
@@ -287,7 +328,8 @@
     "Expected_Answer": "Dividends were $1.2 billion ($1.94 per share) in 2018, compared with $1.2 billion ($1.92 per share) in 2017",
     "Expected_source": "AMEX_EMR_2018",
     "Answer_Qwen2": "The dividend per share for the year 2018 was $1.94, compared to $1.64 in 2017",
-    "Answer_Qwen2.5": "The dividend per share for Emerson in 2018 was $1.94, which is an increase from the previous year's dividend of $1.64. This represents a growth of 3% in dividends per share over the five-year period shown in the chart."
+    "Answer_Qwen2.5": "The dividend per share for Emerson in 2018 was $1.94, which is an increase from the previous year's dividend of $1.64. This represents a growth of 3% in dividends per share over the five-year period shown in the chart.",
+    "References": "$1.2 billion ($1.94 per share);1.2 billion;1.94;1.94 per share"
   },
   {
     "Question_ID": 30,
@@ -297,7 +339,8 @@
     "Expected_Answer": "Automation Solutions sales were $12.2 billion in 2019, an increase of $761 million",
     "Expected_source": "AMEX_EMR_2019",
     "Answer_Qwen2": "13,724.0",
-    "Answer_Qwen2.5": "The reported sales of Automation Solutions in 2019 were $12.2 billion"
+    "Answer_Qwen2.5": "The reported sales of Automation Solutions in 2019 were $12.2 billion",
+    "References": "$12.2 billion;12,200,000,000;12.2 billion"
   },
   {
     "Question_ID": 31,
@@ -307,7 +350,8 @@
     "Expected_Answer": "The 2019 report cites acquisitions such as GE’s Intelligent Platforms, Zedi’s cloud software business, KnowledgeNet, Bioproduction Group, and iSolutions Inc.",
     "Expected_source": "AMEX_EMR_2019",
     "Answer_Qwen2": "The strategic acquisitions mentioned in the 2019 report are: 1. Automation Solutions platform launched a dedicated digital transformation business that combines our unique sensing technology, operational analytics and broad services to deliver targeted digital solutions to real customer problems.2. Data just one piece of the digital transformation process. It's what we help customers do with that data through strong, informative analytics that truly enables the industry to reach its highest potential. We're putting data to work across the organization to empower our customers and to help with critical needs like protecting food quality and advancing the industries that are the backbone of daily life. 3. We're building on our technology capabilities, we are also making investments to help cultivate our strong and engaged workforce, the most valuable asset to our",
-    "Answer_Qwen2.5": "The 2019 Emerson Annual Report mentions several strategic acquisitions:1. In 2019, Emerson's Automation Solutions platform launched a dedicated digital transformation business that combines their unique sensing technology, operational analytics, and data science footprints to deliver targeted digital solutions to real customer problems.2. The company acquired Aventics, a global provider of smart pneumatics technologies that power machine and factory automation applications, for $622 million net of cash acquired on July 17, 2018.These acquisitions enhance Emerson's ability to help customers use data to optimize their operations and empower their customers while addressing critical needs like protecting food quality and advancing industries that are the backbone of daily life."
+    "Answer_Qwen2.5": "The 2019 Emerson Annual Report mentions several strategic acquisitions:1. In 2019, Emerson's Automation Solutions platform launched a dedicated digital transformation business that combines their unique sensing technology, operational analytics, and data science footprints to deliver targeted digital solutions to real customer problems.2. The company acquired Aventics, a global provider of smart pneumatics technologies that power machine and factory automation applications, for $622 million net of cash acquired on July 17, 2018.These acquisitions enhance Emerson's ability to help customers use data to optimize their operations and empower their customers while addressing critical needs like protecting food quality and advancing industries that are the backbone of daily life.",
+    "References": "GE’s Intelligent Platforms, Zedi’s cloud software business, KnowledgeNet, Bioproduction Group, iSolutions Inc.;GE’s Intelligent Platforms;Zedi’s cloud software business, KnowledgeNet;Bioproduction Group ;iSolutions Inc."
   },
   {
     "Question_ID": 32,
@@ -317,7 +361,8 @@
     "Expected_Answer": "The software portfolio is at 2.4 billon.",
     "Expected_source": "AMEX_EMR_2020",
     "Answer_Qwen2": "The total software portfolio of the company in 2020 is $2.4 billion.",
-    "Answer_Qwen2.5": "The total software portfolio of Emerson in 2020 was $2.4 billion, consisting of $1.1 billion in stand-alone software and associated engineering services, and $1.3 billion in embedded control and software-enabled devices."
+    "Answer_Qwen2.5": "The total software portfolio of Emerson in 2020 was $2.4 billion, consisting of $1.1 billion in stand-alone software and associated engineering services, and $1.3 billion in embedded control and software-enabled devices.",
+    "References": "2.4 billion;2,400,000,000"
   },
   {
     "Question_ID": 33,
@@ -327,7 +372,8 @@
     "Expected_Answer": "16.8% return on total capital",
     "Expected_source": "AMEX_EMR_2020",
     "Answer_Qwen2": "16.8%",
-    "Answer_Qwen2.5": "The return on total capital for 2020, as shown in the first image, was 16.8%."
+    "Answer_Qwen2.5": "The return on total capital for 2020, as shown in the first image, was 16.8%.",
+    "References": "16.8%;16.8 percent;16.8"
   },
   {
     "Question_ID": 34,
@@ -337,7 +383,8 @@
     "Expected_Answer": "setting a goal to double the representation of women and U.S. minorities in leadership by 2030. Additionally, the company achieved a 100% score on the Human Rights Campaign’s Corporate Equality Index, underscoring its measurable progress in inclusivity.",
     "Expected_source": "AMEX_EMR_2021",
     "Answer_Qwen2": "Emerson reported a score of 100% on the Human Rights Campaign's 2021 Corporate Equality Index and the designation as one of the Best Places to Work for LGBTQ Equality.",
-    "Answer_Qwen2.5": "Emerson reported that they earned a score of 100% on the Human Rights Campaign's 2021 Corporate Equality Index and were designated as one of the Best Places to Work for LGBTQ Equality."
+    "Answer_Qwen2.5": "Emerson reported that they earned a score of 100% on the Human Rights Campaign's 2021 Corporate Equality Index and were designated as one of the Best Places to Work for LGBTQ Equality.",
+    "References": "double representation of women and U.S. minorities in leadership by 2030;100% score on the Human Rights Campaign’s Corporate Equality Index;double representation minorities;double representation women in leadership"
   },
   {
     "Question_ID": 35,
@@ -347,7 +394,8 @@
     "Expected_Answer": "Emerson's CAGR is of 14.8%",
     "Expected_source": "AMEX_EMR_2021",
     "Answer_Qwen2": "The five year compound annual growth rate is 14.8%.",
-    "Answer_Qwen2.5": "Emerson's five-year compound annual growth rate (CAGR) is 14.8%."
+    "Answer_Qwen2.5": "Emerson's five-year compound annual growth rate (CAGR) is 14.8%.",
+    "References": "14.8%;14.8 percent;14.8"
   },
   {
     "Question_ID": 36,
@@ -358,7 +406,7 @@
     "Expected_source": "AMEX_EMR_2022",
     "Answer_Qwen2": "Emerson has set the following environmental goals that are aligned with the Science Based Targets initiative (SBT): Net zero greenhouse gas (GHG) emissions from own operations (Scopes 1 and 2) by 2030, as well as a 25% reduction in Scope 3 by the same year.",
     "Answer_Qwen2.5": "Emerson's Net Zero Targets as stated in the 2022 report include: 1. **Net zero greenhouse gas (GHG) emissions from their own operations (Scopes 1 and 2)** by 2030. 2. **A 25% reduction in Scope 3 GHG emissions** by the same year, which is SBTi-approved.Additionally, they aim for: **Net zero GHG emissions across their value chain (Scopes 1, 2, and 3)** by 2045."
-  },
+},
   {
     "Question_ID": 37,
     "Question": "What was Emerson underlying sales growth in 2022?",
@@ -367,7 +415,8 @@
     "Expected_Answer": "9%",
     "Expected_source": "AMEX_EMR_2022",
     "Answer_Qwen2": "Emerson's underlying sales growth in 2022 was 9 percent",
-    "Answer_Qwen2.5": "Emerson's underlying sales growth in 2022 was 9 percent."
+    "Answer_Qwen2.5": "Emerson's underlying sales growth in 2022 was 9 percent.",
+    "References": "9%;9 percent;9"
   },
   {
     "Question_ID": 38,
@@ -377,8 +426,9 @@
     "Expected_Answer": "First half of 2023",
     "Expected_source": "AMEX_EMR_2022",
     "Answer_Qwen2": "The deal is expected to close in the first half of the 2023 calendar year.",
-    "Answer_Qwen2.5": "The deal of Emerson's Climate Technologies business is expected to close in the first half of the 2023 calendar year."
-  },
+    "Answer_Qwen2.5": "The deal of Emerson's Climate Technologies business is expected to close in the first half of the 2023 calendar year.",
+    "References": "First half of 2023;first half of 2023 calendar year;first period of 2023"
+  },  
   {
     "Question_ID": 39,
     "Question": "What recent actions has Emerson taken to reinforce its commitment to environmental, social, and governance (ESG) initiatives in 2022?",
@@ -397,7 +447,8 @@
     "Expected_Answer": "$4.717 billion",
     "Expected_source": "AMEX_AE_2001",
     "Answer_Qwen2": "$3,956,477",
-    "Answer_Qwen2.5": "The total revenues for the fiscal year 2001, as shown in the table, were $4,677,609 thousand."
+    "Answer_Qwen2.5": "The total revenues for the fiscal year 2001, as shown in the table, were $4,677,609 thousand.",
+    "References": "$4.717 billion;4,717,000,000"
   },
   {
     "Question_ID": 41,
@@ -407,7 +458,8 @@
     "Expected_Answer": "$12.475 million",
     "Expected_source": "AMEX_AE_2001",
     "Answer_Qwen2": "Long-term debt in 2001 was $12,475",
-    "Answer_Qwen2.5": "The long-term debt in 2001 was $11,475 thousand."
+    "Answer_Qwen2.5": "The long-term debt in 2001 was $11,475 thousand.",
+    "References": "$12.475 million;12,475,000;12.475"
   },
   {
     "Question_ID": 42,
@@ -417,7 +469,8 @@
     "Expected_Answer": "$2.323 billion",
     "Expected_source": "AMEX_AE_2002",
     "Answer_Qwen2": "$ 4,750",
-    "Answer_Qwen2.5": "The total revenues for 2002 were $4,750 thousand"
+    "Answer_Qwen2.5": "The total revenues for 2002 were $4,750 thousand",
+    "References": "$2.323 billion;2,323,000,000"
   },
   {
     "Question_ID": 43,
@@ -427,7 +480,8 @@
     "Expected_Answer": "$1.452 million",
     "Expected_source": "AMEX_AE_2002",
     "Answer_Qwen2": "The net earnings in 2002 were $1,452.",
-    "Answer_Qwen2.5": "The net earnings for the year ended December 31, 2002, as shown in the first table (Consolidated Statement of Operations), is $1,452 thousand."
+    "Answer_Qwen2.5": "The net earnings for the year ended December 31, 2002, as shown in the first table (Consolidated Statement of Operations), is $1,452 thousand.",
+    "References": "$1.452 million;1,452,000;1.452"
   },
   {
     "Question_ID": 44,
@@ -437,7 +491,8 @@
     "Expected_Answer": "$ 1,677,728",
     "Expected_source": "AMEX_AE_2003",
     "Answer_Qwen2": "Marketing total revenues in 2003 were $1,677,728.",
-    "Answer_Qwen2.5": "The marketing total revenues in 2003 were $1,677,728 thousand."
+    "Answer_Qwen2.5": "The marketing total revenues in 2003 were $1,677,728 thousand.",
+    "References": "$1,677,728;1,677,728,000"
   },
   {
     "Question_ID": 45,
@@ -447,7 +502,8 @@
     "Expected_Answer": "$11.475 million",
     "Expected_source": "AMEX_AE_2003",
     "Answer_Qwen2": "The long-term debt at the end of 2003 was $11,475,000.",
-    "Answer_Qwen2.5": "The long-term debt at the end of 2003 was $11,475,000."
+    "Answer_Qwen2.5": "The long-term debt at the end of 2003 was $11,475,000.",
+    "References": "$11.475 million;11,475,000;11.475"
   },
   {
     "Question_ID": 46,
@@ -457,7 +513,8 @@
     "Expected_Answer": "$0.30 per share",
     "Expected_source": "AMEX_AE_2004",
     "Answer_Qwen2": "The total dividend paid per common share in 2004 was $30.",
-    "Answer_Qwen2.5": "The total dividend paid per common share in 2004 was $0.30."
+    "Answer_Qwen2.5": "The total dividend paid per common share in 2004 was $0.30.",
+    "References": "$0.30 per share;0.30;$0.30"
   },
   {
     "Question_ID": 47,
@@ -467,7 +524,8 @@
     "Expected_Answer": "$35.789 million",
     "Expected_source": "AMEX_AE_2004",
     "Answer_Qwen2": "The working capital in 2004 was $35,789.",
-    "Answer_Qwen2.5": "The working capital in 2004 was $35,789 thousand."
+    "Answer_Qwen2.5": "The working capital in 2004 was $35,789 thousand.",
+    "References": "$35.789 million;35,789,000"
   },
   {
     "Question_ID": 48,
@@ -477,7 +535,8 @@
     "Expected_Answer": "$3.97 per share",
     "Expected_source": "AMEX_AE_2005",
     "Answer_Qwen2": "The earnings per share (EPS) from continuing operations in 2005 was $2.910.",
-    "Answer_Qwen2.5": "The earnings per share (EPS) from continuing operations in 2005 was $3.97."
+    "Answer_Qwen2.5": "The earnings per share (EPS) from continuing operations in 2005 was $3.97.",
+    "References": "$3.97 per share;3.97;$3.97"
   },
   {
     "Question_ID": 49,
@@ -487,7 +546,8 @@
     "Expected_Answer": "$8.43 per Mcf",
     "Expected_source": "AMEX_AE_2005",
     "Answer_Qwen2": "The average sales price per Mcf of natural gas in 2005 was $8.43",
-    "Answer_Qwen2.5": "The average sales price per Mcf of natural gas in 2005 was $8.43."
+    "Answer_Qwen2.5": "The average sales price per Mcf of natural gas in 2005 was $8.43.",
+    "References": "$8.43 per Mcf;8.43;$8.43"
   },
   {
     "Question_ID": 50,
@@ -497,8 +557,9 @@
     "Expected_Answer": "Executive director: Noel Newell and Non-Executive Directors: Mr I Tchacos, Mr L De Maria, Mr T Slater",
     "Expected_source": "ASX_TDO_2023",
     "Answer_Qwen2": "1. Executive Chairman: Mr. Noel Newell 2. Non-Executive Director: Mr. Ian Tchacos 3. Non-Executive Director: Mr. Leo De Maria 4. Non-Executive Director: Mr. Trevor Slater",
-    "Answer_Qwen2.5": "1. Noel Newell - Executive Chairman 2. Ian Tchacos - Non-Executive Director 3. Leo De Maria - Non-Executive Director 4. Trevor Slater - Non-Executive Director"
-  },
+    "Answer_Qwen2.5": "1. Noel Newell - Executive Chairman 2. Ian Tchacos - Non-Executive Director 3. Leo De Maria - Non-Executive Director 4. Trevor Slater - Non-Executive Director",
+    "References": "Executive director: Noel Newell and Non-Executive Directors: Mr I Tchacos, Mr L De Maria, Mr T Slater;Noel Newell,Mr I Tchacos, Mr L De Maria, Mr T Slater"
+  },    
   {
     "Question_ID": 51,
     "Question": "Can you provide me with the names of the Executive Directors of the company and their total remuneration?",
@@ -517,7 +578,8 @@
     "Expected_Answer": "3,414,258",
     "Expected_source": "ASX_TDO_2023",
     "Answer_Qwen2": "The profit and loss in 2023 of the company is $3,414,258.",
-    "Answer_Qwen2.5": "The profit and loss for the year ended 30 June 2023, as presented in the Consolidated Statement of Profit or Loss and Other Comprehensive Income, is as follows: **Profit/(loss) before income tax expense:** $3,414,258. **Income tax expense:** $853,565. **Profit/(loss) after income tax expense for the year attributable to the owners of 3D Oil Limited:** $3,414,258. Therefore, the profit after tax for the year 2023 is $3,414,258."
+    "Answer_Qwen2.5": "The profit and loss for the year ended 30 June 2023, as presented in the Consolidated Statement of Profit or Loss and Other Comprehensive Income, is as follows: **Profit/(loss) before income tax expense:** $3,414,258. **Income tax expense:** $853,565. **Profit/(loss) after income tax expense for the year attributable to the owners of 3D Oil Limited:** $3,414,258. Therefore, the profit after tax for the year 2023 is $3,414,258.",
+    "References": "3,414,258;3,414 million"
   },
   {
     "Question_ID": 53,
@@ -527,7 +589,8 @@
     "Expected_Answer": "Grant Thornton Audit Pty Ltd resigned as Company’s auditors during the year, RSM Australia Partners was appointed as new auditor",
     "Expected_source": "ASX_TDO_2023",
     "Answer_Qwen2": "The auditors of the 3D Oil Limited during 2023 were RSM Australia Partners.",
-    "Answer_Qwen2.5": "The auditors of 3D Oil Limited during 2023 were RSM Australia Partners."
+    "Answer_Qwen2.5": "The auditors of 3D Oil Limited during 2023 were RSM Australia Partners.",
+    "References": "Grant Thornton Audit Pty Ltd;RSM Australia Partners"
   },
   {
     "Question_ID": 54,
@@ -537,7 +600,8 @@
     "Expected_Answer": "The largest shareholder holds 44,875,560 shares, which represents 16.91% of the company’s total issued shares",
     "Expected_source": "ASX_TDO_2023",
     "Answer_Qwen2": "The largest shareholder owns 44,875,960 shares.",
-    "Answer_Qwen2.5": "The largest shareholder, Noel Newell, owns 44,875,960 ordinary shares."
+    "Answer_Qwen2.5": "The largest shareholder, Noel Newell, owns 44,875,960 ordinary shares.",
+    "References": "44,875,560 shares;44,875,960 shares;44,875,560"
   },
   {
     "Question_ID": 55,
@@ -547,7 +611,8 @@
     "Expected_Answer": "The company holds $10,662,296 in assets for the year 2023",
     "Expected_source": "ASX_TDO_2023",
     "Answer_Qwen2": "The company holds $3,221,377 in assets in 2023.",
-    "Answer_Qwen2.5": "The company holds $10,642,296 in total assets as of June 30, 2023."
+    "Answer_Qwen2.5": "The company holds $10,642,296 in total assets as of June 30, 2023.",
+    "References": "$10,662,296;10,662 million"
   },
   {
     "Question_ID": 56,
@@ -557,7 +622,8 @@
     "Expected_Answer": "The total equity of the company in 2023 is $9,905,237",
     "Expected_source": " ASX_TDO_2023",
     "Answer_Qwen2": "The total equity of the company in 2023 is $9,905,237.",
-    "Answer_Qwen2.5": "The total equity of the company in 2023 is $9,905,237."
+    "Answer_Qwen2.5": "The total equity of the company in 2023 is $9,905,237.",
+    "References": "9,905,237;9,905 million"
   },
   {
     "Question_ID": 57,
@@ -567,7 +633,8 @@
     "Expected_Answer": "The Company’s principal activities during the year were the exploration and development of natural resources.",
     "Expected_source": "ASX_KFM_2023",
     "Answer_Qwen2": "The company is focusing on sourcing the future metals of tomorrow.",
-    "Answer_Qwen2.5": "The company, Kingfisher Mining, is focusing on sourcing the <future metals of tomorrow as mentioned> in their Annual Report for 2023. This indicates that they are likely involved in mining activities and are looking to source and develop new types of metals that could be important for future industries or technologies."
+    "Answer_Qwen2.5": "The company, Kingfisher Mining, is focusing on sourcing the future metals of tomorrow as mentioned in their Annual Report for 2023. This indicates that they are likely involved in mining activities and are looking to source and develop new types of metals that could be important for future industries or technologies.",
+    "References": "exploration and development of natural resources;exploration natural resources;development natural resources"
   },
   {
     "Question_ID": 58,
@@ -577,7 +644,8 @@
     "Expected_Answer": "The net effect was an increase of $1,194,841 in cash during 2023",
     "Expected_source": "ASX_KFM_2023",
     "Answer_Qwen2": "The overall effect on cash during the 2023 financial year was a decrease of $1,591,423.",
-    "Answer_Qwen2.5": "The overall effect on cash during the 2023 financial year can be analyzed by looking at the changes in cash and cash equivalents, trade and other receivables, and other assets.**Cash and Cash Equivalents**:At the end of the 2023 financial year, the company had $878,934 in cash at bank.At the end of the 2022 financial year, the company had $2,184,093 in cash at bank.The decrease in cash at bank from $2,184,093 to $878,934 indicates a reduction in cash by $1"
+    "Answer_Qwen2.5": "The overall effect on cash during the 2023 financial year can be analyzed by looking at the changes in cash and cash equivalents, trade and other receivables, and other assets.**Cash and Cash Equivalents**:At the end of the 2023 financial year, the company had $878,934 in cash at bank.At the end of the 2022 financial year, the company had $2,184,093 in cash at bank.The decrease in cash at bank from $2,184,093 to $878,934 indicates a reduction in cash by $1",
+    "References": "increase of $1,194,841 in cash;1,194,841 in cash"
   },
   {
     "Question_ID": 59,
@@ -587,7 +655,8 @@
     "Expected_Answer": "the company did not record a profit in 2023. In fact, it reported an operating net loss of $2,013,952",
     "Expected_source": "ASX_KFM_2023",
     "Answer_Qwen2": "The profit recorded in 2023 is $2,013,952.",
-    "Answer_Qwen2.5": "The profit recorded for the year ended 30 June 2023 is $2,013,952."
+    "Answer_Qwen2.5": "The profit recorded for the year ended 30 June 2023 is $2,013,952.",
+    "References": " loss of 2,013,952;2,013,952 million;loss of 2,013,952 million"
   },
   {
     "Question_ID": 60,
@@ -597,8 +666,9 @@
     "Expected_Answer": "According from the documents for the year 2023,consultancy fees amounted to $115,080",
     "Expected_source": "ASX_KFM_2023",
     "Answer_Qwen2": "Yes, the company had consultancy fees. The amount was $115,080",
-    "Answer_Qwen2.5": "Yes, the company had consultancy fees. The amount for consultancy fees in the financial statement is $115,080."
-  },
+    "Answer_Qwen2.5": "Yes, the company had consultancy fees. The amount for consultancy fees in the financial statement is $115,080.",
+    "References": "115,080;115,080 million"
+    },
   {
     "Question_ID": 61,
     "Question": "Is there any financial challenges faced by 88 energy in 2023?",

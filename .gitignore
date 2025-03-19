@@ -4,5 +4,6 @@
 __pycache__/
 
 Assets/data/
-
+Assets/scripts/token.txt
+scripts/token.txt
 vidore-benchmark/

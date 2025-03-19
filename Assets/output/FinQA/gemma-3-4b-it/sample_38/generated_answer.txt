@@ -1,0 +1,10 @@
+Explanation:
+To calculate the difference in percentage cumulative total return between Goldman Sachs Group Inc. and the S&P 500 index for the five-year period ending 12/31/13, we first need to calculate the cumulative total return for each investment. Then, we subtract the S&P 500 return from the Goldman Sachs return.
+
+Goldman Sachs Group Inc. cumulative return (12/26/08 to 12/31/13): $248.36
+S&P 500 index cumulative return (12/26/08 to 12/31/13): $236.20
+
+Difference: $248.36 - $236.20 = $12.16
+
+Now, we calculate the percentage difference:
+Percentage difference = (Difference / S&P 500 return

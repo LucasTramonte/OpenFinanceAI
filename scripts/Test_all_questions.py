@@ -1,0 +1,242 @@
+import os
+import torch
+import json
+import logging
+from pdf2image import convert_from_path
+from colpali_engine.models import ColQwen2, ColQwen2Processor
+from colpali_engine.interpretability import (
+    get_similarity_maps_from_embeddings,
+    plot_similarity_map
+)
+from torch.utils.data import DataLoader
+from tqdm import tqdm
+from transformers import AutoProcessor, Gemma3ForConditionalGeneration
+from qwen_vl_utils import process_vision_info
+
+# Setup logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+# Output directories
+OUTPUT_DIRECTORY = "../Assets/output"
+SIMILARITY_DIR = os.path.join(OUTPUT_DIRECTORY, "similarity_maps")
+RELEVANT_DIR = os.path.join(OUTPUT_DIRECTORY, "relevant_documents")
+os.makedirs(SIMILARITY_DIR, exist_ok=True)
+os.makedirs(RELEVANT_DIR, exist_ok=True)
+
+def load_model_and_processor():
+    """Load the ColPALI model and processor."""
+    model = ColQwen2.from_pretrained(
+        "vidore/colqwen2-v1.0",
+        torch_dtype=torch.bfloat16,
+        device_map="cuda:0"
+    ).eval()
+    processor = ColQwen2Processor.from_pretrained("vidore/colqwen2-v1.0")
+    return model, processor
+
+def convert_pdf_to_images(pdf_path):
+    """Convert a PDF file to a list of images."""
+    images = convert_from_path(pdf_path)
+    logger.info(f"PDF converted to {len(images)} pages.")
+    return images
+
+def generate_embeddings(model, processor, images):
+    """Generate embeddings for each image."""
+    dataloader = DataLoader(
+        dataset=images,
+        batch_size=2,
+        shuffle=False,
+        collate_fn=lambda x: processor.process_images(x)
+    )
+    embeddings_list = []
+    for batch in tqdm(dataloader, desc="Generating embeddings"):
+        with torch.no_grad():
+            batch = {k: v.to(model.device) for k, v in batch.items()}
+            embeddings = model(**batch)
+        embeddings_list.extend(embeddings.cpu().unbind())
+    return embeddings_list
+
+def get_relevant_indices(model, processor, query, embeddings_list, top_k):
+    """Retrieve the indices of the top-k relevant pages based on the query."""
+    batch_queries = processor.process_queries([query]).to(model.device)
+    with torch.no_grad():
+        query_embeddings = model(**batch_queries)
+    scores = processor.score_multi_vector(query_embeddings, embeddings_list)
+    return scores[0].topk(top_k).indices.tolist()
+
+def save_similarity_scores_and_maps(images, embeddings_list, top_k_indices, query, model, processor):
+    """Save the similarity scores and maps for the top-k relevant pages."""
+    similarity_scores_path = os.path.join(OUTPUT_DIRECTORY, "similarity_scores.txt")
+    with open(similarity_scores_path, "w") as score_file:
+        for i, idx in enumerate(top_k_indices):
+            image = images[idx]
+            embeddings = embeddings_list[idx]
+
+            # Save relevant image
+            relevant_path = os.path.join(RELEVANT_DIR, f"relevant_doc_{i + 1}.jpg")
+            image.save(relevant_path)
+            logger.info(f"Saved relevant document to {relevant_path}")
+
+            # Generate and save similarity maps
+            n_patches = processor.get_n_patches(image_size=image.size, patch_size=model.patch_size, spatial_merge_size=2)
+            image_mask = processor.get_image_mask(processor.process_images([image]))
+            batch_queries = processor.process_queries([query]).to(model.device)
+            with torch.no_grad():
+                query_embeddings = model(**batch_queries)
+
+            batched_similarity_maps = get_similarity_maps_from_embeddings(
+                image_embeddings=embeddings.unsqueeze(0).to("cuda"),
+                query_embeddings=query_embeddings,
+                n_patches=n_patches,
+                image_mask=image_mask,
+            )
+
+            query_tokens = processor.tokenizer.tokenize(
+                processor.decode(batch_queries.input_ids[0]).replace(processor.tokenizer.pad_token, "").strip()
+            )
+
+            similarity_maps = batched_similarity_maps[0]
+            for token_idx, similarity_map in enumerate(similarity_maps[:len(query_tokens)]):
+                max_sim_score = similarity_map.max().item()
+                fig, ax = plot_similarity_map(
+                    image=image,
+                    similarity_map=similarity_map,
+                    figsize=(8, 8),
+                    show_colorbar=True,
+                )
+                ax.set_title(
+                    f"Token #{token_idx + 1}: `{query_tokens[token_idx].replace('Ġ', '_')}`. MaxSim score: {max_sim_score:.2f}",
+                    fontsize=10,
+                )
+                fig.tight_layout()
+                fig_path = os.path.join(SIMILARITY_DIR, f"doc_{i + 1}_token_{token_idx + 1}.png")
+                fig.savefig(fig_path, dpi=100)
+                score_file.write(
+                    f"Document {i + 1}, Token #{token_idx + 1} (`{query_tokens[token_idx]}`): MaxSim score = {max_sim_score:.2f}\n"
+                )
+    logger.info(f"Similarity scores saved in {similarity_scores_path}")
+
+def index_and_save_documents(pdf_path: str, query: str, top_k: int = 3):
+    """Index the PDF document and save the top-k relevant pages and their similarity maps."""
+    try:
+        model, processor = load_model_and_processor()
+        images = convert_pdf_to_images(pdf_path)
+        embeddings_list = generate_embeddings(model, processor, images)
+        top_k_indices = get_relevant_indices(model, processor, query, embeddings_list, top_k)
+        save_similarity_scores_and_maps(images, embeddings_list, top_k_indices, query, model, processor)
+        return RELEVANT_DIR
+    except Exception as e:
+        logger.error(f"An error occurred: {e}")
+        raise
+
+def generate_responses(query: str, relevant_dir: str, top_k: int = 3) -> str:
+    """
+    Generate responses based on the top-k relevant pages using the Gemma model.
+    Returns the generated text.
+    """
+    try:
+        # Load the Gemma model and processor (modèle instruction-tuned)
+        model_id = "google/gemma-3-4b-it"
+        gen_model = Gemma3ForConditionalGeneration.from_pretrained(
+            model_id, device_map="auto", torch_dtype=torch.bfloat16
+        ).eval()
+        gen_processor = AutoProcessor.from_pretrained(model_id)
+
+        # Load the relevant documents
+        relevant_files = sorted(os.listdir(relevant_dir))[:top_k]
+        image_paths = [os.path.abspath(os.path.join(relevant_dir, file_name)) for file_name in relevant_files]
+        logger.info(f"Number of images passed: {len(image_paths)}")
+
+        # Prepare the prompt with the query
+        PROMPT = f"Use the following pages to answer the query:\n{query}\n"
+
+        # Construire les messages avec un rôle système et un rôle utilisateur
+        messages = [
+            {
+                "role": "system",
+                "content": [{"type": "text", "text": "You are a helpful assistant."}]
+            },
+            {
+                "role": "user",
+                "content": [
+                    {"type": "image", "image": image_paths[0]},
+                    {"type": "image", "image": image_paths[1]},
+                    {"type": "image", "image": image_paths[2]},
+                    {"type": "text", "text": PROMPT},
+                ],
+            }
+        ]
+
+        # Préparer les entrées avec le template de conversation de Gemma
+        inputs = gen_processor.apply_chat_template(
+            messages, add_generation_prompt=True, tokenize=True, return_dict=True, return_tensors="pt"
+        ).to(gen_model.device, dtype=torch.bfloat16)
+
+        input_len = inputs["input_ids"].shape[-1]
+        with torch.inference_mode():
+            generation = gen_model.generate(**inputs, max_new_tokens=150, do_sample=False)
+            generation = generation[0][input_len:]
+        output_text = gen_processor.decode(generation, skip_special_tokens=True)
+
+        logger.info("Final response:")
+        logger.info(output_text)
+
+        # Sauvegarder la réponse générée dans un fichier si besoin
+        response_path = os.path.join(OUTPUT_DIRECTORY, "generated_responses.txt")
+        with open(response_path, "w") as f:
+            f.write(output_text)
+        logger.info(f"Generated responses saved in {response_path}")
+
+        return output_text
+
+    except Exception as e:
+        logger.error(f"An error occurred during response generation: {e}")
+        raise
+
+def process_dataset(dataset_path: str, top_k: int = 3):
+    """
+    Charge le dataset JSON, itère sur chaque échantillon,
+    génère la réponse Gemma et ajoute la clé "Answer_Gemma_4B".
+    Écrit les modifications dans le même fichier JSON.
+    """
+    # Charger le JSON existant
+    with open(dataset_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    for sample in data:
+        try:
+            # Utiliser Expected_source qui contient directement le nom du PDF; on ajoute .pdf
+            pdf_name = sample.get("Expected_source", "").strip() + ".pdf"
+            pdf_path = os.path.join("../Assets/data_test", pdf_name)
+            query = sample.get("Question", "")
+
+            logger.info(f"Processing Question_ID {sample.get('Question_ID')} with PDF: {pdf_path}")
+
+            # Indexer le PDF et récupérer le dossier contenant les pages pertinentes
+            relevant_dir = index_and_save_documents(pdf_path, query, top_k=top_k)
+            # Générer la réponse avec le modèle Gemma
+            answer = generate_responses(query, relevant_dir, top_k=top_k)
+            # Ajouter la réponse dans le sample
+            sample["Answer_Gemma_4B"] = answer
+            logger.info(f"About to write dataset to {os.path.abspath(dataset_path)}")
+
+        except Exception as e:
+            logger.error(f"Error processing Question_ID {sample.get('Question_ID')}: {e}")
+            sample["Answer_Gemma_4B"] = "Error"
+
+    # Écrire les modifications dans le même fichier JSON
+        try:
+            with open(dataset_path, "w", encoding="utf-8") as f_out:
+                json.dump(data, f_out, indent=2, ensure_ascii=False)
+            logger.info(f"Dataset updated and saved to {dataset_path}")
+        except Exception as e:
+            logger.error(f"Error writing JSON file: {e}")
+
+
+def main():
+    dataset_path = "../Assets/data_test/ardian_dataset_test.json"
+    process_dataset(dataset_path, top_k=3)
+
+if __name__ == "__main__":
+    os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
+    main()

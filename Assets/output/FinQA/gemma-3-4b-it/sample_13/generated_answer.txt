@@ -1,0 +1,9 @@
+Explanation:
+The context provides the deferred tax asset and regulatory asset balances at December 31, 2013 and December 31, 2014.
+At December 31, 2013, the deferred tax assets and regulatory assets were $177,947 and $62,410, respectively.
+At December 31, 2014, the deferred tax assets and regulatory assets were $195,237 and $63,480, respectively.
+
+To calculate the percentage change, we use the following formula:
+Percentage Change = [(Value in 2014 - Value in 2013) / Value in 2013] * 100
+
+Percentage Change = [(195237 - 177947) / 177947] * 100

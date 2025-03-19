@@ -10,3 +10,6 @@ Processor: Qwen/Qwen2-VL-2B-Instruct
 Model: Qwen/Qwen2-VL-2B-Instruct
 Accuracy: 0.00%
 
+Processor: google/gemma-3-4b-it
+Model: google/gemma-3-4b-it
+Accuracy: 26.00%

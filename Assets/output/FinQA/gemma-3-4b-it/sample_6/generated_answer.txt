@@ -1,0 +1,10 @@
+Explanation:
+To calculate the percentage change in total rental expense under operating leases from July 2, 2005, to July 1, 2006, we first need to find the rental expense for each year.
+In fiscal 2005 (July 2, 2005), the total rental expense was $92710000.
+In fiscal 2006 (July 1, 2006), the total rental expense was $100690000.
+
+The change in rental expense is $100690000 - $92710000 = $7980000.
+
+The percentage change is calculated as:
+((New Value - Old Value) / Old Value) * 100
+((100690000 - 9271000

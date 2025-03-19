@@ -1,0 +1,2 @@
+Explanation:
+The text states that recourse debt as of December 31, 2010, is scheduled to reach maturity as follows: 2011 ($463 million), 2012, 2013, 2014, 2015 ($500 million), and thereafter ($3152 million). The total recourse debt is $4612 million. The current maturities are the amounts due in 2011, 2012, 2013, 2014, and 2015.  We need to sum these amounts: $463 + $2014 + $2014 + $497 + $500 = $3880.  To find the percentage, we divide the current maturities by the total recourse debt and multiply by 100: ($3880
