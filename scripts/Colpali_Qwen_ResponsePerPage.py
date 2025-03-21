@@ -11,7 +11,10 @@ from torch.utils.data import DataLoader
 from tqdm import tqdm
 from transformers import Qwen2VLForConditionalGeneration, AutoProcessor
 from qwen_vl_utils import process_vision_info
+import matplotlib.pyplot as plt
 import logging
+import pickle
+import hashlib
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
@@ -40,20 +43,48 @@ def convert_pdf_to_images(pdf_path):
     logger.info(f"PDF converted into {len(images)} pages.")
     return images
 
-def generate_embeddings(images, processor, model):
-    """Generate embeddings for each image."""
+def get_pdf_hash(pdf_path):
+    """Generate a unique hash for the given PDF file."""
+    hasher = hashlib.md5()
+    with open(pdf_path, "rb") as f:
+        hasher.update(f.read())
+    return hasher.hexdigest()
+
+def generate_embeddings(model, processor, images, pdf_path):
+    """Generate embeddings if not already saved for the specific PDF."""
+    pdf_hash = get_pdf_hash(pdf_path)
+    index_file = os.path.join(OUTPUT_DIRECTORY, f"document_embeddings_{pdf_hash}.pkl")
+
+    if os.path.exists(index_file):
+        try:
+            with open(index_file, "rb") as f:
+                embeddings_list = pickle.load(f)
+            logger.info(f"INFO: Embeddings loaded from cache for {pdf_path}.")
+            return embeddings_list
+        except Exception as e:
+            logger.warning(f"WARNING: Failed to load embeddings for {pdf_path}. Regenerating... (Error: {e})")
+
+    # Compute embeddings if not found or loading failed
+    logger.info(f"INFO: Generating new embeddings for {pdf_path}...")
     dataloader = DataLoader(
         dataset=images,
-        batch_size=2,
+        batch_size=8,
         shuffle=False,
-        collate_fn=lambda x: processor.process_images(x),
+        collate_fn=lambda x: processor.process_images(x)
     )
+
     embeddings_list = []
     for batch in tqdm(dataloader, desc="Generating embeddings"):
         with torch.no_grad():
             batch = {k: v.to(model.device) for k, v in batch.items()}
             embeddings = model(**batch)
         embeddings_list.extend(embeddings.cpu().unbind())
+
+    # Save embeddings specific to this PDF
+    with open(index_file, "wb") as f:
+        pickle.dump(embeddings_list, f)
+
+    logger.info(f"INFO: Embeddings saved for {pdf_path}.")
     return embeddings_list
 
 def get_top_k_indices(query, processor, model, embeddings_list, top_k):
@@ -115,6 +146,7 @@ def save_relevant_documents_and_similarity_maps(images, embeddings_list, top_k_i
                 fig.tight_layout()
                 fig_path = os.path.join(SIMILARITY_DIR, f"doc_{i + 1}_token_{token_idx + 1}.png")
                 fig.savefig(fig_path, dpi=100)
+                plt.close(fig)  # Close the figure to free up memory
 
                 # Save similarity score to text file
                 score_file.write(
@@ -127,7 +159,7 @@ def index_and_save_documents(pdf_path: str, query: str, top_k: int = 3):
     try:
         model, processor = load_model_and_processor()
         images = convert_pdf_to_images(pdf_path)
-        embeddings_list = generate_embeddings(images, processor, model)
+        embeddings_list = generate_embeddings(model, processor, images,pdf_path)
         top_k_indices = get_top_k_indices(query, processor, model, embeddings_list, top_k)
         save_relevant_documents_and_similarity_maps(images, embeddings_list, top_k_indices, processor, model, query)
         return RELEVANT_DIR
