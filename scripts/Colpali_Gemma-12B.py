@@ -1,10 +1,5 @@
 import os
 import torch
-import json
-import matplotlib.pyplot as plt
-import logging
-import pickle
-import hashlib
 from pdf2image import convert_from_path
 from colpali_engine.models import ColQwen2, ColQwen2Processor
 from colpali_engine.interpretability import (
@@ -14,7 +9,13 @@ from colpali_engine.interpretability import (
 from torch.utils.data import DataLoader
 from tqdm import tqdm
 from transformers import AutoProcessor, Gemma3ForConditionalGeneration
+from huggingface_hub import login
 from qwen_vl_utils import process_vision_info
+import matplotlib.pyplot as plt
+import logging
+import pickle
+import hashlib
+from transformers import BitsAndBytesConfig
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
@@ -29,6 +30,8 @@ os.makedirs(RELEVANT_DIR, exist_ok=True)
 
 def load_model_and_processor():
     """Load the ColPALI model and processor."""
+    # login(token="your_huggingface_token")
+    
     model = ColQwen2.from_pretrained(
         "vidore/colqwen2-v1.0",
         torch_dtype=torch.bfloat16,
@@ -54,21 +57,24 @@ def generate_embeddings(model, processor, images, pdf_path):
     """Generate embeddings if not already saved for the specific PDF."""
     pdf_hash = get_pdf_hash(pdf_path)
     index_file = os.path.join(OUTPUT_DIRECTORY, f"document_embeddings_{pdf_hash}.pkl")
+    model_id = model.config.name_or_path.replace("/", "_")  
+    index_file = os.path.join(OUTPUT_DIRECTORY, f"document_embeddings_{pdf_hash}_{model_id}.pkl")
 
     if os.path.exists(index_file):
         try:
             with open(index_file, "rb") as f:
                 embeddings_list = pickle.load(f)
-            logger.info(f"INFO: Embeddings loaded from cache for {pdf_path}.")
+            logger.info(f"INFO: Embeddings loaded from cache for {pdf_path} using model {model_id}.")
             return embeddings_list
         except Exception as e:
             logger.warning(f"WARNING: Failed to load embeddings for {pdf_path}. Regenerating... (Error: {e})")
+
 
     # Compute embeddings if not found or loading failed
     logger.info(f"INFO: Generating new embeddings for {pdf_path}...")
     dataloader = DataLoader(
         dataset=images,
-        batch_size=4,
+        batch_size=2,
         shuffle=False,
         collate_fn=lambda x: processor.process_images(x)
     )
@@ -80,11 +86,11 @@ def generate_embeddings(model, processor, images, pdf_path):
             embeddings = model(**batch)
         embeddings_list.extend(embeddings.cpu().unbind())
 
-    # Save embeddings specific to this PDF
+    # Save embeddings specific to this PDF and model
     with open(index_file, "wb") as f:
         pickle.dump(embeddings_list, f)
 
-    logger.info(f"INFO: Embeddings saved for {pdf_path}.")
+    logger.info(f"INFO: Embeddings saved for {pdf_path} using model {model_id}.")
     return embeddings_list
 
 def get_relevant_indices(model, processor, query, embeddings_list, top_k):
@@ -153,7 +159,7 @@ def index_and_save_documents(pdf_path: str, query: str, top_k: int = 3):
     try:
         model, processor = load_model_and_processor()
         images = convert_pdf_to_images(pdf_path)
-        embeddings_list = generate_embeddings(model, processor, images,pdf_path)
+        embeddings_list = generate_embeddings(model, processor, images, pdf_path)
         top_k_indices = get_relevant_indices(model, processor, query, embeddings_list, top_k)
         save_similarity_scores_and_maps(images, embeddings_list, top_k_indices, query, model, processor)
         return RELEVANT_DIR
@@ -161,28 +167,27 @@ def index_and_save_documents(pdf_path: str, query: str, top_k: int = 3):
         logger.error(f"An error occurred: {e}")
         raise
 
-def generate_responses(query: str, relevant_dir: str, top_k: int = 3) -> str:
-    """
-    Generate responses based on the top-k relevant pages using the Gemma model.
-    Returns the generated text.
-    """
+def generate_responses(query: str, relevant_dir: str, top_k: int = 3):
+    """Generate responses based on the top-k relevant pages using the Gemma 12B model."""
     try:
-        # Load the Gemma model and processor (modèle instruction-tuned)
-        model_id = "google/gemma-3-4b-it"
+        #quantization_config = BitsAndBytesConfig(load_in_8bit=True,llm_int8_threshold=6.0)
+        # Load the Gemma 12B model with SFP8 quantization
+        model_id = "google/gemma-3-12b-it"
         gen_model = Gemma3ForConditionalGeneration.from_pretrained(
-            model_id, device_map="auto", torch_dtype=torch.bfloat16
+            model_id, device_map="auto", torch_dtype=torch.float16
         ).eval()
         gen_processor = AutoProcessor.from_pretrained(model_id)
 
         # Load the relevant documents
         relevant_files = sorted(os.listdir(relevant_dir))[:top_k]
         image_paths = [os.path.abspath(os.path.join(relevant_dir, file_name)) for file_name in relevant_files]
+
         logger.info(f"Number of images passed: {len(image_paths)}")
 
         # Prepare the prompt with the query
         PROMPT = f"Use the following pages to answer the query:\n{query}\n"
 
-        # Construire les messages avec un rôle système et un rôle utilisateur
+        # Construct messages with system and user roles
         messages = [
             {
                 "role": "system",
@@ -199,10 +204,10 @@ def generate_responses(query: str, relevant_dir: str, top_k: int = 3) -> str:
             }
         ]
 
-        # Préparer les entrées avec le template de conversation de Gemma
+        # Prepare inputs with the Gemma conversation template
         inputs = gen_processor.apply_chat_template(
             messages, add_generation_prompt=True, tokenize=True, return_dict=True, return_tensors="pt"
-        ).to(gen_model.device, dtype=torch.bfloat16)
+        ).to(gen_model.device, dtype=torch.float16)
 
         input_len = inputs["input_ids"].shape[-1]
         with torch.inference_mode():
@@ -213,62 +218,23 @@ def generate_responses(query: str, relevant_dir: str, top_k: int = 3) -> str:
         logger.info("Final response:")
         logger.info(output_text)
 
-        # Sauvegarder la réponse générée dans un fichier si besoin
+        # Save the generated response
         response_path = os.path.join(OUTPUT_DIRECTORY, "generated_responses.txt")
         with open(response_path, "w") as f:
             f.write(output_text)
         logger.info(f"Generated responses saved in {response_path}")
 
-        return output_text
-
     except Exception as e:
         logger.error(f"An error occurred during response generation: {e}")
         raise
 
-def process_dataset(dataset_path: str, top_k: int = 3):
-    """
-    Charge le dataset JSON, itère sur chaque échantillon,
-    génère la réponse Gemma et ajoute la clé "Answer_Gemma_4B".
-    Écrit les modifications dans le même fichier JSON.
-    """
-    # Charger le JSON existant
-    with open(dataset_path, "r", encoding="utf-8") as f:
-        data = json.load(f)
-
-    for sample in data:
-        try:
-            # Utiliser Expected_source qui contient directement le nom du PDF; on ajoute .pdf
-            pdf_name = sample.get("Expected_source", "").strip() + ".pdf"
-            pdf_path = os.path.join("../Assets/data_test", pdf_name)
-            query = sample.get("Question", "")
-
-            logger.info(f"Processing Question_ID {sample.get('Question_ID')} with PDF: {pdf_path}")
-
-            # Indexer le PDF et récupérer le dossier contenant les pages pertinentes
-            relevant_dir = index_and_save_documents(pdf_path, query, top_k=top_k)
-            # Générer la réponse avec le modèle Gemma
-            answer = generate_responses(query, relevant_dir, top_k=top_k)
-            # Ajouter la réponse dans le sample
-            sample["Answer_Gemma_4B"] = answer
-            logger.info(f"About to write dataset to {os.path.abspath(dataset_path)}")
-
-        except Exception as e:
-            logger.error(f"Error processing Question_ID {sample.get('Question_ID')}: {e}")
-            sample["Answer_Gemma_4B"] = "Error"
-
-    # Écrire les modifications dans le même fichier JSON
-        try:
-            with open(dataset_path, "w", encoding="utf-8") as f_out:
-                json.dump(data, f_out, indent=2, ensure_ascii=False)
-            logger.info(f"Dataset updated and saved to {dataset_path}")
-        except Exception as e:
-            logger.error(f"Error writing JSON file: {e}")
-
-
 def main():
-    dataset_path = "../Assets/data_test/ardian_dataset_test.json"
-    process_dataset(dataset_path, top_k=3)
+    pdf_path = "../Assets/data_test/AMEX_EMR_2023.pdf"
+    query = "By what percentage did Emerson’s adjusted EBITA margin increase in 2023 compared to 2022?"
+    relevant_dir = index_and_save_documents(pdf_path, query, top_k=3)
+    generate_responses(query, relevant_dir, top_k=3)
+
+os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 
 if __name__ == "__main__":
-    os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
     main()
