@@ -187,7 +187,9 @@ def generate_responses(query: str, relevant_dir: str, top_k: int = 3):
             ] + [{"type": "text", "text": prompt}]
         }]
         
-        text_prompt = gen_processor.apply_chat_template(messages, add_generation_prompt=True)
+        #text_prompt = gen_processor.apply_chat_template(messages, add_generation_prompt=True)
+        text_prompt = gen_processor.apply_chat_template(messages[0]["content"][-1]["text"], add_generation_prompt=True)
+
         image_inputs, video_inputs = process_vision_info(messages)
         inputs = gen_processor(
             text=[text_prompt],

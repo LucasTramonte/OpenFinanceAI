@@ -17,3 +17,4 @@ bert-score
 rouge_score
 ragas
 git+https://github.com/huggingface/transformers@v4.49.0-Gemma-3
+timm
