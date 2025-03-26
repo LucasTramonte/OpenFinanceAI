@@ -20,6 +20,10 @@ import hashlib
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+# Read the Hugging Face token from file (Ensure this file is manually created and not committed!)
+with open("token.txt", "r") as token_file:
+    HF_TOKEN = token_file.read().strip()
+    
 # Output directories
 OUTPUT_DIRECTORY = "../Assets/output"
 SIMILARITY_DIR = os.path.join(OUTPUT_DIRECTORY, "similarity_maps")
@@ -29,7 +33,7 @@ os.makedirs(RELEVANT_DIR, exist_ok=True)
 
 def load_model_and_processor():
     """Load the ColPALI model and processor."""
-    #login(token="your_huggingface_token") 
+    login(token=f"{HF_TOKEN}") 
     
     model = ColQwen2.from_pretrained(
         "vidore/colqwen2-v1.0",

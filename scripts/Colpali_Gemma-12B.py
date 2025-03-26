@@ -28,9 +28,13 @@ RELEVANT_DIR = os.path.join(OUTPUT_DIRECTORY, "relevant_documents")
 os.makedirs(SIMILARITY_DIR, exist_ok=True)
 os.makedirs(RELEVANT_DIR, exist_ok=True)
 
+# Read the Hugging Face token from file (Ensure this file is manually created and not committed!)
+with open("token.txt", "r") as token_file:
+    HF_TOKEN = token_file.read().strip()
+    
 def load_model_and_processor():
     """Load the ColPALI model and processor."""
-    # login(token="your_huggingface_token")
+    login(token=f"{HF_TOKEN}")
     
     model = ColQwen2.from_pretrained(
         "vidore/colqwen2-v1.0",
@@ -174,7 +178,7 @@ def generate_responses(query: str, relevant_dir: str, top_k: int = 3):
         # Load the Gemma 12B model with SFP8 quantization
         model_id = "google/gemma-3-12b-it"
         gen_model = Gemma3ForConditionalGeneration.from_pretrained(
-            model_id, device_map="auto", torch_dtype=torch.float16
+            model_id, device_map="auto", torch_dtype=torch.bfloat16
         ).eval()
         gen_processor = AutoProcessor.from_pretrained(model_id)
 
