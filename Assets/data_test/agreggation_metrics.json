@@ -4,363 +4,363 @@
     "Metric": "rouge1",
     "Type": "Overall",
     "Mean": 0.3077175106712675,
-    "Borda": 19
+    "Borda": 21
   },
   {
     "Model": "Answer_Qwen2",
     "Metric": "rouge1",
     "Type": "Short",
     "Mean": 0.3515190853338666,
-    "Borda": 19
+    "Borda": 21
   },
   {
     "Model": "Answer_Qwen2",
     "Metric": "rouge1",
     "Type": "Long",
     "Mean": 0.2845284417322445,
-    "Borda": 19
+    "Borda": 21
   },
   {
     "Model": "Answer_Qwen2",
     "Metric": "rouge2",
     "Type": "Overall",
     "Mean": 0.13241155404801044,
-    "Borda": 19
+    "Borda": 21
   },
   {
     "Model": "Answer_Qwen2",
     "Metric": "rouge2",
     "Type": "Short",
     "Mean": 0.22135451888301866,
-    "Borda": 19
+    "Borda": 21
   },
   {
     "Model": "Answer_Qwen2",
     "Metric": "rouge2",
     "Type": "Long",
     "Mean": 0.0853241020765355,
-    "Borda": 19
+    "Borda": 21
   },
   {
     "Model": "Answer_Qwen2",
     "Metric": "rougeL",
     "Type": "Overall",
     "Mean": 0.24388949415829128,
-    "Borda": 19
+    "Borda": 21
   },
   {
     "Model": "Answer_Qwen2",
     "Metric": "rougeL",
     "Type": "Short",
     "Mean": 0.33004981386459514,
-    "Borda": 19
+    "Borda": 21
   },
   {
     "Model": "Answer_Qwen2",
     "Metric": "rougeL",
     "Type": "Long",
     "Mean": 0.198275207254954,
-    "Borda": 19
+    "Borda": 21
   },
   {
     "Model": "Answer_Qwen2.5",
     "Metric": "rouge1",
     "Type": "Overall",
     "Mean": 0.2946615738756188,
-    "Borda": 16
+    "Borda": 18
   },
   {
     "Model": "Answer_Qwen2.5",
     "Metric": "rouge1",
     "Type": "Short",
     "Mean": 0.2962440646445277,
-    "Borda": 16
+    "Borda": 18
   },
   {
     "Model": "Answer_Qwen2.5",
     "Metric": "rouge1",
     "Type": "Long",
     "Mean": 0.29382378464501996,
-    "Borda": 16
+    "Borda": 18
   },
   {
     "Model": "Answer_Qwen2.5",
     "Metric": "rouge2",
     "Type": "Overall",
     "Mean": 0.12405653792217478,
-    "Borda": 16
+    "Borda": 18
   },
   {
     "Model": "Answer_Qwen2.5",
     "Metric": "rouge2",
     "Type": "Short",
     "Mean": 0.17325642775886482,
-    "Borda": 16
+    "Borda": 18
   },
   {
     "Model": "Answer_Qwen2.5",
     "Metric": "rouge2",
     "Type": "Long",
     "Mean": 0.09800953742039771,
-    "Borda": 16
+    "Borda": 18
   },
   {
     "Model": "Answer_Qwen2.5",
     "Metric": "rougeL",
     "Type": "Overall",
     "Mean": 0.22699260344306935,
-    "Borda": 16
+    "Borda": 18
   },
   {
     "Model": "Answer_Qwen2.5",
     "Metric": "rougeL",
     "Type": "Short",
     "Mean": 0.2699154044796606,
-    "Borda": 16
+    "Borda": 18
   },
   {
     "Model": "Answer_Qwen2.5",
     "Metric": "rougeL",
     "Type": "Long",
     "Mean": 0.20426876760016813,
-    "Borda": 16
+    "Borda": 18
   },
   {
     "Model": "Answer_Gemma_4B",
     "Metric": "rouge1",
     "Type": "Overall",
     "Mean": 0.2299303251627632,
-    "Borda": -6
+    "Borda": -8
   },
   {
     "Model": "Answer_Gemma_4B",
     "Metric": "rouge1",
     "Type": "Short",
     "Mean": 0.2297384268879841,
-    "Borda": -6
+    "Borda": -8
   },
   {
     "Model": "Answer_Gemma_4B",
     "Metric": "rouge1",
     "Type": "Long",
     "Mean": 0.23003191836705797,
-    "Borda": -6
+    "Borda": -8
   },
   {
     "Model": "Answer_Gemma_4B",
     "Metric": "rouge2",
     "Type": "Overall",
     "Mean": 0.0660640827802151,
-    "Borda": -6
+    "Borda": -8
   },
   {
     "Model": "Answer_Gemma_4B",
     "Metric": "rouge2",
     "Type": "Short",
     "Mean": 0.11496942456694777,
-    "Borda": -6
+    "Borda": -8
   },
   {
     "Model": "Answer_Gemma_4B",
     "Metric": "rouge2",
     "Type": "Long",
     "Mean": 0.04017301948135662,
-    "Borda": -6
+    "Borda": -8
   },
   {
     "Model": "Answer_Gemma_4B",
     "Metric": "rougeL",
     "Type": "Overall",
     "Mean": 0.1690925762842809,
-    "Borda": -6
+    "Borda": -8
   },
   {
     "Model": "Answer_Gemma_4B",
     "Metric": "rougeL",
     "Type": "Short",
     "Mean": 0.21448583846466396,
-    "Borda": -6
+    "Borda": -8
   },
   {
     "Model": "Answer_Gemma_4B",
     "Metric": "rougeL",
     "Type": "Long",
     "Mean": 0.14506084924760757,
-    "Borda": -6
+    "Borda": -8
   },
   {
     "Model": "Answer_Gemma_12B",
     "Metric": "rouge1",
     "Type": "Overall",
-    "Mean": 0.22308863392094025,
-    "Borda": -3
+    "Mean": 0.23857951294028074,
+    "Borda": -5
   },
   {
     "Model": "Answer_Gemma_12B",
     "Metric": "rouge1",
     "Type": "Short",
     "Mean": 0.21040736028975462,
-    "Borda": -3
+    "Borda": -5
   },
   {
     "Model": "Answer_Gemma_12B",
     "Metric": "rouge1",
     "Type": "Long",
-    "Mean": 0.2687412189932084,
-    "Borda": -3
+    "Mean": 0.25349418199055923,
+    "Borda": -5
   },
   {
     "Model": "Answer_Gemma_12B",
     "Metric": "rouge2",
     "Type": "Overall",
-    "Mean": 0.11083497320127873,
-    "Borda": -3
+    "Mean": 0.07651582555067653,
+    "Borda": -5
   },
   {
     "Model": "Answer_Gemma_12B",
     "Metric": "rouge2",
     "Type": "Short",
     "Mean": 0.10715934862915759,
-    "Borda": -3
+    "Borda": -5
   },
   {
     "Model": "Answer_Gemma_12B",
     "Metric": "rouge2",
     "Type": "Long",
-    "Mean": 0.12406722166091493,
-    "Borda": -3
+    "Mean": 0.06029278392089242,
+    "Borda": -5
   },
   {
     "Model": "Answer_Gemma_12B",
     "Metric": "rougeL",
     "Type": "Overall",
-    "Mean": 0.20001022995572212,
-    "Borda": -3
+    "Mean": 0.17719485377621266,
+    "Borda": -5
   },
   {
     "Model": "Answer_Gemma_12B",
     "Metric": "rougeL",
     "Type": "Short",
     "Mean": 0.19878387910105602,
-    "Borda": -3
+    "Borda": -5
   },
   {
     "Model": "Answer_Gemma_12B",
     "Metric": "rougeL",
     "Type": "Long",
-    "Mean": 0.20442509303252007,
-    "Borda": -3
+    "Mean": 0.1657653697807074,
+    "Borda": -5
   },
   {
     "Model": "Answer_Qwen2",
     "Metric": "string_presence",
     "Type": "Short",
     "Mean": 0.3888888888888889,
-    "Borda": 19
+    "Borda": 21
   },
   {
     "Model": "Answer_Qwen2",
     "Metric": "numerical_acc",
     "Type": "Short",
     "Mean": 0.5555555555555556,
-    "Borda": 19
+    "Borda": 21
   },
   {
     "Model": "Answer_Qwen2.5",
     "Metric": "string_presence",
     "Type": "Short",
     "Mean": 0.7222222222222222,
-    "Borda": 16
+    "Borda": 18
   },
   {
     "Model": "Answer_Qwen2.5",
     "Metric": "numerical_acc",
     "Type": "Short",
     "Mean": 0.6666666666666666,
-    "Borda": 16
+    "Borda": 18
   },
   {
     "Model": "Answer_Gemma_4B",
     "Metric": "string_presence",
     "Type": "Short",
     "Mean": 0.3333333333333333,
-    "Borda": -6
+    "Borda": -8
   },
   {
     "Model": "Answer_Gemma_4B",
     "Metric": "numerical_acc",
     "Type": "Short",
     "Mean": 0.4444444444444444,
-    "Borda": -6
+    "Borda": -8
   },
   {
     "Model": "Answer_Gemma_12B",
     "Metric": "string_presence",
     "Type": "Short",
     "Mean": 0.2777777777777778,
-    "Borda": -3
+    "Borda": -5
   },
   {
     "Model": "Answer_Gemma_12B",
     "Metric": "numerical_acc",
     "Type": "Short",
     "Mean": 0.3888888888888889,
-    "Borda": -3
+    "Borda": -5
   },
   {
     "Model": "Answer_Qwen2",
     "Metric": "bert",
     "Type": "Long",
     "Mean": 0.5908920782453874,
-    "Borda": 19
+    "Borda": 21
   },
   {
     "Model": "Answer_Qwen2",
     "Metric": "flan-t5",
     "Type": "Long",
     "Mean": 0.08264511392172516,
-    "Borda": 19
+    "Borda": 21
   },
   {
     "Model": "Answer_Qwen2.5",
     "Metric": "bert",
     "Type": "Long",
     "Mean": 0.5827700022388907,
-    "Borda": 16
+    "Borda": 18
   },
   {
     "Model": "Answer_Qwen2.5",
     "Metric": "flan-t5",
     "Type": "Long",
     "Mean": 0.0817051245811214,
-    "Borda": 16
+    "Borda": 18
   },
   {
     "Model": "Answer_Gemma_4B",
     "Metric": "bert",
     "Type": "Long",
     "Mean": 0.5123984673443962,
-    "Borda": -6
+    "Borda": -8
   },
   {
     "Model": "Answer_Gemma_4B",
     "Metric": "flan-t5",
     "Type": "Long",
     "Mean": 0.05689444537867228,
-    "Borda": -6
+    "Borda": -8
   },
   {
     "Model": "Answer_Gemma_12B",
     "Metric": "bert",
     "Type": "Long",
-    "Mean": 0.5527352511882782,
-    "Borda": -3
+    "Mean": 0.5342999854508568,
+    "Borda": -5
   },
   {
     "Model": "Answer_Gemma_12B",
     "Metric": "flan-t5",
     "Type": "Long",
-    "Mean": 0.05626035419865214,
-    "Borda": -3
+    "Mean": 0.061385756771176504,
+    "Borda": -5
   }
 ]
