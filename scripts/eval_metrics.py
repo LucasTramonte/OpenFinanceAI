@@ -20,7 +20,7 @@ personal_scores = [f"Score_perso_{model}" for model in models]
 
 # Prepare a DataFrame for analysis
 rows = []
-for entry in data[:20]:  # Process only the first 20 questions
+for entry in data[:52]:  # Process only the first 52 entries
     for model in models:
         row = {"Question_ID": entry.get("Question_ID", None), "Model": model}
         row["Question_Type"] = entry.get("Question_Type", None)

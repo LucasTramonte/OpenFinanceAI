@@ -20,7 +20,7 @@
     "Answer_Qwen2_numerical_acc": 0.0,
     "Answer_Qwen2_bert": NaN,
     "Answer_Qwen2_flan-t5": NaN,
-    "Score_perso_Qwen2":0.0,
+    "Score_perso_Qwen2": 0.0,
     "Answer_Qwen2.5_rouge1": 0.08,
     "Answer_Qwen2.5_rouge2": 0.0,
     "Answer_Qwen2.5_rougeL": 0.08,
@@ -28,7 +28,7 @@
     "Answer_Qwen2.5_numerical_acc": 0.0,
     "Answer_Qwen2.5_bert": NaN,
     "Answer_Qwen2.5_flan-t5": NaN,
-    "Score_perso_Qwen2.5":0.0,
+    "Score_perso_Qwen2.5": 0.0,
     "Answer_Gemma_4B_rouge1": 0.09090909090909091,
     "Answer_Gemma_4B_rouge2": 0.0,
     "Answer_Gemma_4B_rougeL": 0.09090909090909091,
@@ -36,7 +36,7 @@
     "Answer_Gemma_4B_numerical_acc": 0.0,
     "Answer_Gemma_4B_bert": NaN,
     "Answer_Gemma_4B_flan-t5": NaN,
-    "Score_perso_Gemma_4B":0.0,
+    "Score_perso_Gemma_4B": 0.0,
     "Answer_Gemma_12B_rouge1": 0.09090909090909091,
     "Answer_Gemma_12B_rouge2": 0.0,
     "Answer_Gemma_12B_rougeL": 0.09090909090909091,
@@ -44,7 +44,7 @@
     "Answer_Gemma_12B_numerical_acc": 0.0,
     "Answer_Gemma_12B_bert": NaN,
     "Answer_Gemma_12B_flan-t5": NaN,
-    "Score_perso_Gemma_12B":0.0
+    "Score_perso_Gemma_12B": 0.0
   },
   {
     "Question_ID": 2,
@@ -67,7 +67,7 @@
     "Answer_Qwen2_numerical_acc": 1.0,
     "Answer_Qwen2_bert": NaN,
     "Answer_Qwen2_flan-t5": NaN,
-    "Score_perso_Qwen2":0.0,
+    "Score_perso_Qwen2": 0.0,
     "Answer_Qwen2.5_rouge1": 0.5531914893617021,
     "Answer_Qwen2.5_rouge2": 0.4,
     "Answer_Qwen2.5_rougeL": 0.5531914893617021,
@@ -75,7 +75,7 @@
     "Answer_Qwen2.5_numerical_acc": 1.0,
     "Answer_Qwen2.5_bert": NaN,
     "Answer_Qwen2.5_flan-t5": NaN,
-    "Score_perso_Qwen2.5":1.0,
+    "Score_perso_Qwen2.5": 1.0,
     "Answer_Gemma_4B_rouge1": 0.5106382978723404,
     "Answer_Gemma_4B_rouge2": 0.4,
     "Answer_Gemma_4B_rougeL": 0.5106382978723404,
@@ -83,7 +83,7 @@
     "Answer_Gemma_4B_numerical_acc": 1.0,
     "Answer_Gemma_4B_bert": NaN,
     "Answer_Gemma_4B_flan-t5": NaN,
-    "Score_perso_Gemma_4B":1.0,
+    "Score_perso_Gemma_4B": 1.0,
     "Answer_Gemma_12B_rouge1": 0.5,
     "Answer_Gemma_12B_rouge2": 0.36,
     "Answer_Gemma_12B_rougeL": 0.5,
@@ -91,7 +91,7 @@
     "Answer_Gemma_12B_numerical_acc": 1.0,
     "Answer_Gemma_12B_bert": NaN,
     "Answer_Gemma_12B_flan-t5": NaN,
-    "Score_perso_Gemma_12B":1.0
+    "Score_perso_Gemma_12B": 1.0
   },
   {
     "Question_ID": 3,
@@ -114,7 +114,7 @@
     "Answer_Qwen2_numerical_acc": 0.0,
     "Answer_Qwen2_bert": NaN,
     "Answer_Qwen2_flan-t5": NaN,
-    "Score_perso_Qwen2":0.0,
+    "Score_perso_Qwen2": 0.0,
     "Answer_Qwen2.5_rouge1": 0.3076923076923077,
     "Answer_Qwen2.5_rouge2": 0.18181818181818182,
     "Answer_Qwen2.5_rougeL": 0.3076923076923077,
@@ -122,7 +122,7 @@
     "Answer_Qwen2.5_numerical_acc": 1.0,
     "Answer_Qwen2.5_bert": NaN,
     "Answer_Qwen2.5_flan-t5": NaN,
-    "Score_perso_Qwen2.5":1.0,
+    "Score_perso_Qwen2.5": 1.0,
     "Answer_Gemma_4B_rouge1": 0.23529411764705882,
     "Answer_Gemma_4B_rouge2": 0.13333333333333333,
     "Answer_Gemma_4B_rougeL": 0.23529411764705882,
@@ -130,7 +130,7 @@
     "Answer_Gemma_4B_numerical_acc": 1.0,
     "Answer_Gemma_4B_bert": NaN,
     "Answer_Gemma_4B_flan-t5": NaN,
-    "Score_perso_Gemma_4B":1.0,
+    "Score_perso_Gemma_4B": 1.0,
     "Answer_Gemma_12B_rouge1": 0.0,
     "Answer_Gemma_12B_rouge2": 0.0,
     "Answer_Gemma_12B_rougeL": 0.0,
@@ -138,7 +138,7 @@
     "Answer_Gemma_12B_numerical_acc": 0.0,
     "Answer_Gemma_12B_bert": NaN,
     "Answer_Gemma_12B_flan-t5": NaN,
-    "Score_perso_Gemma_12B":0.0
+    "Score_perso_Gemma_12B": 0.0
   },
   {
     "Question_ID": 4,
@@ -161,7 +161,7 @@
     "Answer_Qwen2_numerical_acc": 0.0,
     "Answer_Qwen2_bert": NaN,
     "Answer_Qwen2_flan-t5": NaN,
-    "Score_perso_Qwen2":0.0,
+    "Score_perso_Qwen2": 0.0,
     "Answer_Qwen2.5_rouge1": 0.4,
     "Answer_Qwen2.5_rouge2": 0.3076923076923077,
     "Answer_Qwen2.5_rougeL": 0.4,
@@ -169,7 +169,7 @@
     "Answer_Qwen2.5_numerical_acc": 1.0,
     "Answer_Qwen2.5_bert": NaN,
     "Answer_Qwen2.5_flan-t5": NaN,
-    "Score_perso_Qwen2.5":1.0,
+    "Score_perso_Qwen2.5": 1.0,
     "Answer_Gemma_4B_rouge1": 0.1,
     "Answer_Gemma_4B_rouge2": 0.0,
     "Answer_Gemma_4B_rougeL": 0.1,
@@ -177,7 +177,7 @@
     "Answer_Gemma_4B_numerical_acc": 0.0,
     "Answer_Gemma_4B_bert": NaN,
     "Answer_Gemma_4B_flan-t5": NaN,
-    "Score_perso_Gemma_4B":0.0,
+    "Score_perso_Gemma_4B": 0.0,
     "Answer_Gemma_12B_rouge1": 0.08,
     "Answer_Gemma_12B_rouge2": 0.0,
     "Answer_Gemma_12B_rougeL": 0.08,
@@ -185,7 +185,7 @@
     "Answer_Gemma_12B_numerical_acc": 0.0,
     "Answer_Gemma_12B_bert": NaN,
     "Answer_Gemma_12B_flan-t5": NaN,
-    "Score_perso_Gemma_12B":0.0
+    "Score_perso_Gemma_12B": 0.0
   },
   {
     "Question_ID": 5,
@@ -208,7 +208,7 @@
     "Answer_Qwen2_numerical_acc": 0.0,
     "Answer_Qwen2_bert": NaN,
     "Answer_Qwen2_flan-t5": NaN,
-    "Score_perso_Qwen2":0.0,
+    "Score_perso_Qwen2": 0.0,
     "Answer_Qwen2.5_rouge1": 0.08333333333333333,
     "Answer_Qwen2.5_rouge2": 0.02127659574468085,
     "Answer_Qwen2.5_rougeL": 0.0625,
@@ -216,7 +216,7 @@
     "Answer_Qwen2.5_numerical_acc": 0.0,
     "Answer_Qwen2.5_bert": NaN,
     "Answer_Qwen2.5_flan-t5": NaN,
-    "Score_perso_Qwen2.5":0.0,
+    "Score_perso_Qwen2.5": 0.0,
     "Answer_Gemma_4B_rouge1": 0.13559322033898302,
     "Answer_Gemma_4B_rouge2": 0.07017543859649122,
     "Answer_Gemma_4B_rougeL": 0.13559322033898302,
@@ -224,7 +224,7 @@
     "Answer_Gemma_4B_numerical_acc": 0.0,
     "Answer_Gemma_4B_bert": NaN,
     "Answer_Gemma_4B_flan-t5": NaN,
-    "Score_perso_Gemma_4B":0.0,
+    "Score_perso_Gemma_4B": 0.0,
     "Answer_Gemma_12B_rouge1": 0.10101010101010101,
     "Answer_Gemma_12B_rouge2": 0.06185567010309277,
     "Answer_Gemma_12B_rougeL": 0.10101010101010101,
@@ -232,7 +232,7 @@
     "Answer_Gemma_12B_numerical_acc": 0.0,
     "Answer_Gemma_12B_bert": NaN,
     "Answer_Gemma_12B_flan-t5": NaN,
-    "Score_perso_Gemma_12B":0.0
+    "Score_perso_Gemma_12B": 0.0
   },
   {
     "Question_ID": 6,
@@ -255,7 +255,7 @@
     "Answer_Qwen2_numerical_acc": 1.0,
     "Answer_Qwen2_bert": NaN,
     "Answer_Qwen2_flan-t5": NaN,
-    "Score_perso_Qwen2":1.0,
+    "Score_perso_Qwen2": 1.0,
     "Answer_Qwen2.5_rouge1": 0.7096774193548387,
     "Answer_Qwen2.5_rouge2": 0.6206896551724137,
     "Answer_Qwen2.5_rougeL": 0.7096774193548387,
@@ -263,7 +263,7 @@
     "Answer_Qwen2.5_numerical_acc": 1.0,
     "Answer_Qwen2.5_bert": NaN,
     "Answer_Qwen2.5_flan-t5": NaN,
-    "Score_perso_Qwen2.5":1.0,
+    "Score_perso_Qwen2.5": 1.0,
     "Answer_Gemma_4B_rouge1": 0.5945945945945945,
     "Answer_Gemma_4B_rouge2": 0.5142857142857142,
     "Answer_Gemma_4B_rougeL": 0.5945945945945945,
@@ -271,7 +271,7 @@
     "Answer_Gemma_4B_numerical_acc": 1.0,
     "Answer_Gemma_4B_bert": NaN,
     "Answer_Gemma_4B_flan-t5": NaN,
-    "Score_perso_Gemma_4B":1.0,
+    "Score_perso_Gemma_4B": 1.0,
     "Answer_Gemma_12B_rouge1": 0.45000000000000007,
     "Answer_Gemma_12B_rouge2": 0.3157894736842105,
     "Answer_Gemma_12B_rougeL": 0.45000000000000007,
@@ -279,7 +279,7 @@
     "Answer_Gemma_12B_numerical_acc": 0.0,
     "Answer_Gemma_12B_bert": NaN,
     "Answer_Gemma_12B_flan-t5": NaN,
-    "Score_perso_Gemma_12B":0.0
+    "Score_perso_Gemma_12B": 0.0
   },
   {
     "Question_ID": 7,
@@ -302,7 +302,7 @@
     "Answer_Qwen2_numerical_acc": 1.0,
     "Answer_Qwen2_bert": NaN,
     "Answer_Qwen2_flan-t5": NaN,
-    "Score_perso_Qwen2":1.0,
+    "Score_perso_Qwen2": 1.0,
     "Answer_Qwen2.5_rouge1": 0.5333333333333333,
     "Answer_Qwen2.5_rouge2": 0.35714285714285715,
     "Answer_Qwen2.5_rougeL": 0.4,
@@ -310,7 +310,7 @@
     "Answer_Qwen2.5_numerical_acc": 0.0,
     "Answer_Qwen2.5_bert": NaN,
     "Answer_Qwen2.5_flan-t5": NaN,
-    "Score_perso_Qwen2.5":0.5,
+    "Score_perso_Qwen2.5": 0.5,
     "Answer_Gemma_4B_rouge1": 0.5384615384615384,
     "Answer_Gemma_4B_rouge2": 0.25,
     "Answer_Gemma_4B_rougeL": 0.5384615384615384,
@@ -318,7 +318,7 @@
     "Answer_Gemma_4B_numerical_acc": 0.0,
     "Answer_Gemma_4B_bert": NaN,
     "Answer_Gemma_4B_flan-t5": NaN,
-    "Score_perso_Gemma_4B":0.0,
+    "Score_perso_Gemma_4B": 0.0,
     "Answer_Gemma_12B_rouge1": 0.43750000000000006,
     "Answer_Gemma_12B_rouge2": 0.26666666666666666,
     "Answer_Gemma_12B_rougeL": 0.43750000000000006,
@@ -326,7 +326,7 @@
     "Answer_Gemma_12B_numerical_acc": 0.0,
     "Answer_Gemma_12B_bert": NaN,
     "Answer_Gemma_12B_flan-t5": NaN,
-    "Score_perso_Gemma_12B":0.0
+    "Score_perso_Gemma_12B": 0.0
   },
   {
     "Question_ID": 8,
@@ -349,7 +349,7 @@
     "Answer_Qwen2_numerical_acc": 0.0,
     "Answer_Qwen2_bert": NaN,
     "Answer_Qwen2_flan-t5": NaN,
-    "Score_perso_Qwen2":0.0,
+    "Score_perso_Qwen2": 0.0,
     "Answer_Qwen2.5_rouge1": 0.0,
     "Answer_Qwen2.5_rouge2": 0.0,
     "Answer_Qwen2.5_rougeL": 0.0,
@@ -357,7 +357,7 @@
     "Answer_Qwen2.5_numerical_acc": 0.0,
     "Answer_Qwen2.5_bert": NaN,
     "Answer_Qwen2.5_flan-t5": NaN,
-    "Score_perso_Qwen2.5":0.0,
+    "Score_perso_Qwen2.5": 0.0,
     "Answer_Gemma_4B_rouge1": 0.0,
     "Answer_Gemma_4B_rouge2": 0.0,
     "Answer_Gemma_4B_rougeL": 0.0,
@@ -365,7 +365,7 @@
     "Answer_Gemma_4B_numerical_acc": 0.0,
     "Answer_Gemma_4B_bert": NaN,
     "Answer_Gemma_4B_flan-t5": NaN,
-    "Score_perso_Gemma_4B":0.0,
+    "Score_perso_Gemma_4B": 0.0,
     "Answer_Gemma_12B_rouge1": 0.0,
     "Answer_Gemma_12B_rouge2": 0.0,
     "Answer_Gemma_12B_rougeL": 0.0,
@@ -373,7 +373,7 @@
     "Answer_Gemma_12B_numerical_acc": 0.0,
     "Answer_Gemma_12B_bert": NaN,
     "Answer_Gemma_12B_flan-t5": NaN,
-    "Score_perso_Gemma_12B":0.0
+    "Score_perso_Gemma_12B": 0.0
   },
   {
     "Question_ID": 9,
@@ -396,7 +396,7 @@
     "Answer_Qwen2_numerical_acc": 1.0,
     "Answer_Qwen2_bert": NaN,
     "Answer_Qwen2_flan-t5": NaN,
-    "Score_perso_Qwen2":1.0,
+    "Score_perso_Qwen2": 1.0,
     "Answer_Qwen2.5_rouge1": 0.3076923076923077,
     "Answer_Qwen2.5_rouge2": 0.18181818181818182,
     "Answer_Qwen2.5_rougeL": 0.3076923076923077,
@@ -404,7 +404,7 @@
     "Answer_Qwen2.5_numerical_acc": 1.0,
     "Answer_Qwen2.5_bert": NaN,
     "Answer_Qwen2.5_flan-t5": NaN,
-    "Score_perso_Qwen2.5":1.0,
+    "Score_perso_Qwen2.5": 1.0,
     "Answer_Gemma_4B_rouge1": 0.0,
     "Answer_Gemma_4B_rouge2": 0.0,
     "Answer_Gemma_4B_rougeL": 0.0,
@@ -412,7 +412,7 @@
     "Answer_Gemma_4B_numerical_acc": 0.0,
     "Answer_Gemma_4B_bert": NaN,
     "Answer_Gemma_4B_flan-t5": NaN,
-    "Score_perso_Gemma_4B":0.0,
+    "Score_perso_Gemma_4B": 0.0,
     "Answer_Gemma_12B_rouge1": 0.2222222222222222,
     "Answer_Gemma_12B_rouge2": 0.125,
     "Answer_Gemma_12B_rougeL": 0.2222222222222222,
@@ -420,7 +420,7 @@
     "Answer_Gemma_12B_numerical_acc": 1.0,
     "Answer_Gemma_12B_bert": NaN,
     "Answer_Gemma_12B_flan-t5": NaN,
-    "Score_perso_Gemma_12B":1.0
+    "Score_perso_Gemma_12B": 1.0
   },
   {
     "Question_ID": 10,
@@ -443,7 +443,7 @@
     "Answer_Qwen2_numerical_acc": NaN,
     "Answer_Qwen2_bert": 0.559738278388977,
     "Answer_Qwen2_flan-t5": 0.037600026391620085,
-    "Score_perso_Qwen2":0.5,
+    "Score_perso_Qwen2": 0.5,
     "Answer_Qwen2.5_rouge1": 0.08264462809917354,
     "Answer_Qwen2.5_rouge2": 0.0,
     "Answer_Qwen2.5_rougeL": 0.08264462809917354,
@@ -451,7 +451,7 @@
     "Answer_Qwen2.5_numerical_acc": NaN,
     "Answer_Qwen2.5_bert": 0.4779549837112427,
     "Answer_Qwen2.5_flan-t5": 0.0886399017516714,
-    "Score_perso_Qwen2.5":0.5,
+    "Score_perso_Qwen2.5": 0.5,
     "Answer_Gemma_4B_rouge1": 0.13223140495867766,
     "Answer_Gemma_4B_rouge2": 0.0,
     "Answer_Gemma_4B_rougeL": 0.09917355371900825,
@@ -459,7 +459,7 @@
     "Answer_Gemma_4B_numerical_acc": NaN,
     "Answer_Gemma_4B_bert": 0.5240453481674194,
     "Answer_Gemma_4B_flan-t5": 0.05524724948176198,
-    "Score_perso_Gemma_4B":1.0,
+    "Score_perso_Gemma_4B": 1.0,
     "Answer_Gemma_12B_rouge1": 0.10344827586206895,
     "Answer_Gemma_12B_rouge2": 0.017543859649122806,
     "Answer_Gemma_12B_rougeL": 0.08620689655172414,
@@ -467,7 +467,7 @@
     "Answer_Gemma_12B_numerical_acc": NaN,
     "Answer_Gemma_12B_bert": 0.46935999393463135,
     "Answer_Gemma_12B_flan-t5": 0.05064274679872655,
-    "Score_perso_Gemma_12B":0.5
+    "Score_perso_Gemma_12B": 0.5
   },
   {
     "Question_ID": 11,
@@ -490,7 +490,7 @@
     "Answer_Qwen2_numerical_acc": 1.0,
     "Answer_Qwen2_bert": NaN,
     "Answer_Qwen2_flan-t5": NaN,
-    "Score_perso_Qwen2":1.0,
+    "Score_perso_Qwen2": 1.0,
     "Answer_Qwen2.5_rouge1": 0.11764705882352941,
     "Answer_Qwen2.5_rouge2": 0.0,
     "Answer_Qwen2.5_rougeL": 0.11764705882352941,
@@ -498,7 +498,7 @@
     "Answer_Qwen2.5_numerical_acc": 1.0,
     "Answer_Qwen2.5_bert": NaN,
     "Answer_Qwen2.5_flan-t5": NaN,
-    "Score_perso_Qwen2.5":1.0,
+    "Score_perso_Qwen2.5": 1.0,
     "Answer_Gemma_4B_rouge1": 0.09523809523809525,
     "Answer_Gemma_4B_rouge2": 0.0,
     "Answer_Gemma_4B_rougeL": 0.09523809523809525,
@@ -506,7 +506,7 @@
     "Answer_Gemma_4B_numerical_acc": 0.0,
     "Answer_Gemma_4B_bert": NaN,
     "Answer_Gemma_4B_flan-t5": NaN,
-    "Score_perso_Gemma_4B":1.0,
+    "Score_perso_Gemma_4B": 1.0,
     "Answer_Gemma_12B_rouge1": 0.09523809523809525,
     "Answer_Gemma_12B_rouge2": 0.0,
     "Answer_Gemma_12B_rougeL": 0.09523809523809525,
@@ -514,7 +514,7 @@
     "Answer_Gemma_12B_numerical_acc": 0.0,
     "Answer_Gemma_12B_bert": NaN,
     "Answer_Gemma_12B_flan-t5": NaN,
-    "Score_perso_Gemma_12B":1.0
+    "Score_perso_Gemma_12B": 1.0
   },
   {
     "Question_ID": 12,
@@ -537,7 +537,7 @@
     "Answer_Qwen2_numerical_acc": 0.0,
     "Answer_Qwen2_bert": NaN,
     "Answer_Qwen2_flan-t5": NaN,
-    "Score_perso_Qwen2":0.0,
+    "Score_perso_Qwen2": 0.0,
     "Answer_Qwen2.5_rouge1": 0.08695652173913043,
     "Answer_Qwen2.5_rouge2": 0.0,
     "Answer_Qwen2.5_rougeL": 0.08695652173913043,
@@ -545,7 +545,7 @@
     "Answer_Qwen2.5_numerical_acc": 0.0,
     "Answer_Qwen2.5_bert": NaN,
     "Answer_Qwen2.5_flan-t5": NaN,
-    "Score_perso_Qwen2.5":0.0,
+    "Score_perso_Qwen2.5": 0.0,
     "Answer_Gemma_4B_rouge1": 0.0,
     "Answer_Gemma_4B_rouge2": 0.0,
     "Answer_Gemma_4B_rougeL": 0.0,
@@ -553,7 +553,7 @@
     "Answer_Gemma_4B_numerical_acc": 0.0,
     "Answer_Gemma_4B_bert": NaN,
     "Answer_Gemma_4B_flan-t5": NaN,
-    "Score_perso_Gemma_4B":0.0,
+    "Score_perso_Gemma_4B": 0.0,
     "Answer_Gemma_12B_rouge1": 0.0,
     "Answer_Gemma_12B_rouge2": 0.0,
     "Answer_Gemma_12B_rougeL": 0.0,
@@ -561,7 +561,7 @@
     "Answer_Gemma_12B_numerical_acc": 0.0,
     "Answer_Gemma_12B_bert": NaN,
     "Answer_Gemma_12B_flan-t5": NaN,
-    "Score_perso_Gemma_12B":0.0
+    "Score_perso_Gemma_12B": 0.0
   },
   {
     "Question_ID": 13,
@@ -584,7 +584,7 @@
     "Answer_Qwen2_numerical_acc": 1.0,
     "Answer_Qwen2_bert": NaN,
     "Answer_Qwen2_flan-t5": NaN,
-    "Score_perso_Qwen2":0.0,
+    "Score_perso_Qwen2": 0.0,
     "Answer_Qwen2.5_rouge1": 0.48275862068965514,
     "Answer_Qwen2.5_rouge2": 0.2857142857142857,
     "Answer_Qwen2.5_rougeL": 0.3448275862068965,
@@ -592,7 +592,7 @@
     "Answer_Qwen2.5_numerical_acc": 1.0,
     "Answer_Qwen2.5_bert": NaN,
     "Answer_Qwen2.5_flan-t5": NaN,
-    "Score_perso_Qwen2.5":1.0,
+    "Score_perso_Qwen2.5": 1.0,
     "Answer_Gemma_4B_rouge1": 0.48780487804878053,
     "Answer_Gemma_4B_rouge2": 0.2051282051282051,
     "Answer_Gemma_4B_rougeL": 0.34146341463414637,
@@ -600,7 +600,7 @@
     "Answer_Gemma_4B_numerical_acc": 1.0,
     "Answer_Gemma_4B_bert": NaN,
     "Answer_Gemma_4B_flan-t5": NaN,
-    "Score_perso_Gemma_4B":0.0,
+    "Score_perso_Gemma_4B": 0.0,
     "Answer_Gemma_12B_rouge1": 0.43478260869565216,
     "Answer_Gemma_12B_rouge2": 0.18181818181818182,
     "Answer_Gemma_12B_rougeL": 0.3043478260869565,
@@ -608,7 +608,7 @@
     "Answer_Gemma_12B_numerical_acc": 1.0,
     "Answer_Gemma_12B_bert": NaN,
     "Answer_Gemma_12B_flan-t5": NaN,
-    "Score_perso_Gemma_12B":0.0
+    "Score_perso_Gemma_12B": 0.0
   },
   {
     "Question_ID": 14,
@@ -631,7 +631,7 @@
     "Answer_Qwen2_numerical_acc": 1.0,
     "Answer_Qwen2_bert": NaN,
     "Answer_Qwen2_flan-t5": NaN,
-    "Score_perso_Qwen2":1.0,
+    "Score_perso_Qwen2": 1.0,
     "Answer_Qwen2.5_rouge1": 0.2857142857142857,
     "Answer_Qwen2.5_rouge2": 0.16666666666666669,
     "Answer_Qwen2.5_rougeL": 0.2857142857142857,
@@ -639,7 +639,7 @@
     "Answer_Qwen2.5_numerical_acc": 1.0,
     "Answer_Qwen2.5_bert": NaN,
     "Answer_Qwen2.5_flan-t5": NaN,
-    "Score_perso_Qwen2.5":1.0,
+    "Score_perso_Qwen2.5": 1.0,
     "Answer_Gemma_4B_rouge1": 0.21052631578947367,
     "Answer_Gemma_4B_rouge2": 0.11764705882352941,
     "Answer_Gemma_4B_rougeL": 0.21052631578947367,
@@ -647,7 +647,7 @@
     "Answer_Gemma_4B_numerical_acc": 1.0,
     "Answer_Gemma_4B_bert": NaN,
     "Answer_Gemma_4B_flan-t5": NaN,
-    "Score_perso_Gemma_4B":1.0,
+    "Score_perso_Gemma_4B": 1.0,
     "Answer_Gemma_12B_rouge1": 0.21052631578947367,
     "Answer_Gemma_12B_rouge2": 0.11764705882352941,
     "Answer_Gemma_12B_rougeL": 0.21052631578947367,
@@ -655,7 +655,7 @@
     "Answer_Gemma_12B_numerical_acc": 1.0,
     "Answer_Gemma_12B_bert": NaN,
     "Answer_Gemma_12B_flan-t5": NaN,
-    "Score_perso_Gemma_12B":1.0
+    "Score_perso_Gemma_12B": 1.0
   },
   {
     "Question_ID": 15,
@@ -678,7 +678,7 @@
     "Answer_Qwen2_numerical_acc": 1.0,
     "Answer_Qwen2_bert": NaN,
     "Answer_Qwen2_flan-t5": NaN,
-    "Score_perso_Qwen2":0.0,
+    "Score_perso_Qwen2": 0.0,
     "Answer_Qwen2.5_rouge1": 0.5714285714285715,
     "Answer_Qwen2.5_rouge2": 0.3846153846153846,
     "Answer_Qwen2.5_rougeL": 0.5714285714285715,
@@ -686,7 +686,7 @@
     "Answer_Qwen2.5_numerical_acc": 1.0,
     "Answer_Qwen2.5_bert": NaN,
     "Answer_Qwen2.5_flan-t5": NaN,
-    "Score_perso_Qwen2.5":1.0,
+    "Score_perso_Qwen2.5": 1.0,
     "Answer_Gemma_4B_rouge1": 0.47058823529411764,
     "Answer_Gemma_4B_rouge2": 0.25,
     "Answer_Gemma_4B_rougeL": 0.47058823529411764,
@@ -694,7 +694,7 @@
     "Answer_Gemma_4B_numerical_acc": 1.0,
     "Answer_Gemma_4B_bert": NaN,
     "Answer_Gemma_4B_flan-t5": NaN,
-    "Score_perso_Gemma_4B":0.0,
+    "Score_perso_Gemma_4B": 0.0,
     "Answer_Gemma_12B_rouge1": 0.5517241379310345,
     "Answer_Gemma_12B_rouge2": 0.3703703703703704,
     "Answer_Gemma_12B_rougeL": 0.5517241379310345,
@@ -702,7 +702,7 @@
     "Answer_Gemma_12B_numerical_acc": 1.0,
     "Answer_Gemma_12B_bert": NaN,
     "Answer_Gemma_12B_flan-t5": NaN,
-    "Score_perso_Gemma_12B":0.0
+    "Score_perso_Gemma_12B": 0.0
   },
   {
     "Question_ID": 16,
@@ -725,7 +725,7 @@
     "Answer_Qwen2_numerical_acc": NaN,
     "Answer_Qwen2_bert": 0.7708237767219543,
     "Answer_Qwen2_flan-t5": 0.04467200641287592,
-    "Score_perso_Qwen2":0.0,
+    "Score_perso_Qwen2": 0.0,
     "Answer_Qwen2.5_rouge1": 0.4117647058823529,
     "Answer_Qwen2.5_rouge2": 0.375,
     "Answer_Qwen2.5_rougeL": 0.4117647058823529,
@@ -733,7 +733,7 @@
     "Answer_Qwen2.5_numerical_acc": NaN,
     "Answer_Qwen2.5_bert": 0.7093903422355652,
     "Answer_Qwen2.5_flan-t5": 0.05482004487546322,
-    "Score_perso_Qwen2.5":1.0,
+    "Score_perso_Qwen2.5": 1.0,
     "Answer_Gemma_4B_rouge1": 0.2,
     "Answer_Gemma_4B_rouge2": 0.05263157894736842,
     "Answer_Gemma_4B_rougeL": 0.2,
@@ -741,7 +741,7 @@
     "Answer_Gemma_4B_numerical_acc": NaN,
     "Answer_Gemma_4B_bert": 0.6120378971099854,
     "Answer_Gemma_4B_flan-t5": 0.037255014957417246,
-    "Score_perso_Gemma_4B":0.0,
+    "Score_perso_Gemma_4B": 0.0,
     "Answer_Gemma_12B_rouge1": 0.42857142857142855,
     "Answer_Gemma_12B_rouge2": 0.30769230769230765,
     "Answer_Gemma_12B_rougeL": 0.42857142857142855,
@@ -749,7 +749,7 @@
     "Answer_Gemma_12B_numerical_acc": NaN,
     "Answer_Gemma_12B_bert": 0.730277419090271,
     "Answer_Gemma_12B_flan-t5": 0.047604943472943195,
-    "Score_perso_Gemma_12B":0.5
+    "Score_perso_Gemma_12B": 0.5
   },
   {
     "Question_ID": 17,
@@ -772,7 +772,7 @@
     "Answer_Qwen2_numerical_acc": 1.0,
     "Answer_Qwen2_bert": NaN,
     "Answer_Qwen2_flan-t5": NaN,
-    "Score_perso_Qwen2":1.0,
+    "Score_perso_Qwen2": 1.0,
     "Answer_Qwen2.5_rouge1": 0.19999999999999998,
     "Answer_Qwen2.5_rouge2": 0.1111111111111111,
     "Answer_Qwen2.5_rougeL": 0.19999999999999998,
@@ -780,7 +780,7 @@
     "Answer_Qwen2.5_numerical_acc": 1.0,
     "Answer_Qwen2.5_bert": NaN,
     "Answer_Qwen2.5_flan-t5": NaN,
-    "Score_perso_Qwen2.5":1.0,
+    "Score_perso_Qwen2.5": 1.0,
     "Answer_Gemma_4B_rouge1": 0.0,
     "Answer_Gemma_4B_rouge2": 0.0,
     "Answer_Gemma_4B_rougeL": 0.0,
@@ -788,7 +788,7 @@
     "Answer_Gemma_4B_numerical_acc": 0.0,
     "Answer_Gemma_4B_bert": NaN,
     "Answer_Gemma_4B_flan-t5": NaN,
-    "Score_perso_Gemma_4B":0.0,
+    "Score_perso_Gemma_4B": 0.0,
     "Answer_Gemma_12B_rouge1": 0.0,
     "Answer_Gemma_12B_rouge2": 0.0,
     "Answer_Gemma_12B_rougeL": 0.0,
@@ -796,7 +796,7 @@
     "Answer_Gemma_12B_numerical_acc": 0.0,
     "Answer_Gemma_12B_bert": NaN,
     "Answer_Gemma_12B_flan-t5": NaN,
-    "Score_perso_Gemma_12B":0.0
+    "Score_perso_Gemma_12B": 0.0
   },
   {
     "Question_ID": 18,
@@ -819,7 +819,7 @@
     "Answer_Qwen2_numerical_acc": 0.0,
     "Answer_Qwen2_bert": NaN,
     "Answer_Qwen2_flan-t5": NaN,
-    "Score_perso_Qwen2":0.0,
+    "Score_perso_Qwen2": 0.0,
     "Answer_Qwen2.5_rouge1": 0.125,
     "Answer_Qwen2.5_rouge2": 0.0,
     "Answer_Qwen2.5_rougeL": 0.125,
@@ -827,7 +827,7 @@
     "Answer_Qwen2.5_numerical_acc": 1.0,
     "Answer_Qwen2.5_bert": NaN,
     "Answer_Qwen2.5_flan-t5": NaN,
-    "Score_perso_Qwen2.5":1.0,
+    "Score_perso_Qwen2.5": 1.0,
     "Answer_Gemma_4B_rouge1": 0.0909090909090909,
     "Answer_Gemma_4B_rouge2": 0.0,
     "Answer_Gemma_4B_rougeL": 0.0909090909090909,
@@ -835,7 +835,7 @@
     "Answer_Gemma_4B_numerical_acc": 1.0,
     "Answer_Gemma_4B_bert": NaN,
     "Answer_Gemma_4B_flan-t5": NaN,
-    "Score_perso_Gemma_4B":1.0,
+    "Score_perso_Gemma_4B": 1.0,
     "Answer_Gemma_12B_rouge1": 0.09523809523809523,
     "Answer_Gemma_12B_rouge2": 0.0,
     "Answer_Gemma_12B_rougeL": 0.09523809523809523,
@@ -843,7 +843,7 @@
     "Answer_Gemma_12B_numerical_acc": 1.0,
     "Answer_Gemma_12B_bert": NaN,
     "Answer_Gemma_12B_flan-t5": NaN,
-    "Score_perso_Gemma_12B":1.0
+    "Score_perso_Gemma_12B": 1.0
   },
   {
     "Question_ID": 19,
@@ -866,7 +866,7 @@
     "Answer_Qwen2_numerical_acc": NaN,
     "Answer_Qwen2_bert": 0.7675502300262451,
     "Answer_Qwen2_flan-t5": 0.09389770915150204,
-    "Score_perso_Qwen2":1.0,
+    "Score_perso_Qwen2": 1.0,
     "Answer_Qwen2.5_rouge1": 0.64,
     "Answer_Qwen2.5_rouge2": 0.5217391304347827,
     "Answer_Qwen2.5_rougeL": 0.64,
@@ -874,7 +874,7 @@
     "Answer_Qwen2.5_numerical_acc": NaN,
     "Answer_Qwen2.5_bert": 0.7570371031761169,
     "Answer_Qwen2.5_flan-t5": 0.09575051917035746,
-    "Score_perso_Qwen2.5":1.0,
+    "Score_perso_Qwen2.5": 1.0,
     "Answer_Gemma_4B_rouge1": 0.18181818181818182,
     "Answer_Gemma_4B_rouge2": 0.06451612903225806,
     "Answer_Gemma_4B_rougeL": 0.12121212121212122,
@@ -882,7 +882,7 @@
     "Answer_Gemma_4B_numerical_acc": NaN,
     "Answer_Gemma_4B_bert": 0.5670902729034424,
     "Answer_Gemma_4B_flan-t5": 0.03273834315339592,
-    "Score_perso_Gemma_4B":0.0,
+    "Score_perso_Gemma_4B": 0.0,
     "Answer_Gemma_12B_rouge1": 0.2,
     "Answer_Gemma_12B_rouge2": 0.0,
     "Answer_Gemma_12B_rougeL": 0.13333333333333333,
@@ -890,7 +890,7 @@
     "Answer_Gemma_12B_numerical_acc": NaN,
     "Answer_Gemma_12B_bert": 0.5862975120544434,
     "Answer_Gemma_12B_flan-t5": 0.04392201857919615,
-    "Score_perso_Gemma_12B":0.0
+    "Score_perso_Gemma_12B": 0.0
   },
   {
     "Question_ID": 20,
@@ -913,7 +913,7 @@
     "Answer_Qwen2_numerical_acc": 1.0,
     "Answer_Qwen2_bert": NaN,
     "Answer_Qwen2_flan-t5": NaN,
-    "Score_perso_Qwen2":0.0,
+    "Score_perso_Qwen2": 0.0,
     "Answer_Qwen2.5_rouge1": 0.14705882352941177,
     "Answer_Qwen2.5_rouge2": 0.0303030303030303,
     "Answer_Qwen2.5_rougeL": 0.14705882352941177,
@@ -921,7 +921,7 @@
     "Answer_Qwen2.5_numerical_acc": 1.0,
     "Answer_Qwen2.5_bert": NaN,
     "Answer_Qwen2.5_flan-t5": NaN,
-    "Score_perso_Qwen2.5":0.0,
+    "Score_perso_Qwen2.5": 0.0,
     "Answer_Gemma_4B_rouge1": 0.2926829268292683,
     "Answer_Gemma_4B_rouge2": 0.10256410256410255,
     "Answer_Gemma_4B_rougeL": 0.2926829268292683,
@@ -929,7 +929,7 @@
     "Answer_Gemma_4B_numerical_acc": 1.0,
     "Answer_Gemma_4B_bert": NaN,
     "Answer_Gemma_4B_flan-t5": NaN,
-    "Score_perso_Gemma_4B":0.0,
+    "Score_perso_Gemma_4B": 0.0,
     "Answer_Gemma_12B_rouge1": 0.31818181818181823,
     "Answer_Gemma_12B_rouge2": 0.09523809523809523,
     "Answer_Gemma_12B_rougeL": 0.2727272727272727,
@@ -937,7 +937,7 @@
     "Answer_Gemma_12B_numerical_acc": 1.0,
     "Answer_Gemma_12B_bert": NaN,
     "Answer_Gemma_12B_flan-t5": NaN,
-    "Score_perso_Gemma_12B":0.0
+    "Score_perso_Gemma_12B": 0.0
   },
   {
     "Question_ID": 21,
@@ -960,6 +960,7 @@
     "Answer_Qwen2_numerical_acc": 0.0,
     "Answer_Qwen2_bert": NaN,
     "Answer_Qwen2_flan-t5": NaN,
+    "Score_perso_Qwen2": 0.0,
     "Answer_Qwen2.5_rouge1": 0.3409090909090909,
     "Answer_Qwen2.5_rouge2": 0.06976744186046513,
     "Answer_Qwen2.5_rougeL": 0.1590909090909091,
@@ -967,6 +968,7 @@
     "Answer_Qwen2.5_numerical_acc": 0.0,
     "Answer_Qwen2.5_bert": NaN,
     "Answer_Qwen2.5_flan-t5": NaN,
+    "Score_perso_Qwen2.5": 1.0,
     "Answer_Gemma_4B_rouge1": 0.2820512820512821,
     "Answer_Gemma_4B_rouge2": 0.02631578947368421,
     "Answer_Gemma_4B_rougeL": 0.15384615384615383,
@@ -974,13 +976,15 @@
     "Answer_Gemma_4B_numerical_acc": 0.0,
     "Answer_Gemma_4B_bert": NaN,
     "Answer_Gemma_4B_flan-t5": NaN,
+    "Score_perso_Gemma_4B": 1.0,
     "Answer_Gemma_12B_rouge1": 0.2,
     "Answer_Gemma_12B_rouge2": 0.034482758620689655,
     "Answer_Gemma_12B_rougeL": 0.16666666666666669,
     "Answer_Gemma_12B_string_presence": 0.0,
     "Answer_Gemma_12B_numerical_acc": 0.0,
     "Answer_Gemma_12B_bert": NaN,
-    "Answer_Gemma_12B_flan-t5": NaN
+    "Answer_Gemma_12B_flan-t5": NaN,
+    "Score_perso_Gemma_12B": 0.0
   },
   {
     "Question_ID": 22,
@@ -1023,7 +1027,11 @@
     "Answer_Gemma_12B_string_presence": NaN,
     "Answer_Gemma_12B_numerical_acc": NaN,
     "Answer_Gemma_12B_bert": 0.5409234762191772,
-    "Answer_Gemma_12B_flan-t5": 0.07826594639846743
+    "Answer_Gemma_12B_flan-t5": 0.07826594639846743,
+    "Score_perso_Qwen2": 1.0,
+    "Score_perso_Qwen2.5": 1.0,
+    "Score_perso_Gemma_4B": 1.0,
+    "Score_perso_Gemma_12B": 1.0
   },
   {
     "Question_ID": 23,
@@ -1066,7 +1074,11 @@
     "Answer_Gemma_12B_string_presence": NaN,
     "Answer_Gemma_12B_numerical_acc": NaN,
     "Answer_Gemma_12B_bert": 0.43681785464286804,
-    "Answer_Gemma_12B_flan-t5": 0.06086611574392738
+    "Answer_Gemma_12B_flan-t5": 0.06086611574392738,
+    "Score_perso_Qwen2": 0.0,
+    "Score_perso_Qwen2.5": 0.0,
+    "Score_perso_Gemma_4B": 0.0,
+    "Score_perso_Gemma_12B": 0.0
   },
   {
     "Question_ID": 24,
@@ -1109,7 +1121,11 @@
     "Answer_Gemma_12B_string_presence": NaN,
     "Answer_Gemma_12B_numerical_acc": NaN,
     "Answer_Gemma_12B_bert": 0.4981773793697357,
-    "Answer_Gemma_12B_flan-t5": 0.05841434893361569
+    "Answer_Gemma_12B_flan-t5": 0.05841434893361569,
+    "Score_perso_Qwen2": 0.0,
+    "Score_perso_Qwen2.5": 1.0,
+    "Score_perso_Gemma_4B": 0.0,
+    "Score_perso_Gemma_12B": 0.0
   },
   {
     "Question_ID": 25,
@@ -1152,7 +1168,11 @@
     "Answer_Gemma_12B_string_presence": NaN,
     "Answer_Gemma_12B_numerical_acc": NaN,
     "Answer_Gemma_12B_bert": 0.5474139451980591,
-    "Answer_Gemma_12B_flan-t5": 0.06443248100593166
+    "Answer_Gemma_12B_flan-t5": 0.06443248100593166,
+    "Score_perso_Qwen2": 0.0,
+    "Score_perso_Qwen2.5": 0.0,
+    "Score_perso_Gemma_4B": 0.0,
+    "Score_perso_Gemma_12B": 0.0
   },
   {
     "Question_ID": 26,
@@ -1195,7 +1215,11 @@
     "Answer_Gemma_12B_string_presence": NaN,
     "Answer_Gemma_12B_numerical_acc": NaN,
     "Answer_Gemma_12B_bert": 0.5777522325515747,
-    "Answer_Gemma_12B_flan-t5": 0.06836821304768684
+    "Answer_Gemma_12B_flan-t5": 0.06836821304768684,
+    "Score_perso_Qwen2": 0.0,
+    "Score_perso_Qwen2.5": 0.0,
+    "Score_perso_Gemma_4B": 0.0,
+    "Score_perso_Gemma_12B": 0.0
   },
   {
     "Question_ID": 27,
@@ -1238,7 +1262,11 @@
     "Answer_Gemma_12B_string_presence": NaN,
     "Answer_Gemma_12B_numerical_acc": NaN,
     "Answer_Gemma_12B_bert": 0.5274753570556641,
-    "Answer_Gemma_12B_flan-t5": 0.06655681092780452
+    "Answer_Gemma_12B_flan-t5": 0.06655681092780452,
+    "Score_perso_Qwen2": 0.0,
+    "Score_perso_Qwen2.5": 0.0,
+    "Score_perso_Gemma_4B": 0.0,
+    "Score_perso_Gemma_12B": 0.0
   },
   {
     "Question_ID": 28,
@@ -1281,7 +1309,11 @@
     "Answer_Gemma_12B_string_presence": NaN,
     "Answer_Gemma_12B_numerical_acc": NaN,
     "Answer_Gemma_12B_bert": 0.603007435798645,
-    "Answer_Gemma_12B_flan-t5": 0.04100448987151059
+    "Answer_Gemma_12B_flan-t5": 0.04100448987151059,
+    "Score_perso_Qwen2": 0.5,
+    "Score_perso_Qwen2.5": 0.8,
+    "Score_perso_Gemma_4B": 1.0,
+    "Score_perso_Gemma_12B": 1.0
   },
   {
     "Question_ID": 29,
@@ -1324,7 +1356,11 @@
     "Answer_Gemma_12B_string_presence": NaN,
     "Answer_Gemma_12B_numerical_acc": NaN,
     "Answer_Gemma_12B_bert": 0.5136097073554993,
-    "Answer_Gemma_12B_flan-t5": 0.042963650100876334
+    "Answer_Gemma_12B_flan-t5": 0.042963650100876334,
+    "Score_perso_Qwen2": 0.0,
+    "Score_perso_Qwen2.5": 0.5,
+    "Score_perso_Gemma_4B": 0.0,
+    "Score_perso_Gemma_12B": 0.0
   },
   {
     "Question_ID": 30,
@@ -1367,7 +1403,11 @@
     "Answer_Gemma_12B_string_presence": NaN,
     "Answer_Gemma_12B_numerical_acc": NaN,
     "Answer_Gemma_12B_bert": 0.5555187463760376,
-    "Answer_Gemma_12B_flan-t5": 0.057350543338554036
+    "Answer_Gemma_12B_flan-t5": 0.057350543338554036,
+    "Score_perso_Qwen2": 1.0,
+    "Score_perso_Qwen2.5": 1.0,
+    "Score_perso_Gemma_4B": 0.5,
+    "Score_perso_Gemma_12B": 0.5
   },
   {
     "Question_ID": 31,
@@ -1410,7 +1450,11 @@
     "Answer_Gemma_12B_string_presence": NaN,
     "Answer_Gemma_12B_numerical_acc": NaN,
     "Answer_Gemma_12B_bert": 0.535680890083313,
-    "Answer_Gemma_12B_flan-t5": 0.09939477377787177
+    "Answer_Gemma_12B_flan-t5": 0.09939477377787177,
+    "Score_perso_Qwen2": 0.0,
+    "Score_perso_Qwen2.5": 0.5,
+    "Score_perso_Gemma_4B": 0.0,
+    "Score_perso_Gemma_12B": 0.0
   },
   {
     "Question_ID": 32,
@@ -1453,7 +1497,11 @@
     "Answer_Gemma_12B_string_presence": NaN,
     "Answer_Gemma_12B_numerical_acc": NaN,
     "Answer_Gemma_12B_bert": 0.5061872601509094,
-    "Answer_Gemma_12B_flan-t5": 0.09593178971043508
+    "Answer_Gemma_12B_flan-t5": 0.09593178971043508,
+    "Score_perso_Qwen2": 0.8,
+    "Score_perso_Qwen2.5": 0.0,
+    "Score_perso_Gemma_4B": 0.0,
+    "Score_perso_Gemma_12B": 0.0
   },
   {
     "Question_ID": 33,
@@ -1496,7 +1544,11 @@
     "Answer_Gemma_12B_string_presence": NaN,
     "Answer_Gemma_12B_numerical_acc": NaN,
     "Answer_Gemma_12B_bert": 0.4798213541507721,
-    "Answer_Gemma_12B_flan-t5": 0.09875124748583985
+    "Answer_Gemma_12B_flan-t5": 0.09875124748583985,
+    "Score_perso_Qwen2": 1.0,
+    "Score_perso_Qwen2.5": 1.0,
+    "Score_perso_Gemma_4B": 0.0,
+    "Score_perso_Gemma_12B": 0.0
   },
   {
     "Question_ID": 34,
@@ -1539,7 +1591,11 @@
     "Answer_Gemma_12B_string_presence": NaN,
     "Answer_Gemma_12B_numerical_acc": NaN,
     "Answer_Gemma_12B_bert": 0.5664430856704712,
-    "Answer_Gemma_12B_flan-t5": 0.05171562090151968
+    "Answer_Gemma_12B_flan-t5": 0.05171562090151968,
+    "Score_perso_Qwen2": 0.0,
+    "Score_perso_Qwen2.5": 0.0,
+    "Score_perso_Gemma_4B": 0.5,
+    "Score_perso_Gemma_12B": 0.0
   },
   {
     "Question_ID": 35,
@@ -1582,7 +1638,11 @@
     "Answer_Gemma_12B_string_presence": NaN,
     "Answer_Gemma_12B_numerical_acc": NaN,
     "Answer_Gemma_12B_bert": 0.4592433273792267,
-    "Answer_Gemma_12B_flan-t5": 0.03263191878020179
+    "Answer_Gemma_12B_flan-t5": 0.03263191878020179,
+    "Score_perso_Qwen2": 0.0,
+    "Score_perso_Qwen2.5": 0.0,
+    "Score_perso_Gemma_4B": 0.0,
+    "Score_perso_Gemma_12B": 0.0
   },
   {
     "Question_ID": 36,
@@ -1625,7 +1685,11 @@
     "Answer_Gemma_12B_string_presence": NaN,
     "Answer_Gemma_12B_numerical_acc": NaN,
     "Answer_Gemma_12B_bert": 0.5058885216712952,
-    "Answer_Gemma_12B_flan-t5": 0.05292463502818859
+    "Answer_Gemma_12B_flan-t5": 0.05292463502818859,
+    "Score_perso_Qwen2": 0.0,
+    "Score_perso_Qwen2.5": 0.0,
+    "Score_perso_Gemma_4B": 0.0,
+    "Score_perso_Gemma_12B": 0.0
   },
   {
     "Question_ID": 37,
@@ -1668,7 +1732,11 @@
     "Answer_Gemma_12B_string_presence": NaN,
     "Answer_Gemma_12B_numerical_acc": NaN,
     "Answer_Gemma_12B_bert": 0.5943379998207092,
-    "Answer_Gemma_12B_flan-t5": 0.07917205547546641
+    "Answer_Gemma_12B_flan-t5": 0.07917205547546641,
+    "Score_perso_Qwen2": 0.0,
+    "Score_perso_Qwen2.5": 0.5,
+    "Score_perso_Gemma_4B": 0.5,
+    "Score_perso_Gemma_12B": 0.0
   },
   {
     "Question_ID": 38,
@@ -1711,7 +1779,11 @@
     "Answer_Gemma_12B_string_presence": NaN,
     "Answer_Gemma_12B_numerical_acc": NaN,
     "Answer_Gemma_12B_bert": 0.5828529596328735,
-    "Answer_Gemma_12B_flan-t5": 0.05950029728132005
+    "Answer_Gemma_12B_flan-t5": 0.05950029728132005,
+    "Score_perso_Qwen2": 1.0,
+    "Score_perso_Qwen2.5": 1.0,
+    "Score_perso_Gemma_4B": 0.0,
+    "Score_perso_Gemma_12B": 0.0
   },
   {
     "Question_ID": 39,
@@ -1754,7 +1826,11 @@
     "Answer_Gemma_12B_string_presence": NaN,
     "Answer_Gemma_12B_numerical_acc": NaN,
     "Answer_Gemma_12B_bert": 0.4942646324634552,
-    "Answer_Gemma_12B_flan-t5": 0.05657114272655195
+    "Answer_Gemma_12B_flan-t5": 0.05657114272655195,
+    "Score_perso_Qwen2": 1.0,
+    "Score_perso_Qwen2.5": 0.0,
+    "Score_perso_Gemma_4B": 0.0,
+    "Score_perso_Gemma_12B": 0.0
   },
   {
     "Question_ID": 40,
@@ -1797,7 +1873,11 @@
     "Answer_Gemma_12B_string_presence": NaN,
     "Answer_Gemma_12B_numerical_acc": NaN,
     "Answer_Gemma_12B_bert": 0.4476989507675171,
-    "Answer_Gemma_12B_flan-t5": 0.06322195780323087
+    "Answer_Gemma_12B_flan-t5": 0.06322195780323087,
+    "Score_perso_Qwen2": 0.0,
+    "Score_perso_Qwen2.5": 1.0,
+    "Score_perso_Gemma_4B": 0.0,
+    "Score_perso_Gemma_12B": 0.0
   },
   {
     "Question_ID": 41,
@@ -1840,7 +1920,11 @@
     "Answer_Gemma_12B_string_presence": NaN,
     "Answer_Gemma_12B_numerical_acc": NaN,
     "Answer_Gemma_12B_bert": 0.5433838963508606,
-    "Answer_Gemma_12B_flan-t5": 0.04848357064748734
+    "Answer_Gemma_12B_flan-t5": 0.04848357064748734,
+    "Score_perso_Qwen2": 1.0,
+    "Score_perso_Qwen2.5": 1.0,
+    "Score_perso_Gemma_4B": 0.0,
+    "Score_perso_Gemma_12B": 0.0
   },
   {
     "Question_ID": 42,
@@ -1883,7 +1967,11 @@
     "Answer_Gemma_12B_string_presence": NaN,
     "Answer_Gemma_12B_numerical_acc": NaN,
     "Answer_Gemma_12B_bert": 0.5331094264984131,
-    "Answer_Gemma_12B_flan-t5": 0.05770488454466469
+    "Answer_Gemma_12B_flan-t5": 0.05770488454466469,
+    "Score_perso_Qwen2": 0.5,
+    "Score_perso_Qwen2.5": 1.0,
+    "Score_perso_Gemma_4B": 0.5,
+    "Score_perso_Gemma_12B": 0.5
   },
   {
     "Question_ID": 43,
@@ -1926,7 +2014,11 @@
     "Answer_Gemma_12B_string_presence": NaN,
     "Answer_Gemma_12B_numerical_acc": NaN,
     "Answer_Gemma_12B_bert": 0.5395954847335815,
-    "Answer_Gemma_12B_flan-t5": 0.044105352542160144
+    "Answer_Gemma_12B_flan-t5": 0.044105352542160144,
+    "Score_perso_Qwen2": 0.0,
+    "Score_perso_Qwen2.5": 1.0,
+    "Score_perso_Gemma_4B": 0.0,
+    "Score_perso_Gemma_12B": 0.0
   },
   {
     "Question_ID": 44,
@@ -1969,7 +2061,11 @@
     "Answer_Gemma_12B_string_presence": NaN,
     "Answer_Gemma_12B_numerical_acc": NaN,
     "Answer_Gemma_12B_bert": 0.5597005486488342,
-    "Answer_Gemma_12B_flan-t5": 0.07042096123924386
+    "Answer_Gemma_12B_flan-t5": 0.07042096123924386,
+    "Score_perso_Qwen2": 1.0,
+    "Score_perso_Qwen2.5": 0.5,
+    "Score_perso_Gemma_4B": 0.5,
+    "Score_perso_Gemma_12B": 0.5
   },
   {
     "Question_ID": 45,
@@ -2012,7 +2108,11 @@
     "Answer_Gemma_12B_string_presence": NaN,
     "Answer_Gemma_12B_numerical_acc": NaN,
     "Answer_Gemma_12B_bert": 0.5565741062164307,
-    "Answer_Gemma_12B_flan-t5": 0.0526843507115615
+    "Answer_Gemma_12B_flan-t5": 0.0526843507115615,
+    "Score_perso_Qwen2": 1.0,
+    "Score_perso_Qwen2.5": 1.0,
+    "Score_perso_Gemma_4B": 0.0,
+    "Score_perso_Gemma_12B": 1.0
   },
   {
     "Question_ID": 46,
@@ -2055,7 +2155,11 @@
     "Answer_Gemma_12B_string_presence": NaN,
     "Answer_Gemma_12B_numerical_acc": NaN,
     "Answer_Gemma_12B_bert": 0.5874534249305725,
-    "Answer_Gemma_12B_flan-t5": 0.07725070771180244
+    "Answer_Gemma_12B_flan-t5": 0.07725070771180244,
+    "Score_perso_Qwen2": 1.0,
+    "Score_perso_Qwen2.5": 1.0,
+    "Score_perso_Gemma_4B": 1.0,
+    "Score_perso_Gemma_12B": 1.0
   },
   {
     "Question_ID": 47,
@@ -2098,7 +2202,11 @@
     "Answer_Gemma_12B_string_presence": NaN,
     "Answer_Gemma_12B_numerical_acc": NaN,
     "Answer_Gemma_12B_bert": 0.5220324397087097,
-    "Answer_Gemma_12B_flan-t5": 0.035239557177238125
+    "Answer_Gemma_12B_flan-t5": 0.035239557177238125,
+    "Score_perso_Qwen2": 1.0,
+    "Score_perso_Qwen2.5": 1.0,
+    "Score_perso_Gemma_4B": 0.0,
+    "Score_perso_Gemma_12B": 0.0
   },
   {
     "Question_ID": 48,
@@ -2141,7 +2249,11 @@
     "Answer_Gemma_12B_string_presence": NaN,
     "Answer_Gemma_12B_numerical_acc": NaN,
     "Answer_Gemma_12B_bert": 0.4979418218135834,
-    "Answer_Gemma_12B_flan-t5": 0.03641651359642314
+    "Answer_Gemma_12B_flan-t5": 0.03641651359642314,
+    "Score_perso_Qwen2": 0.0,
+    "Score_perso_Qwen2.5": 0.0,
+    "Score_perso_Gemma_4B": 0.0,
+    "Score_perso_Gemma_12B": 0.0
   },
   {
     "Question_ID": 49,
@@ -2184,7 +2296,11 @@
     "Answer_Gemma_12B_string_presence": NaN,
     "Answer_Gemma_12B_numerical_acc": NaN,
     "Answer_Gemma_12B_bert": 0.4886022210121155,
-    "Answer_Gemma_12B_flan-t5": 0.06657283867595871
+    "Answer_Gemma_12B_flan-t5": 0.06657283867595871,
+    "Score_perso_Qwen2": 0.7,
+    "Score_perso_Qwen2.5": 0.8,
+    "Score_perso_Gemma_4B": 0.5,
+    "Score_perso_Gemma_12B": 0.5
   },
   {
     "Question_ID": 50,
@@ -2227,7 +2343,11 @@
     "Answer_Gemma_12B_string_presence": NaN,
     "Answer_Gemma_12B_numerical_acc": NaN,
     "Answer_Gemma_12B_bert": 0.529586672782898,
-    "Answer_Gemma_12B_flan-t5": 0.07638961840887697
+    "Answer_Gemma_12B_flan-t5": 0.07638961840887697,
+    "Score_perso_Qwen2": 0.5,
+    "Score_perso_Qwen2.5": 1.0,
+    "Score_perso_Gemma_4B": 0.5,
+    "Score_perso_Gemma_12B": 0.5
   },
   {
     "Question_ID": 51,
@@ -2270,7 +2390,11 @@
     "Answer_Gemma_12B_string_presence": NaN,
     "Answer_Gemma_12B_numerical_acc": NaN,
     "Answer_Gemma_12B_bert": 0.46710890531539917,
-    "Answer_Gemma_12B_flan-t5": 0.05870580028373813
+    "Answer_Gemma_12B_flan-t5": 0.05870580028373813,
+    "Score_perso_Qwen2": 0.0,
+    "Score_perso_Qwen2.5": 1.0,
+    "Score_perso_Gemma_4B": 0.0,
+    "Score_perso_Gemma_12B": 0.0
   },
   {
     "Question_ID": 52,
@@ -2313,6 +2437,10 @@
     "Answer_Gemma_12B_string_presence": NaN,
     "Answer_Gemma_12B_numerical_acc": NaN,
     "Answer_Gemma_12B_bert": 0.5820605158805847,
-    "Answer_Gemma_12B_flan-t5": 0.09293382749098004
+    "Answer_Gemma_12B_flan-t5": 0.09293382749098004,
+    "Score_perso_Qwen2": 0.8,
+    "Score_perso_Qwen2.5": 0.8,
+    "Score_perso_Gemma_4B": 1.0,
+    "Score_perso_Gemma_12B": 1.0
   }
 ]
