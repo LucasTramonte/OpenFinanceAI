@@ -43,42 +43,51 @@ for metric in metrics:
     if df[metric].notnull().any():
         df[metric] = (df[metric] - df[metric].min()) / (df[metric].max() - df[metric].min())
 
-# Rank metrics by correlation with Personal_Score
-correlations = {}
-for metric in metrics:
-    correlations[metric] = df[["Personal_Score", metric]].corr(method="spearman").iloc[0, 1]
+# Function to calculate and save results for a given correlation method
+def calculate_and_save_results(method):
+    # Create a subfolder for the method
+    method_dir = os.path.join(output_dir, method)
+    os.makedirs(method_dir, exist_ok=True)
 
-ranked_metrics = sorted(correlations.items(), key=lambda x: x[1], reverse=True)
+    # Rank metrics by correlation with Personal_Score
+    correlations = {}
+    for metric in metrics:
+        correlations[metric] = df[["Personal_Score", metric]].corr(method=method).iloc[0, 1]
 
-# Save correlation heatmap as an image
-plt.figure(figsize=(12, 8))
-sns.heatmap(df[metrics + ["Personal_Score"]].corr(), annot=True, cmap="coolwarm")
-plt.title("Correlation Heatmap")
-plt.tight_layout()
-heatmap_path = os.path.join(output_dir, "correlation_heatmap.png")
-plt.savefig(heatmap_path)
-plt.close()
+    ranked_metrics = sorted(correlations.items(), key=lambda x: x[1], reverse=True)
 
-# Save correlations to a JSON file
-correlation_json_path = os.path.join(output_dir, "correlations.json")
-with open(correlation_json_path, "w", encoding="utf-8") as f:
-    json.dump(correlations, f, indent=4)
+    # Save correlation heatmap as an image
+    plt.figure(figsize=(12, 8))
+    sns.heatmap(df[metrics + ["Personal_Score"]].corr(method=method), annot=True, cmap="coolwarm")
+    plt.title(f"Correlation Heatmap - {method.capitalize()} method")
+    plt.tight_layout()
+    heatmap_path = os.path.join(method_dir, "correlation_heatmap.png")
+    plt.savefig(heatmap_path)
+    plt.close()
 
-# Save ranked metrics to a JSON file
-ranked_metrics_json_path = os.path.join(output_dir, "ranked_metrics.json")
-with open(ranked_metrics_json_path, "w", encoding="utf-8") as f:
-    json.dump(ranked_metrics, f, indent=4)
+    # Save correlations to a JSON file
+    correlation_json_path = os.path.join(method_dir, "correlations.json")
+    with open(correlation_json_path, "w", encoding="utf-8") as f:
+        json.dump(correlations, f, indent=4)
 
-# Print results
-print("Correlation between Personal Score and Metrics:")
-for metric, corr in correlations.items():
-    print(f"{metric}: {corr:.2f}")
+    # Save ranked metrics to a JSON file
+    ranked_metrics_json_path = os.path.join(method_dir, "ranked_metrics.json")
+    with open(ranked_metrics_json_path, "w", encoding="utf-8") as f:
+        json.dump(ranked_metrics, f, indent=4)
 
-print("\nRanked Metrics by Correlation with Personal Score:")
-for rank, (metric, corr) in enumerate(ranked_metrics, start=1):
-    print(f"{rank}. {metric}: {corr:.2f}")
+    # Print results
+    print(f"\nCorrelation between Personal Score and Metrics ({method.capitalize()}):")
+    for metric, corr in correlations.items():
+        print(f"{metric}: {corr:.2f}")
 
+    print(f"\nRanked Metrics by Correlation with Personal Score ({method.capitalize()}):")
+    for rank, (metric, corr) in enumerate(ranked_metrics, start=1):
+        print(f"{rank}. {metric}: {corr:.2f}")
 
-print(f"\nHeatmap saved to: {heatmap_path}")
-print(f"Correlations saved to: {correlation_json_path}")
-print(f"Ranked metrics saved to: {ranked_metrics_json_path}")
+    print(f"\nHeatmap saved to: {heatmap_path}")
+    print(f"Correlations saved to: {correlation_json_path}")
+    print(f"Ranked metrics saved to: {ranked_metrics_json_path}")
+
+# Calculate and save results for Spearman and Pearson methods
+calculate_and_save_results("spearman")
+calculate_and_save_results("pearson")
