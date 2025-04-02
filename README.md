@@ -149,6 +149,33 @@ The output directory contains the following key files and folders:
 
 To evaluate the performance of our models, we use a combination of automatic metrics and ranking methods. These metrics help us assess the quality of generated responses and compare different models effectively.
 
+### Retriever
+
+We evaluated our personal retriever on the ViDoRe benchmark as stated above in order to confirm the results obtained in the orignial paper.
+
+Furthermore, we are using 4 metrics to evaluate its performance with our datatset of questions:
+
+#### MMR (Mean Reciprocal Rank)
+- Measures the effectiveness of the retriever in returning relevant documents at the top of the ranked list.
+- Calculated as the reciprocal of the rank of the first relevant document.
+- Higher values indicate better performance (range: 0-1).
+
+#### Precision at 1
+- Measures the relevance of the top retrieved document.
+- Calculated as the proportion of relevant documents among the first retrieved document.
+- Higher values indicate better precision (range: 0-1).
+
+#### Recall at 3
+- Measures the ability of the retriever to find all relevant documents among the top 3 retrieved.
+- Calculated as the proportion of relevant documents found among the top 3 retrieved.
+- Higher values indicate better recall (range: 0-1).
+
+#### Embeddings Comparison
+- Compares the embeddings of the query with those of the retrieved documents.
+- Uses cosine similarity to measure the semantic closeness.
+- Higher similarity values indicate better relevance of retrieved documents.
+
+### Generator
 
 ### ROUGE (Recall-Oriented Understudy for Gisting Evaluation)
 - **ROUGE-1**: Measures overlap of unigrams between generated and reference text.  
@@ -164,6 +191,13 @@ To evaluate the performance of our models, we use a combination of automatic met
 ### Numerical Accuracy
 - Specifically for tabular/chart questions, checks if numerical values in the generated response match the expected values within a **5% tolerance**.
 
+### Multi-modal faithfulness
+- Binary score (0 or 1) that evaluates whether the model's response contains information present in the retrieved documents.
+- 1: The response is faithful and only uses information present in the context (top 3 retrieved documents).
+- 0: The response contains hallucinated information not present in the retrieved documents.
+- This metric helps identify when the model generates information not grounded in the provided visual and textual context.
+- Evaluation is performed by comparing the model's response against the information contained in the 3 retrieved documents to ensure factual accuracy.
+
 ## Ranking Methods
 To compare models across multiple metrics, we use the **Borda Count method**:
 
@@ -174,6 +208,34 @@ To compare models across multiple metrics, we use the **Borda Count method**:
    - 1 point for 2nd place  
    - 0 points for 3rd place  
 3. The total Borda score is the sum of points across all metrics.
+
+To provide a comprehensive evaluation of our models, we calculate three different Borda scores:
+
+1. **Global Borda Score**
+   - Uses all metrics across all question types
+   - Provides an overall performance indicator
+
+2. **Short-Answer Borda Score**
+   - Uses metrics specific to short-answer questions:
+     - ROUGE-1 (Short)
+     - ROUGE-2 (Short)
+     - ROUGE-L (Short)
+     - String Presence (Short)
+     - Numerical Accuracy (Short)
+     - Faithfulness Score
+   - Helps determine which model performs best for concise, factual answers
+
+3. **Long-Answer Borda Score**
+   - Uses metrics specific to long-answer questions:
+     - ROUGE-1 (Long)
+     - ROUGE-2 (Long)
+     - ROUGE-L (Long)
+     - BERTScore (Long)
+     - Flan-T5 Perplexity (Long)
+     - Faithfulness Score
+   - Helps determine which model performs best for detailed explanations
+
+This multi-faceted evaluation approach allows us to determine which model performs best overall, as well as which models excel at specific types of questions. The faithfulness score is integrated into both short and long answer evaluations to ensure that all models are assessed for their ability to avoid hallucinations and stick to the retrieved context.
 
 ## 3. Aggregation
 
