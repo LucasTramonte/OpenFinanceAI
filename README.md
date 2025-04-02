@@ -218,9 +218,9 @@ The script generates the following outputs for each correlation method (**Spearm
    - Visualizes the correlation matrix between the `Personal_Score` and metrics.
    - Example:
      - **Spearman Heatmap**:
-       ![Spearman Correlation Heatmap](Assets\output\metrics\spearman\correlation_heatmap.png)
+       ![Spearman Correlation Heatmap](Assets/output/metrics/spearman/correlation_heatmap.png)
      - **Pearson Heatmap**:
-       ![Pearson Correlation Heatmap](Assets\output\metrics\pearson\correlation_heatmap.png)
+       ![Pearson Correlation Heatmap](Assets/output/metrics/pearson/correlation_heatmap.png)
 
 2. **Correlations JSON**:
    - Contains the correlation values for each metric.
