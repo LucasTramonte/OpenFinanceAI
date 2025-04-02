@@ -75,7 +75,6 @@ Execute the main script as follows
 ```bash
 python Colpali_Qwen2_5.py
 ```
-Please note that there is another vesrion that we are testing ```Colpali_Qwen_ResponsePerPage.py``` that generates a response for every single K documents. 
 
 ### Retriever Evaluation
 
@@ -160,7 +159,7 @@ To evaluate the performance of our models, we use a combination of automatic met
 - Computes similarity between generated and reference text using contextual embeddings from BERT.
 
 ### Flan-T5 Perplexity
-- Measures how well the generated text aligns with the expected output using the Flan-T5 model.
+- Measures how well the generated text aligns with the expected output using the Flan-T5 model. The score is calculated as the inverse of perplexity (1 / perplexity)
 
 ### Numerical Accuracy
 - Specifically for tabular/chart questions, checks if numerical values in the generated response match the expected values within a **5% tolerance**.
@@ -178,28 +177,59 @@ To compare models across multiple metrics, we use the **Borda Count method**:
 
 ## 3. Aggregation
 
-The aggregated metrics are saved in `Assets\data_test\aggregated_metrics.csv` with the following structure:
+### JSON Structure:
+Each entry in the JSON file contains the following fields:
+- **Model**: The name of the model being evaluated (e.g., `Answer_Qwen2`, `Answer_Qwen2.5`, `Answer_Gemma_4B`, etc.).
+- **Metric**: The evaluation metric (e.g., `rouge1`, `rouge2`, `rougeL`, `bert`, `flan-t5`, `string_presence`, `numerical_acc`).
+- **Type**: The type of question being evaluated:
+  - `Overall`: Aggregated results across all question types.
+  - `Short`: Results for short-answer questions.
+  - `Long`: Results for long-answer questions.
+- **Mean**: The average score for the given model, metric, and question type.
+- **Borda**: The Borda score for the model, calculated based on its ranking across all metrics.
 
-| Model              | Metric         | Average  | Borda_Score |
-|--------------------|---------------|----------|-------------|
-| Answer_Qwen2      | rouge1        | 0.323893 | 6           |
-| Answer_Qwen2      | rouge2        | 0.177411 | 6           |
-| Answer_Qwen2      | rougeL        | 0.290054 | 6           |
-| Answer_Qwen2      | bert          | 0.628545 | 6           |
-| Answer_Qwen2      | flan-t5       | 0.091538 | 6           |
-| Answer_Qwen2      | numerical_acc | 0.370370 | 6           |
-| Answer_Qwen2.5    | rouge1        | 0.348651 | 12          |
-| Answer_Qwen2.5    | rouge2        | 0.187174 | 12          |
-| Answer_Qwen2.5    | rougeL        | 0.304695 | 12          |
-| Answer_Qwen2.5    | bert          | 0.629504 | 12          |
-| Answer_Qwen2.5    | flan-t5       | 0.092331 | 12          |
-| Answer_Qwen2.5    | numerical_acc | 0.592593 | 12          |
-| Answer_OpenGVLab  | rouge1        | 0.009040 | 0           |
-| Answer_OpenGVLab  | rouge2        | 0.006053 | 0           |
-| Answer_OpenGVLab  | rougeL        | 0.006780 | 0           |
-| Answer_OpenGVLab  | bert          | 0.293933 | 0           |
-| Answer_OpenGVLab  | flan-t5       | 0.017576 | 0           |
-| Answer_OpenGVLab  | numerical_acc | 0.000000 | 0           |
+| Model            | Metric   | Type     | Mean     | Borda |
+|------------------|----------|----------|----------|-------|
+| Answer_Qwen2     | rouge1   | Overall  | 0.307717 | 21    |
+| Answer_Qwen2     | rouge2   | Overall  | 0.132412 | 21    |
+| Answer_Qwen2     | rougeL   | Overall  | 0.243889 | 21    |
+| Answer_Qwen2.5   | rouge1   | Overall  | 0.294662 | 18    |
+| Answer_Qwen2.5   | rouge2   | Overall  | 0.124057 | 18    |
+| Answer_Qwen2.5   | rougeL   | Overall  | 0.226993 | 18    |
+| Answer_Gemma_4B  | rouge1   | Overall  | 0.229930 | -8    |
+| Answer_Gemma_4B  | rouge2   | Overall  | 0.066064 | -8    |
+| Answer_Gemma_4B  | rougeL   | Overall  | 0.169093 | -8    |
+| Answer_Gemma_12B | rouge1   | Overall  | 0.238580 | -5    |
+| Answer_Gemma_12B | rouge2   | Overall  | 0.076516 | -5    |
+| Answer_Gemma_12B | rougeL   | Overall  | 0.177195 | -5    |
+
+Borda instance explanation : 
+
+Answer_Qwen2: ( 2 + 2 + 2 = 6 ) points per metric × 3 metrics = 21
+
+## Evaluation Metrics
+
+The `eval_metrics.py` script is used to evaluate the correlation between the **Personal Score** (ground truth) and various metrics for each model. It calculates correlations using both **Spearman** and **Pearson** methods and generates visualizations to compare the results.
+
+### Outputs:
+The script generates the following outputs for each correlation method (**Spearman** and **Pearson**):
+
+1. **Correlation Heatmap**:
+   - Visualizes the correlation matrix between the `Personal_Score` and metrics.
+   - Example:
+     - **Spearman Heatmap**:
+       ![Spearman Correlation Heatmap](Assets\output\metrics\spearman\correlation_heatmap.png)
+     - **Pearson Heatmap**:
+       ![Pearson Correlation Heatmap](Assets\output\metrics\pearson\correlation_heatmap.png)
+
+2. **Correlations JSON**:
+   - Contains the correlation values for each metric.
+   - Example file: `../Assets/output/metrics/spearman/correlations.json`
+
+3. **Ranked Metrics JSON**:
+   - Contains the metrics ranked by their correlation with the `Personal_Score`.
+   - Example file: `../Assets/output/metrics/spearman/ranked_metrics.json`
+
 
 ## Actual problems : 
 ### 1. Resource Generation Issues with Streamlit Application
@@ -221,11 +251,6 @@ Example screenshot of the Streamlit interface:
 ![Example Streamlit Interface](Assets/Images/example_streamlit_interface.png)
 
 torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 19.68 GiB. GPU 0 has a total capacity of 23.68 GiB of which 11.88 GiB is free. Including non-PyTorch memory, this process has 11.79 GiB memory in use. Of the allocated memory 11.44 GiB is allocated by PyTorch, and 43.59 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
-
-Same problem with OpenGVLab/InternVL2_5-78B-MPO ("Colpali_InternVL2.5.py") : 
-
-torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 462.00 MiB. GPU 0 has a total capacity of 23.68 GiB of which 161.00 MiB is free. Including non-PyTorch memory, this process has 23.52 GiB memory in use. Of the allocated memory 23.18 GiB is allocated by PyTorch, and 31.53 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
-(base) tramonte_luc@sh04:~$ 
 
 ## Future Directions
 
