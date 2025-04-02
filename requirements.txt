@@ -1,3 +1,7 @@
+seaborn
+numpy
+pandas
+matplotlib
 torchvision
 ujson
 byaldi 

@@ -7,6 +7,8 @@ from transformers import Qwen2VLForConditionalGeneration, Qwen2_5_VLForCondition
 from qwen_vl_utils import process_vision_info
 from torch.utils.data import DataLoader
 from tqdm import tqdm
+import hashlib
+import pickle
 
 # Set environment variable to avoid fragmentation
 os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'expandable_segments:True'
@@ -19,10 +21,12 @@ base_dir = "./streamlit"
 pdf_dir = os.path.join(base_dir, "uploaded_pdfs")
 temp_dir = os.path.join(base_dir, "temp_files")
 output_dir = os.path.join(base_dir, "output")
+index_dir = os.path.join(base_dir, "index")
 
 os.makedirs(pdf_dir, exist_ok=True)
 os.makedirs(temp_dir, exist_ok=True)
 os.makedirs(output_dir, exist_ok=True)
+os.makedirs(index_dir, exist_ok=True)
 
 st.title("ColPali and Qwen Multimodal RAG App")
 with st.sidebar:
@@ -40,21 +44,46 @@ def save_uploaded_file(uploaded_file, save_dir):
 def convert_pdf_to_images(pdf_path):
     return convert_from_path(pdf_path)
 
-def generate_embeddings(model, processor, images, batch_size=1):
+def get_pdf_hash(pdf_path):
+    hasher = hashlib.md5()
+    with open(pdf_path, "rb") as f:
+        hasher.update(f.read())
+    return hasher.hexdigest()
+
+def generate_embeddings(model, processor, images, pdf_path):
+    pdf_hash = get_pdf_hash(pdf_path)
+    index_file = os.path.join(index_dir, f"document_embeddings_{pdf_hash}.pkl")
+
+    if os.path.exists(index_file):
+        try:
+            with open(index_file, "rb") as f:
+                embeddings_list = pickle.load(f)
+            st.info(f"Embeddings loaded from cache for {pdf_path}.")
+            return embeddings_list
+        except Exception as e:
+            st.warning(f"Failed to load embeddings for {pdf_path}. Regenerating... (Error: {e})")
+
+    st.info("Generating new embeddings...")
     dataloader = DataLoader(
         dataset=images,
-        batch_size=batch_size,
+        batch_size=1,
         shuffle=False,
-        collate_fn=lambda x: processor.process_images(x),
+        collate_fn=lambda x: processor.process_images(x)
     )
+
     embeddings_list = []
     for batch in tqdm(dataloader, desc="Generating embeddings"):
         with torch.no_grad():
             batch = {k: v.to(model.device) for k, v in batch.items()}
             embeddings = model(**batch)
         embeddings_list.extend(embeddings.cpu().unbind())
-        torch.cuda.empty_cache()
+
+    with open(index_file, "wb") as f:
+        pickle.dump(embeddings_list, f)
+
+    st.info(f"Embeddings saved for {pdf_path}.")
     return embeddings_list
+
 
 def process_query(model, processor, query):
     batch_queries = processor.process_queries([query]).to(model.device)
@@ -133,7 +162,7 @@ def main():
                     images = convert_pdf_to_images(pdf_path)
 
                     st.info("Generating embeddings for PDF pages...")
-                    embeddings_list = generate_embeddings(colpali_model, colpali_processor, images, batch_size=1)
+                    embeddings_list = generate_embeddings(colpali_model, colpali_processor, images, pdf_path)
 
                     st.info("Processing query with ColPali...")
                     query_embeddings = process_query(colpali_model, colpali_processor, query)
