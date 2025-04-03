@@ -3,8 +3,16 @@ import pickle
 import hashlib
 from pdf2image import convert_from_path
 from langchain_community.embeddings import HuggingFaceEmbeddings
+import logging
+from utils.logging import setup_logging
 
-OUTPUT_DIRECTORY = "../Assets/output"
+# Set up logging
+logger = logging.getLogger(__name__)
+setup_logging()
+
+OUTPUT_DIRECTORY = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "..", "..", "..", "Assets", "output")
+)
 
 def get_pdf_hash(pdf_path):
     """Generate a unique hash for the given PDF file."""
@@ -14,8 +22,17 @@ def get_pdf_hash(pdf_path):
     return hasher.hexdigest()
 
 def convert_pdf_to_images(pdf_path):
-    """Convert a PDF file to a list of images."""
+    """Convert a PDF file to a list of images and save them to disk."""
     images = convert_from_path(pdf_path)
+    logger.info(f"PDF converted to {len(images)} pages.")
+
+    # Save images to the output directory
+    os.makedirs(OUTPUT_DIRECTORY, exist_ok=True)
+    for i, image in enumerate(images):
+        image_path = os.path.join(OUTPUT_DIRECTORY, f"page_{i + 1}.png")
+        image.save(image_path)
+        logger.info(f"Saved image: {image_path}")
+
     return images
 
 def generate_embeddings(images, pdf_path, model_name="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"):

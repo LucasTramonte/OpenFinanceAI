@@ -1,11 +1,17 @@
 import os
+import logging
 from langchain_huggingface.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain.chains import RetrievalQA
 from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.llms import HuggingFaceHub  # Use Hugging Face LLMs via Hugging Face Hub
+from langchain_community.llms import HuggingFaceHub  
+#from langchain_huggingface import HuggingFaceEndpoint
+from utils.logging import setup_logging
 
+# Set up logging
+logger = logging.getLogger(__name__)
+setup_logging()
 class QueryHandler:
     def __init__(self, pdf_path: str, top_k: int = 3):
         self.pdf_path = pdf_path
@@ -19,12 +25,12 @@ class QueryHandler:
         documents = loader.load()
         text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
         split_docs = text_splitter.split_documents(documents)
+        logger.info(f"Split documents: {len(split_docs)} chunks created.")
         vector_store = FAISS.from_documents(split_docs, self.embeddings)
         return vector_store
 
     def initialize_llm(self):
         """Initialize a Hugging Face LLM with the token read from a file."""
-        # Adjusted relative path to the token file
         token_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "token.txt"))
         if not os.path.exists(token_path):
             raise FileNotFoundError(f"Hugging Face token file not found at: {token_path}")
@@ -32,21 +38,54 @@ class QueryHandler:
         with open(token_path, "r") as token_file:
             HF_TOKEN = token_file.read().strip()
 
-        # Set the token as an environment variable
         os.environ["HUGGINGFACEHUB_API_TOKEN"] = HF_TOKEN
 
-        # Initialize the Hugging Face LLM
-        return HuggingFaceHub(
-            repo_id="google/flan-t5-base",  # Replace with your preferred Hugging Face model
-            model_kwargs={"temperature": 0.5, "max_length": 512}
-        )
+        return HuggingFaceHub(repo_id="google/flan-t5-base" ,model_kwargs={"temperature": 0.5, "max_length": 250})
 
     def get_relevant_indices(self, query: str):
         retriever = self.vector_store.as_retriever(search_kwargs={"k": self.top_k})
         retrieval_qa = RetrievalQA.from_chain_type(llm=self.llm, chain_type="stuff", retriever=retriever)
-        results = retrieval_qa({"query": query})
-        return results['result']
+
+        try:
+            results = retrieval_qa.invoke({"query": query})
+            logger.info(f"Raw retrieval results: {results}")  # Log raw output for debugging
+
+            if not results or 'result' not in results:
+                logger.warning("No results found from retrieval.")
+                return []
+
+            # Attempt to parse the result into a list of integers or valid references
+            retrieved_docs = results.get('result', [])
+            if isinstance(retrieved_docs, str):
+                # Split string into potential page numbers or references
+                retrieved_docs = [int(x.strip()) for x in retrieved_docs.split() if x.strip().isdigit()]
+            
+            logger.info(f"Processed retrieved documents: {retrieved_docs}")
+            return retrieved_docs
+        except Exception as e:
+            logger.error(f"Error during query retrieval: {e}")
+            return []
+
 
     def handle_query(self, query: str):
         relevant_docs = self.get_relevant_indices(query)
-        return relevant_docs
+        relevant_images = []
+
+        # Get the absolute path to the Assets directory (outside langchain-pdf-pipeline)
+        assets_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "Assets", "output"))
+
+        for doc in relevant_docs:
+            try:
+                # If the document is an integer, assume it's a page number
+                if isinstance(doc, int):
+                    image_path = os.path.join(assets_dir, f"page_{doc}.png")
+                    if os.path.exists(image_path):
+                        relevant_images.append(image_path)
+                    else:
+                        logger.warning(f"Image for page {doc} not found at {image_path}.")
+                else:
+                    logger.warning(f"Invalid document reference: {doc}")
+            except Exception as e:
+                logger.error(f"Error processing document reference {doc}: {e}")
+
+        return relevant_images
