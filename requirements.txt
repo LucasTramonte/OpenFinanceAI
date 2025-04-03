@@ -13,6 +13,7 @@ git+https://github.com/huggingface/transformers accelerate
 transformers==4.47.0 
 einops
 pdf2image
+pypdf
 colpali_engine
 qwen_vl_utils
 matplotlib
@@ -22,3 +23,5 @@ rouge_score
 ragas
 git+https://github.com/huggingface/transformers@v4.49.0-Gemma-3
 timm
+langchain
+-U langchain-community
