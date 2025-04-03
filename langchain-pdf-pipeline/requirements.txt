@@ -1,8 +1,0 @@
-langchain
-torch
-pdf2image
-transformers
-tqdm
-matplotlib
-hashlib
-```
