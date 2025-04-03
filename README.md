@@ -204,9 +204,10 @@ To compare models across multiple metrics, we use the **Borda Count method**:
 ### Borda Count
 1. For each metric, models are ranked (1st, 2nd, 3rd).  
 2. Points are assigned:  
-   - 2 points for 1st place  
-   - 1 point for 2nd place  
-   - 0 points for 3rd place  
+   - 3 points for 1st place  
+   - 2 point for 2nd place  
+   - 1 point for 3rd place 
+   - 0 point for 4th place 
 3. The total Borda score is the sum of points across all metrics.
 
 To provide a comprehensive evaluation of our models, we calculate three different Borda scores:
