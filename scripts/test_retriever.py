@@ -93,6 +93,50 @@ def generate_embeddings(model, processor, images, pdf_path):
     logger.info(f"Embeddings saved for {pdf_path}.")
     return embeddings_list
 
+def compute_embedding_similarity(
+    question_embeddings: torch.Tensor, 
+    image_embeddings: torch.Tensor
+) -> Dict[str, float]:
+    """
+    Computes similarity metrics between question embeddings and image embeddings.
+    
+    Args:
+        question_embeddings: Tensor of shape (n_questions, embedding_dim)
+        image_embeddings: Tensor of shape (n_images, embedding_dim)
+        
+    Returns:
+        Dictionary containing similarity metrics:
+        - cosine_sim_mean: Mean cosine similarity
+        - cosine_sim_median: Median cosine similarity
+        - euclidean_dist_mean: Mean euclidean distance
+        - matching_score: Percentage of questions where highest similarity is with correct image
+    """
+    # Normalize embeddings for cosine similarity
+    q_norm = torch.nn.functional.normalize(question_embeddings, p=2, dim=1)
+    i_norm = torch.nn.functional.normalize(image_embeddings, p=2, dim=1)
+    
+    # Calculate cosine similarities between all questions and images
+    cosine_sim = torch.matmul(q_norm, i_norm.T)  # shape: (n_questions, n_images)
+    
+    # Calculate Euclidean distances
+    q_expanded = question_embeddings.unsqueeze(1).expand(-1, image_embeddings.size(0), -1)
+    i_expanded = image_embeddings.unsqueeze(0).expand(question_embeddings.size(0), -1, -1)
+    euclidean_dist = torch.sqrt(torch.sum((q_expanded - i_expanded) ** 2, dim=2))
+    
+    # Assuming diagonal elements should match (question i corresponds to image i)
+    diag_cosine = torch.diagonal(cosine_sim)
+    diag_euclidean = torch.diagonal(euclidean_dist)
+    
+    # Calculate metrics
+    metrics = {
+        "cosine_sim_mean": float(diag_cosine.mean().item()),
+        "cosine_sim_median": float(torch.median(diag_cosine).item()),
+        "euclidean_dist_mean": float(diag_euclidean.mean().item()),
+        "matching_score": float((torch.argmax(cosine_sim, dim=1) == torch.arange(len(question_embeddings))).float().mean().item())
+    }
+    
+    return metrics
+
 def get_relevant_indices(model, processor, query, embeddings_list, top_k):
     """Retrieve the indices of the top-k relevant pages based on the query."""
     batch_queries = processor.process_queries([query]).to(model.device)
@@ -128,7 +172,7 @@ class RetrieverEvaluator:
         with open(self.data_path, "r", encoding="utf-8") as f:
             return json.load(f)
     
-    def evaluate(self, retriever_results, k_values=[1, 3, 5]):
+    def evaluate(self, retriever_results, k_values=[1, 3, 5], embedding_metrics=None):
         """
         Évalue le retriever en calculant diverses métriques.
         
@@ -136,6 +180,7 @@ class RetrieverEvaluator:
             retriever_results: Dictionnaire {question_id: [doc_id1, doc_id2, ...]} 
                              contenant les documents récupérés par le retriever
             k_values: Liste des valeurs de k pour les métriques @k
+            embedding_metrics: Métriques de similarité des embeddings (optionnel)
             
         Returns:
             Dictionnaire contenant les résultats des métriques
@@ -220,6 +265,10 @@ class RetrieverEvaluator:
         # Calculer les moyennes des métriques
         overall_results = {metric: np.mean(values) for metric, values in metrics.items()}
         
+        # Ajouter les métriques d'embedding si disponibles
+        if embedding_metrics:
+            overall_results["embedding_similarity"] = embedding_metrics
+        
         # Calculer les moyennes par type de question
         type_results = {}
         for q_type, values in question_types.items():
@@ -254,6 +303,12 @@ class RetrieverEvaluator:
             
         overall_metrics = self.results["overall"]
         
+        # Filtrer les métriques d'embedding pour un graphique séparé
+        embedding_metrics = {}
+        if "embedding_similarity" in overall_metrics:
+            embedding_metrics = overall_metrics["embedding_similarity"]
+            overall_metrics = {k: v for k, v in overall_metrics.items() if k != "embedding_similarity"}
+        
         # Créer un DataFrame pour la visualisation
         df = pd.DataFrame({
             "Métrique": list(overall_metrics.keys()),
@@ -283,6 +338,36 @@ class RetrieverEvaluator:
         plt.savefig(output_path)
         logger.info(f"Graphique sauvegardé dans {output_path}")
         plt.close()
+        
+        # Si des métriques d'embedding existent, créer un graphique séparé pour elles
+        if embedding_metrics:
+            embed_output_path = os.path.join(RETRIEVER_EVAL_DIR, "embedding_metrics.png")
+            plt.figure(figsize=(10, 6))
+            
+            # Créer un DataFrame pour les métriques d'embedding
+            embed_df = pd.DataFrame({
+                "Métrique": list(embedding_metrics.keys()),
+                "Score": list(embedding_metrics.values())
+            })
+            
+            # Créer le graphique
+            ax = sns.barplot(x="Métrique", y="Score", data=embed_df, palette="viridis")
+            
+            # Ajouter les étiquettes et le titre
+            plt.title("Métriques de Similarité des Embeddings", fontsize=16)
+            plt.xlabel("Métrique", fontsize=14)
+            plt.ylabel("Score", fontsize=14)
+            plt.xticks(rotation=45, ha="right")
+            plt.grid(axis="y", linestyle="--", alpha=0.7)
+            
+            # Ajouter les valeurs sur chaque barre
+            for i, v in enumerate(embed_df["Score"]):
+                ax.text(i, v + 0.02, f"{v:.3f}", ha="center", fontsize=9)
+            
+            plt.tight_layout()
+            plt.savefig(embed_output_path)
+            logger.info(f"Graphique des métriques d'embedding sauvegardé dans {embed_output_path}")
+            plt.close()
     
     def plot_by_type(self, metric="recall@3", output_path=None):
         """Génère un graphique des performances par type de question."""
@@ -373,7 +458,7 @@ class RetrieverEvaluator:
             
         # Convertir les valeurs numpy en float pour assurer la sérialisation JSON
         results_serializable = {
-            "overall": {k: float(v) for k, v in self.results["overall"].items()},
+            "overall": {k: float(v) if not isinstance(v, dict) else v for k, v in self.results["overall"].items()},
             "by_question_type": {
                 q_type: {k: float(v) for k, v in metrics.items()}
                 for q_type, metrics in self.results["by_question_type"].items()
@@ -406,11 +491,51 @@ class RetrieverEvaluator:
             f.write("| Métrique | Score |\n")
             f.write("|----------|------:|\n")
             
-            for metric, score in sorted(self.results["overall"].items()):
+            # Séparer les métriques d'embedding
+            embedding_metrics = {}
+            standard_metrics = {}
+            for metric, score in self.results["overall"].items():
+                if metric == "embedding_similarity":
+                    embedding_metrics = score
+                else:
+                    standard_metrics[metric] = score
+            
+            # Afficher les métriques standard
+            for metric, score in sorted(standard_metrics.items()):
                 f.write(f"| {metric} | {score:.4f} |\n")
             
-            # Section par type de question
-            f.write("\n## 2. Performances par type de question\n\n")
+            # Section métriques de similarité d'embedding
+            if embedding_metrics:
+                f.write("\n## 2. Métriques de similarité des embeddings\n\n")
+                f.write("| Métrique | Score |\n")
+                f.write("|----------|------:|\n")
+                
+                for metric, score in sorted(embedding_metrics.items()):
+                    f.write(f"| {metric} | {score:.4f} |\n")
+                
+                # Ajouter une analyse des métriques d'embedding
+                f.write("\n### Analyse des métriques d'embedding\n\n")
+                
+                # Analyser la similarité cosinus
+                cosine_sim = embedding_metrics.get("cosine_sim_mean", 0)
+                if cosine_sim > 0.8:
+                    f.write("✅ **Forte similarité cosinus** : Les embeddings des questions et des images correspondantes montrent une forte similarité, indiquant que le modèle comprend bien le lien entre le texte et le contenu visuel.\n\n")
+                elif cosine_sim > 0.6:
+                    f.write("✓ **Bonne similarité cosinus** : Les embeddings des questions et des images correspondantes montrent une bonne similarité, mais il reste une marge d'amélioration.\n\n")
+                else:
+                    f.write("❌ **Faible similarité cosinus** : Les embeddings des questions et des images correspondantes ne sont pas suffisamment similaires, suggérant que le modèle pourrait avoir du mal à aligner correctement le texte et l'image.\n\n")
+                
+                # Analyser le matching score
+                matching = embedding_metrics.get("matching_score", 0)
+                if matching > 0.8:
+                    f.write("✅ **Excellent matching score** : Pour la majorité des questions, l'image la plus similaire est effectivement celle qui correspond à la question.\n\n")
+                elif matching > 0.6:
+                    f.write("✓ **Bon matching score** : Pour une bonne partie des questions, l'image la plus similaire correspond à la question, mais il reste une marge d'amélioration.\n\n")
+                else:
+                    f.write("❌ **Faible matching score** : Le modèle a du mal à associer les questions avec les images correspondantes, ce qui peut indiquer un problème dans l'encodage des relations texte-image.\n\n")
+            
+            # Section par type de question (décalée à cause de la section embedding)
+            f.write("\n## 3. Performances par type de question\n\n")
             
             for q_type, metrics in sorted(self.results["by_question_type"].items()):
                 f.write(f"### Type: {q_type}\n\n")
@@ -423,7 +548,7 @@ class RetrieverEvaluator:
                 f.write("\n")
             
             # Section par sujet de question
-            f.write("\n## 3. Performances par sujet de question\n\n")
+            f.write("\n## 4. Performances par sujet de question\n\n")
             
             for subject, metrics in sorted(self.results["by_question_subject"].items()):
                 f.write(f"### Sujet: {subject}\n\n")
@@ -436,10 +561,10 @@ class RetrieverEvaluator:
                 f.write("\n")
             
             # Section analyse
-            f.write("\n## 4. Analyse et recommandations\n\n")
+            f.write("\n## 5. Analyse et recommandations\n\n")
             
             # MRR global
-            mrr = self.results["overall"].get("mrr", 0)
+            mrr = standard_metrics.get("mrr", 0)
             f.write(f"### Mean Reciprocal Rank (MRR): {mrr:.4f}\n\n")
             if mrr > 0.7:
                 f.write("✅ **Excellent**: Le retriever place généralement un document pertinent très haut dans les résultats.\n\n")
@@ -449,7 +574,7 @@ class RetrieverEvaluator:
                 f.write("❌ **À améliorer**: Le retriever pourrait mieux classer les documents pertinents.\n\n")
             
             # Precision@1
-            p1 = self.results["overall"].get("precision@1", 0)
+            p1 = standard_metrics.get("precision@1", 0)
             f.write(f"### Precision@1: {p1:.4f}\n\n")
             if p1 > 0.7:
                 f.write("✅ **Excellent**: Le premier document récupéré est généralement pertinent.\n\n")
@@ -459,7 +584,7 @@ class RetrieverEvaluator:
                 f.write("❌ **À améliorer**: Le premier document récupéré n'est pas suffisamment pertinent.\n\n")
             
             # Recall@3
-            r3 = self.results["overall"].get("recall@3", 0)
+            r3 = standard_metrics.get("recall@3", 0)
             f.write(f"### Recall@3: {r3:.4f}\n\n")
             if r3 > 0.7:
                 f.write("✅ **Excellent**: Les trois premiers documents récupérés contiennent la majorité des documents pertinents.\n\n")
@@ -498,16 +623,76 @@ def evaluate_retriever(pdf_path, json_path):
     retriever_results = {}
     retriever_similarities = {}
     
+    # Collecter tous les embeddings de questions et d'images pour l'analyse de similarité
+    question_embeddings = []
+    image_embeddings = []
+    questions_with_embeddings = set()
+    
     for item in tqdm(eval_data, desc="Evaluation du retriever sur chaque question"):
         question_id = item["Question_ID"]
         question = item["Question"]
         
+        # Préparer les inputs pour la question
+        question_inputs = processor.process_queries([question]).to(model.device)
+        
+        # Obtenir l'embedding de la question
+        with torch.no_grad():
+            question_embedding = model(**question_inputs)
+        
         # Récupérer les top-5 documents pour cette question
-        top_k_indices, top_k_sims = get_relevant_indices(model, processor, question, embeddings_list, top_k=5)
+        scores = processor.score_multi_vector(question_embedding, embeddings_list)
+        top_k_indices = scores[0].topk(5).indices.tolist()
+        top_k_sims = scores[0].topk(5).values.tolist()
         
         # Stocker les résultats
         retriever_results[question_id] = top_k_indices
         retriever_similarities[question_id] = top_k_sims
+        
+        # Pour les métriques d'embedding, associer chaque question avec le document attendu
+        expected_docs_top1 = parse_document_ids(item.get("Expected_documents_top1", ""))
+        if expected_docs_top1 and question_id not in questions_with_embeddings:
+            # Calculer la moyenne sur la dimension de séquence pour obtenir un vecteur uniforme
+            question_emb_mean = question_embedding[0].mean(dim=0).cpu()
+            question_embeddings.append(question_emb_mean)
+            
+            # Utiliser le premier document attendu comme référence
+            try:
+                doc_idx = int(expected_docs_top1[0])
+                if 0 <= doc_idx < len(embeddings_list):
+                    # Calculer la moyenne pour l'embedding de l'image également
+                    image_emb_mean = embeddings_list[doc_idx].mean(dim=0).cpu()
+                    image_embeddings.append(image_emb_mean)
+                    questions_with_embeddings.add(question_id)
+            except (ValueError, IndexError):
+                logger.warning(f"Document ID invalide pour la question {question_id}: {expected_docs_top1[0]}")
+    
+    # Calculer les métriques de similarité d'embedding si nous avons des paires
+    embedding_similarity_metrics = None
+    if question_embeddings and image_embeddings:
+        try:
+            # Vérifier les dimensions
+            logger.info(f"Nombre d'embeddings de questions: {len(question_embeddings)}")
+            logger.info(f"Nombre d'embeddings d'images: {len(image_embeddings)}")
+            
+            # Regrouper les embeddings en tenseurs
+            q_embeddings = torch.stack(question_embeddings)
+            i_embeddings = torch.stack(image_embeddings)
+            
+            logger.info(f"Forme des embeddings de questions: {q_embeddings.shape}")
+            logger.info(f"Forme des embeddings d'images: {i_embeddings.shape}")
+            
+            # S'assurer que nous avons le même nombre de questions et d'images
+            min_count = min(len(q_embeddings), len(i_embeddings))
+            q_embeddings = q_embeddings[:min_count]
+            i_embeddings = i_embeddings[:min_count]
+            
+            # Calculer les métriques de similarité
+            embedding_similarity_metrics = compute_embedding_similarity(q_embeddings, i_embeddings)
+            logger.info(f"Métriques de similarité calculées sur {min_count} paires question-image")
+        except Exception as e:
+            logger.error(f"Erreur lors du calcul des métriques de similarité: {e}")
+            import traceback
+            logger.error(traceback.format_exc())
     
     # Sauvegarder les résultats bruts du retriever
     raw_results_path = os.path.join(RETRIEVER_EVAL_DIR, "raw_retriever_results.json")
@@ -522,7 +707,7 @@ def evaluate_retriever(pdf_path, json_path):
     evaluator = RetrieverEvaluator(json_path)
     
     # Évaluer le retriever
-    results = evaluator.evaluate(retriever_results, k_values=[1, 3, 5])
+    results = evaluator.evaluate(retriever_results, k_values=[1, 3, 5], embedding_metrics=embedding_similarity_metrics)
     
     # Visualiser les résultats globaux
     evaluator.plot_overall_results()
@@ -553,7 +738,12 @@ if __name__ == "__main__":
     # Afficher les résultats globaux
     print("\nRésultats globaux du retriever:")
     for metric, score in results["overall"].items():
-        print(f"{metric}: {score:.4f}")
+        if metric == "embedding_similarity":
+            print("\nMétriques de similarité des embeddings:")
+            for embed_metric, embed_score in score.items():
+                print(f"  {embed_metric}: {embed_score:.4f}")
+        else:
+            print(f"{metric}: {score:.4f}")
     
     # Afficher les meilleurs résultats par type de question
     print("\nMeilleurs résultats par type de question (Recall@3):")
