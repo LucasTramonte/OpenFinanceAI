@@ -67,25 +67,15 @@ class QueryHandler:
             return []
 
 
-    def handle_query(self, query: str):
+    def handle_query(self, query: str, image_dict):
+        """Find relevant images directly from memory instead of the filesystem."""
         relevant_docs = self.get_relevant_indices(query)
         relevant_images = []
 
-        # Get the absolute path to the Assets directory (outside langchain-pdf-pipeline)
-        assets_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "Assets", "output"))
-
         for doc in relevant_docs:
-            try:
-                # If the document is an integer, assume it's a page number
-                if isinstance(doc, int):
-                    image_path = os.path.join(assets_dir, f"page_{doc}.png")
-                    if os.path.exists(image_path):
-                        relevant_images.append(image_path)
-                    else:
-                        logger.warning(f"Image for page {doc} not found at {image_path}.")
-                else:
-                    logger.warning(f"Invalid document reference: {doc}")
-            except Exception as e:
-                logger.error(f"Error processing document reference {doc}: {e}")
+            if isinstance(doc, int) and doc in image_dict:
+                relevant_images.append(image_dict[doc])  # Fetch from memory instead
+            else:
+                logger.warning(f"Page {doc} not found in memory.")
 
         return relevant_images

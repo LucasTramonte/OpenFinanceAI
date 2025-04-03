@@ -26,13 +26,6 @@ def convert_pdf_to_images(pdf_path):
     images = convert_from_path(pdf_path)
     logger.info(f"PDF converted to {len(images)} pages.")
 
-    # Save images to the output directory
-    os.makedirs(OUTPUT_DIRECTORY, exist_ok=True)
-    for i, image in enumerate(images):
-        image_path = os.path.join(OUTPUT_DIRECTORY, f"page_{i + 1}.png")
-        image.save(image_path)
-        logger.info(f"Saved image: {image_path}")
-
     return images
 
 def generate_embeddings(images, pdf_path, model_name="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"):
@@ -69,7 +62,11 @@ def image_to_text(image):
     return "Extracted text from image"
 
 def process_pdf_embeddings(pdf_path, model_name="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"):
-    """Process a PDF file and generate embeddings for its content."""
-    images = convert_pdf_to_images(pdf_path)
+    """Process a PDF file and generate embeddings while keeping images in memory."""
+    images = convert_pdf_to_images(pdf_path)  
     embeddings_list = generate_embeddings(images, pdf_path, model_name)
-    return embeddings_list
+
+    # Store images in memory as a dictionary {page_number: image}
+    image_dict = {i + 1: img for i, img in enumerate(images)}
+
+    return embeddings_list, image_dict
