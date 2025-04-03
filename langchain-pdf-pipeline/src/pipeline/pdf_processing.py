@@ -15,11 +15,3 @@ def convert_pdf_to_images(pdf_path):
     except Exception as e:
         logger.error(f"Error converting PDF to images: {e}")
         raise
-
-def get_pdf_hash(pdf_path):
-    """Generate a unique hash for the given PDF file."""
-    import hashlib
-    hasher = hashlib.md5()
-    with open(pdf_path, "rb") as f:
-        hasher.update(f.read())
-    return hasher.hexdigest()

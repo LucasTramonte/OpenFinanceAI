@@ -9,6 +9,8 @@ from langchain_community.llms import HuggingFaceHub
 #from langchain_huggingface import HuggingFaceEndpoint
 from utils.logging import setup_logging
 
+# TO DO  : this code is incorrect : results = retrieval_qa.invoke({"query": query}) is the model's answer, and not a document to be retrieved.
+
 # Set up logging
 logger = logging.getLogger(__name__)
 setup_logging()
@@ -74,7 +76,7 @@ class QueryHandler:
 
         for doc in relevant_docs:
             if isinstance(doc, int) and doc in image_dict:
-                relevant_images.append(image_dict[doc])  # Fetch from memory instead
+                relevant_images.append(image_dict[doc])  
             else:
                 logger.warning(f"Page {doc} not found in memory.")
 
