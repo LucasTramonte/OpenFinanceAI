@@ -42,7 +42,7 @@ def load_json_file(file_path):
         logging.error(f"Erreur lors du chargement du fichier JSON {file_path}: {str(e)}")
 
 
-file_path = "../Assets/data_test/ardian_dataset_eval.json"
+file_path = "../Assets/data_test/ardian_dataset_final.json"
 df = load_json_file(file_path)
 rouge = rouge_scorer.RougeScorer(["rouge1", "rouge2", "rougeL"], use_stemmer=True)
 t5_tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-large")
@@ -243,6 +243,6 @@ for model in models:
     count_presence = df_string_presence[df_string_presence[f"{model}_string_presence"] == 1].shape[0]
     logging.info(f"Pour le modèle {model}, {count_presence} questions sur {total_string_presence} ont un score string_presence de 1.")
 
-with open("../Assets/data_test/ardian_dataset_test_evaluation_final.json", "w", encoding="utf-8") as f:
+with open("../Assets/data_test/ardian_dataset_final_evaluation.json", "w", encoding="utf-8") as f:
     json.dump(df.to_dict("records"), f, ensure_ascii=False, indent=2)
 logging.info("Résultats d'évaluation sauvegardés en JSON.")

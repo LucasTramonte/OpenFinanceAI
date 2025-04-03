@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Load the JSON file with the correct encoding
-json_file_path = "../Assets/data_test/ardian_dataset_test_evaluation_final.json"
+json_file_path = "../Assets/data_test/ardian_dataset_final_evaluation.json"
 with open(json_file_path, "r", encoding="utf-8") as f:
     data = json.load(f)
 

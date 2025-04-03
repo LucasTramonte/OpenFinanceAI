@@ -4,14 +4,14 @@
 
 | Métrique | Score |
 |----------|------:|
-| exact_match_top1 | 0.1731 |
-| mrr | 0.3779 |
-| precision@1 | 0.2885 |
-| precision@3 | 0.1538 |
-| precision@5 | 0.1077 |
-| recall@1 | 0.0962 |
-| recall@3 | 0.1538 |
-| recall@5 | 0.1795 |
+| exact_match_top1 | 0.2115 |
+| mrr | 0.3731 |
+| precision@1 | 0.3077 |
+| precision@3 | 0.2372 |
+| precision@5 | 0.1808 |
+| recall@1 | 0.1026 |
+| recall@3 | 0.2304 |
+| recall@5 | 0.2865 |
 
 ## 2. Performances par type de question
 
@@ -19,27 +19,27 @@
 
 | Métrique | Score |
 |----------|------:|
-| exact_match_top1 | 0.2647 |
-| mrr | 0.4887 |
-| precision@1 | 0.3824 |
-| precision@3 | 0.1961 |
-| precision@5 | 0.1353 |
-| recall@1 | 0.1275 |
-| recall@3 | 0.1961 |
-| recall@5 | 0.2255 |
+| exact_match_top1 | 0.0882 |
+| mrr | 0.2069 |
+| precision@1 | 0.1471 |
+| precision@3 | 0.1176 |
+| precision@5 | 0.0941 |
+| recall@1 | 0.0490 |
+| recall@3 | 0.1176 |
+| recall@5 | 0.1569 |
 
 ### Type: Short
 
 | Métrique | Score |
 |----------|------:|
-| exact_match_top1 | 0.0000 |
-| mrr | 0.1685 |
-| precision@1 | 0.1111 |
-| precision@3 | 0.0741 |
-| precision@5 | 0.0556 |
-| recall@1 | 0.0370 |
-| recall@3 | 0.0741 |
-| recall@5 | 0.0926 |
+| exact_match_top1 | 0.4444 |
+| mrr | 0.6870 |
+| precision@1 | 0.6111 |
+| precision@3 | 0.4630 |
+| precision@5 | 0.3444 |
+| recall@1 | 0.2037 |
+| recall@3 | 0.4435 |
+| recall@5 | 0.5315 |
 
 
 ## 3. Performances par sujet de question
@@ -62,7 +62,7 @@
 | Métrique | Score |
 |----------|------:|
 | exact_match_top1 | 0.0000 |
-| mrr | 0.2500 |
+| mrr | 0.2000 |
 | precision@1 | 0.0000 |
 | precision@3 | 0.0000 |
 | precision@5 | 0.2000 |
@@ -75,45 +75,6 @@
 | Métrique | Score |
 |----------|------:|
 | exact_match_top1 | 0.0000 |
-| mrr | 0.7500 |
-| precision@1 | 0.5000 |
-| precision@3 | 0.3333 |
-| precision@5 | 0.2000 |
-| recall@1 | 0.1667 |
-| recall@3 | 0.3333 |
-| recall@5 | 0.3333 |
-
-### Sujet: Dividends
-
-| Métrique | Score |
-|----------|------:|
-| exact_match_top1 | 0.3333 |
-| mrr | 0.3333 |
-| precision@1 | 0.3333 |
-| precision@3 | 0.1111 |
-| precision@5 | 0.0667 |
-| recall@1 | 0.1111 |
-| recall@3 | 0.1111 |
-| recall@5 | 0.1111 |
-
-### Sujet: Employment
-
-| Métrique | Score |
-|----------|------:|
-| exact_match_top1 | 0.5000 |
-| mrr | 0.7750 |
-| precision@1 | 0.6250 |
-| precision@3 | 0.2917 |
-| precision@5 | 0.2000 |
-| recall@1 | 0.2083 |
-| recall@3 | 0.2917 |
-| recall@5 | 0.3333 |
-
-### Sujet: Environmental
-
-| Métrique | Score |
-|----------|------:|
-| exact_match_top1 | 0.0000 |
 | mrr | 0.2500 |
 | precision@1 | 0.0000 |
 | precision@3 | 0.1667 |
@@ -122,42 +83,81 @@
 | recall@3 | 0.1667 |
 | recall@5 | 0.1667 |
 
-### Sujet: Financial_Data
+### Sujet: Dividends
 
 | Métrique | Score |
 |----------|------:|
 | exact_match_top1 | 0.0000 |
-| mrr | 0.1500 |
-| precision@1 | 0.1000 |
-| precision@3 | 0.0667 |
-| precision@5 | 0.0400 |
-| recall@1 | 0.0333 |
-| recall@3 | 0.0667 |
-| recall@5 | 0.0667 |
+| mrr | 0.0000 |
+| precision@1 | 0.0000 |
+| precision@3 | 0.0000 |
+| precision@5 | 0.0000 |
+| recall@1 | 0.0000 |
+| recall@3 | 0.0000 |
+| recall@5 | 0.0000 |
+
+### Sujet: Employment
+
+| Métrique | Score |
+|----------|------:|
+| exact_match_top1 | 0.0000 |
+| mrr | 0.0312 |
+| precision@1 | 0.0000 |
+| precision@3 | 0.0000 |
+| precision@5 | 0.0250 |
+| recall@1 | 0.0000 |
+| recall@3 | 0.0000 |
+| recall@5 | 0.0417 |
+
+### Sujet: Environmental
+
+| Métrique | Score |
+|----------|------:|
+| exact_match_top1 | 0.5000 |
+| mrr | 1.0000 |
+| precision@1 | 1.0000 |
+| precision@3 | 0.8333 |
+| precision@5 | 0.6000 |
+| recall@1 | 0.3333 |
+| recall@3 | 0.8333 |
+| recall@5 | 1.0000 |
+
+### Sujet: Financial_Data
+
+| Métrique | Score |
+|----------|------:|
+| exact_match_top1 | 0.2000 |
+| mrr | 0.4367 |
+| precision@1 | 0.3000 |
+| precision@3 | 0.2667 |
+| precision@5 | 0.2400 |
+| recall@1 | 0.0917 |
+| recall@3 | 0.2150 |
+| recall@5 | 0.3150 |
 
 ### Sujet: Financial_Forecasts
 
 | Métrique | Score |
 |----------|------:|
 | exact_match_top1 | 0.0000 |
-| mrr | 0.3333 |
+| mrr | 0.0000 |
 | precision@1 | 0.0000 |
-| precision@3 | 0.3333 |
-| precision@5 | 0.2000 |
+| precision@3 | 0.0000 |
+| precision@5 | 0.0000 |
 | recall@1 | 0.0000 |
-| recall@3 | 0.3333 |
-| recall@5 | 0.3333 |
+| recall@3 | 0.0000 |
+| recall@5 | 0.0000 |
 
 ### Sujet: Financial_Growth
 
 | Métrique | Score |
 |----------|------:|
 | exact_match_top1 | 0.0000 |
-| mrr | 0.7500 |
-| precision@1 | 0.5000 |
+| mrr | 0.4167 |
+| precision@1 | 0.0000 |
 | precision@3 | 0.3333 |
 | precision@5 | 0.2000 |
-| recall@1 | 0.1667 |
+| recall@1 | 0.0000 |
 | recall@3 | 0.3333 |
 | recall@5 | 0.3333 |
 
@@ -191,13 +191,13 @@
 
 | Métrique | Score |
 |----------|------:|
-| exact_match_top1 | 1.0000 |
-| mrr | 1.0000 |
-| precision@1 | 1.0000 |
-| precision@3 | 0.3333 |
+| exact_match_top1 | 0.0000 |
+| mrr | 0.2500 |
+| precision@1 | 0.0000 |
+| precision@3 | 0.0000 |
 | precision@5 | 0.2000 |
-| recall@1 | 0.3333 |
-| recall@3 | 0.3333 |
+| recall@1 | 0.0000 |
+| recall@3 | 0.0000 |
 | recall@5 | 0.3333 |
 
 ### Sujet: Financial_Structure
@@ -217,68 +217,55 @@
 
 | Métrique | Score |
 |----------|------:|
-| exact_match_top1 | 0.0000 |
-| mrr | 0.0000 |
-| precision@1 | 0.0000 |
-| precision@3 | 0.0000 |
-| precision@5 | 0.0000 |
-| recall@1 | 0.0000 |
-| recall@3 | 0.0000 |
-| recall@5 | 0.0000 |
+| exact_match_top1 | 1.0000 |
+| mrr | 1.0000 |
+| precision@1 | 1.0000 |
+| precision@3 | 0.5000 |
+| precision@5 | 0.3000 |
+| recall@1 | 0.3333 |
+| recall@3 | 0.5000 |
+| recall@5 | 0.5000 |
 
 ### Sujet: Geographic
 
 | Métrique | Score |
 |----------|------:|
-| exact_match_top1 | 0.0000 |
-| mrr | 0.6000 |
-| precision@1 | 0.5000 |
-| precision@3 | 0.1667 |
-| precision@5 | 0.2000 |
-| recall@1 | 0.1667 |
-| recall@3 | 0.1667 |
-| recall@5 | 0.3333 |
+| exact_match_top1 | 0.5000 |
+| mrr | 1.0000 |
+| precision@1 | 1.0000 |
+| precision@3 | 0.5000 |
+| precision@5 | 0.4000 |
+| recall@1 | 0.3333 |
+| recall@3 | 0.5000 |
+| recall@5 | 0.6667 |
 
 ### Sujet: Investement
 
 | Métrique | Score |
 |----------|------:|
-| exact_match_top1 | 0.0000 |
-| mrr | 0.0476 |
-| precision@1 | 0.0000 |
-| precision@3 | 0.0476 |
-| precision@5 | 0.0286 |
-| recall@1 | 0.0000 |
-| recall@3 | 0.0476 |
-| recall@5 | 0.0476 |
+| exact_match_top1 | 0.5714 |
+| mrr | 0.7143 |
+| precision@1 | 0.7143 |
+| precision@3 | 0.6190 |
+| precision@5 | 0.4000 |
+| recall@1 | 0.2500 |
+| recall@3 | 0.6429 |
+| recall@5 | 0.6786 |
 
 ### Sujet: Investments
 
 | Métrique | Score |
 |----------|------:|
 | exact_match_top1 | 0.0000 |
-| mrr | 0.3333 |
+| mrr | 0.0000 |
 | precision@1 | 0.0000 |
-| precision@3 | 0.3333 |
-| precision@5 | 0.2000 |
+| precision@3 | 0.0000 |
+| precision@5 | 0.0000 |
 | recall@1 | 0.0000 |
-| recall@3 | 0.3333 |
-| recall@5 | 0.3333 |
+| recall@3 | 0.0000 |
+| recall@5 | 0.0000 |
 
 ### Sujet: M&A
-
-| Métrique | Score |
-|----------|------:|
-| exact_match_top1 | 0.6667 |
-| mrr | 1.0000 |
-| precision@1 | 1.0000 |
-| precision@3 | 0.3333 |
-| precision@5 | 0.2667 |
-| recall@1 | 0.3333 |
-| recall@3 | 0.3333 |
-| recall@5 | 0.4444 |
-
-### Sujet: Regulatory
 
 | Métrique | Score |
 |----------|------:|
@@ -291,17 +278,31 @@
 | recall@3 | 0.0000 |
 | recall@5 | 0.0000 |
 
+### Sujet: Regulatory
+
+| Métrique | Score |
+|----------|------:|
+| exact_match_top1 | 0.0000 |
+| mrr | 0.3333 |
+| precision@1 | 0.3333 |
+| precision@3 | 0.1111 |
+| precision@5 | 0.0667 |
+| recall@1 | 0.1111 |
+| recall@3 | 0.1111 |
+| recall@5 | 0.1111 |
+
 
 ## 4. Analyse et recommandations
 
-### Mean Reciprocal Rank (MRR): 0.3779
+### Mean Reciprocal Rank (MRR): 0.3731
 
 ❌ **À améliorer**: Le retriever pourrait mieux classer les documents pertinents.
 
-### Precision@1: 0.2885
+### Precision@1: 0.3077
 
 ❌ **À améliorer**: Le premier document récupéré n'est pas suffisamment pertinent.
 
-### Recall@3: 0.1538
+### Recall@3: 0.2304
 
 ❌ **À améliorer**: Les trois premiers documents récupérés manquent plusieurs documents pertinents.
+

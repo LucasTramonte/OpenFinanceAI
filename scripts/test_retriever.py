@@ -160,8 +160,7 @@ class RetrieverEvaluator:
             if not expected_docs_top3:
                 continue
                 
-            # Documents récupérés par le retriever (convertir indices en strings +1 car les indices commencent à 0)
-            retrieved_docs = [str(doc_id+1) for doc_id in retriever_results[question_id]]
+            retrieved_docs = [str(doc_id) for doc_id in retriever_results[question_id]]
             
             # Stocker le type et le sujet de la question
             question_type = item.get("Question_Type", "Unknown")
@@ -177,6 +176,8 @@ class RetrieverEvaluator:
             mrr = 0
             for i, doc_id in enumerate(retrieved_docs):
                 if doc_id in expected_docs_top3:
+                    # i is a zero-based index (0,1,2...), but MRR formula requires ranks starting at 1
+                    # This converts index to rank position (e.g., index 0 → rank 1)
                     mrr = 1 / (i + 1)
                     break
             metrics["mrr"].append(mrr)
@@ -543,8 +544,8 @@ def evaluate_retriever(pdf_path, json_path):
 
 if __name__ == "__main__":
     # Chemins des fichiers
-    PDF_PATH = "/Users/rayanebouaita/Documents/CentraleSupélec/PFE/OpenFinanceAI/Assets/data_test/pdfs/AMEX_EMR_2023.pdf"  # Remplacez par le chemin de votre PDF
-    JSON_PATH = "/Users/rayanebouaita/Documents/CentraleSupélec/PFE/OpenFinanceAI/Assets/data_test/ardian_dataset_eval.json"  # Remplacez par le chemin de votre JSON
+    PDF_PATH = "/Users/rayanebouaita/Documents/CentraleSupélec/PFE/OpenFinanceAI/Assets/data_test/pdfs/AMEX_EMR_2023.pdf"  
+    JSON_PATH = "/Users/rayanebouaita/Documents/CentraleSupélec/PFE/OpenFinanceAI/Assets/data_test/ardian_dataset_final.json"  
     
     # Évaluer le retriever
     results, retriever_results, similarities = evaluate_retriever(PDF_PATH, JSON_PATH)
