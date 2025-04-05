@@ -48,6 +48,15 @@ FINANCIAL_TERMS = {
     
     # Company specific terms
     "emerson": 1.5, "copeland": 1.8, "aspentech": 2.0, "ni": 1.5,
+    
+    # Termes relatifs aux positions et leadership
+    "leadership": 2.0, "leader": 2.0, "executive": 2.0, "board": 2.0, 
+    "director": 2.0, "officer": 2.0, "ceo": 2.5, "cfo": 2.5, "coo": 2.5,
+    "president": 2.0, "chairman": 2.0, "position": 1.8,
+    
+    # Termes liés à la diversité et représentation
+    "women": 2.0, "diversity": 2.0, "gender": 2.0, "female": 2.0, "male": 1.8,
+    "representation": 2.0, "equality": 2.0, "parity": 2.0,
 }
 
 # Words to downweight
@@ -56,6 +65,9 @@ DOWNWEIGHTED_TERMS = {
     "the": 0.2, "a": 0.2, "an": 0.2, "of": 0.3, "in": 0.3, "on": 0.3, "at": 0.3,
     "to": 0.3, "for": 0.3, "with": 0.3, "by": 0.3, "as": 0.3, "that": 0.3,
 }
+
+# Punctuation tokens to downweight
+PUNCTUATION_TOKENS = [',', '.', ':', '?', '!', ';', '"', "'", '(', ')', '[', ']', '{', '}']
 
 def load_model_and_processor():
     """Load the ColPALI model and processor."""
@@ -90,6 +102,59 @@ def load_ocr_data(pdf_path):
     
     logger.warning(f"OCR data file not found at {json_path}")
     return None
+
+def apply_financial_token_weighting(batch_similarity_maps, query_tokens):
+    """
+    Post-traite les cartes de similarité pour amplifier les termes financiers 
+    et diminuer l'importance des tokens communs/ponctuation.
+    """
+    weighted_maps = []
+    
+    for token_idx, similarity_map in enumerate(batch_similarity_maps[0]):
+        if token_idx >= len(query_tokens):
+            weighted_maps.append(similarity_map)
+            continue
+            
+        token = query_tokens[token_idx].replace('Ġ', '').lower()
+        
+        # Appliquer des multiplicateurs selon le type de token
+        if token in FINANCIAL_TERMS:
+            # Amplifier les termes financiers (multiplier par 1.5 à 3.0)
+            weight = FINANCIAL_TERMS[token]
+            weighted_map = similarity_map * weight
+            logger.info(f"Boosting financial term '{token}' with weight {weight}")
+        elif token in DOWNWEIGHTED_TERMS:
+            # Réduire les mots communs
+            weight = DOWNWEIGHTED_TERMS[token]
+            weighted_map = similarity_map * weight
+            logger.info(f"Downweighting common term '{token}' with weight {weight}")
+        elif token in PUNCTUATION_TOKENS:
+            # Réduire fortement la ponctuation
+            weighted_map = similarity_map * 0.3
+            logger.info(f"Downweighting punctuation '{token}' with weight 0.3")
+        else:
+            weighted_map = similarity_map
+            
+        weighted_maps.append(weighted_map)
+    
+    # Recréer la structure originale
+    weighted_batch_maps = [weighted_maps]
+    return weighted_batch_maps
+
+def get_token_weights(query_tokens):
+    """Calcule les poids pour chaque token de la requête"""
+    weights = []
+    for token in query_tokens:
+        token_text = token.replace('Ġ', '').lower()
+        if token_text in FINANCIAL_TERMS:
+            weights.append((token, FINANCIAL_TERMS[token_text], "financial"))
+        elif token_text in DOWNWEIGHTED_TERMS:
+            weights.append((token, DOWNWEIGHTED_TERMS[token_text], "common"))
+        elif token_text in PUNCTUATION_TOKENS:
+            weights.append((token, 0.3, "punctuation"))
+        else:
+            weights.append((token, 1.0, "normal"))
+    return weights
 
 def extract_financial_data(text):
     """Extract financial data patterns like percentages, dollar amounts, ratios, etc."""
@@ -284,10 +349,11 @@ def generate_hybrid_embeddings(model, processor, images, ocr_data, pdf_path):
     logger.info(f"Hybrid embeddings saved for {pdf_path}.")
     return hybrid_data
 
-def get_relevant_indices_hybrid(model, processor, query, hybrid_data, top_k, 
-                              dense_weight=0.6, bm25_weight=0.3, financial_weight=0.1):
+def get_initial_candidates(model, processor, query, hybrid_data, candidate_k=10,
+                        dense_weight=0.6, bm25_weight=0.3, financial_weight=0.1):
     """
-    Retrieve the indices of the top-k relevant pages using a hybrid approach.
+    Sélectionne un ensemble initial de candidats (plus grand que top_k final)
+    basé sur l'approche hybride (dense + BM25 + financier)
     """
     # 1. Get dense embedding scores
     batch_queries = processor.process_queries([query]).to(model.device)
@@ -299,10 +365,10 @@ def get_relevant_indices_hybrid(model, processor, query, hybrid_data, top_k,
         hybrid_data["dense_embeddings"]
     )[0].tolist()
     
-    # 2. Get BM25 scores with improved token weighting
+    # 2. Get BM25 scores
     query_tokens = simple_tokenize(query)
     
-    # Apply financial term weighting to query with better handling
+    # Apply financial term weighting to query
     weighted_query = []
     for token in query_tokens:
         token_lower = token.lower()
@@ -331,7 +397,7 @@ def get_relevant_indices_hybrid(model, processor, query, hybrid_data, top_k,
     if not weighted_query:  # Fallback if no tokens remain after filtering
         weighted_query = query_tokens
     
-    # Safely get BM25 scores - wrap in try/except for better error handling
+    # Safely get BM25 scores
     try:
         bm25_scores = hybrid_data["bm25_index"].get_scores(weighted_query)
         
@@ -353,7 +419,7 @@ def get_relevant_indices_hybrid(model, processor, query, hybrid_data, top_k,
         logger.warning(f"Error getting BM25 scores: {e}. Using zeros.")
         bm25_scores = [0] * len(dense_scores)
     
-    # 3. Calculate financial relevance scores with more nuance
+    # 3. Calculate financial relevance scores
     financial_scores = [0] * len(dense_scores)
     
     # Enhanced financial term detection
@@ -418,22 +484,102 @@ def get_relevant_indices_hybrid(model, processor, query, hybrid_data, top_k,
         )
         combined_scores.append(score)
     
-    # 5. Get top-k indices (ensure we don't exceed the number of pages)
-    top_k = min(top_k, len(combined_scores))
-    top_indices = np.argsort(combined_scores)[-top_k:][::-1].tolist()
+    # 5. Get candidate_k indices (ensure we don't exceed the number of pages)
+    candidate_k = min(candidate_k, len(combined_scores))
+    candidate_indices = np.argsort(combined_scores)[-candidate_k:][::-1].tolist()
     
-    # Log scores for debugging
-    logger.info(f"Top {top_k} pages with combined scores:")
-    for i, idx in enumerate(top_indices):
-        logger.info(f"Rank {i+1}: Page {idx+1} - Dense: {dense_scores[idx]:.3f}, "
-                   f"BM25: {bm25_scores[idx] if idx < len(bm25_scores) else 0:.3f}, "
-                   f"Financial: {financial_scores[idx] if idx < len(financial_scores) else 0:.3f}, "
-                   f"Combined: {combined_scores[idx]:.3f}")
+    # Log candidate scores for debugging
+    logger.info(f"Selected {candidate_k} initial candidate pages:")
+    for i, idx in enumerate(candidate_indices):
+        logger.info(f"Candidate {i+1}: Page {idx+1} - Dense: {dense_scores[idx]:.3f}, "
+                  f"BM25: {bm25_scores[idx] if idx < len(bm25_scores) else 0:.3f}, "
+                  f"Financial: {financial_scores[idx] if idx < len(financial_scores) else 0:.3f}, "
+                  f"Combined: {combined_scores[idx]:.3f}")
+    
+    return candidate_indices, query_embeddings
+
+def rerank_with_token_weights(model, processor, images, hybrid_data, candidate_indices, query, query_embeddings, top_k):
+    """
+    Reranke les candidats en utilisant la pondération des tokens financiers
+    """
+    # Extraire les tokens de la requête
+    batch_queries = processor.process_queries([query]).to(model.device)
+    query_tokens = processor.tokenizer.tokenize(
+        processor.decode(batch_queries.input_ids[0]).replace(processor.tokenizer.pad_token, "").strip()
+    )
+    
+    # Calculer les poids des tokens
+    token_weights_info = get_token_weights(query_tokens)
+    token_weights = [w[1] for w in token_weights_info]
+    
+    # Log des poids des tokens
+    logger.info("Token weights for reranking:")
+    for token, weight, token_type in token_weights_info:
+        logger.info(f"Token: {token}, Type: {token_type}, Weight: {weight}")
+    
+    # Calculer les scores pondérés pour chaque candidat
+    weighted_scores = []
+    
+    for rank, idx in enumerate(candidate_indices):
+        if idx >= len(hybrid_data["dense_embeddings"]):
+            weighted_scores.append((idx, 0, []))
+            continue
+            
+        doc_embedding = hybrid_data["dense_embeddings"][idx]
+        
+        try:
+            # Calculer les cartes de similarité
+            n_patches = processor.get_n_patches(
+                image_size=(1024, 1024),  # Default size, will be adjusted by the processor
+                patch_size=model.patch_size,
+                spatial_merge_size=2
+            )
+            image_mask = processor.get_image_mask(processor.process_images([images[idx]]))
+            
+            similarity_maps = get_similarity_maps_from_embeddings(
+                image_embeddings=doc_embedding.unsqueeze(0).to("cuda"),
+                query_embeddings=query_embeddings,
+                n_patches=n_patches,
+                image_mask=image_mask,
+            )[0]
+            
+            # Calculer les scores token par token avec pondération
+            token_scores = []
+            for token_idx, (sim_map, (token, weight, _)) in enumerate(zip(similarity_maps, token_weights_info)):
+                if token_idx >= len(query_tokens):
+                    break
+                
+                # Score brut × Poids du token
+                raw_score = sim_map.max().item()
+                weighted_score = raw_score * weight
+                token_scores.append((token, raw_score, weighted_score))
+                
+            # Score global = moyenne des scores pondérés des tokens
+            avg_weighted_score = sum(s[2] for s in token_scores) / max(1, len(token_scores))
+            
+            weighted_scores.append((idx, avg_weighted_score, token_scores))
+            
+        except Exception as e:
+            logger.warning(f"Error calculating similarity maps for page {idx+1}: {e}")
+            weighted_scores.append((idx, 0, []))
+    
+    # Trier par score pondéré
+    weighted_scores.sort(key=lambda x: x[1], reverse=True)
+    
+    # Extraire les meilleurs indices
+    top_indices = [item[0] for item in weighted_scores[:top_k]]
+    
+    # Log des scores pondérés
+    logger.info(f"Top {top_k} pages after token weight reranking:")
+    for i, (idx, weighted_score, token_scores) in enumerate(weighted_scores[:top_k]):
+        logger.info(f"Rank {i+1}: Page {idx+1} - Overall weighted score: {weighted_score:.3f}")
+        for token, raw_score, weighted_token_score in token_scores:
+            logger.info(f"  Token '{token}' - Raw: {raw_score:.3f}, Weighted: {weighted_token_score:.3f}")
     
     return top_indices
 
 def save_similarity_scores_and_maps(images, hybrid_data, top_k_indices, query, model, processor):
-    """Save the similarity scores and maps for the top-k relevant pages."""
+    """Save the similarity scores and maps for the top-k relevant pages with weighted financial tokens."""
     similarity_scores_path = os.path.join(OUTPUT_DIRECTORY, "similarity_scores.txt")
     with open(similarity_scores_path, "w") as score_file:
         for i, idx in enumerate(top_k_indices):
@@ -475,27 +621,50 @@ def save_similarity_scores_and_maps(images, hybrid_data, top_k_indices, query, m
                     processor.decode(batch_queries.input_ids[0]).replace(processor.tokenizer.pad_token, "").strip()
                 )
 
-                similarity_maps = batched_similarity_maps[0]
+                # NOUVEAU: Appliquer la pondération financière aux cartes de similarité
+                weighted_similarity_maps = apply_financial_token_weighting(batched_similarity_maps, query_tokens)
+                
+                # Utiliser les cartes pondérées au lieu des originales
+                similarity_maps = weighted_similarity_maps[0]
+                
                 for token_idx, similarity_map in enumerate(similarity_maps[:min(len(query_tokens), len(similarity_maps))]):
+                    # Normaliser à nouveau après la pondération
                     max_sim_score = similarity_map.max().item()
+                    
                     fig, ax = plot_similarity_map(
                         image=image,
                         similarity_map=similarity_map,
                         figsize=(8, 8),
                         show_colorbar=True,
                     )
+                    
+                    # Identifier si c'est un terme financier pour l'affichage
+                    token_text = query_tokens[token_idx].replace('Ġ', '')
+                    token_type = ""
+                    token_weight = 1.0
+                    
+                    if token_text.lower() in FINANCIAL_TERMS:
+                        token_weight = FINANCIAL_TERMS[token_text.lower()]
+                        token_type = f" (FINANCIAL TERM, weight: {token_weight})"
+                    elif token_text.lower() in DOWNWEIGHTED_TERMS:
+                        token_weight = DOWNWEIGHTED_TERMS[token_text.lower()]
+                        token_type = f" (common term, weight: {token_weight})"
+                    elif token_text in PUNCTUATION_TOKENS:
+                        token_weight = 0.3
+                        token_type = " (punctuation, weight: 0.3)" 
+                        
                     ax.set_title(
-                        f"Token #{token_idx + 1}: `{query_tokens[token_idx].replace('Ġ', '_')}`. MaxSim score: {max_sim_score:.2f}",
+                        f"Token #{token_idx + 1}: `{query_tokens[token_idx].replace('Ġ', '_')}`{token_type}. MaxSim score: {max_sim_score:.2f}",
                         fontsize=10,
                     )
                     fig.tight_layout()
                     fig_path = os.path.join(SIMILARITY_DIR, f"doc_{i + 1}_token_{token_idx + 1}.png")
                     fig.savefig(fig_path, dpi=100)
-                    plt.close(fig)  # Close the figure to free up memory
+                    plt.close(fig)
 
-                    # Save similarity score to text file
+                    # Save similarity score to text file with indication of weighting
                     score_file.write(
-                        f"Document {i + 1}, Token #{token_idx + 1} (`{query_tokens[token_idx]}`): MaxSim score = {max_sim_score:.2f}\n"
+                        f"Document {i + 1}, Token #{token_idx + 1} (`{query_tokens[token_idx]}`{token_type}): MaxSim score = {max_sim_score:.2f}\n"
                     )
             except Exception as e:
                 logger.error(f"Error generating similarity maps for page {idx+1}: {e}")
@@ -507,7 +676,7 @@ def index_and_save_documents(pdf_path: str, query: str, top_k: int = 3,
     """Index the PDF document and save the top-k relevant pages and their similarity maps."""
     try:
         model, processor = load_model_and_processor()
-        images = convert_pdf_to_images(pdf_path)
+        images = convert_from_path(pdf_path)
         
         # Load OCR data if available
         ocr_data = load_ocr_data(pdf_path)
@@ -515,13 +684,23 @@ def index_and_save_documents(pdf_path: str, query: str, top_k: int = 3,
         # Generate hybrid embeddings
         hybrid_data = generate_hybrid_embeddings(model, processor, images, ocr_data, pdf_path)
         
-        # Get relevant indices using hybrid approach
-        top_k_indices = get_relevant_indices_hybrid(
-            model, processor, query, hybrid_data, top_k,
+        # NOUVELLE APPROCHE EN DEUX ÉTAPES:
+        
+        # 1. Présélection d'un ensemble étendu de candidats (2-3x top_k)
+        candidate_k = min(top_k * 3, len(images))
+        logger.info(f"Pre-selecting {candidate_k} candidate pages...")
+        candidates, query_embeddings = get_initial_candidates(
+            model, processor, query, hybrid_data, candidate_k,
             dense_weight, bm25_weight, financial_weight
         )
         
-        # Save similarity scores and maps
+        # 2. Reranking des candidats avec pondération des tokens
+        logger.info(f"Reranking candidates based on token weights...")
+        top_k_indices = rerank_with_token_weights(
+            model, processor, images, hybrid_data, candidates, query, query_embeddings, top_k
+        )
+        
+        # 3. Sauvegarder les résultats
         save_similarity_scores_and_maps(images, hybrid_data, top_k_indices, query, model, processor)
         
         return RELEVANT_DIR
