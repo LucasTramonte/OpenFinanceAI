@@ -19,7 +19,7 @@ import pickle
 os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 
 # Page configuration
-st.set_page_config(layout="wide", page_title="Finance RAG Assistant")
+st.set_page_config(layout="wide", page_title="ColPali & Qwen Chat App")
 
 # Set directories to save files
 base_dir = "./streamlit"
@@ -31,7 +31,7 @@ index_dir = os.path.join(base_dir, "index")
 for d in [pdf_dir, temp_dir, output_dir, index_dir]:
     os.makedirs(d, exist_ok=True)
 
-st.title("Finance RAG Assistant")
+st.title("ColPali and Qwen Multimodal RAG Chat App")
 
 # Sidebar for configuration
 with st.sidebar:
@@ -115,7 +115,9 @@ def save_images(images, save_dir):
     for i, img in enumerate(images):
         temp_image_path = os.path.join(save_dir, f"temp_image_{i}.png")
         img.save(temp_image_path)
-        image_paths.append(temp_image_path)
+        image_paths.append(
+            temp_image_path
+        )  # Simplifier pour l'affichage dans Streamlit
     return image_paths
 
 
@@ -194,7 +196,10 @@ def generate_response(
 
 
 def clean_response(response_text):
-    """Keep only the last non-empty line or return the full text if no lines."""
+    """
+    Nettoie la réponse pour ne garder que la partie finale (adaptable selon vos besoins).
+    Par exemple, on peut prendre la dernière ligne non vide.
+    """
     lines = [line.strip() for line in response_text.split("\n") if line.strip()]
     return lines[-1] if lines else response_text
 
@@ -206,7 +211,7 @@ def cleanup_temp_files(file_paths):
 
 # --- Main conversation interface ---
 def main():
-    # Initialize conversation history
+    # Initialiser l'historique de conversation dans la session
     if "conversation" not in st.session_state:
         st.session_state.conversation = []
     if "models_loaded" not in st.session_state:
@@ -214,7 +219,7 @@ def main():
     if "waiting_for_response" not in st.session_state:
         st.session_state.waiting_for_response = False
 
-    # Process the PDF and load models once
+    # Traitement du PDF et chargement des modèles (une seule fois)
     if pdf_file is not None:
         if "pdf_path" not in st.session_state:
             st.session_state.pdf_path = save_uploaded_file(pdf_file, pdf_dir)
@@ -239,7 +244,7 @@ def main():
 
             with st.spinner("Loading response model..."):
                 max_pixels = 512 * 28 * 28
-                # Load the selected generation model
+                # Charger le modèle de génération sélectionné
                 if qwen_model_name == "vidore/colqwen2-base":
                     qwen_model = Qwen2VLForConditionalGeneration.from_pretrained(
                         qwen_model_name,
@@ -272,7 +277,7 @@ def main():
             st.session_state.qwen_processor = qwen_processor
             st.session_state.models_loaded = True
 
-        # Display chat history
+        # Affichage du chat
         chat_container = st.container()
         with chat_container:
             for msg in st.session_state.conversation:
@@ -300,57 +305,60 @@ def main():
 
         st.markdown("---")
 
-        # Check if we are waiting for a response
+        # Zone de saisie pour la nouvelle question
         if st.session_state.waiting_for_response:
-            # Hide the question input and send button entirely while loading
-            with st.spinner("Generating response..."):
-                query = st.session_state.current_query
-                query_embeddings = process_query(
-                    st.session_state.colpali_model,
-                    st.session_state.colpali_processor,
-                    query,
-                )
-                relevant_images = get_top_k_relevant_images(
-                    st.session_state.colpali_processor,
-                    st.session_state.embeddings_list,
-                    query_embeddings,
-                    st.session_state.images,
-                )
-                relevant_image_paths = save_images(relevant_images, temp_dir)
-                output_text = generate_response(
-                    st.session_state.qwen_model,
-                    st.session_state.qwen_processor,
-                    query,
-                    relevant_image_paths,
-                    qwen_model_name,
-                )
+            # Clear any previous components and only show the spinner
+            st.markdown("<div style='height: 70px;'></div>", unsafe_allow_html=True)
+            progress_container = st.container()
+            with progress_container:
+                with st.spinner("Generating response..."):
+                    query = st.session_state.current_query
+                    query_embeddings = process_query(
+                        st.session_state.colpali_model,
+                        st.session_state.colpali_processor,
+                        query,
+                    )
+                    query_embeddings = process_query(
+                        st.session_state.colpali_model,
+                        st.session_state.colpali_processor,
+                        query,
+                    )
+                    relevant_images = get_top_k_relevant_images(
+                        st.session_state.colpali_processor,
+                        st.session_state.embeddings_list,
+                        query_embeddings,
+                        st.session_state.images,
+                    )
+                    relevant_image_paths = save_images(relevant_images, temp_dir)
+                    output_text = generate_response(
+                        st.session_state.qwen_model,
+                        st.session_state.qwen_processor,
+                        query,
+                        relevant_image_paths,
+                        qwen_model_name,
+                    )
 
-                # Update conversation
-                st.session_state.conversation.append({"role": "user", "text": query})
-                st.session_state.conversation.append(
-                    {
-                        "role": "assistant",
-                        "text": output_text,
-                        "images": relevant_image_paths,
-                    }
-                )
+                    # Ajouter à la conversation
+                    st.session_state.conversation.append({"role": "user", "text": query})
+                    st.session_state.conversation.append(
+                        {
+                            "role": "assistant",
+                            "text": output_text,
+                            "images": relevant_image_paths,
+                        }
+                    )
 
-                # Reset waiting state
-                st.session_state.waiting_for_response = False
-                st.session_state.current_query = ""
+                    # Réinitialiser l'état d'attente
+                    st.session_state.waiting_for_response = False
+                    st.session_state.current_query = ""
 
-                # Force interface update
-                st.rerun()
+                    # Forcer la mise à jour de l'interface
+                    st.rerun()
         else:
-            # Show the input form only if we're NOT waiting for a response
             with st.form("chat_form", clear_on_submit=True):
-                # Hide label using label_visibility="collapsed"
-                user_input = st.text_input(
-                    label="",
-                    placeholder="Type your question here...",
-                    key="chat_input",
-                    label_visibility="collapsed",
-                )
+                user_input = st.text_input("", 
+                                          key="chat_input", 
+                                          placeholder="Type your question here...")
                 submitted = st.form_submit_button("Send")
                 if submitted and user_input.strip():
                     st.session_state.waiting_for_response = True
