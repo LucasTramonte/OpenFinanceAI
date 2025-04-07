@@ -1,0 +1,232 @@
+{
+  "overall": {
+    "mrr": 0.5814102564102563,
+    "precision@1": 0.4807692307692308,
+    "recall@1": 0.16025641025641024,
+    "precision@3": 0.3205128205128205,
+    "recall@3": 0.3137820512820513,
+    "precision@5": 0.2307692307692307,
+    "recall@5": 0.36987179487179483,
+    "exact_match_top1": 0.34615384615384615,
+    "embedding_similarity": {
+      "cosine_sim_mean": 0.048095703125,
+      "cosine_sim_median": 0.05517578125,
+      "euclidean_dist_mean": 0.703125,
+      "matching_score": 0.10869564861059189
+    }
+  },
+  "by_question_type": {
+    "Short": {
+      "exact_match_top1": 0.4444444444444444,
+      "mrr": 0.6870370370370371,
+      "precision@1": 0.6111111111111112,
+      "precision@3": 0.4629629629629629,
+      "precision@5": 0.3444444444444445,
+      "recall@1": 0.2037037037037037,
+      "recall@3": 0.44351851851851853,
+      "recall@5": 0.5314814814814814
+    },
+    "Long": {
+      "exact_match_top1": 0.29411764705882354,
+      "mrr": 0.5254901960784314,
+      "precision@1": 0.4117647058823529,
+      "precision@3": 0.24509803921568624,
+      "precision@5": 0.17058823529411768,
+      "recall@1": 0.1372549019607843,
+      "recall@3": 0.24509803921568624,
+      "recall@5": 0.28431372549019607
+    }
+  },
+  "by_question_subject": {
+    "Financial_Data": {
+      "exact_match_top1": 0.2,
+      "mrr": 0.43666666666666665,
+      "precision@1": 0.3,
+      "precision@3": 0.26666666666666666,
+      "precision@5": 0.24000000000000005,
+      "recall@1": 0.09166666666666665,
+      "recall@3": 0.215,
+      "recall@5": 0.315
+    },
+    "Investement": {
+      "exact_match_top1": 0.5714285714285714,
+      "mrr": 0.7142857142857143,
+      "precision@1": 0.7142857142857143,
+      "precision@3": 0.619047619047619,
+      "precision@5": 0.39999999999999997,
+      "recall@1": 0.24999999999999997,
+      "recall@3": 0.6428571428571429,
+      "recall@5": 0.6785714285714286
+    },
+    "Geographic": {
+      "exact_match_top1": 0.5,
+      "mrr": 1.0,
+      "precision@1": 1.0,
+      "precision@3": 0.5,
+      "precision@5": 0.4,
+      "recall@1": 0.3333333333333333,
+      "recall@3": 0.5,
+      "recall@5": 0.6666666666666666
+    },
+    "General": {
+      "exact_match_top1": 1.0,
+      "mrr": 1.0,
+      "precision@1": 1.0,
+      "precision@3": 0.5,
+      "precision@5": 0.30000000000000004,
+      "recall@1": 0.3333333333333333,
+      "recall@3": 0.5,
+      "recall@5": 0.5
+    },
+    "Environmental": {
+      "exact_match_top1": 0.5,
+      "mrr": 1.0,
+      "precision@1": 1.0,
+      "precision@3": 0.8333333333333333,
+      "precision@5": 0.6,
+      "recall@1": 0.3333333333333333,
+      "recall@3": 0.8333333333333333,
+      "recall@5": 1.0
+    },
+    "Financial_Structure": {
+      "exact_match_top1": 0.0,
+      "mrr": 0.0,
+      "precision@1": 0.0,
+      "precision@3": 0.0,
+      "precision@5": 0.0,
+      "recall@1": 0.0,
+      "recall@3": 0.0,
+      "recall@5": 0.0
+    },
+    "Financial_Risks": {
+      "exact_match_top1": 1.0,
+      "mrr": 1.0,
+      "precision@1": 1.0,
+      "precision@3": 0.3333333333333333,
+      "precision@5": 0.2,
+      "recall@1": 0.3333333333333333,
+      "recall@3": 0.3333333333333333,
+      "recall@5": 0.3333333333333333
+    },
+    "Financial_Growth": {
+      "exact_match_top1": 0.0,
+      "mrr": 0.75,
+      "precision@1": 0.5,
+      "precision@3": 0.3333333333333333,
+      "precision@5": 0.2,
+      "recall@1": 0.16666666666666666,
+      "recall@3": 0.3333333333333333,
+      "recall@5": 0.3333333333333333
+    },
+    "Business_Segments": {
+      "exact_match_top1": 0.0,
+      "mrr": 0.2,
+      "precision@1": 0.0,
+      "precision@3": 0.0,
+      "precision@5": 0.2,
+      "recall@1": 0.0,
+      "recall@3": 0.0,
+      "recall@5": 0.3333333333333333
+    },
+    "Business_Strategy": {
+      "exact_match_top1": 0.0,
+      "mrr": 0.75,
+      "precision@1": 0.5,
+      "precision@3": 0.3333333333333333,
+      "precision@5": 0.2,
+      "recall@1": 0.16666666666666666,
+      "recall@3": 0.3333333333333333,
+      "recall@5": 0.3333333333333333
+    },
+    "M&A": {
+      "exact_match_top1": 0.6666666666666666,
+      "mrr": 0.7777777777777777,
+      "precision@1": 0.6666666666666666,
+      "precision@3": 0.3333333333333333,
+      "precision@5": 0.20000000000000004,
+      "recall@1": 0.2222222222222222,
+      "recall@3": 0.3333333333333333,
+      "recall@5": 0.3333333333333333
+    },
+    "Dividends": {
+      "exact_match_top1": 0.3333333333333333,
+      "mrr": 0.3333333333333333,
+      "precision@1": 0.3333333333333333,
+      "precision@3": 0.1111111111111111,
+      "precision@5": 0.06666666666666667,
+      "recall@1": 0.1111111111111111,
+      "recall@3": 0.1111111111111111,
+      "recall@5": 0.1111111111111111
+    },
+    "Accounting": {
+      "exact_match_top1": 0.0,
+      "mrr": 0.0,
+      "precision@1": 0.0,
+      "precision@3": 0.0,
+      "precision@5": 0.0,
+      "recall@1": 0.0,
+      "recall@3": 0.0,
+      "recall@5": 0.0
+    },
+    "Financial_Results": {
+      "exact_match_top1": 0.0,
+      "mrr": 0.0,
+      "precision@1": 0.0,
+      "precision@3": 0.0,
+      "precision@5": 0.0,
+      "recall@1": 0.0,
+      "recall@3": 0.0,
+      "recall@5": 0.0
+    },
+    "Regulatory": {
+      "exact_match_top1": 0.0,
+      "mrr": 0.0,
+      "precision@1": 0.0,
+      "precision@3": 0.0,
+      "precision@5": 0.0,
+      "recall@1": 0.0,
+      "recall@3": 0.0,
+      "recall@5": 0.0
+    },
+    "Employment": {
+      "exact_match_top1": 0.5,
+      "mrr": 0.78125,
+      "precision@1": 0.625,
+      "precision@3": 0.29166666666666663,
+      "precision@5": 0.2,
+      "recall@1": 0.20833333333333331,
+      "recall@3": 0.29166666666666663,
+      "recall@5": 0.3333333333333333
+    },
+    "Investments": {
+      "exact_match_top1": 0.0,
+      "mrr": 0.5,
+      "precision@1": 0.0,
+      "precision@3": 0.3333333333333333,
+      "precision@5": 0.2,
+      "recall@1": 0.0,
+      "recall@3": 0.3333333333333333,
+      "recall@5": 0.3333333333333333
+    },
+    "Financial_Management": {
+      "exact_match_top1": 0.0,
+      "mrr": 0.3333333333333333,
+      "precision@1": 0.0,
+      "precision@3": 0.3333333333333333,
+      "precision@5": 0.2,
+      "recall@1": 0.0,
+      "recall@3": 0.3333333333333333,
+      "recall@5": 0.3333333333333333
+    },
+    "Financial_Forecasts": {
+      "exact_match_top1": 0.0,
+      "mrr": 0.25,
+      "precision@1": 0.0,
+      "precision@3": 0.0,
+      "precision@5": 0.2,
+      "recall@1": 0.0,
+      "recall@3": 0.0,
+      "recall@5": 0.3333333333333333
+    }
+  }
+}
