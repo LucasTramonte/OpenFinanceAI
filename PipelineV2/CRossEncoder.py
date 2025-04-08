@@ -553,15 +553,124 @@ def generate_responses(query: str, relevant_dir: str, top_k: int = 3):
         raise
 
 def main():
-    pdf_path = "../Assets/data_test/pdfs/AMEX_EMR_2023.pdf"
-    query = "What percentage of women occupy leadership positions in the company in 2023?"
-    relevant_dir = index_and_save_documents(pdf_path, query, top_k=3)
-    generate_responses(query, relevant_dir, top_k=3)
+    """
+    Évaluation de la pipeline RAG sur l'ensemble de données ARDIAN.
+    Génère les réponses pour chaque question et sauvegarde les résultats.
+    """
+    # Charger le jeu de données de test
+    dataset_path = "../Assets/data_test/ardian_dataset_final.json"
+    with open(dataset_path, "r", encoding="utf-8") as f:
+        dataset = json.load(f)
+    
+    # Préparer la structure pour stocker les documents retournés par question
+    retrieved_docs = []
+    
+    # Définir le répertoire des PDFs
+    pdf_directory = "../Assets/data_test/pdfs"
+    
+    # Traiter chaque question du dataset
+    for idx, item in enumerate(dataset):
+        question_id = item.get("Question_ID", f"Q{idx+1}")
+        question = item.get("Question")
+        expected_source = item.get("Expected_source", "")
+        
+        # Afficher la progression
+        print(f"\n\n{'='*80}")
+        print(f"Traitement de la question {idx+1}/{len(dataset)}: {question}")
+        print(f"Source attendue: {expected_source}")
+        print('='*80)
+        
+        try:
+            # Déterminer le chemin du PDF correspondant
+            pdf_path = os.path.join(pdf_directory, f"{expected_source}.pdf")
+            if not os.path.exists(pdf_path):
+                print(f"ATTENTION: PDF non trouvé pour {expected_source}. Utilisation du PDF par défaut.")
+                pdf_path = os.path.join(pdf_directory, "AMEX_EMR_2023.pdf")
+            
+            # Exécuter la récupération de documents avec re-ranking
+            relevant_dir = index_and_save_documents(pdf_path, question, top_k=3)
+            
+            # Récupérer les fichiers des documents pertinents
+            doc_files = sorted(os.listdir(relevant_dir))[:3]
+            
+            # Collecter les informations sur les documents retournés
+            current_docs = []
+            for i, doc_file in enumerate(doc_files):
+                # Le fichier est nommé "relevant_doc_X.jpg" où X est le numéro de position (1, 2, 3)
+                # Pour obtenir l'indice réel de la page dans le document, on extrait le numéro de page
+                # depuis l'index_and_save_documents
+                rank = i + 1  # Le rang dans les résultats (1, 2, 3)
+                
+                # Pour les indices de page, on définira correctement:
+                # Si le fichier est relevant_doc_1.jpg, la page indexée est 0
+                page = i  # Par défaut, utiliser l'ordre (0, 1, 2)
+                
+                doc_path = os.path.join(relevant_dir, doc_file)
+                
+                # Ajouter à la liste des documents pour cette question
+                current_docs.append({
+                    "rank": rank,
+                    "page": page,
+                    "document": os.path.basename(pdf_path),
+                    "file_path": doc_path
+                })
+            
+            # Générer la réponse à la question
+            generate_responses(question, relevant_dir, top_k=3)
+            
+            # Lire la réponse générée et extraire seulement la partie de l'assistant
+            response_path = os.path.join(OUTPUT_DIRECTORY, "generated_responses.txt")
+            with open(response_path, "r", encoding="utf-8") as f:
+                full_response = f.read().strip()
+            
+            # Extraire uniquement la partie après "assistant"
+            if "assistant" in full_response:
+                # Diviser au mot "assistant" et prendre la dernière partie
+                parts = full_response.split("assistant")
+                if len(parts) > 1:
+                    assistant_response = parts[-1].strip()
+                    # Supprimer les caractères non-alphanumériques au début
+                    assistant_response = re.sub(r'^[^a-zA-Z0-9]+', '', assistant_response)
+                    generated_response = assistant_response
+                else:
+                    generated_response = full_response
+            else:
+                generated_response = full_response
+            
+            # Ajouter la réponse au jeu de données
+            dataset[idx]["Answer_PV2"] = generated_response
+            
+            # Enregistrer les informations de récupération pour cette question
+            retrieved_docs.append({
+                "Question_ID": question_id,
+                "Question": question,
+                "Retrieved_Documents": current_docs
+            })
+            
+            print(f"Réponse générée: {generated_response[:100]}...")
+            
+        except Exception as e:
+            print(f"ERREUR lors du traitement de la question {idx+1}: {str(e)}")
+            dataset[idx]["Answer_PV2"] = f"ERREUR: {str(e)}"
+            retrieved_docs.append({
+                "Question_ID": question_id,
+                "Question": question,
+                "Retrieved_Documents": [],
+                "Error": str(e)
+            })
+        
+        # Sauvegarder le dataset après chaque question
+        with open("ardian_dataset_with_pv2.json", "w", encoding="utf-8") as f:
+            json.dump(dataset, f, indent=2, ensure_ascii=False)
+        
+        with open("ardian_retrieved_documents.json", "w", encoding="utf-8") as f:
+            json.dump(retrieved_docs, f, indent=2, ensure_ascii=False)
+    
+    print("\nÉvaluation terminée. Résultats sauvegardés dans ../Assets/output/ardian_dataset_with_pv2.json")
+    print("Documents récupérés sauvegardés dans ../Assets/output/ardian_retrieved_documents.json")
 
-
+# Configuration CUDA pour optimiser l'utilisation mémoire
 os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 
 if __name__ == "__main__":
     main()
-
-# Code Phase 2 -> Next steps: Phase 3 - Integrez la récuparation contexte Phase 4 - Segmentation et extraction de texte pour une meilleure précision
