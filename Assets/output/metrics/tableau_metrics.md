@@ -1,4 +1,4 @@
-## Tableau des métriques Global (sans Faithfulness)
+## Tableau des métriques Global 
 
 | Model            |   Borda_Global |   Faithfulness_Avg |
 |:-----------------|---------------:|-------------------:|
