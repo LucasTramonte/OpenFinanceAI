@@ -44,7 +44,9 @@ def langchain_retrieve_top_docs(pdf_path: str, query: str, top_k: int = 3):
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
     texts = text_splitter.split_documents(documents)
 
-    embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+    #embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2") 
+    embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L12-v2") 
+    
     db = FAISS.from_documents(texts, embeddings)
     retriever = db.as_retriever(search_kwargs={"k": top_k})
 
@@ -71,21 +73,14 @@ def generate_response_from_text(query: str, context_chunks: list[str]):
 
         # Generate response
         torch.cuda.empty_cache()
-        generated_ids = model.generate(**inputs, max_new_tokens=150)
+        generated_ids = model.generate(**inputs, max_new_tokens=500)
         output_text = processor.batch_decode(
             generated_ids,
             skip_special_tokens=True,
             clean_up_tokenization_spaces=False
         )[0]
 
-        # Extract only the final answer (remove echo)
-        # Look for 'Answer:' or just grab the last paragraph/sentence
-        if "Answer:" in output_text:
-            final_answer = output_text.split("Answer:")[-1].strip()
-        elif "Therefore," in output_text:
-            final_answer = output_text.split("Therefore,")[-1].strip()
-        else:
-            final_answer = output_text.strip()
+        final_answer = output_text.strip()
 
         logger.info("Final answer:")
         logger.info(final_answer)
@@ -104,7 +99,7 @@ def generate_response_from_text(query: str, context_chunks: list[str]):
 
 def main():
     pdf_path = "../Assets/data_test/pdfs/AMEX_EMR_2023.pdf"
-    query = "What percentage of women occupy leadership positions in the company in 2023?"
+    query = "What was the dividend per share for the year 2023 for the company?"
 
     top_chunks = langchain_retrieve_top_docs(pdf_path, query, top_k=3)
     generate_response_from_text(query, top_chunks)
