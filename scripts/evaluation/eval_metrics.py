@@ -6,12 +6,12 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Load the JSON file with the correct encoding
-json_file_path = "../Assets/data_test/ardian_dataset_final_evaluation.json"
+json_file_path = "../../Assets/data_test/ardian_dataset_final_evaluation.json"
 with open(json_file_path, "r", encoding="utf-8") as f:
     data = json.load(f)
 
 # Create output directories
-output_dir = "../Assets/output/metrics"
+output_dir = "../../Assets/output/metrics"
 os.makedirs(output_dir, exist_ok=True)
 
 models = ["Qwen2", "Qwen2.5", "Gemma_4B", "Gemma_12B"]

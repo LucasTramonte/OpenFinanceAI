@@ -228,7 +228,7 @@ def generate_responses(query: str, relevant_dir: str, top_k: int = 3):
         raise
 
 def main():
-    pdf_path = "../Assets/data_test/AMEX_EMR_2023.pdf"
+    pdf_path = "../Assets/data_test/pdfs/AMEX_EMR_2023.pdf"
     query = "By what percentage did Emerson’s adjusted EBITA margin increase in 2023 compared to 2022?"
     relevant_dir = index_and_save_documents(pdf_path, query, top_k=3)
     generate_responses(query, relevant_dir, top_k=3)

@@ -40,7 +40,7 @@ def load_json_file(file_path):
     except Exception as e:
         logging.error(f"Erreur lors du chargement du fichier JSON {file_path}: {str(e)}")
 
-file_path = "../Assets/data_test/ardian_dataset_final.json"
+file_path = "../../Assets/data_test/ardian_dataset_final.json"
 df = load_json_file(file_path)
 rouge = rouge_scorer.RougeScorer(["rouge1", "rouge2", "rougeL"], use_stemmer=True)
 t5_tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-large")
@@ -233,7 +233,7 @@ ax.set_ylabel("Borda Score")
 ax.set_title("Scores Borda par modèle")
 ax.legend()
 plt.tight_layout()
-plt.savefig("../Assets/output/metrics/borda_scores.png")
+plt.savefig("../../Assets/output/metrics/borda_scores.png")
 plt.show()
 
 # Calculate faithfulness averages
@@ -249,7 +249,7 @@ ax.bar(models, [faithfulness_avg[model] for model in models], color="skyblue")
 ax.set_ylabel("Moyenne Faithfulness")
 ax.set_title("Moyenne des scores Faithfulness par modèle")
 plt.tight_layout()
-plt.savefig("../Assets/output/metrics/faithfulness_scores.png")
+plt.savefig("../../Assets/output/metrics/faithfulness_scores.png")
 plt.show()
 
 # Create metrics tables by type
@@ -266,7 +266,7 @@ short_md = "## Tableau des métriques Short\n\n" + short_df.to_markdown(index=Fa
 long_md = "## Tableau des métriques Long\n\n" + long_df.to_markdown(index=False)
 
 final_md = global_md + "\n\n" + short_md + "\n\n" + long_md
-with open("../Assets/data_test/tableau_final.md", "w", encoding="utf-8") as f:
+with open("../../Assets/data_test/tableau_final.md", "w", encoding="utf-8") as f:
     f.write(final_md)
 logging.info("Tableaux récapitulatifs sauvegardés dans tableau_final.md")
 
@@ -293,6 +293,6 @@ for model in models:
     logging.info(f"Pour le modèle {model}, {count_presence} questions sur {total_string_presence} ont un score string_presence de 1.")
 
 # Save all evaluation results to JSON
-with open("../Assets/data_test/ardian_dataset_final_evaluation.json", "w", encoding="utf-8") as f:
+with open("../../Assets/data_test/ardian_dataset_final_evaluation.json", "w", encoding="utf-8") as f:
     json.dump(df.to_dict("records"), f, ensure_ascii=False, indent=2)
 logging.info("Résultats d'évaluation sauvegardés en JSON.")

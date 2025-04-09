@@ -22,7 +22,7 @@ with open("token.txt", "r") as token_file:
     HF_TOKEN = token_file.read().strip()
 
 # Output directories
-OUTPUT_DIRECTORY = "../Assets/output/FinQA"
+OUTPUT_DIRECTORY = "../../Assets/output/FinQA"
 QWEN2VL_DIR = os.path.join(OUTPUT_DIRECTORY, "Qwen2VL")
 QWEN2_5VL_DIR = os.path.join(OUTPUT_DIRECTORY, "Qwen2_5VL")
 INTERN_DIR = os.path.join(OUTPUT_DIRECTORY, "InternVL2_5MPO")

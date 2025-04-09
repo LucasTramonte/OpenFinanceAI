@@ -43,7 +43,7 @@ def load_json_file(file_path):
         logging.error(f"Erreur lors du chargement du fichier JSON {file_path}: {str(e)}")
 
 # Load the dataset from JSON (dataset de base)
-file_path = "../Assets/data_test/ardian_dataset_test.json"
+file_path = "../../Assets/data_test/ardian_dataset_test.json"
 df = load_json_file(file_path)
 
 # Initialisation des scorers
@@ -196,7 +196,7 @@ borda_scores = calculate_borda_scores(aggregation_df, metrics_list)
 aggregation_df["Borda"] = aggregation_df["Model"].map(borda_scores)
 
 # Sauvegarde des résultats d'agrégation en JSON
-with open("../Assets/data_test/agreggation_metrics.json", "w", encoding="utf-8") as f:
+with open("../../Assets/data_test/agreggation_metrics.json", "w", encoding="utf-8") as f:
     json.dump(aggregation_df.to_dict("records"), f, ensure_ascii=False, indent=2)
 logging.info("Métriques d'agrégation sauvegardées en JSON.")
 
@@ -213,6 +213,6 @@ for model in models:
     logging.info(f"Pour le modèle {model}, {count_presence} questions sur {total_string_presence} ont un score string_presence de 1.")
 
 # Sauvegarde des résultats finaux en JSON
-with open("../Assets/data_test/ardian_dataset_test_evaluation.json", "w", encoding="utf-8") as f:
+with open("../../Assets/data_test/ardian_dataset_test_evaluation.json", "w", encoding="utf-8") as f:
     json.dump(df.to_dict("records"), f, ensure_ascii=False, indent=2)
 logging.info("Résultats d'évaluation sauvegardés en JSON.")
