@@ -285,14 +285,9 @@ The script generates the following outputs for each correlation method (**Spearm
      - **Pearson Heatmap**:
        ![Pearson Correlation Heatmap](Assets/output/metrics/pearson/correlation_heatmap.png)
 
-2. **Correlations JSON**:
-   - Contains the correlation values for each metric.
-   - Example file: `../Assets/output/metrics/spearman/correlations.json`
+Between String_presence and personal_score : 
 
-3. **Ranked Metrics JSON**:
-   - Contains the metrics ranked by their correlation with the `Personal_Score`.
-   - Example file: `../Assets/output/metrics/spearman/ranked_metrics.json`
-
+![Correlation plot](Assets/output/metrics/personal_score_vs_string_presence_jittered.png)
 
 ## Actual problems : 
 ### 1. Resource Generation Issues with Streamlit Application

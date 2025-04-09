@@ -32,9 +32,6 @@ for entry in data[:52]:  # Process only the first 52 entries
 
 df = pd.DataFrame(rows)
 
-# Handle missing or NaN values
-#df.fillna(0.0, inplace=True)
-
 # Filter rows with valid personal scores
 df = df[df["Personal_Score"].notnull()]
 
@@ -91,3 +88,116 @@ def calculate_and_save_results(method):
 # Calculate and save results for Spearman and Pearson methods
 calculate_and_save_results("spearman")
 calculate_and_save_results("pearson")
+
+# Recompute correlations for the entire df
+pearson_corr = df[["Personal_Score", "string_presence"]].corr(method="pearson").iloc[0, 1]
+spearman_corr = df[["Personal_Score", "string_presence"]].corr(method="spearman").iloc[0, 1]
+
+fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(14, 6), sharey=True)
+
+# --- Plot 1: Pearson ---
+sns.scatterplot(
+    data=df,
+    x="Personal_Score",
+    y="string_presence",
+    alpha=0.7,
+    ax=axes[0]
+)
+# Add a regression line (without additional scatter points)
+sns.regplot(
+    data=df,
+    x="Personal_Score",
+    y="string_presence",
+    scatter=False,
+    line_kws={"color": "red"},
+    ci=None,
+    ax=axes[0]
+)
+axes[0].set_title(f"Pearson Correlation: {pearson_corr:.2f}", fontsize=12)
+axes[0].set_xlabel("Personal Score", fontsize=11)
+axes[0].set_ylabel("String Presence", fontsize=11)
+
+# --- Plot 2: Spearman ---
+sns.scatterplot(
+    data=df,
+    x="Personal_Score",
+    y="string_presence",
+    alpha=0.7,
+    ax=axes[1],
+    color="green"
+)
+# Add a regression line
+sns.regplot(
+    data=df,
+    x="Personal_Score",
+    y="string_presence",
+    scatter=False,
+    line_kws={"color": "black"},
+    ci=None,
+    ax=axes[1]
+)
+axes[1].set_title(f"Spearman Correlation: {spearman_corr:.2f}", fontsize=12)
+axes[1].set_xlabel("Personal Score", fontsize=11)
+axes[1].set_ylabel("String Presence", fontsize=11)
+
+plt.suptitle("Comparing Pearson vs. Spearman (Personal Score vs. String Presence)", fontsize=14)
+plt.tight_layout()
+
+# Save and/or show
+comparison_plot_path = os.path.join(output_dir, "correlation_string_presence_comparison.png")
+plt.savefig(comparison_plot_path, dpi=150)
+plt.show()
+
+print(f"Comparison scatterplot saved to: {comparison_plot_path}")
+
+# Create a copy with random jitter
+df_jittered = df.copy()
+df_jittered["Personal_Score"] = df_jittered["Personal_Score"] + np.random.uniform(-0.01, 0.01, size=len(df_jittered))
+df_jittered["string_presence"] = df_jittered["string_presence"] + np.random.uniform(-0.01, 0.01, size=len(df_jittered))
+
+fig, axes = plt.subplots(1, 2, figsize=(14, 6), sharey=True)
+
+# Pearson with jitter
+sns.scatterplot(
+    data=df_jittered,
+    x="Personal_Score",
+    y="string_presence",
+    alpha=0.6,
+    ax=axes[0]
+)
+sns.regplot(
+    data=df_jittered,
+    x="Personal_Score",
+    y="string_presence",
+    scatter=False,
+    line_kws={"color": "red"},
+    ci=None,
+    ax=axes[0]
+)
+axes[0].set_title(f"Pearson Corr (Jittered): {pearson_corr:.2f}")
+
+# Spearman with jitter
+sns.scatterplot(
+    data=df_jittered,
+    x="Personal_Score",
+    y="string_presence",
+    alpha=0.6,
+    ax=axes[1],
+    color="green"
+)
+sns.regplot(
+    data=df_jittered,
+    x="Personal_Score",
+    y="string_presence",
+    scatter=False,
+    line_kws={"color": "black"},
+    ci=None,
+    ax=axes[1]
+)
+axes[1].set_title(f"Spearman Corr (Jittered): {spearman_corr:.2f}")
+
+jitter_plot_path = os.path.join(output_dir, "personal_score_vs_string_presence_jittered.png")
+plt.savefig(jitter_plot_path, dpi=150)
+plt.close()
+
+print(f"Jittered scatter plot saved to: {jitter_plot_path}")
