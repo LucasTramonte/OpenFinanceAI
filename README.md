@@ -108,10 +108,6 @@ In addition to evaluating the retriever, we also assess our model’s performanc
 
 Since FinQA does not rely on retrieval metrics, the objective is to verify if the model generates meaningful and contextually correct responses from the provided PDFs. This evaluation complements the retriever assessment by testing the end-to-end question-answering capability of our system.
 
-
-### File Management
-Use [WinSCP](https://winscp.net/eng/download.php) for file transfer between local and remote systems.
-
 ## Output Files Explained
 
 The output directory contains the following key files and folders:
@@ -289,9 +285,7 @@ Between String_presence and personal_score :
 
 ![Correlation plot](Assets/output/metrics/personal_score_vs_string_presence_jittered.png)
 
-## Actual problems : 
-### 1. Resource Generation Issues with Streamlit Application
-This issue arises when multiple jobs are launched simultaneously in the DCE. We successfully ran our code and generated results using Qwen2-VL-2B-Instruct and Qwen/Qwen2.5-VL-7B-Instruct with the scripts `Colpali_Qwen.py` and `Colpali_Qwen2_5.py`. However, we encounter a CUDA out-of-memory error when attempting to use the Streamlit Application.
+## Streamlit Application
 
 1. Go to  the [interactive desktop](https://dev.dce-cs.fr/pun/sys/dashboard/batch_connect/sys/bc_desktop/dce/session_contexts/new) from DCE 
 
@@ -308,7 +302,7 @@ Example screenshot of the Streamlit interface:
 
 ![Example Streamlit Interface](Assets/Images/example_streamlit_interface.png)
 
-torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 19.68 GiB. GPU 0 has a total capacity of 23.68 GiB of which 11.88 GiB is free. Including non-PyTorch memory, this process has 11.79 GiB memory in use. Of the allocated memory 11.44 GiB is allocated by PyTorch, and 43.59 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[Click here to watch the demo video](Assets/Images/demo_streamlit.mp4)
 
 ## Future Directions
 
