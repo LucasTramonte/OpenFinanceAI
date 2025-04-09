@@ -302,7 +302,7 @@ Example screenshot of the Streamlit interface:
 
 ![Example Streamlit Interface](Assets/Images/example_streamlit_interface.png)
 
-[Click here to watch the demo video](Assets/Images/demo_streamlit.mp4)
+![Click here to watch the demo video](Assets/Images/demo_streamlit.mp4)
 
 ## Future Directions
 
