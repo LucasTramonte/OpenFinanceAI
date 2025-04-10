@@ -108,6 +108,15 @@ In addition to evaluating the retriever, we also assess our model’s performanc
 
 Since FinQA does not rely on retrieval metrics, the objective is to verify if the model generates meaningful and contextually correct responses from the provided PDFs. This evaluation complements the retriever assessment by testing the end-to-end question-answering capability of our system.
 
+#### FinQA Accuracy Results:
+
+| Model | Accuracy |
+|-------|----------|
+| OpenGVLab/InternVL2_5-8B-MPO | 20.00% |
+| Qwen/Qwen2.5-VL-7B-Instruct | 28.00% |
+| Qwen/Qwen2-VL-2B-Instruct | 0.00% |
+| google/gemma-3-4b-it | 26.00% |
+
 ## Output Files Explained
 
 The output directory contains the following key files and folders:
@@ -170,6 +179,21 @@ Furthermore, we are using 4 metrics to evaluate its performance with our datatse
 - Compares the embeddings of the query with those of the retrieved documents.
 - Uses cosine similarity to measure the semantic closeness.
 - Higher similarity values indicate better relevance of retrieved documents.
+
+#### Retriever Evaluation Results
+
+| Métrique | Standard | Scale à 10 PDFs | Différence |
+|----------|--------:|----------------:|-----------:|
+| exact_match_top1 | 0.3462 | 0.2308 | -0.1154 🔻 |
+| mrr | 0.5814 | 0.4913 | -0.0901 🔻 |
+| precision@1 | 0.4808 | 0.4231 | -0.0577 🔻 |
+| precision@3 | 0.3205 | 0.2564 | -0.0641 🔻 |
+| precision@5 | 0.2308 | 0.2000 | -0.0308 🔻 |
+| recall@1 | 0.1603 | 0.1410 | -0.0193 🔻 |
+| recall@3 | 0.3138 | 0.2497 | -0.0641 🔻 |
+| recall@5 | 0.3699 | 0.3202 | -0.0497 🔻 |
+
+For more detailed results, please refer to `comparative_report.md`.
 
 ### Generator
 
@@ -247,24 +271,42 @@ Each entry in the JSON file contains the following fields:
 - **Mean**: The average score for the given model, metric, and question type.
 - **Borda**: The Borda score for the model, calculated based on its ranking across all metrics.
 
-| Model            | Metric   | Type     | Mean     | Borda |
-|------------------|----------|----------|----------|-------|
-| Answer_Qwen2     | rouge1   | Overall  | 0.307717 | 21    |
-| Answer_Qwen2     | rouge2   | Overall  | 0.132412 | 21    |
-| Answer_Qwen2     | rougeL   | Overall  | 0.243889 | 21    |
-| Answer_Qwen2.5   | rouge1   | Overall  | 0.294662 | 18    |
-| Answer_Qwen2.5   | rouge2   | Overall  | 0.124057 | 18    |
-| Answer_Qwen2.5   | rougeL   | Overall  | 0.226993 | 18    |
-| Answer_Gemma_4B  | rouge1   | Overall  | 0.229930 | -8    |
-| Answer_Gemma_4B  | rouge2   | Overall  | 0.066064 | -8    |
-| Answer_Gemma_4B  | rougeL   | Overall  | 0.169093 | -8    |
-| Answer_Gemma_12B | rouge1   | Overall  | 0.238580 | -5    |
-| Answer_Gemma_12B | rouge2   | Overall  | 0.076516 | -5    |
-| Answer_Gemma_12B | rougeL   | Overall  | 0.177195 | -5    |
+### Evaluation Summary
 
-Borda instance explanation : 
+#### Global Metrics Table
 
-Answer_Qwen2: ( 2 + 2 + 2 = 6 ) points per metric × 3 metrics = 21
+| Model                     |   Borda_Global | Faithfulness_Avg |
+|:--------------------------|---------------:|------------------|
+| Answer_Qwen2              |             60 | 84.62%           |
+| Answer_Qwen2.5            |             58 | 84.62%           |
+| Answer_Gemma_4B           |             21 | 88.46%           |
+| Answer_Gemma_12B          |             22 | 82.69%           |
+| Answer_PV2                |             43 | 78.43%           |
+| Answer_langchain_pipeline |              6 | 65.38%           |
+
+## Short Metrics
+
+| Model                     | faithfulness | numerical_acc | rouge1  | rouge2  | rougeL  | string_presence |
+|:--------------------------|:-------------|:--------------|:--------|:--------|:--------|:---------------|
+| Answer_Gemma_12B          | 66.67%       | 44.44%        | 21.75%  | 11.16%  | 20.17%  | 27.78%         |
+| Answer_Gemma_4B           | 77.78%       | 50.00%        | 23.68%  | 11.94%  | 21.74%  | 33.33%         |
+| Answer_PV2                | 82.35%       | 61.11%        | 26.36%  | 15.16%  | 23.34%  | 38.89%         |
+| Answer_Qwen2              | 77.78%       | 55.56%        | 34.94%  | 22.14%  | 32.79%  | 38.89%         |
+| Answer_Qwen2.5            | 88.89%       | 66.67%        | 29.45%  | 17.33%  | 26.82%  | 72.22%         |
+| Answer_langchain_pipeline | 77.78%       | 44.44%        | 19.64%  | 7.87%   | 18.21%  | 22.22%         |
+
+## Long metrics
+
+| Model                     | bert    | faithfulness | flan-t5 | rouge1  | rouge2  | rougeL  |
+|:--------------------------|:--------|:-------------|:--------|:--------|:--------|:--------|
+| Answer_Gemma_12B          | 53.43%  | 91.18%       | 6.13%   | 25.35%  | 6.03%   | 16.58%  |
+| Answer_Gemma_4B           | 51.24%  | 94.12%       | 5.69%   | 23.00%  | 4.02%   | 14.51%  |
+| Answer_PV2                | 57.76%  | 76.47%       | 8.21%   | 28.66%  | 9.78%   | 19.51%  |
+| Answer_Qwen2              | 59.09%  | 88.24%       | 8.26%   | 28.45%  | 8.53%   | 19.83%  |
+| Answer_Qwen2.5            | 58.28%  | 82.35%       | 8.17%   | 29.38%  | 9.80%   | 20.43%  |
+| Answer_langchain_pipeline | 51.65%  | 58.82%       | 8.92%   | 18.42%  | 3.65%   | 12.28%  |
+
+For more detailed evaluation results, please refer to `tableau_metrics.md`.
 
 ## Evaluation Metrics
 
@@ -304,29 +346,6 @@ Example screenshot of the Streamlit interface:
 
 ![Click here to watch the demo video](Assets/Images/demo_streamlit.mp4)
 
-## Future Directions
-
-### 2. Enhancing Performance 
-
-**Benchmark Testing:**
-
-- [OpenVLM Leaderboard](https://huggingface.co/spaces/opencompass/open_vlm_leaderboard)
-
-- [Open FinLLM](https://huggingface.co/blog/leaderboard-finbench)
-
-**Implementing a Profiler:**  
-
-- [Profiler](https://huggingface.co/docs/accelerate/en/usage_guides/profiler)
-
-**Fine-tuning:**
-
-- Fine-tune the vision model (Utilize annotated data)
-- Implement unsupervised learning techniques on the Ardian Dataset
-
-### 3. Scaling Colpali with Vespa + ameliorating general pipeline
-### 4. Finish dataset for performance evaluation 
-
-https://huggingface.co/blog/leaderboard-finbench
 
 ## Authors
 - **Gabriel Trier**  

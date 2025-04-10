@@ -216,6 +216,222 @@
     "Mean": 0.1657653697807074
   },
   {
+    "Model": "Answer_PV2",
+    "Metric": "rouge1",
+    "Type": "Overall",
+    "Mean": 0.27867982118134066
+  },
+  {
+    "Model": "Answer_PV2",
+    "Metric": "rouge1",
+    "Type": "Short",
+    "Mean": 0.26364267984234235
+  },
+  {
+    "Model": "Answer_PV2",
+    "Metric": "rouge1",
+    "Type": "Long",
+    "Mean": 0.2866406607137516
+  },
+  {
+    "Model": "Answer_PV2",
+    "Metric": "rouge2",
+    "Type": "Overall",
+    "Mean": 0.11645917411006214
+  },
+  {
+    "Model": "Answer_PV2",
+    "Metric": "rouge2",
+    "Type": "Short",
+    "Mean": 0.1516470462610309
+  },
+  {
+    "Model": "Answer_PV2",
+    "Metric": "rouge2",
+    "Type": "Long",
+    "Mean": 0.09783030061837279
+  },
+  {
+    "Model": "Answer_PV2",
+    "Metric": "rougeL",
+    "Type": "Overall",
+    "Mean": 0.2083361188189335
+  },
+  {
+    "Model": "Answer_PV2",
+    "Metric": "rougeL",
+    "Type": "Short",
+    "Mean": 0.23335386973149516
+  },
+  {
+    "Model": "Answer_PV2",
+    "Metric": "rougeL",
+    "Type": "Long",
+    "Mean": 0.19509142715934208
+  },
+  {
+    "Model": "Answer_langchain_pipeline",
+    "Metric": "rouge1",
+    "Type": "Overall",
+    "Mean": 0.18843936557707336
+  },
+  {
+    "Model": "Answer_langchain_pipeline",
+    "Metric": "rouge1",
+    "Type": "Short",
+    "Mean": 0.19642735888309554
+  },
+  {
+    "Model": "Answer_langchain_pipeline",
+    "Metric": "rouge1",
+    "Type": "Long",
+    "Mean": 0.18421042794447334
+  },
+  {
+    "Model": "Answer_langchain_pipeline",
+    "Metric": "rouge2",
+    "Type": "Overall",
+    "Mean": 0.05111949487181941
+  },
+  {
+    "Model": "Answer_langchain_pipeline",
+    "Metric": "rouge2",
+    "Type": "Short",
+    "Mean": 0.07874289595974063
+  },
+  {
+    "Model": "Answer_langchain_pipeline",
+    "Metric": "rouge2",
+    "Type": "Long",
+    "Mean": 0.03649534135468466
+  },
+  {
+    "Model": "Answer_langchain_pipeline",
+    "Metric": "rougeL",
+    "Type": "Overall",
+    "Mean": 0.14331979416757085
+  },
+  {
+    "Model": "Answer_langchain_pipeline",
+    "Metric": "rougeL",
+    "Type": "Short",
+    "Mean": 0.18211632844518252
+  },
+  {
+    "Model": "Answer_langchain_pipeline",
+    "Metric": "rougeL",
+    "Type": "Long",
+    "Mean": 0.12278045249118821
+  },
+  {
+    "Model": "Answer_Qwen2",
+    "Metric": "faithfulness",
+    "Type": "Overall",
+    "Mean": 0.8461538461538461
+  },
+  {
+    "Model": "Answer_Qwen2",
+    "Metric": "faithfulness",
+    "Type": "Short",
+    "Mean": 0.7777777777777778
+  },
+  {
+    "Model": "Answer_Qwen2",
+    "Metric": "faithfulness",
+    "Type": "Long",
+    "Mean": 0.8823529411764706
+  },
+  {
+    "Model": "Answer_Qwen2.5",
+    "Metric": "faithfulness",
+    "Type": "Overall",
+    "Mean": 0.8461538461538461
+  },
+  {
+    "Model": "Answer_Qwen2.5",
+    "Metric": "faithfulness",
+    "Type": "Short",
+    "Mean": 0.8888888888888888
+  },
+  {
+    "Model": "Answer_Qwen2.5",
+    "Metric": "faithfulness",
+    "Type": "Long",
+    "Mean": 0.8235294117647058
+  },
+  {
+    "Model": "Answer_Gemma_4B",
+    "Metric": "faithfulness",
+    "Type": "Overall",
+    "Mean": 0.8846153846153846
+  },
+  {
+    "Model": "Answer_Gemma_4B",
+    "Metric": "faithfulness",
+    "Type": "Short",
+    "Mean": 0.7777777777777778
+  },
+  {
+    "Model": "Answer_Gemma_4B",
+    "Metric": "faithfulness",
+    "Type": "Long",
+    "Mean": 0.9411764705882353
+  },
+  {
+    "Model": "Answer_Gemma_12B",
+    "Metric": "faithfulness",
+    "Type": "Overall",
+    "Mean": 0.8269230769230769
+  },
+  {
+    "Model": "Answer_Gemma_12B",
+    "Metric": "faithfulness",
+    "Type": "Short",
+    "Mean": 0.6666666666666666
+  },
+  {
+    "Model": "Answer_Gemma_12B",
+    "Metric": "faithfulness",
+    "Type": "Long",
+    "Mean": 0.9117647058823529
+  },
+  {
+    "Model": "Answer_PV2",
+    "Metric": "faithfulness",
+    "Type": "Overall",
+    "Mean": 0.7843137254901961
+  },
+  {
+    "Model": "Answer_PV2",
+    "Metric": "faithfulness",
+    "Type": "Short",
+    "Mean": 0.8235294117647058
+  },
+  {
+    "Model": "Answer_PV2",
+    "Metric": "faithfulness",
+    "Type": "Long",
+    "Mean": 0.7647058823529411
+  },
+  {
+    "Model": "Answer_langchain_pipeline",
+    "Metric": "faithfulness",
+    "Type": "Overall",
+    "Mean": 0.6538461538461539
+  },
+  {
+    "Model": "Answer_langchain_pipeline",
+    "Metric": "faithfulness",
+    "Type": "Short",
+    "Mean": 0.7777777777777778
+  },
+  {
+    "Model": "Answer_langchain_pipeline",
+    "Metric": "faithfulness",
+    "Type": "Long",
+    "Mean": 0.5882352941176471
+  },
+  {
     "Model": "Answer_Qwen2",
     "Metric": "string_presence",
     "Type": "Short",
@@ -264,6 +480,30 @@
     "Mean": 0.4444444444444444
   },
   {
+    "Model": "Answer_PV2",
+    "Metric": "string_presence",
+    "Type": "Short",
+    "Mean": 0.3888888888888889
+  },
+  {
+    "Model": "Answer_PV2",
+    "Metric": "numerical_acc",
+    "Type": "Short",
+    "Mean": 0.6111111111111112
+  },
+  {
+    "Model": "Answer_langchain_pipeline",
+    "Metric": "string_presence",
+    "Type": "Short",
+    "Mean": 0.2222222222222222
+  },
+  {
+    "Model": "Answer_langchain_pipeline",
+    "Metric": "numerical_acc",
+    "Type": "Short",
+    "Mean": 0.4444444444444444
+  },
+  {
     "Model": "Answer_Qwen2",
     "Metric": "bert",
     "Type": "Long",
@@ -303,36 +543,36 @@
     "Model": "Answer_Gemma_12B",
     "Metric": "bert",
     "Type": "Long",
-    "Mean": 0.5342999854508568
+    "Mean": 0.5342806893236497
   },
   {
     "Model": "Answer_Gemma_12B",
     "Metric": "flan-t5",
     "Type": "Long",
-    "Mean": 0.061385756771176504
+    "Mean": 0.0613265649643011
   },
   {
-    "Model": "Answer_Qwen2",
-    "Metric": "faithfulness",
-    "Type": "Overall",
-    "Mean": 0.8461538461538461
+    "Model": "Answer_PV2",
+    "Metric": "bert",
+    "Type": "Long",
+    "Mean": 0.5775976163499495
   },
   {
-    "Model": "Answer_Qwen2.5",
-    "Metric": "faithfulness",
-    "Type": "Overall",
-    "Mean": 0.8461538461538461
+    "Model": "Answer_PV2",
+    "Metric": "flan-t5",
+    "Type": "Long",
+    "Mean": 0.08208509363879382
   },
   {
-    "Model": "Answer_Gemma_4B",
-    "Metric": "faithfulness",
-    "Type": "Overall",
-    "Mean": 0.8846153846153846
+    "Model": "Answer_langchain_pipeline",
+    "Metric": "bert",
+    "Type": "Long",
+    "Mean": 0.5165409884032082
   },
   {
-    "Model": "Answer_Gemma_12B",
-    "Metric": "faithfulness",
-    "Type": "Overall",
-    "Mean": 0.8269230769230769
+    "Model": "Answer_langchain_pipeline",
+    "Metric": "flan-t5",
+    "Type": "Long",
+    "Mean": 0.08923486046715286
   }
 ]

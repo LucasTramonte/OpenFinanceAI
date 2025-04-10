@@ -26,9 +26,11 @@ def extract_numbers(text):
     for num in numbers:
         try:
             value = float(re.sub(r"[^\d.]", "", num))
-            if "%" in num: value /= 100
+            if "%" in num:
+                value /= 100
             parsed.append(value)
-        except ValueError: continue
+        except ValueError:
+            continue
     return parsed
 
 def load_json_file(file_path):
@@ -65,14 +67,12 @@ def evaluate_answers(row):
     expected = str(row["Expected_Answer"]).strip()
     question_type = row["Question_Type"].strip().lower() if ("Question_Type" in row and pd.notna(row["Question_Type"]) and row["Question_Type"]) else "short"
     results = {}
-    model_answers = {model: str(row[model]).strip() for model in ["Answer_Qwen2", "Answer_Qwen2.5", "Answer_Gemma_4B", "Answer_Gemma_12B"]}
-    
+    model_answers = {model: str(row[model]).strip() for model in ["Answer_Qwen2", "Answer_Qwen2.5", "Answer_Gemma_4B", "Answer_Gemma_12B","Answer_PV2","Answer_langchain_pipeline"]}
     if not expected:
         for model in model_answers:
             for m in ["rouge1", "rouge2", "rougeL", "bert", "flan-t5", "string_presence", "numerical_acc"]:
                 results[f"{model}_{m}"] = None
         return results
-    
     for model, candidate in model_answers.items():
         metrics = {}
         if not candidate:
@@ -80,15 +80,13 @@ def evaluate_answers(row):
                 metrics[f"{model}_{m}"] = None
             results.update(metrics)
             continue
-        
         # ROUGE scores
         rouge_scores = rouge.score(expected, candidate)
         metrics[f"{model}_rouge1"] = rouge_scores["rouge1"].fmeasure
         metrics[f"{model}_rouge2"] = rouge_scores["rouge2"].fmeasure
         metrics[f"{model}_rougeL"] = rouge_scores["rougeL"].fmeasure
-        
         if question_type == "short":
-            if "References" in row and pd.notna(row["References"]) and row["References"].strip():
+            if ("References" in row and pd.notna(row["References"]) and row["References"].strip()):
                 references = row["References"].split(";")
                 string_presence_score = 0
                 for reference in references:
@@ -99,7 +97,6 @@ def evaluate_answers(row):
                 metrics[f"{model}_string_presence"] = string_presence_score
             else:
                 metrics[f"{model}_string_presence"] = None
-                
             expected_nums = extract_numbers(expected)
             candidate_nums = extract_numbers(candidate)
             match = 0
@@ -109,14 +106,14 @@ def evaluate_answers(row):
                     if abs(e - c) <= max(tolerance * abs(e), 0.01):
                         match = 1
                         break
-                if match: break
+                if match:
+                    break
             metrics[f"{model}_numerical_acc"] = match
             metrics[f"{model}_bert"] = None
             metrics[f"{model}_flan-t5"] = None
         else:
             _, _, bert_f1 = bert_score([candidate], [expected], lang="en", model_type="microsoft/deberta-large-mnli")
             metrics[f"{model}_bert"] = bert_f1.numpy()[0]
-            
             input_ids = t5_tokenizer(expected, return_tensors="pt", truncation=True, max_length=1024).input_ids
             candidate_ids = t5_tokenizer(candidate, return_tensors="pt", truncation=True, max_length=1024).input_ids
             with torch.no_grad():
@@ -126,7 +123,6 @@ def evaluate_answers(row):
             metrics[f"{model}_flan-t5"] = 1 / perplexity
             metrics[f"{model}_string_presence"] = None
             metrics[f"{model}_numerical_acc"] = None
-        
         results.update(metrics)
     return results
 
@@ -135,66 +131,100 @@ df_results = df.progress_apply(evaluate_answers, axis=1).tolist()
 df_results = pd.DataFrame(df_results)
 df = df.join(df_results)
 
+# -----------------------------
 # Agrégation des métriques
+# -----------------------------
+# Trois groupes de métriques :
+# - Communes (ROUGE & faithfulness) : Overall, Short et Long
+# - Short-only : string_presence, numerical_acc
+# - Long-only : bert, flan-t5
 metrics_list_common = ["rouge1", "rouge2", "rougeL", "faithfulness"]
 metrics_list_short = ["string_presence", "numerical_acc"]
 metrics_list_long = ["bert", "flan-t5"]
-models = ["Answer_Qwen2", "Answer_Qwen2.5", "Answer_Gemma_4B", "Answer_Gemma_12B"]
+models = ["Answer_Qwen2", "Answer_Qwen2.5", "Answer_Gemma_4B", "Answer_Gemma_12B","Answer_PV2","Answer_langchain_pipeline"]
 
 average_metrics = []
 for model in models:
-    # Common metrics
     for metric in metrics_list_common:
         col_name = f"{model}_{metric}"
+        # Skip the faithfulness metric here since it has a different naming pattern
+        if metric == "faithfulness":
+            continue
         overall_avg = df[col_name].dropna().mean()
         short_avg = df[df["Question_Type"].str.lower() == "short"][col_name].dropna().mean()
         long_avg = df[df["Question_Type"].str.lower() == "long"][col_name].dropna().mean()
-        average_metrics.extend([
-            {"Model": model, "Metric": metric, "Type": "Overall", "Mean": overall_avg},
-            {"Model": model, "Metric": metric, "Type": "Short", "Mean": short_avg},
-            {"Model": model, "Metric": metric, "Type": "Long", "Mean": long_avg}
-        ])
+        average_metrics.append({"Model": model, "Metric": metric, "Type": "Overall", "Mean": overall_avg})
+        average_metrics.append({"Model": model, "Metric": metric, "Type": "Short", "Mean": short_avg})
+        average_metrics.append({"Model": model, "Metric": metric, "Type": "Long", "Mean": long_avg})
+
+# Handle faithfulness scores with their correct column names
+for model in models:
+    # Gestion spécifique pour langchain_pipeline qui utilise Faithfulness_Score_Langchain
+    if model == "Answer_langchain_pipeline":
+        faithfulness_col = "Faithfulness_Score_Langchain"
+    else:
+        faithfulness_col = "Faithfulness_Score_" + model.replace("Answer_", "")
     
-    # Short-only metrics
+    faithfulness_avg_value = df[faithfulness_col].dropna().mean()
+    
+    # Calculate faithfulness by question type
+    short_faith_avg = df[df["Question_Type"].str.lower() == "short"][faithfulness_col].dropna().mean()
+    long_faith_avg = df[df["Question_Type"].str.lower() == "long"][faithfulness_col].dropna().mean()
+    
+    average_metrics.append({"Model": model, "Metric": "faithfulness", "Type": "Overall", "Mean": faithfulness_avg_value})
+    average_metrics.append({"Model": model, "Metric": "faithfulness", "Type": "Short", "Mean": short_faith_avg})
+    average_metrics.append({"Model": model, "Metric": "faithfulness", "Type": "Long", "Mean": long_faith_avg})
+
+for model in models:
     for metric in metrics_list_short:
         col_name = f"{model}_{metric}"
         short_avg = df[df["Question_Type"].str.lower() == "short"][col_name].dropna().mean()
         average_metrics.append({"Model": model, "Metric": metric, "Type": "Short", "Mean": short_avg})
-    
-    # Long-only metrics
+for model in models:
     for metric in metrics_list_long:
         col_name = f"{model}_{metric}"
         long_avg = df[df["Question_Type"].str.lower() == "long"][col_name].dropna().mean()
         average_metrics.append({"Model": model, "Metric": metric, "Type": "Long", "Mean": long_avg})
-    
-    # Faithfulness based on existing scores
-    faithfulness_col = "Faithfulness_Score_" + model.replace("Answer_", "")
-    faithfulness_avg_value = df[faithfulness_col].dropna().mean()
-    average_metrics.append({"Model": model, "Metric": "faithfulness", "Type": "Overall", "Mean": faithfulness_avg_value})
 
 aggregation_df = pd.DataFrame(average_metrics)
 
-# Calculate Borda scores
+# Fonction pour calculer trois scores de Borda (global, short, long) en attribuant
+# pour 4 modèles : 3 points pour le 1er, 2 pour le 2e, 1 pour le 3e, 0 pour le 4e.
 def calculate_borda_scores_by_type(agg_df):
-    models = ["Answer_Qwen2", "Answer_Qwen2.5", "Answer_Gemma_4B", "Answer_Gemma_12B"]
+    models = ["Answer_Qwen2", "Answer_Qwen2.5", "Answer_Gemma_4B", "Answer_Gemma_12B","Answer_PV2","Answer_langchain_pipeline"]
     global_scores = {model: 0 for model in models}
-    short_scores = {model: 0 for model in models}
-    long_scores = {model: 0 for model in models}
+    short_scores  = {model: 0 for model in models}
+    long_scores   = {model: 0 for model in models}
 
     global_groups = [
-        ("rouge1", "Overall"), ("rouge2", "Overall"), ("rougeL", "Overall"), ("faithfulness", "Overall"),
-        ("rouge1", "Short"), ("rouge2", "Short"), ("rougeL", "Short"),
-        ("rouge1", "Long"), ("rouge2", "Long"), ("rougeL", "Long"),
-        ("string_presence", "Short"), ("numerical_acc", "Short"),
-        ("bert", "Long"), ("flan-t5", "Long")
+        ("rouge1", "Overall"),
+        ("rouge2", "Overall"),
+        ("rougeL", "Overall"),
+        ("faithfulness", "Overall"),
+        ("rouge1", "Short"),
+        ("rouge2", "Short"),
+        ("rougeL", "Short"),
+        ("rouge1", "Long"),
+        ("rouge2", "Long"),
+        ("rougeL", "Long"),
+        ("string_presence", "Short"),
+        ("numerical_acc", "Short"),
+        ("bert", "Long"),
+        ("flan-t5", "Long")
     ]
     short_groups = [
-        ("rouge1", "Short"), ("rouge2", "Short"), ("rougeL", "Short"), ("faithfulness", "Short"),
-        ("string_presence", "Short"), ("numerical_acc", "Short")
+        ("rouge1", "Short"),
+        ("rouge2", "Short"),
+        ("rougeL", "Short"),
+        ("string_presence", "Short"),
+        ("numerical_acc", "Short")
     ]
     long_groups = [
-        ("rouge1", "Long"), ("rouge2", "Long"), ("rougeL", "Long"), ("faithfulness", "Long"),
-        ("bert", "Long"), ("flan-t5", "Long")
+        ("rouge1", "Long"),
+        ("rouge2", "Long"),
+        ("rougeL", "Long"),
+        ("bert", "Long"),
+        ("flan-t5", "Long")
     ]
 
     def assign_borda_scores(score_dict, groups):
@@ -204,7 +234,6 @@ def calculate_borda_scores_by_type(agg_df):
                 ranked = subset.sort_values("Mean", ascending=False)
                 for i, model in enumerate(ranked["Model"]):
                     score_dict[model] += len(models) - 1 - i
-
     assign_borda_scores(global_scores, global_groups)
     assign_borda_scores(short_scores, short_groups)
     assign_borda_scores(long_scores, long_groups)
@@ -212,15 +241,15 @@ def calculate_borda_scores_by_type(agg_df):
 
 borda_dict = calculate_borda_scores_by_type(aggregation_df)
 
-# Create Borda scores DataFrame
+# Création d'un DataFrame récapitulatif pour les scores Borda
 borda_scores_df = pd.DataFrame({
     "Model": models,
     "Borda_Global": [borda_dict["global"][model] for model in models],
     "Borda_Short": [borda_dict["short"][model] for model in models],
-    "Borda_Long": [borda_dict["long"][model] for model in models],
+    "Borda_Long": [borda_dict["long"][model] for model in models]
 })
 
-# Visualize Borda scores
+# Visualisation des scores Borda sous forme de diagrammes en barres
 x = range(len(models))
 width = 0.25
 fig, ax = plt.subplots(figsize=(10, 6))
@@ -233,49 +262,69 @@ ax.set_ylabel("Borda Score")
 ax.set_title("Scores Borda par modèle")
 ax.legend()
 plt.tight_layout()
-plt.savefig("../../Assets/output/metrics/borda_scores.png")
+plt.savefig("../Assets/data_test/borda_scores.png")
 plt.show()
 
-# Calculate faithfulness averages
+# Calcul et affichage des moyennes de Faithfulness pour chaque modèle
 faithfulness_avg = {}
 for model in models:
-    faithfulness_col = "Faithfulness_Score_" + model.replace("Answer_", "")
+    # Gestion spécifique pour langchain_pipeline qui utilise Faithfulness_Score_Langchain
+    if model == "Answer_langchain_pipeline":
+        faithfulness_col = "Faithfulness_Score_Langchain"
+    else:
+        faithfulness_col = "Faithfulness_Score_" + model.replace("Answer_", "")
+    
     faithfulness_avg[model] = df[faithfulness_col].dropna().mean()
     logging.info(f"Moyenne de Faithfulness pour {model}: {faithfulness_avg[model] * 100:.2f}%")
 
-# Visualize faithfulness scores
 fig, ax = plt.subplots(figsize=(10, 6))
-ax.bar(models, [faithfulness_avg[model] for model in models], color="skyblue")
+ax.bar(models, [faithfulness_avg[model] for model in models], color='skyblue')
 ax.set_ylabel("Moyenne Faithfulness")
 ax.set_title("Moyenne des scores Faithfulness par modèle")
 plt.tight_layout()
-plt.savefig("../../Assets/output/metrics/faithfulness_scores.png")
+plt.savefig("../Assets/data_test/faithfulness_scores.png")
 plt.show()
 
-# Create metrics tables by type
+# Création des tableaux pour les métriques par type
+# Pour les métriques Short
 short_df = aggregation_df[aggregation_df["Type"] == "Short"].pivot(index="Model", columns="Metric", values="Mean").reset_index()
+# Pour les métriques Long
 long_df = aggregation_df[aggregation_df["Type"] == "Long"].pivot(index="Model", columns="Metric", values="Mean").reset_index()
 
-# Create global table
+# Création du tableau Global : modèle, Borda_Global et Faithfulness_Avg
 global_table = borda_scores_df[["Model", "Borda_Global"]].copy()
 global_table["Faithfulness_Avg"] = global_table["Model"].map(faithfulness_avg)
 
-# Save tables to Markdown
+# Format numeric columns as percentage with 2 decimal places
+def format_to_percentage(df):
+    for col in df.columns:
+        if col != "Model" and df[col].dtype != 'object':
+            # Keep Borda_Global as integers
+            if col == "Borda_Global":
+                continue
+            # Convert to percentage with 2 decimal places
+            df[col] = df[col].apply(lambda x: f"{x*100:.2f}%" if pd.notnull(x) else x)
+    return df
+
+# Apply formatting to all tables
+global_table = format_to_percentage(global_table)
+short_df = format_to_percentage(short_df)
+long_df = format_to_percentage(long_df)
+
+# Sauvegarde des tableaux dans un fichier Markdown
 global_md = "## Tableau des métriques Global\n\n" + global_table.to_markdown(index=False)
 short_md = "## Tableau des métriques Short\n\n" + short_df.to_markdown(index=False)
 long_md = "## Tableau des métriques Long\n\n" + long_df.to_markdown(index=False)
 
 final_md = global_md + "\n\n" + short_md + "\n\n" + long_md
-with open("../../Assets/data_test/tableau_final.md", "w", encoding="utf-8") as f:
+with open("../Assets/data_test/tableau_final.md", "w", encoding="utf-8") as f:
     f.write(final_md)
 logging.info("Tableaux récapitulatifs sauvegardés dans tableau_final.md")
 
-# Save aggregation metrics to JSON
 with open("../Assets/data_test/agreggation_metrics.json", "w", encoding="utf-8") as f:
     json.dump(aggregation_df.to_dict("records"), f, ensure_ascii=False, indent=2)
 logging.info("Métriques d'agrégation sauvegardées en JSON.")
 
-# Log model evaluation metrics
 logging.info("Model Evaluation Metrics:")
 for _, row in aggregation_df.iterrows():
     if row["Mean"] is not None:
@@ -283,16 +332,13 @@ for _, row in aggregation_df.iterrows():
     else:
         logging.info(f"{row['Metric']} ({row['Model']}, {row['Type']}): None")
 
-# String presence metrics
 df_string_presence = df[(df["References"].notna()) & (df["References"].str.strip() != "")]
 total_string_presence = df_string_presence.shape[0]
 logging.info(f"Nombre total de questions avec référence: {total_string_presence}")
-
 for model in models:
     count_presence = df_string_presence[df_string_presence[f"{model}_string_presence"] == 1].shape[0]
     logging.info(f"Pour le modèle {model}, {count_presence} questions sur {total_string_presence} ont un score string_presence de 1.")
 
-# Save all evaluation results to JSON
-with open("../../Assets/data_test/ardian_dataset_final_evaluation.json", "w", encoding="utf-8") as f:
+with open("../Assets/data_test/ardian_dataset_final_evaluation.json", "w", encoding="utf-8") as f:
     json.dump(df.to_dict("records"), f, ensure_ascii=False, indent=2)
 logging.info("Résultats d'évaluation sauvegardés en JSON.")

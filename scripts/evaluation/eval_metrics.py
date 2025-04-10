@@ -201,3 +201,25 @@ plt.savefig(jitter_plot_path, dpi=150)
 plt.close()
 
 print(f"Jittered scatter plot saved to: {jitter_plot_path}")
+
+plt.figure(figsize=(8, 6))
+sns.violinplot(x="string_presence", y="Personal_Score", data=df, inner="quartile")
+plt.xlabel("String Presence (0 ou 1)")
+plt.ylabel("Personal Score")
+plt.title("Violin plot du Personal Score en fonction de la présence de la chaîne")
+plt.show()
+plt.savefig(
+    os.path.join(output_dir, "violin_plot_string_presence_vs_personal_score.png"),
+    dpi=150,
+)
+
+
+plt.figure(figsize=(8, 6))
+sns.barplot(x="string_presence", y="Personal_Score", data=df, errorbar=("ci", 95))
+plt.xlabel("String Presence (0 ou 1)")
+plt.ylabel("Personal Score (moyenne)")
+plt.title("Moyenne du Personal Score par catégorie de String Presence")
+plt.show()
+plt.savefig(
+    os.path.join(output_dir, "barplot_string_presence_vs_personal_score.png"), dpi=150
+)

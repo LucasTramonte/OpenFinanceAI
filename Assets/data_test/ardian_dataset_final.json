@@ -21,7 +21,12 @@
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "According to the information provided in the document, Emerson's reported net sales for the fiscal year 2023 were $17 billion.",
+    "Faithfulness_Score_Langchain": 1.0,
+    "Score_perso_PV2": 0.0,
+    "Score_perso_Langchain": 0.0
   },
   {
     "Question_ID": 2,
@@ -45,7 +50,12 @@
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "Emerson's adjusted EBITA margin increased by 4.7 percentage points from 2022 to 2023, as shown in the \"Reconciliation of Non-GAAP Measures\" section of the document. Specifically, the adjusted EBITA margin for 2022 was 23.5%, and for 2023 it was 28.2%.",
+    "Faithfulness_Score_Langchain": 1.0,
+    "Score_perso_PV2": 0.0,
+    "Score_perso_Langchain": 0.0
   },
   {
     "Question_ID": 3,
@@ -69,7 +79,12 @@
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "The Adjusted EBITA margin of Emerson in 2023 is 15.6%.",
+    "Faithfulness_Score_Langchain": 1.0,
+    "Score_perso_PV2": 0.0,
+    "Score_perso_Langchain": 1.0
   },
   {
     "Question_ID": 4,
@@ -93,7 +108,12 @@
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "The operating working capital of Emerson in 2023 was $1,283 million.",
+    "Faithfulness_Score_Langchain": 1.0,
+    "Score_perso_PV2": 1.0,
+    "Score_perso_Langchain": 0.0
   },
   {
     "Question_ID": 5,
@@ -108,7 +128,7 @@
     "Answer_Qwen2.5": "The document does not provide an explicit count of the total number of assets held by the company. However, it mentions several types of assets: 1. Intangible assets: These include patents, trademarks, copyrights, trade secrets, and other confidential information. 2. Tangible assets: These are not explicitly listed but can be inferred from the context, such as equipment used in manufacturing or research and development activities. For a precise count, one would need to refer to the financial statements or specific sections detailing the company's assets.",
     "Answer_Gemma_4B": "Based on the provided documents, it's impossible to determine the exact number of assets the company holds. The documents focus heavily on operational results, market trends, and intellectual property, but they do not include a balance sheet or any financial statement that would list the company's assets.",
     "Answer_Gemma_12B": "Based on the provided text, it's **impossible to determine the exact number of assets** the company holds. The document does not provide a total asset figure.\n\nHowever, it *does* mention several types of assets the company possesses, including:\n\n*   **Intellectual property:** Patents, trademarks, copyrights, and trade secrets.\n*   **Derivatives:** Used for hedging and trading purposes.\n*   **Goodwill:** Resulting from acquisitions.\n*   **Inventory:** Raw materials, work-in-progress, and finished goods.\n*   **Property, plant, and equipment (PP&E):** Buildings, machinery, and equipment.\n\n\n\nThe text focuses on risks and uncertainties related to these assets rather",
-    "Answer_langchain_pipeline":"Therefore, based on the information provided, the company's total assets appear to be $35,672 million.",
+    "Answer_langchain_pipeline": "Therefore, based on the information provided, the company's total assets appear to be $35,672 million.",
     "References": "43 billion;43,000,000,000;around $43 billion;approximately $43 billion",
     "Score_perso_Qwen2": 0.0,
     "Score_perso_Qwen2.5": 0.0,
@@ -117,7 +137,12 @@
     "Faithfulness_Score_Qwen2": 0.0,
     "Faithfulness_Score_Qwen2.5": 0.0,
     "Faithfulness_Score_Gemma_4B": 0.0,
-    "Faithfulness_Score_Gemma_12B": 0.0
+    "Faithfulness_Score_Gemma_12B": 0.0,
+    "Faithfulness_Score_PV2": 0.0,
+    "Answer_PV2": "The company holds $42,746 million in total assets as of 2023.",
+    "Faithfulness_Score_Langchain": 0.0,
+    "Score_perso_PV2": 1.0,
+    "Score_perso_Langchain": 0.0
   },
   {
     "Question_ID": 6,
@@ -141,7 +166,12 @@
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "Emerson completed the acquisition of National Instruments Corporation (\"NI\") in 2023 at an equity value of $8.2 billion.",
+    "Faithfulness_Score_Langchain": 1.0,
+    "Score_perso_PV2": 1.0,
+    "Score_perso_Langchain": 0.0
   },
   {
     "Question_ID": 7,
@@ -163,9 +193,12 @@
     "Score_perso_Gemma_4B": 0.0,
     "Score_perso_Gemma_12B": 0.0,
     "Faithfulness_Score_Qwen2": 1.0,
-    "Faithfulness_Score_Qwen2.5" : 1.0,
+    "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "The Americas accounted for the largest percentage of Emerson's sales in 2023, with 51% of total sales.",
+    "Faithfulness_Score_Langchain": 1.0
   },
   {
     "Question_ID": 8,
@@ -180,16 +213,21 @@
     "Answer_Qwen2.5": "In 2023, 21 percent of the company's leadership positions were held by women.",
     "Answer_Gemma_4B": "According to the 2023 Emerson Annual Report, **40 percent** of women occupy leadership positions in the company.",
     "Answer_Gemma_12B": "According to the provided text, 29 percent of the company's leadership positions are held by women in 2023.\n\n\n\n",
-    "Answer_langchain_pipeline" : "the percentage of women occupying leadership positions in the company in 2023 is **23 percent**.",
+    "Answer_langchain_pipeline": "the percentage of women occupying leadership positions in the company in 2023 is **23 percent**.",
     "References": "23%;23 percent;23",
     "Score_perso_Qwen2": 0.0,
     "Score_perso_Qwen2.5": 0.0,
     "Score_perso_Gemma_4B": 0.0,
     "Score_perso_Gemma_12B": 0.0,
+    "Score_perso_PV2": 0.0,
+    "Score_perso_Langchain": 1.0,
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 0.0
+    "Faithfulness_Score_Gemma_12B": 0.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "According to the information provided, 21 percent of the leadership positions were held by women in 2023.",
+    "Faithfulness_Score_Langchain": 1.0
   },
   {
     "Question_ID": 9,
@@ -210,10 +248,15 @@
     "Score_perso_Qwen2.5": 1.0,
     "Score_perso_Gemma_4B": 0.0,
     "Score_perso_Gemma_12B": 1.0,
+    "Score_perso_PV2": 0.0,
+    "Score_perso_Langchain": 0.0,
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "Emerson's free cash flow margin in 2023 was 18.0%.",
+    "Faithfulness_Score_Langchain": 1.0
   },
   {
     "Question_ID": 10,
@@ -233,10 +276,15 @@
     "Score_perso_Qwen2.5": 0.5,
     "Score_perso_Gemma_4B": 1.0,
     "Score_perso_Gemma_12B": 0.5,
+    "Score_perso_PV2": 1.0,
+    "Score_perso_Langchain": 1.0,
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "Emerson addressed employee retention and engagement in 2023 by initiating a survey with the assistance of third-party consultants, taking actions to address areas of employee concern, and achieving an overall engagement score of 78 percent. The categories of safety, well-being, growth and development, and access to resources and support earned the most favorable scores.",
+    "Faithfulness_Score_Langchain": 1.0
   },
   {
     "Question_ID": 11,
@@ -257,10 +305,15 @@
     "Score_perso_Qwen2.5": 1.0,
     "Score_perso_Gemma_4B": 1.0,
     "Score_perso_Gemma_12B": 1.0,
+    "Score_perso_PV2": 0.0,
+    "Score_perso_Langchain": 0.0,
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "The amount of Emerson's free cash flow for the fiscal year 2023 is $2,363 million.",
+    "Faithfulness_Score_Langchain": 1.0
   },
   {
     "Question_ID": 12,
@@ -281,10 +334,15 @@
     "Score_perso_Qwen2.5": 0.0,
     "Score_perso_Gemma_4B": 0.0,
     "Score_perso_Gemma_12B": 0.0,
+    "Score_perso_PV2": 1.0,
+    "Score_perso_Langchain": 0.0,
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "The segment that contributed the highest percentage of sales in 2023 is \"Final Control,\" which accounted for 26% of total sales.",
+    "Faithfulness_Score_Langchain": 1.0
   },
   {
     "Question_ID": 13,
@@ -299,16 +357,21 @@
     "Answer_Qwen2.5": "In 2023, Emerson's adjusted diluted EPS from continuing operations was $4.44 per share, which is an increase from $3.64 per share in 2022. This represents a 22% growth in adjusted diluted EPS from continuing operations between these two years.",
     "Answer_Gemma_4B": "According to the provided document, Emerson's adjusted diluted EPS from continuing operations in 2023 was $3.72, while in 2022 it was $3.36.",
     "Answer_Gemma_12B": "According to the provided documents, Emerson's adjusted diluted EPS in terms of operations in 2023 was $3.72, compared to $3.23 in 2022. This represents a 15% increase.",
-    "Answer_langchain_pipeline":"So, Emerson's adjusted diluted EPS in terms of operations increased by $0.19 per share from 2022 to 2023.",
+    "Answer_langchain_pipeline": "So, Emerson's adjusted diluted EPS in terms of operations increased by $0.19 per share from 2022 to 2023.",
     "References": "Increased from $3.64 in 2022 to $4.44 in 2023;22% increase;22%;22 percent",
     "Score_perso_Qwen2": 0.0,
     "Score_perso_Qwen2.5": 1.0,
     "Score_perso_Gemma_4B": 0.0,
     "Score_perso_Gemma_12B": 0.0,
+    "Score_perso_PV2": 1.0,
+    "Score_perso_Langchain": 0.0,
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "In 2023, Emerson's adjusted diluted EPS from continuing operations was $4.44 per share, which is an increase of $1.08 compared to the $3.64 per share in 2022. This represents a 29% increase in adjusted diluted EPS from continuing operations between 2022 and 2023.",
+    "Faithfulness_Score_Langchain": 1.0
   },
   {
     "Question_ID": 14,
@@ -329,10 +392,15 @@
     "Score_perso_Qwen2.5": 1.0,
     "Score_perso_Gemma_4B": 1.0,
     "Score_perso_Gemma_12B": 1.0,
+    "Score_perso_PV2": 0.0,
+    "Score_perso_Langchain": 1.0,
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "Emerson's reported pretax earnings margin (GAAP) in 2023 was 10%.",
+    "Faithfulness_Score_Langchain": 1.0
   },
   {
     "Question_ID": 15,
@@ -353,10 +421,15 @@
     "Score_perso_Qwen2.5": 1.0,
     "Score_perso_Gemma_4B": 0.0,
     "Score_perso_Gemma_12B": 0.0,
-    "Faithfulness_Score_Qwen2":0.0,
+    "Score_perso_PV2": 1.0,
+    "Score_perso_Langchain": 1.0,
+    "Faithfulness_Score_Qwen2": 0.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 0.0
+    "Faithfulness_Score_Gemma_12B": 0.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "The dividend per share for the year 2023 for Emerson Electric Co. is $2.08.",
+    "Faithfulness_Score_Langchain": 1.0
   },
   {
     "Question_ID": 16,
@@ -371,15 +444,20 @@
     "Answer_Qwen2.5": "The goal set by Emerson for achieving zero waste in manufacturing facilities is to achieve zero waste to landfill by 2032, from a 2022 fiscal year baseline.",
     "Answer_Gemma_4B": "According to the text, Emerson set a goal to achieve zero greenhouse gas (GHG) emissions across our value chain by 2045, and to set up one right pathway to zero emissions by 2030.",
     "Answer_Gemma_12B": "According to the provided text, Emerson set a goal to achieve zero waste to landfill in its manufacturing facilities by 2022.",
-    "Answer_langchain_pipeline":"The goal set by Emerson for achieving zero waste in manufacturing facilities was to reach zero waste to landfill by 2032, from a 2022 fiscal year baseline. This goal is subject to compatibility with local conditions and regulations.",
+    "Answer_langchain_pipeline": "The goal set by Emerson for achieving zero waste in manufacturing facilities was to reach zero waste to landfill by 2032, from a 2022 fiscal year baseline. This goal is subject to compatibility with local conditions and regulations.",
     "Score_perso_Qwen2": 0.0,
     "Score_perso_Qwen2.5": 1.0,
     "Score_perso_Gemma_4B": 0.0,
     "Score_perso_Gemma_12B": 0.5,
+    "Score_perso_PV2": 1.0,
+    "Score_perso_Langchain": 1.0,
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "The goal set by Emerson for achieving zero waste in manufacturing facilities is to achieve zero waste to landfill by 2032, from a 2022 fiscal year baseline.",
+    "Faithfulness_Score_Langchain": 1.0
   },
   {
     "Question_ID": 17,
@@ -394,16 +472,20 @@
     "Answer_Qwen2.5": "The CAGR (Compound Annual Growth Rate) of Emerson's shareholder return from 2018 to 2023 is 7.6%.",
     "Answer_Gemma_4B": "Based on the provided documents, it's impossible to calculate the exact CAGR (Compound Annual Growth Rate) of Emerson's shareholder return from 2018 to 2023. \n\nHere's why:\n\n*   **No Financial Data:** The documents primarily focus on business operations, acquisitions, and investor relations. They do not contain historical stock prices or shareholder return figures.\n\nTo determine the CAGR, you would need access to Emerson's stock price data for those years.",
     "Answer_Gemma_12B": "According to the provided text, Emerson's annualized rate of return for shareholders from 2018 to 2023 was 15%. This is described as a \"15 percent annualized rate of return for shareholders.\"\n\n\n\n",
-    "Answer_langchain_pipeline":"Therefore, the CAGR of Emerson's shareholder return from 2021 to 2023 is approximately **78%**.",
+    "Answer_langchain_pipeline": "Therefore, the CAGR of Emerson's shareholder return from 2021 to 2023 is approximately **78%**.",
     "References": "7.6%;7.6 percent;7.6",
     "Score_perso_Qwen2": 1.0,
     "Score_perso_Qwen2.5": 1.0,
     "Score_perso_Gemma_4B": 0.0,
     "Score_perso_Gemma_12B": 0.0,
+    "Score_perso_PV2": 0.0,
+    "Score_perso_Langchain": 0.0,
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 0.0,
-    "Faithfulness_Score_Gemma_12B": 0.0
+    "Faithfulness_Score_Gemma_12B": 0.0,
+    "Answer_PV2": "The provided text does not contain information about Emerson's CAGR (Compound Annual Growth Rate) of shareholder return from 2018 to 2023. The text focuses on financial performance in 2023, strategic moves, and acquisitions but does not provide historical data or CAGR calculations for the specified period.",
+    "Faithfulness_Score_Langchain": 0.0
   },
   {
     "Question_ID": 18,
@@ -418,16 +500,21 @@
     "Answer_Qwen2.5": "The percentage of sales in the Asia, Middle East & Africa region in 2023 is 30%.",
     "Answer_Gemma_4B": "According to the provided images, the percentage of sales in the Asia, Middle East & Africa (AMEA) region in 2023 was **30%**.",
     "Answer_Gemma_12B": "According to the provided document, the percentage of sales in the Asia, Middle East & Africa region in 2023 is 30%.",
-    "Answer_langchain_pipeline":"So, the percentage of sales in the Asia, Middle East & Africa (AMEA) region in 2023 is approximately 60.5%.",
+    "Answer_langchain_pipeline": "So, the percentage of sales in the Asia, Middle East & Africa (AMEA) region in 2023 is approximately 60.5%.",
     "References": "30%;30 percent;30",
     "Score_perso_Qwen2": 0.0,
     "Score_perso_Qwen2.5": 1.0,
     "Score_perso_Gemma_4B": 1.0,
     "Score_perso_Gemma_12B": 1.0,
+    "Score_perso_PV2": 1.0,
+    "Score_perso_Langchain": 0.0,
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "The percentage of sales in the Asia, Middle East & Africa region in 2023 is 30%.",
+    "Faithfulness_Score_Langchain": 1.0
   },
   {
     "Question_ID": 19,
@@ -442,15 +529,20 @@
     "Answer_Qwen2.5": "By 2032, Emerson set a goal to achieve zero waste to landfill in their manufacturing facilities.",
     "Answer_Gemma_4B": "According to the 2023 Emerson Annual Report, Emerson set an ambitious target to achieve zero greenhouse gas emissions across our value chain by 2032.",
     "Answer_Gemma_12B": "According to the provided text, Emerson aims to achieve net zero greenhouse gas (GHG) emissions across their value chain by 2032.",
-    "Answer_langchain_pipeline":"Without additional context or specific details from Emerson's reports, it's challenging to pinpoint an exact milestone achieved by 2032. If you have access to Emerson's 2022 Environmental, Social and Governance Report, it would likely contain the information you're seeking.",
+    "Answer_langchain_pipeline": "Without additional context or specific details from Emerson's reports, it's challenging to pinpoint an exact milestone achieved by 2032. If you have access to Emerson's 2022 Environmental, Social and Governance Report, it would likely contain the information you're seeking.",
     "Score_perso_Qwen2": 1.0,
     "Score_perso_Qwen2.5": 1.0,
     "Score_perso_Gemma_4B": 0.0,
     "Score_perso_Gemma_12B": 0.0,
+    "Score_perso_PV2": 1.0,
+    "Score_perso_Langchain": 1.0,
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "By 2032, Emerson aimed to achieve zero waste to landfill in their manufacturing facilities.",
+    "Faithfulness_Score_Langchain": 0.0
   },
   {
     "Question_ID": 20,
@@ -465,15 +557,21 @@
     "Answer_Qwen2.5": "The auditors of Emerson during 2023 are not mentioned in the provided text. The text discusses the company's strategic initiatives, financial performance, and shareholder information but does not provide details about the auditors. To find this information, one would typically look at the auditor's report or the annual report's section on financial statements.",
     "Answer_Gemma_4B": "Based on the provided document, the auditors of Emerson during 2023 were **Deloitte**. \n\nYou can find this information on the second page, in the section titled \"Shareholder's Information.\"",
     "Answer_Gemma_12B": "According to the provided document, the auditors of Emerson during 2023 were **Deloitte**.\n\n\n\nYou can find this information on page 5, in the section titled \"Report of Independent Registered Public Accounting Firm.\"",
+    "Answer_langchain_pipeline": "This indicates that the auditors of Emerson during 2023 were the independent registered public accounting firm that performed this audit. However, the specific name of the firm is not provided in the given text. Typically, such reports would include the name of the auditing firm at the beginning or within the body of the report, but it is not included here. If you need the exact name of the auditing firm, you would need to refer to the full report or any additional documents that accompany this excerpt. If you do not have access to those documents, you may need to contact Emerson Electric Co. directly for more detailed information.",
     "References": "KPMG LLP;KPMG",
     "Score_perso_Qwen2": 0.0,
     "Score_perso_Qwen2.5": 0.0,
     "Score_perso_Gemma_4B": 0.0,
     "Score_perso_Gemma_12B": 0.0,
+    "Score_perso_PV2": 0.0,
+    "Score_perso_Langchain": 0.0,
     "Faithfulness_Score_Qwen2": 0.0,
     "Faithfulness_Score_Qwen2.5": 0.0,
     "Faithfulness_Score_Gemma_4B": 0.0,
-    "Faithfulness_Score_Gemma_12B": 0.0
+    "Faithfulness_Score_Gemma_12B": 0.0,
+    "Faithfulness_Score_PV2": 0.0,
+    "Answer_PV2": "The provided text does not mention the auditors of Emerson for the year 2023. The information is not included in the given excerpts from the 2023 Emerson Annual Report.",
+    "Faithfulness_Score_Langchain": 0.0
   },
   {
     "Question_ID": 21,
@@ -488,16 +586,21 @@
     "Answer_Qwen2.5": "The information provided in the given text does not specify the number of shares owned by any particular shareholder, including the largest shareholder. The text discusses financial instruments, critical accounting policies, revenue recognition, valuation of assets and liabilities, and business operations but does not provide details on share ownership or shareholder information.",
     "Answer_Gemma_4B": "Based on the provided documents, it's impossible to determine the exact number of shares the largest shareholder owns. The documents primarily focus on Emerson's business operations, financial performance, and strategic initiatives. They do not contain information about shareholder ownership details.",
     "Answer_Gemma_12B": "Based on the provided text, the largest shareholder is The Vanguard Group, Inc., which owns approximately 7.1% of the company's outstanding shares.",
-    "Answer_langchain_pipeline":"To determine the auditors of Emerson during 2023, we need to look at the section of the report that provides information about the independent registered public accounting firm responsible for auditing the company's financial statements. The relevant excerpt from the report states: <We have audited the accompanying consolidated balance sheets of Emerson Electric Co. and subsidiaries (the Company) as of September 30, 2023 and 2022, the related consolidated statements of earnings, comprehensive income, equity, and cash flows for each of the years in the three-year period ended September 30, 2023, and the related notes (collectively, the consolidated financial statements)>. This indicates that the auditors of Emerson during 2023 were the independent registered public accounting firm that performed this audit. However, the specific name of the firm is not provided in the given text. Typically, such reports would include the name of the auditing firm at the beginning or within the body of the report, but it is not included here. If you need the exact name of the auditing firm, you would need to refer to the full report or any additional documents that accompany this excerpt. If you do not have access to those, you may need to contact Emerson Electric Co. directly for more detailed information.",
+    "Answer_langchain_pipeline": "To determine the auditors of Emerson during 2023, we need to look at the section of the report that provides information about the independent registered public accounting firm responsible for auditing the company's financial statements. The relevant excerpt from the report states: <We have audited the accompanying consolidated balance sheets of Emerson Electric Co. and subsidiaries (the Company) as of September 30, 2023 and 2022, the related consolidated statements of earnings, comprehensive income, equity, and cash flows for each of the years in the three-year period ended September 30, 2023, and the related notes (collectively, the consolidated financial statements)>. This indicates that the auditors of Emerson during 2023 were the independent registered public accounting firm that performed this audit. However, the specific name of the firm is not provided in the given text. Typically, such reports would include the name of the auditing firm at the beginning or within the body of the report, but it is not included here. If you need the exact name of the auditing firm, you would need to refer to the full report or any additional documents that accompany this excerpt. If you do not have access to those, you may need to contact Emerson Electric Co. directly for more detailed information.",
     "References": "No information provided;Not provided;No data available",
     "Score_perso_Qwen2": 0.0,
     "Score_perso_Qwen2.5": 1.0,
     "Score_perso_Gemma_4B": 1.0,
     "Score_perso_Gemma_12B": 0.0,
+    "Score_perso_PV2": 0.0,
+    "Score_perso_Langchain": 0.0,
     "Faithfulness_Score_Qwen2": 0.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 0.0,
-    "Faithfulness_Score_Gemma_12B": 0.0
+    "Faithfulness_Score_Gemma_12B": 0.0,
+    "Faithfulness_Score_PV2": 0.0,
+    "Answer_PV2": "The information provided in the document does not specify the number of shares owned by any particular shareholder, including the largest shareholder. It only mentions that there were approximately 15,200 stockholders of record at September 30, 2023, and that the Board of Directors authorized the purchase of 60 million shares, with a total of approximately 33.3 million shares remaining available under the authorization.",
+    "Faithfulness_Score_Langchain": 0.0
   },
   {
     "Question_ID": 22,
@@ -512,15 +615,20 @@
     "Answer_Qwen2.5": "The financial report was calculated under U.S. generally accepted accounting principles (GAAP).",
     "Answer_Gemma_4B": "According to the document, the financial statements were prepared in conformity with U.S. generally accepted accounting principles (GAAP). \n\nHere's where you can find this information:\n\n*   **Page 1:** “The preparation of the financial statements in conformity with U.S. generally accepted accounting principles (U.S. GAAP) requires management to make estimates and assumptions that affect reported amounts and disclosures.”\n*   **Page 2:** “In 2023, the Company adopted ASU No. 2021-10, Government Assistance, which requires annual disclosures about certain types of government assistance.”\n*   **Page 3:** “Updates to ASC 326, Entities, period tax allocation",
     "Answer_Gemma_12B": "Here's a breakdown of the accounting standards used to calculate the financial report, based on the provided text:\n\n*   **U.S. generally accepted accounting principles (GAAP):** The financial statements were prepared in conformity with U.S. GAAP.\n*   **Internal Control - Integrated Framework (2013):** The company's internal control system was based on criteria established in this framework.\n*   **ASC 606, Revenue from Contracts with Customers:** This standard is referenced regarding the recognition of revenue.\n*   **ASC 805, Business Combinations:** This standard is referenced regarding the accounting for contract liabilities assumed in a business combination.\n*   **ASC 740,",
-    "Answer_langchain_pipeline": "Assistant: The financial report was calculated under Generally Accepted Accounting Principles (GAAP). This is evident from the context provided, which mentions <Generally Accepted Accounting Principles> in relation to the company's internal control over financial reporting. GAAP is a set of rules and guidelines for the preparation and presentation of financial statements, ensuring consistency and comparability across different companies. The mention of GAAP in this context indicates that the financial report adheres to these standards. Therefore, the financial report was calculated under Generally Accepted Accounting Principles (GAAP).",
+    "Answer_langchain_pipeline": "The financial report was calculated under Generally Accepted Accounting Principles (GAAP). This is evident from the context provided, which mentions <Generally Accepted Accounting Principles> in relation to the company's internal control over financial reporting. GAAP is a set of rules and guidelines for the preparation and presentation of financial statements, ensuring consistency and comparability across different companies. The mention of GAAP in this context indicates that the financial report adheres to these standards. Therefore, the financial report was calculated under Generally Accepted Accounting Principles (GAAP).",
     "Score_perso_Qwen2": 1.0,
     "Score_perso_Qwen2.5": 1.0,
     "Score_perso_Gemma_4B": 1.0,
     "Score_perso_Gemma_12B": 1.0,
+    "Score_perso_PV2": 1.0,
+    "Score_perso_Langchain": 1.0,
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "The financial report was calculated under U.S. generally accepted accounting principles (GAAP).",
+    "Faithfulness_Score_Langchain": 1.0
   },
   {
     "Question_ID": 23,
@@ -535,15 +643,20 @@
     "Answer_Qwen2.5": "The provided text does not explicitly mention the company's main creditors or their impact on the financial structure. However, it does provide some insights into the company's financial strategies and risk factors.\n\nFrom the first page:\n\n- The company has set ambitious targets for reducing greenhouse gas (GHG) emissions across its value chain by 2045 compared to a 2021 baseline.\n- It also aims to achieve zero waste to landfill in manufacturing facilities by 2032 from a 2022 fiscal year baseline.\n- The company introduced a new Technology and Environmental Sustainability Board committee to oversee sustainability-related technology and R&D, cybersecurity practices, and environmental sustainability goals and programs.\n\nFrom the second page:\n\n- The company uses derivatives to",
     "Answer_Gemma_4B": "Based on the provided excerpt from Emerson Electric’s financial report, here’s what we can gather about their main creditors and their potential impact:\n\n**Main Creditors:**\n\n*   **Counterparty arrangements with credit rating-based posting thresholds:** The company has bilateral collateral arrangements with counterparties who have credit rating thresholds. This indicates they engage in derivative transactions, which often involve borrowing or lending of assets as collateral.\n*   **Micronime:** They entered into a forward contract with Micronime on June 21, 2023, to terminate the agreement to purchase Micronime. This suggests a significant financial obligation related to this contract.\n\n**Impact on Financial Structure:**\n\n*   **Collateral Risk:** The reliance",
     "Answer_Gemma_12B": "Based on the provided text, here's what we can gather about the company's creditors and their impact on the financial structure:\n\n**Main Creditors & Credit Arrangements:**\n\n*   **Counterparties to Derivative Arrangements:** The company uses derivative arrangements with counterparties that have investment-grade credit ratings.\n*   **Bilateral Collateral Agreements:** The company has bilateral collateral agreements with counterparties with credit ratings that depend on the company's debt ceiling. These agreements require immediate full collateralization of all derivatives in net liability positions.\n*   **No Collateralization Required Below Thresholds:** The company does not require collateralization of derivatives in net asset positions should any counterparty credit ratings fall below certain thresholds.\n\n**Impact on",
-    "Answer_langchain_pipeline":"Assistant: The provided context does not explicitly mention the company's main creditors or their specific impact on the financial structure. However, we can infer some information based on the details given. 1. **Equity and Resources**: The company has an equity of $21 billion and resources available for reinvestment in existing businesses, strategic acquisitions, and managing its capital structure both short-term and long-term. This suggests that the company has a strong financial base and is well-positioned to handle various financial obligations. 2. **Operating Cash Flow**: The company generates substantial operating cash flow, including over $2.7 billion from continuing operations in 2023. This indicates that the company has a robust cash generation capability, which is crucial for meeting operational requirements and other liquidity needs. 3. **Contractual Obligations**: The company has certain contractual obligations, primarily long-term debt and operating leases. These obligations need to be managed carefully to ensure that the company can meet its financial commitments as they come due. 4. **Credit Facility**: The company has a credit facility that is unsecured and allows access under various interest rate alternatives. There are no financial covenants, and the facility is not subject to termination based on a change of credit rating or material adverse changes. This suggests that the company has flexibility in accessing additional financing if needed. 5. **Universal Shelf Registration Statement**: The company maintains a universal shelf registration statement, which allows it to issue various types of securities without a predetermined limit. This provides the company with the ability to raise capital through different means, such as debt securities, preferred stock, common stock, warrants, share purchase contracts, or share purchase units. 6. **Forward-Looking Approach**: The company uses a forward-looking approach to estimate lifetime expected credit losses on certain types of financial instruments, including trade receivables. This indicates that the company is proactive in managing potential credit risks.While the context does not provide detailed information about the company's main creditors, it does highlight the company's strong financial position, robust cash flow, and flexible access to financing options. The company appears to be well-equipped to manage its financial obligations and has the resources to support its operations and growth strategies. The lack of financial covenants in the credit facility and the presence of a universal shelf registration statement suggest that the company has a high degree of financial flexibility and control over its capital structure. To fully understand the company's main creditors and their impact on the financial structure, one would typically need to look at the company's balance sheet, debt agreements, and other financial disclosures that detail the company's debt obligations and financing arrangements.",
+    "Answer_langchain_pipeline": "The provided context does not explicitly mention the company's main creditors or their specific impact on the financial structure. However, we can infer some information based on the details given. 1. **Equity and Resources**: The company has an equity of $21 billion and resources available for reinvestment in existing businesses, strategic acquisitions, and managing its capital structure both short-term and long-term. This suggests that the company has a strong financial base and is well-positioned to handle various financial obligations. 2. **Operating Cash Flow**: The company generates substantial operating cash flow, including over $2.7 billion from continuing operations in 2023. This indicates that the company has a robust cash generation capability, which is crucial for meeting operational requirements and other liquidity needs. 3. **Contractual Obligations**: The company has certain contractual obligations, primarily long-term debt and operating leases. These obligations need to be managed carefully to ensure that the company can meet its financial commitments as they come due. 4. **Credit Facility**: The company has a credit facility that is unsecured and allows access under various interest rate alternatives. There are no financial covenants, and the facility is not subject to termination based on a change of credit rating or material adverse changes. This suggests that the company has flexibility in accessing additional financing if needed. 5. **Universal Shelf Registration Statement**: The company maintains a universal shelf registration statement, which allows it to issue various types of securities without a predetermined limit. This provides the company with the ability to raise capital through different means, such as debt securities, preferred stock, common stock, warrants, share purchase contracts, or share purchase units. 6. **Forward-Looking Approach**: The company uses a forward-looking approach to estimate lifetime expected credit losses on certain types of financial instruments, including trade receivables. This indicates that the company is proactive in managing potential credit risks.While the context does not provide detailed information about the company's main creditors, it does highlight the company's strong financial position, robust cash flow, and flexible access to financing options. The company appears to be well-equipped to manage its financial obligations and has the resources to support its operations and growth strategies. The lack of financial covenants in the credit facility and the presence of a universal shelf registration statement suggest that the company has a high degree of financial flexibility and control over its capital structure. To fully understand the company's main creditors and their impact on the financial structure, one would typically need to look at the company's balance sheet, debt agreements, and other financial disclosures that detail the company's debt obligations and financing arrangements.",
     "Score_perso_Qwen2": 0.0,
     "Score_perso_Qwen2.5": 0.0,
     "Score_perso_Gemma_4B": 0.0,
     "Score_perso_Gemma_12B": 0.0,
+    "Score_perso_PV2": 0.0,
+    "Score_perso_Langchain": 0.0,
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 0.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "The provided text does not explicitly mention the company's main creditors or their impact on the financial structure. The text discusses various aspects of the company's financial instruments, critical accounting policies, revenue recognition, valuation of assets and liabilities, and the impact of raw materials shortages on operations. However, it does not provide specific information about the company's creditors or their influence on its financial structure.\n\nTo answer your question accurately, we would need more detailed information from the company's financial statements, such as the balance sheet, which typically lists the company's creditors (like banks, suppliers, and other debt holders) along with their respective amounts and terms. These details can help in understanding the company's financial leverage and the potential impact of changes in these relationships on the company",
+    "Faithfulness_Score_Langchain": 1.0
   },
   {
     "Question_ID": 24,
@@ -558,15 +671,20 @@
     "Answer_Qwen2.5": "No, the provided text does not mention any specific risks related to creditors or repayment obligations. The text discusses various operational and financial risks such as market competition, raw material shortages, regulatory compliance, litigation, environmental regulations, and access to funding through capital markets. However, it does not explicitly address risks related to creditors or repayment obligations.",
     "Answer_Gemma_4B": "Here’s a breakdown of the risks related to creditors and repayment obligations identified in the provided text:\n\n*   **“Investment in our securities involves risk. You should carefully consider some of the other relevant factors, including the potential for loss of your entire investment.”** - This is a general statement about investment risk, but it directly impacts creditors as well, as their investment in the company’s debt is also subject to loss.\n\n*   **“The information set forth under Item 1A - “Risk Factors” is hereby incorporated by reference.”** - This refers to the full risk factors section, which contains more detailed information about potential risks, including those that could impact the ability to repay debts.\n\n*   **“We are",
     "Answer_Gemma_12B": "Yes, according to the provided text, there are identified risks related to creditors and repayment obligations. Here's what it states:\n\n\"Investing in our securities involves risks. You should carefully consider, among other matters, the factors set forth in the following discussion and analysis, as well as the information included in this document, before making a decision to invest in our securities. See “Risk Factors” incorporated by reference.\"\n\nAdditionally, under the \"ITEM 1A - RISK FACTORS\" section, it mentions:\n\n\"Our Indebtedness and Credit Agreements Could Restrict Our Ability to Engage in Certain Activities, and Our Ability to Service Our Indebtedness May Be Affected by Changes in Economic Conditions\"",
-    "Answer_langchain_pipeline":"In summary, while the company has measures in place to manage risks related to credit ratings and collateralization, it still faces significant repayment obligations through long-term debt and a credit facility. The company's ability to issue securities under a universal shelf registration statement provides some flexibility but does not eliminate the need to manage these financial obligations effectively. The absence of financial covenants in the credit facility further highlights the importance of maintaining strong credit ratings and financial performance to ensure continued access to credit lines. To address these risks, the company should focus on maintaining a strong credit profile, managing cash flow effectively, and ensuring that it has adequate liquidity to meet its obligations as they come due. Additionally, the company should regularly review and update its financial strategies and risk management practices to adapt to changing market conditions and regulatory requirements. Based on the provided context, the company appears to have a robust framework for managing its financial obligations, but ongoing vigilance and proactive risk management remain crucial. The company should also consider diversifying its funding sources and exploring alternative financing options to enhance its financial resilience. The company's financial statements and disclosures indicate a commitment to transparency and accountability, which is essential for building trust with investors and creditors alike. By maintaining a strong financial position and adhering to best practices in risk management, the company can better navigate the challenges associated with its debt obligations and credit ratings. The company's approach to managing these risks aligns with industry standards and best practices, demonstrating a proactive stance towards financial stability and sustainability. Overall, the company's financial structure and risk management practices appear to be well-aligned with its long-term objectives and market expectations. The company should",
+    "Answer_langchain_pipeline": "In summary, while the company has measures in place to manage risks related to credit ratings and collateralization, it still faces significant repayment obligations through long-term debt and a credit facility. The company's ability to issue securities under a universal shelf registration statement provides some flexibility but does not eliminate the need to manage these financial obligations effectively. The absence of financial covenants in the credit facility further highlights the importance of maintaining strong credit ratings and financial performance to ensure continued access to credit lines. To address these risks, the company should focus on maintaining a strong credit profile, managing cash flow effectively, and ensuring that it has adequate liquidity to meet its obligations as they come due. Additionally, the company should regularly review and update its financial strategies and risk management practices to adapt to changing market conditions and regulatory requirements. Based on the provided context, the company appears to have a robust framework for managing its financial obligations, but ongoing vigilance and proactive risk management remain crucial. The company should also consider diversifying its funding sources and exploring alternative financing options to enhance its financial resilience. The company's financial statements and disclosures indicate a commitment to transparency and accountability, which is essential for building trust with investors and creditors alike. By maintaining a strong financial position and adhering to best practices in risk management, the company can better navigate the challenges associated with its debt obligations and credit ratings. The company's approach to managing these risks aligns with industry standards and best practices, demonstrating a proactive stance towards financial stability and sustainability. Overall, the company's financial structure and risk management practices appear to be well-aligned with its long-term objectives and market expectations. The company should",
     "Score_perso_Qwen2": 0.0,
     "Score_perso_Qwen2.5": 1.0,
     "Score_perso_Gemma_4B": 0.0,
     "Score_perso_Gemma_12B": 0.0,
+    "Score_perso_PV2": 1.0,
+    "Score_perso_Langchain": 0.0,
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 0.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 0.0,
+    "Answer_PV2": "No, the provided text does not mention any specific risks related to creditors or repayment obligations. The text discusses financial instruments, critical accounting policies, revenue recognition, valuation of assets and liabilities, leases, product warranty, and derivatives and hedging but does not address creditors or repayment obligations directly.",
+    "Faithfulness_Score_Langchain": 1.0
   },
   {
     "Question_ID": 25,
@@ -581,15 +699,20 @@
     "Answer_Qwen2.5": "The company finances its organic growth through investing in innovation, which is a critical component of Emerson's value creation strategy. This includes disruptive measurement technologies, software-defined automation",
     "Answer_Gemma_4B": "Based on the provided document, here’s how Emerson finances its organic growth:\n\n*   **Software & Productivity Segment:** This segment generates revenue that supports the company’s overall growth.\n*   **Employee Offers:** The company’s Safety & Productivity segment offers tools to professionals and homeowners that promote safety and productivity.\n*   **Continuous Innovation:** Emerson has a culture of innovation that leads to the launch of new products and offerings, driven by customer needs and capitalizing on key growth drivers like software growth and the energy transition.\n*   **Voice Counts:** The company launched “Voice Counts,” a new optimization software that enables industrial manufacturers to design, operate, and optimize their operations.\n*   **Acquisition of NI:** The company",
     "Answer_Gemma_12B": "According to the provided text, the company finances its organic growth through reinvesting in its people and technologies. It also mentions that the company anticipates and responds to market and technological changes driven by broader trends such as decarbonization and electrification efforts.\n\n\n\nAdditionally, the text states that the company is focused on \"enhancing our product portfolio and expanding our digital offerings.\"",
-    "Answer_langchain_pipeline":"The company finances its organic growth through several means: 1. **Substantial Operating Cash Flow**: The company generates a significant amount of operating cash flow, with over $2.7 billion from continuing operations in 2023. This cash flow is expected to be sufficient for at least the next 12 months to cover various operational requirements. 2. **Equity Capital**: The company has an equity of $21 billion, providing it with resources for reinvestment in existing businesses and strategic acquisitions. 3. **Capital Structure Management**: The company manages its capital structure on both short- and long-term bases, ensuring it can handle its financial obligations and opportunities effectively. 4. **Contractual Obligations**: While the company has certain contractual obligations such as long-term debt and operating leases, these are managed within the context of its overall financial strategy. 5. **Readiness to Meet Funding Requirements**: The company has demonstrated the ability to readily meet its funding requirements and currently believes that sufficient funds will be available to meet its needs. By leveraging these sources of funding, the company is well-positioned to support its organic growth initiatives, including reinvesting in existing businesses and pursuing strategic acquisitions.",
+    "Answer_langchain_pipeline": "The company finances its organic growth through several means: 1. **Substantial Operating Cash Flow**: The company generates a significant amount of operating cash flow, with over $2.7 billion from continuing operations in 2023. This cash flow is expected to be sufficient for at least the next 12 months to cover various operational requirements. 2. **Equity Capital**: The company has an equity of $21 billion, providing it with resources for reinvestment in existing businesses and strategic acquisitions. 3. **Capital Structure Management**: The company manages its capital structure on both short- and long-term bases, ensuring it can handle its financial obligations and opportunities effectively. 4. **Contractual Obligations**: While the company has certain contractual obligations such as long-term debt and operating leases, these are managed within the context of its overall financial strategy. 5. **Readiness to Meet Funding Requirements**: The company has demonstrated the ability to readily meet its funding requirements and currently believes that sufficient funds will be available to meet its needs. By leveraging these sources of funding, the company is well-positioned to support its organic growth initiatives, including reinvesting in existing businesses and pursuing strategic acquisitions.",
     "Score_perso_Qwen2": 0.0,
     "Score_perso_Qwen2.5": 0.0,
     "Score_perso_Gemma_4B": 0.0,
     "Score_perso_Gemma_12B": 0.0,
+    "Score_perso_PV2": 0.0,
+    "Score_perso_Langchain": 0.0,
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "The company finances its organic growth through a combination of strategic acquisitions and divestitures of non-core businesses. This portfolio management strategy is an integral component of Emerson's growth and value creation strategy. Over the past two years, the Company has taken significant actions to accelerate the transformation of its portfolio through the completion of strategic acquisitions and divestitures of non-core businesses. These actions were undertaken to create a higher growth and cohesive industrial technology portfolio as a global automation leader serving a diversified set of end markets.\n\nSpecifically, the company has completed several transactions in recent years:\n\n- On October 11, 2023, the Company acquired National Instruments Corporation (\"NI\") at an equity value of $8.2 billion.\n- On May 3",
+    "Faithfulness_Score_Langchain": 1.0
   },
   {
     "Question_ID": 26,
@@ -604,15 +727,20 @@
     "Answer_Qwen2.5": "The document does not provide a specific percentage breakdown of growth coming from acquisitions versus organic growth. However, it mentions that Emerson has taken significant actions to accelerate the transformation of its portfolio through the completion of strategic acquisitions and divestitures of non-core businesses. The company's focus on key growth initiatives across its software, control, and intelligent devices portfolio includes disruptive measurement technologies, software-defined automation",
     "Answer_Gemma_4B": "Based on the provided documents, here's the breakdown of growth attributed to acquisitions versus organic growth:\n\n*   **Acquisitions:** The document states that portfolio management is an integral component of Emerson's growth and value creation strategy, and that the company has taken significant actions to accelerate the transformation of its portfolio through the completion of strategic acquisitions and divestitures of non-core businesses. It mentions that Emerson's sales portfolio adds a diversified set of end markets and a more robust technological portfolio as a global automation leader.\n\n*   **Organic Growth:** The document states that Emerson's international sales represent 58 percent of total sales in 2023, including U.S. exports. It also mentions that the company generally expects",
     "Answer_Gemma_12B": "According to the provided text, portfolio management is an integral component of Emerson's growth and value creation strategy. Over the past two years, the company has taken significant actions to accelerate the transformation of its portfolio through the completion of strategic acquisitions and divestitures of non-core businesses. These actions are aimed at creating a higher growth and cohesive industrial technology portfolio as a global automation leader providing a diversified set of end markets.\n\nThe text specifically mentions that Emerson's sales increased 9 percent in 2023, reflecting the company's overall increase in sales and the impact of the Heritage AspenTech acquisition. It also states that in 2022, sales increased 2 percent, and that the Heritage AspenTech acquisition was a significant",
-    "Answer_langchain_pipeline":"### Summary: - **2023**: Organic growth is negative ($68 million), indicating a decline in organic growth. - **2022**: Organic growth is negative ($2,780 million), indicating a significant decline in organic growth. - **2021**: Organic growth is positive ($1,983 million), indicating an increase in organic growth. ### Percentage of Growth from Acquisitions: - **2023**: $705 million / $2,054 million ≈ 34.2% - **2022**: $5,702 million / $2,922 million ≈ 194.9% - **2021**: $1,592 million / $3,575 million ≈ 44.6% ### Conclusion: - In 2023, acquisitions contributed approximately 34.2% of the total growth. - In 2022, acquisitions contributed approximately 194.9% of the total growth. - In 2021, acquisitions contributed approximately 44.6% of the total growth. This analysis shows that acquisitions have been a significant driver of growth in recent years, particularly in 2022, where they contributed over 194.9% of the total growth. However, it also highlights that organic growth has been negative or declining in both 2023 and 2022, indicating challenges in internal",
+    "Answer_langchain_pipeline": "### Summary: - **2023**: Organic growth is negative ($68 million), indicating a decline in organic growth. - **2022**: Organic growth is negative ($2,780 million), indicating a significant decline in organic growth. - **2021**: Organic growth is positive ($1,983 million), indicating an increase in organic growth. ### Percentage of Growth from Acquisitions: - **2023**: $705 million / $2,054 million ≈ 34.2% - **2022**: $5,702 million / $2,922 million ≈ 194.9% - **2021**: $1,592 million / $3,575 million ≈ 44.6% ### Conclusion: - In 2023, acquisitions contributed approximately 34.2% of the total growth. - In 2022, acquisitions contributed approximately 194.9% of the total growth. - In 2021, acquisitions contributed approximately 44.6% of the total growth. This analysis shows that acquisitions have been a significant driver of growth in recent years, particularly in 2022, where they contributed over 194.9% of the total growth. However, it also highlights that organic growth has been negative or declining in both 2023 and 2022, indicating challenges in internal",
     "Score_perso_Qwen2": 0.0,
     "Score_perso_Qwen2.5": 0.0,
     "Score_perso_Gemma_4B": 0.0,
     "Score_perso_Gemma_12B": 0.0,
+    "Score_perso_PV2": 0.0,
+    "Score_perso_Langchain": 0.0,
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "The provided text does not explicitly break down the percentage of growth that comes from acquisitions versus organic growth. However, it does mention several acquisitions and divestitures that have contributed to Emerson's growth over the past two years. For example:\n\n- On October 11, 2023, Emerson acquired National Instruments Corporation (\"NI\") at an equity value of $8.2 billion.\n- On May 31, 2023, Emerson completed the divestiture of Metran, its Russia-based manufacturing subsidiary.\n- On May 31, 2022, Emerson completed the previously announced sale of a majority stake in its Climate Technologies business.\n\nAdditionally, the text mentions the impact of currency translation on sales and",
+    "Faithfulness_Score_Langchain": 0.0
   },
   {
     "Question_ID": 27,
@@ -627,15 +755,20 @@
     "Answer_Qwen2.5": "Based on the information provided in the text, the segments that contributed the most to organic growth this year were:\n\n1. **Intelligent Devices** - This segment includes Final Control, Measurement & Analytical, Discrete Automation, and Safety & Productivity.\n2. **Software and Control** - This segment includes Control Systems & Software and AspenTech.\n\nThe text mentions that investing in innovation to accelerate organic growth is a critical component of Emerson's value creation strategy, and it focuses on key growth initiatives across its software, control, and intelligent devices portfolio. The new segments were previously described as Final Control, Measurement & Analytical, Discrete Automation, and Safety & Productivity for Intelligent Devices, and Control Systems & Software and AspenTech for Software and Control",
     "Answer_Gemma_4B": "Based on the provided document, here’s a breakdown of the sectors/segments that contributed the most to organic growth this year (2023):\n\n*   **Control Systems & Software:** This segment had a reclassified gain on sale of business of $1,265.\n*   **AspenTech:** This segment had a reclassified gain on sale of business of $95.\n\nLet me know if you’d like me to elaborate on any of these segments!",
     "Answer_Gemma_12B": "According to the provided text, the **Measurement & Analytical** segment contributed the most to organic growth this year. \n\nThe text states: \"The Measurement & Analytical segment is a leading supplier of intelligent instrumentation measuring the physical properties of liquids or gases, such as pressure, temperature, level, flow, acoustics, corrosion, pH, conductivity, water quality, toxic gases, and flame. The instrumentation transfers data to control systems and automation software, allowing process and hybrid industry operators to make educated decisions regarding production, reliability and safety.\"",
-    "Answer_langchain_pipeline":"- **AspenTech** had the highest growth rate from 2021 to 2022 (104.4%) and from 2022 to 2023 (58.48%). - **Software and Control** also showed strong growth with a 19.5% increase from 2022 to 2023. - **Intelligent Devices** and **Control Systems & Software** also had notable growth, but less than AspenTech and Software and Control . Therefore, **AspenTech** and **Software and Control** contributed the most to organic growth this year.",
+    "Answer_langchain_pipeline": "- **AspenTech** had the highest growth rate from 2021 to 2022 (104.4%) and from 2022 to 2023 (58.48%). - **Software and Control** also showed strong growth with a 19.5% increase from 2022 to 2023. - **Intelligent Devices** and **Control Systems & Software** also had notable growth, but less than AspenTech and Software and Control . Therefore, **AspenTech** and **Software and Control** contributed the most to organic growth this year.",
     "Score_perso_Qwen2": 0.0,
     "Score_perso_Qwen2.5": 0.0,
     "Score_perso_Gemma_4B": 0.0,
     "Score_perso_Gemma_12B": 0.0,
+    "Score_perso_PV2": 0.0,
+    "Score_perso_Langchain": 0.0,
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "Based on the information provided in the text, the segments that contributed the most to organic growth this year were:\n\n1. The Measurement & Analytical segment.\n2. The Discrete Automation segment.\n3. The Safety & Productivity segment.\n\nThese segments are described as leading suppliers of intelligent instrumentation measuring the physical properties of fluids or gases, including pressure, temperature, level, flow, acoustics, corrosion, pH, conductivity, water quality, toxic gas detection, and more. They also include control systems and automation software, allowing process and hybrid industries operators to make educated decisions regarding production, reliability, and safety.",
+    "Faithfulness_Score_Langchain": 0.0
   },
   {
     "Question_ID": 28,
@@ -650,7 +783,7 @@
     "Answer_Qwen2.5": "Yes, the company has identified strategic opportunities to strengthen its organic growth. The document mentions that investing in innovation is a critical component of Emerson's value creation strategy and that the company is focused on key growth initiatives across its software, control, and intelligent devices portfolio. These initiatives include disruptive measurement technologies, software-defined automation",
     "Answer_Gemma_4B": "Yes, the company has identified several strategic opportunities to strengthen its organic growth, as detailed in the provided documents. Here’s a breakdown of the key areas:\n\n*   **Safety & Productivity:** The company sees opportunities in “Safety & Productivity tools” like pipe working tools, cryo equipment, and other solutions that promote safety and productivity.\n*   **Software and Control:** They are focusing on “advanced control systems, SCADA systems, application software, digital twins, and cybersecurity” to improve profitability and sustainability.\n*   **Research & Development:** The company is investing in innovation to accelerate organic growth, particularly in areas like “development and marketing of new and improved products and services.”\n*   **Test & Measurement:** They are",
     "Answer_Gemma_12B": "Yes, the company has identified strategic opportunities to strengthen its organic growth. Here's what the provided text indicates:\n\n*   **Focus on Technological Advancements:** The company mentions a focus on \"continued Research, Development and Marketing of New and/or Improved Products and Services.\" They specifically highlight areas like \"decarbonization and electrification efforts,\" \"battery storage solutions, hydrogen use cases in industry, mobility, and power generation, enhanced electrical grid demand management, carbon capture and sequestration or advanced nuclear power.\"\n*   **Software and Digital Solutions:** The text emphasizes the importance of software and digital solutions, stating that they are \"a critical component of Emerson’s value creation strategy.\" They aim to \"improve the profitability and sustainability of industrial operations.\"",
-    "Answer_langchain_pipeline":"In summary, the company has the financial resources and operational cash flow to pursue strategic opportunities that can enhance its organic growth. These opportunities include reinvesting in existing businesses, making strategic acquisitions, and managing its capital structure effectively. The company's ability to generate substantial operating cash flow and meet its funding requirements suggests a strong foundation for pursuing these strategic initiatives.",
+    "Answer_langchain_pipeline": "In summary, the company has the financial resources and operational cash flow to pursue strategic opportunities that can enhance its organic growth. These opportunities include reinvesting in existing businesses, making strategic acquisitions, and managing its capital structure effectively. The company's ability to generate substantial operating cash flow and meet its funding requirements suggests a strong foundation for pursuing these strategic initiatives.",
     "Score_perso_Qwen2": 0.5,
     "Score_perso_Qwen2.5": 0.8,
     "Score_perso_Gemma_4B": 1.0,
@@ -658,7 +791,10 @@
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "Yes, the company has identified strategic opportunities to strengthen its organic growth. The document mentions that Emerson is focused on driving innovation and operational excellence, which includes launching new products and offerings aligned to customer needs, positioning for key growth drivers like software growth and the energy transition, and capitalizing on these opportunities. Additionally, the company's environmental sustainability strategy is focused on driving progress within their facilities and helping customers achieve their sustainability objectives.",
+    "Faithfulness_Score_Langchain": 1.0
   },
   {
     "Question_ID": 29,
@@ -673,7 +809,7 @@
     "Answer_Qwen2.5": "The costs associated with acquisitions made in 2023 include:\n\n1. **Flexim Acquisition**: The acquisition of Flexim, which will be reported in the Measurement & Analytical segment, cost $705 net of cash acquired.\n2. **Afag Acquisition**: The acquisition of Afag, which will be reported in the Discrete Automation segment, cost $622 net of cash acquired.\n\nAdditionally, there were other identifiable intangible assets acquired for $314, primarily customer relationships and intellectual property with a weighted-average useful life of approximately 9 years.\n\nIn total, the acquisitions cost $1,327 net of cash acquired.",
     "Answer_Gemma_4B": "Here’s the information from the documents you provided regarding acquisition costs:\n\n*   **Heritage AspenTech Acquisition:** $68 million in transaction costs were assumed to be incurred in the first quarter of 2021.\n*   **Fllexim Acquisition:** $91 million in transaction costs were included in the Company’s reported results for 2022.\n*   **Micronime Acquisition:** $159 million in transaction costs were assumed to be incurred in the first quarter of 2021.\n\n**Total Acquisition Costs (2021 & 2022):** $218 million",
     "Answer_Gemma_12B": "Here's a breakdown of the acquisition costs mentioned in the provided documents:\n\n*   **Heritage AspenTech Acquisition:** \\$623 million (This acquisition closed on October 1, 2020, but costs are still being reported). \\$568 of transaction costs were included in the 2022 pro forma results.\n*   **Micromine Acquisition:** \\$705 million (Agreement signed on July 27, 2023).\n*   **Flexim Acquisition:** The document mentions Flexim was acquired in 2023 and will be reported in the Measurement & Analytical segment, for \\$705 net of cash acquired. The company recognized goodwill of \\$42",
-    "Answer_langchain_pipeline":"Therefore, the cost associated with acquisitions made this year (2023) is **$705 million**.",
+    "Answer_langchain_pipeline": "Therefore, the cost associated with acquisitions made this year (2023) is **$705 million**.",
     "Score_perso_Qwen2": 0.0,
     "Score_perso_Qwen2.5": 0.5,
     "Score_perso_Gemma_4B": 0.0,
@@ -681,7 +817,10 @@
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "The costs associated with acquisitions made in 2023 include:\n\n1. **Intangible Amortization**: $0.62 per share.\n2. **Restructuring and Related Costs**: $0.14 per share.\n3. **Acquisition/Divestiture Costs and Pre-Acquisition Interest on AspenTech Debt**: $0.13 per share.\n\nThese figures are derived from the adjusted diluted earnings per share for continuing operations, as shown in the table provided.",
+    "Faithfulness_Score_Langchain": 1.0
   },
   {
     "Question_ID": 30,
@@ -696,7 +835,7 @@
     "Answer_Qwen2.5": "The company's acquisition strategy is focused on creating a higher growth and cohesive industrial technology portfolio as a global automation leader serving a diversified set of end markets. The acquisitions are part of Emerson's transformation of its portfolio through strategic actions over the past two years, including significant acquisitions and divestitures of non-core businesses.\n\nSpecifically:\n\n1. **Acquisition of National Instruments Corporation (NI)**: On October 11, 2023, Emerson acquired National Instruments Corporation (NI) at an equity value of $8.2 billion. NI provides software-connected automated test and measurement",
     "Answer_Gemma_4B": "Okay, let's delve into the company's acquisition strategy based on the provided text. Here's a breakdown of what it reveals:\n\n**Key Acquisition Activities (as of the document's date):**\n\n*   **National Instruments Corporation (NI):** Completed the acquisition of NI on October 11, 2023, for an equity value of $2 billion. NI provides software-connected automated test and measurement systems.\n*   **Climate Technologies Business:** Completed the sale of a majority stake in its Climate Technologies business (which includes the former Climate Technologies segment) to private equity funds managed by Blackstone for a $14.0 billion transaction on May 31, 2023.\n",
     "Answer_Gemma_12B": "Here's a breakdown of Emerson's acquisition strategy based on the provided text:\n\n**Overall Approach:**\n\n*   Emerson's strategy involves both acquisitions and divestitures (selling off parts of the business) to transform its portfolio and focus on industrial automation.\n*   They aim to create a higher growth and cohesive industrial technology portfolio.\n\n**Key Acquisitions Mentioned:**\n\n*   **National Instruments Corporation (\"NI\"):** Acquired in October 2023 for an equity value of $2.2 billion. NI provides software-connected automated test and measurement systems. This acquisition is expected to generate revenues of approximately $1.7 billion and a pre-tax cash cost of $9.7 billion. They received a",
-    "Answer_langchain_pipeline":"The company engages in strategic acquisitions as part of its growth strategy. It evaluates its portfolio for potential divestitures and seeks opportunities to acquire new businesses that align with its core competencies and market strategies. The company must navigate favorable regulatory environments to execute these transactions successfully. While it has made various acquisitions and divestitures in recent years, such as acquiring National Instruments and divesting a majority stake in the Climate Technologies business, there can be challenges in obtaining necessary regulatory approvals in both domestic and foreign jurisdictions. The company's ability to realize anticipated benefits from these transactions depends on the successful integration and separation of these businesses. The company's financial strength allows it to manage its capital structure effectively, ensuring it has the resources needed for reinvestment in existing businesses and strategic acquisitions. Its substantial operating cash flow supports its liquidity requirements and provides flexibility in managing its capital structure on both short- and long-term bases. The company's cash flows have been sufficient to meet its operating requirements for at least the next 12 months, indicating a strong financial position. However, the company must also consider employee theft or industrial espionage, which could compromise its intellectual property and lead to competitive harm if not adequately defended or protected. Overall, the company's acquisition strategy is focused on leveraging its financial resources and regulatory compliance to grow through strategic acquisitions while maintaining a robust financial foundation. The company's ability to integrate acquired businesses and obtain necessary regulatory approvals remains critical to realizing the anticipated benefits of these transactions. The company's financial strength and operating cash flow provide a solid base for its ongoing growth initiatives.",
+    "Answer_langchain_pipeline": "The company engages in strategic acquisitions as part of its growth strategy. It evaluates its portfolio for potential divestitures and seeks opportunities to acquire new businesses that align with its core competencies and market strategies. The company must navigate favorable regulatory environments to execute these transactions successfully. While it has made various acquisitions and divestitures in recent years, such as acquiring National Instruments and divesting a majority stake in the Climate Technologies business, there can be challenges in obtaining necessary regulatory approvals in both domestic and foreign jurisdictions. The company's ability to realize anticipated benefits from these transactions depends on the successful integration and separation of these businesses. The company's financial strength allows it to manage its capital structure effectively, ensuring it has the resources needed for reinvestment in existing businesses and strategic acquisitions. Its substantial operating cash flow supports its liquidity requirements and provides flexibility in managing its capital structure on both short- and long-term bases. The company's cash flows have been sufficient to meet its operating requirements for at least the next 12 months, indicating a strong financial position. However, the company must also consider employee theft or industrial espionage, which could compromise its intellectual property and lead to competitive harm if not adequately defended or protected. Overall, the company's acquisition strategy is focused on leveraging its financial resources and regulatory compliance to grow through strategic acquisitions while maintaining a robust financial foundation. The company's ability to integrate acquired businesses and obtain necessary regulatory approvals remains critical to realizing the anticipated benefits of these transactions. The company's financial strength and operating cash flow provide a solid base for its ongoing growth initiatives.",
     "Score_perso_Qwen2": 1.0,
     "Score_perso_Qwen2.5": 1.0,
     "Score_perso_Gemma_4B": 0.5,
@@ -704,7 +843,10 @@
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "Emerson's acquisition strategy is focused on accelerating the transformation of its portfolio through strategic acquisitions and divestitures of non-core businesses. The company aims to create a higher growth and cohesive industrial technology portfolio as a global automation leader serving a diversified set of end markets.\n\nIn 2023, Emerson completed several significant acquisitions, including:\n\n1. On October 11, 2023, the company acquired National Instruments Corporation (\"NI\") at an equity value of $8.2 billion. NI provides software-connected automated test and measurement systems that enable enterprises to bring products to market faster and at a lower cost.\n   \n2. On May 31, 2023, Emerson completed the previously announced sale of a majority stake",
+    "Faithfulness_Score_Langchain": 0.0
   },
   {
     "Question_ID": 31,
@@ -719,7 +861,7 @@
     "Answer_Qwen2.5": "Based on the information provided in the text:\n\n1. **National Instruments Corporation (\"NI\")** was acquired on October 11, 2023, at an equity value of $8.2 billion.\n2. **Flexim** and **Afag** were acquired in 2023, with the combined net cash acquisition being $705 million.\n3. **Metran**, a Russia-based manufacturing subsidiary, was divested on March 31, 2023, resulting in a pre-tax loss of $47 million after tax.\n4. **AspenTech** was acquired in 2022, with the transaction valued at approximately $622 million based on exchange rates when",
     "Answer_Gemma_4B": "Based on the provided text, here’s a summary of the recent company acquisitions:\n\n*   **In 2023**, Emerson acquired two businesses:\n    *   **Flexim** for $705 net of cash acquired.\n    *   **Aflag** for $705 net of cash acquired.\n\n*   **In July 27, 2023**, Aspen Tech entered into an agreement to acquire **Micromine** for approximately $623,000 USD based on a final agreement to purchase the transaction.\n\n*   **In October 1, 2020**, Heritage AspenTech acquired **National Instruments** for approximately $1.6 billion",
     "Answer_Gemma_12B": "Here's a breakdown of the recent acquisitions mentioned in the provided text, along with their respective amounts:\n\n*   **Micromine:** Acquired on August 11, 2023, for $623 million (USD) based on an exchange rates when the purchase was announced.\n*   **Flexim:** Acquired in 2023 for $705 net of cash acquired.\n*   **Afaq:** Acquired in 2023 for $705 net of cash acquired.\n*   **Heritage AspenTech:** Acquired on October 1, 2020, for a total value of $11.25 billion.\n*   ",
-    "Answer_langchain_pipeline":"Assistant: Based on the context provided, two companies have been recently acquired: 1. **Copeland**: The proceeds from this acquisition are reflected in the investing cash flow from discontinued operations of $12.5 billion in 2023. 2. **InSinkErator**: This company was also divested as part of the transaction, with proceeds contributing to the investing cash flow from discontinued operations of $12.5 billion in 2023. The exact amounts paid for these acquisitions are not explicitly stated in the given context. However, it is clear that significant proceeds were received from both transactions, totaling $12.5 billion in 2023.",
+    "Answer_langchain_pipeline": "Assistant: Based on the context provided, two companies have been recently acquired: 1. **Copeland**: The proceeds from this acquisition are reflected in the investing cash flow from discontinued operations of $12.5 billion in 2023. 2. **InSinkErator**: This company was also divested as part of the transaction, with proceeds contributing to the investing cash flow from discontinued operations of $12.5 billion in 2023. The exact amounts paid for these acquisitions are not explicitly stated in the given context. However, it is clear that significant proceeds were received from both transactions, totaling $12.5 billion in 2023.",
     "Score_perso_Qwen2": 0.0,
     "Score_perso_Qwen2.5": 0.5,
     "Score_perso_Gemma_4B": 0.0,
@@ -727,7 +869,10 @@
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "The recent acquisitions by Emerson include:\n\n1. **National Instruments Corporation (\"NI\")** - Acquired on October 11, 2023, at an equity value of $8.2 billion.\n2. **Metran, Russia-based manufacturing subsidiary** - Acquired on March 31, 2023, with a pre-tax loss of $47 million after deductions ($47 after-tax, in total $0.08 per share).\n3. **Flexim and Afag** - Acquired in 2023, which will be reported in the Discrete Automation segment, for $705 net of cash acquired.\n4. **InSinkErator business** - Sold to Wh",
+    "Faithfulness_Score_Langchain": 1.0
   },
   {
     "Question_ID": 32,
@@ -742,7 +887,7 @@
     "Answer_Qwen2.5": "The total amount of dividends paid in 2023 is $1,202 per share.",
     "Answer_Gemma_4B": "Based on the provided documents, here’s the breakdown of dividends paid this year:\n\n*   **2021:** $1,210\n*   **2022:** $1,225\n*   **2023:** $1,200\n\n**Total Dividends Paid:** $1,210 + $1,225 + $1,200 = **$3,635**",
     "Answer_Gemma_12B": "Here's the information on dividends paid, according to the provided documents:\n\n**Dividends paid (per share):**\n\n*   2021: $2.02\n*   2022: $2.06\n*   2023: $2.08\n\n**Total dividends paid:**\n\n*   2023: $1,253 million",
-    "Answer_langchain_pipeline":"Therefore, the total amount of dividends paid this year is **$2.070**.",
+    "Answer_langchain_pipeline": "Therefore, the total amount of dividends paid this year is **$2.070**.",
     "Score_perso_Qwen2": 0.8,
     "Score_perso_Qwen2.5": 0.0,
     "Score_perso_Gemma_4B": 0.0,
@@ -750,7 +895,10 @@
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 0.0,
+    "Answer_PV2": "The total amount of dividends paid for the year can be found in the \"Common stockholders' equity\" section of the Consolidated Statements of Equity, under the \"Dividends paid per share\" row.\n\nFor the year 2023, the dividends paid per share were $2.08. Since there is only one dividend amount listed, it appears that the total dividends paid for the year would be the same as the dividends paid per share multiplied by the number of shares outstanding. However, since the number of shares outstanding is not provided in the given information, we can only state that the dividends paid per share for 2023 was $2.08.",
+    "Faithfulness_Score_Langchain": 0.0
   },
   {
     "Question_ID": 33,
@@ -765,7 +913,7 @@
     "Answer_Qwen2.5": "Based on the information provided in the image, the dividend per share for Emerson Electric Co. & Subsidiaries has evolved as follows:\n\n- **2019**: $1.96\n- **2020**: $2.00\n- **2021**: $2.02\n- **2022**: $2.06\n- **2023**: $2.08\n\nThe dividend per share has increased from $1.96 in 2019 to $2.08 in 2023, indicating an overall upward trend in dividends over the past five years.",
     "Answer_Gemma_4B": "Here's the evolution of the dividend per share based on the provided data:\n\n*   **2019:** $2.02\n*   **2020:** $2.10\n*   **2021:** $2.59\n*   **2022:** $3.01\n*   **2023:** $3.64\n\nDo you want me to extract any other specific information from these pages?",
     "Answer_Gemma_12B": "Here's the evolution of the dividend per share over the past five years, according to the provided document:\n\n*   **2019:** $0.37\n*   **2020:** $0.39\n*   **2021:** $0.43\n*   **2022:** $0.44\n*   **2023:** $0.45",
-    "Answer_langchain_pipeline":"Therefore, the dividends per share have evolved as follows - 2019: $0.515 - 2020: $0.520 - 2021: $0.515 - 2022: $0.520 - 2023: $0.515. The dividends per share have remained relatively stable with minor fluctuations, primarily increasing in 2022 and then decreasing slightly in 2023. The overall trend suggests a consistent dividend policy with occasional adjustments. Based on the information provided, the dividends per share have not shown a significant upward or downward trend over the past five years. They have remained within a narrow range of $0.515 to $0.520. Therefore, the answer is that the dividends per share have remained relatively stable with minor fluctuations, primarily increasing in 2022 and then decreasing",
+    "Answer_langchain_pipeline": "Therefore, the dividends per share have evolved as follows - 2019: $0.515 - 2020: $0.520 - 2021: $0.515 - 2022: $0.520 - 2023: $0.515. The dividends per share have remained relatively stable with minor fluctuations, primarily increasing in 2022 and then decreasing slightly in 2023. The overall trend suggests a consistent dividend policy with occasional adjustments. Based on the information provided, the dividends per share have not shown a significant upward or downward trend over the past five years. They have remained within a narrow range of $0.515 to $0.520. Therefore, the answer is that the dividends per share have remained relatively stable with minor fluctuations, primarily increasing in 2022 and then decreasing",
     "Score_perso_Qwen2": 1.0,
     "Score_perso_Qwen2.5": 1.0,
     "Score_perso_Gemma_4B": 0.0,
@@ -773,7 +921,10 @@
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "The dividend per share for Emerson Electric Co. & Subsidiaries has shown an upward trend over the past five years, as indicated in the table:\n\n- **2019**: $1.96\n- **2020**: $2.00\n- **2021**: $2.02\n- **2022**: $2.06\n- **2023**: $2.08\n\nThis indicates that the company has increased its dividends per share each year from 2019 to 2023.",
+    "Faithfulness_Score_Langchain": 1.0
   },
   {
     "Question_ID": 34,
@@ -788,7 +939,7 @@
     "Answer_Qwen2.5": "According to the information provided in the image, the percentage of profits distributed as dividends for Emerson Electric Co. & Subsidiaries in 2023 was $1,198 per share, which is $2.06 per share. This can be found in the section discussing dividends paid out in 2023.",
     "Answer_Gemma_4B": "Based on the provided financial statements, here’s the breakdown of dividend distribution percentages:\n\n*   **2021:** The Company’s ability to support its dividend, as a percent of free cash flow is 12.6%\n*   **2022:** The Company’s ability to support its dividend, as a percent of free cash flow is 13.8%\n*   **2023:** Payments of common stock dividends, as a percent of net income is 12.5%\n\n",
     "Answer_Gemma_12B": "According to the provided documents, in 2023, dividends paid were $6,683 million, and earnings per share, return on common stockholders' equity and return on total capital were $13,200 million.\n\nTherefore, the percentage of profits distributed as dividends is approximately **50.6%**.",
-    "Answer_langchain_pipeline":"Thus, the average percentage of profits distributed as dividends over the given years is approximately **30.46%**.",
+    "Answer_langchain_pipeline": "Thus, the average percentage of profits distributed as dividends over the given years is approximately **30.46%**.",
     "Score_perso_Qwen2": 0.0,
     "Score_perso_Qwen2.5": 0.0,
     "Score_perso_Gemma_4B": 0.5,
@@ -796,7 +947,10 @@
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 0.0,
+    "Answer_PV2": "To determine the percentage of profits that is distributed as dividends, we need to look at the \"Dividends per share\" and \"Net Sales\" figures from the provided data.\n\nFrom the first image (Five-Year Summary), we can see the following for 2023:\n\n- Dividends per share: $2.08\n- Net sales: $15.165 billion\n\nThe percentage of net sales distributed as dividends can be calculated as follows:\n\n\\[ \\text{Percentage of net sales distributed as dividends} = \\left( \\frac{\\text{Dividends per share}}{\\text{Net sales}} \\right) \\times 100 \\]\n\nSubstituting the values:\n\n\\[ \\text",
+    "Faithfulness_Score_Langchain": 1.0
   },
   {
     "Question_ID": 35,
@@ -811,7 +965,7 @@
     "Answer_Qwen2.5": "Yes, there were significant accounting adjustments this year. The company adopted several accounting standard updates and one new accounting standard in 2022, which included updates to Accounting Standards Codification (\"ASC\") 805, Business Combinations; ASC 740, Income Taxes; ASC 321, Equity Securities; ASC 323 Investments - Equity Method and Joint Ventures; ASC 815, Derivatives and Hedging; and ASC 350, Intangibles - Goodwill and Other. These updates clarified the accounting for contract assets and liabilities assumed in a business combination, the recognition of a franchise tax that is partially based on income as an income-based tax with an incremental amount as a non-income",
     "Answer_Gemma_4B": "Based on the provided pages, here’s a summary of the significant accounting adjustments made this year:\n\n*   **2023:** The company adopted ASU No. 2021-10, Topic 692, Government Assistance, which requires annual disclosures about certain types of government assistance.\n*   **2022:** The company adopted ASU 805, Business Combinations, and ASU 740, Income Taxes.\n*   **2021:** The company adopted ASU 321, Equity Investments - Equity Method and Joint Ventures.\n\nDo you want me to elaborate on any of these adjustments or provide more detail about a specific one?",
     "Answer_Gemma_12B": "Yes, according to the provided text, there were a few significant accounting adjustments this year (2023):\n\n*   **Adoption of ASU No. 2021-10 (Topic 832), Government Assistance:** This requires annual disclosures about certain types of government assistance received.\n*   **Updates to Accounting Standards Codification (ASC) 805, Business Combinations:** This clarifies the accounting for contract assets and liabilities assumed in a business combination.\n*   **Updates to ASC 740, Income Taxes:** This addresses the recognition of a franchise tax that is partially based on income.\n*   **Updates to ASC 321, Securifies-Fair Value Measurement -",
-    "Answer_langchain_pipeline":"Based on the provided context, there were no significant accounting adjustments mentioned specifically for the year in question. The context highlights the adoption of several accounting standard updates and pronouncements but does not indicate any specific significant adjustments made due to these changes. Instead, it notes that the adoption of ASU No. 2021-10 (Topic 832) on government assistance required annual disclosures without impacting the accounting for government assistance itself. If you are looking for more detailed information regarding significant accounting adjustments, you would need to refer to the specific sections of the financial report that discuss changes in accounting policies, estimates, or other adjustments that were made during the reporting period. The provided context focuses more on the adoption of new accounting standards and their impacts, rather than detailing specific adjustments made by the company.",
+    "Answer_langchain_pipeline": "Based on the provided context, there were no significant accounting adjustments mentioned specifically for the year in question. The context highlights the adoption of several accounting standard updates and pronouncements but does not indicate any specific significant adjustments made due to these changes. Instead, it notes that the adoption of ASU No. 2021-10 (Topic 832) on government assistance required annual disclosures without impacting the accounting for government assistance itself. If you are looking for more detailed information regarding significant accounting adjustments, you would need to refer to the specific sections of the financial report that discuss changes in accounting policies, estimates, or other adjustments that were made during the reporting period. The provided context focuses more on the adoption of new accounting standards and their impacts, rather than detailing specific adjustments made by the company.",
     "Score_perso_Qwen2": 0.0,
     "Score_perso_Qwen2.5": 0.0,
     "Score_perso_Gemma_4B": 0.0,
@@ -819,7 +973,10 @@
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "Based on the information provided in the text, there were no significant accounting adjustments made this year. The text mentions that the Company adopted several accounting standards and updates, but it does not indicate that these changes resulted in significant adjustments or changes in financial statements. Instead, it states that the adoption of these standards did not materially impact the Company's disclosures.",
+    "Faithfulness_Score_Langchain": 0.0
   },
   {
     "Question_ID": 36,
@@ -834,7 +991,7 @@
     "Answer_Qwen2.5": "Non-recurring items that impacted financial results include:\n\n1. **Changes in Tax Rates, Laws or Regulations and the Resolution of Tax Disputes**: This includes changes in tax rates, laws, and regulations, as well as the resolution of tax disputes. These can affect the company's effective income tax rate and overall tax expense.\n\n2. **The CARES Act (Coronavirus Aid, Relief, and Economic Security Act)**: The CARES Act provided tax relief to U.S. businesses, including the deferral of certain payroll taxes and relief for retaining employees. The company deferred $73 million of certain payroll taxes through the end of calendar year 2020, with approximately $37 million paid in December 202",
     "Answer_Gemma_4B": "Here’s a breakdown of the non-recurring items that impacted the company’s financial results, based on the provided documents:\n\n**2021**\n\n*   **U.S. federal statutory rate:** 21.0%\n*   **State and local taxes, net of U.S. federal tax benefit:** 0.5\n*   **Non-U.S. rate differential:** 2.6\n*   **Non-U.S. tax holidays:** (1.2)\n*   **Research and development credits:** (0.9)\n*   **Foreign derived intangible income:** (1.6)\n*   **Subsidiary restructuring:** (0.8",
     "Answer_Gemma_12B": "Here's a breakdown of the non-recurring items that impacted financial results, based on the provided text:\n\n**Significant Non-Recurring Items in 2023:**\n\n*   **Loss on the Company's equity method investment in Copeland:** A loss of $177.\n*   **Higher intangibles amortization:** $146 primarily related to the Heritage AspenTech acquisition.\n*   **Unfavorable impact from foreign currency transactions:** $112 reflecting losses in the current year compared to gains in the prior year.\n*   **Charge of $145 related to the Company exiting its business in Russia:** This was a charge of $47 in the current year.\n*   **",
-    "Answer_langchain_pipeline":"Given the context, the specific non-recurring items impacting financial results would likely include: - **Acquisition-related expenses** (e.g., the Heritage AspenTech acquisition in 2023 and 2022). - **Amortization of intangibles** (significant changes in the amount of amortization could be non-recurring). - **Restructuring costs** (mentioned specifically in the context). - **Discrete taxes** (noted as a separate item). - **Changes in reporting segments** (implied by the context). - **Gains, losses, and impairments** (implied by the context). Without more specific details, these are the general categories that could be considered non-recurring items impacting financial results. For precise identification, one would need to refer to the detailed financial statements and notes provided by the company.",
+    "Answer_langchain_pipeline": "Given the context, the specific non-recurring items impacting financial results would likely include: - **Acquisition-related expenses** (e.g., the Heritage AspenTech acquisition in 2023 and 2022). - **Amortization of intangibles** (significant changes in the amount of amortization could be non-recurring). - **Restructuring costs** (mentioned specifically in the context). - **Discrete taxes** (noted as a separate item). - **Changes in reporting segments** (implied by the context). - **Gains, losses, and impairments** (implied by the context). Without more specific details, these are the general categories that could be considered non-recurring items impacting financial results. For precise identification, one would need to refer to the detailed financial statements and notes provided by the company.",
     "Score_perso_Qwen2": 0.0,
     "Score_perso_Qwen2.5": 0.0,
     "Score_perso_Gemma_4B": 0.0,
@@ -842,7 +999,10 @@
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "Non-recurring items that impacted financial results include:\n\n1. **Changes in Tax Rates, Laws or Regulations and the Resolution of Tax Disputes**: These could affect our financial results due to changes in tax laws, regulations, and the resolution of tax disputes.\n\n2. **Other Deductions**: These include items such as changes in foreign currency exchange rates, amortization of intangible assets, and restructuring costs. For example, in 2023, there was an increase in other deductions of $516 compared with a decrease of $177 in 2022, primarily related to the Heritage AspenTech acquisition and unfavorable impacts from foreign currency transactions.\n\n3. **Interest Expense**: Changes in interest expense can impact financial results",
+    "Faithfulness_Score_Langchain": 1.0
   },
   {
     "Question_ID": 37,
@@ -856,8 +1016,8 @@
     "Answer_Qwen2": "Yes, there are regulatory risks mentioned in the report. The report states that the company is subject to taxation in the U.S. and numerous non-U.S. jurisdictions. Significant judgment is required to determine the company's consolidated income tax provision and related liabilities. The company's effective tax rate, cash flows, and operating results could be affected by changes in the mix of earnings in countries with different statutory tax rates, as well as by changes in the local tax laws and regulations, or the interpretations thereof. Additionally, the company's tax returns are subject to regular review and audit by U.S. and non-U.S. tax authorities.",
     "Answer_Qwen2.5": "Yes, there are regulatory risks mentioned in the report. The document discusses potential changes in tax rates, laws, or regulations that could adversely impact the financial results of Emerson due to changes in the tax laws and regulations, as well as the resolution of tax disputes. Additionally, it mentions the possibility of changes in environmental regulations that could affect the company's operations.",
     "Answer_Gemma_4B": "Yes, there are several regulatory risks mentioned in the report. Here’s a breakdown of the key concerns:\n\n*   **Environmental Regulations:** The report highlights risks related to litigation and environmental regulations, including potential costs associated with compliance, environmental liability, and stakeholder expectations.\n*   **SEC Filings:** Concerns are raised about the company’s ability to meet voluntary targets, SEC filings, and the impact of these on its business and financial results.\n*   **GHG Emissions:** The company faces risks related to reducing greenhouse gas (GHG) emissions and achieving zero waste, including potential penalties and the impact on its operations.\n*   **Internet Access:** Risks associated with Form 10-K and other regulatory reports, including",
-    "Answer_Gemma_12B": "Yes, the report mentions several regulatory risks. Here's a breakdown of what's highlighted:\n\n*   **Environmental Regulations:** The report frequently mentions risks related to environmental regulations, including those concerning GHG emissions, climate change, and waste disposal. It notes potential for more restrictive standards and increased scrutiny.\n*   **COVID-19 Regulations:** The report discusses the impact of COVID-19 regulations and the potential for future resurgence or new strains, which could disrupt operations and supply chains.\n*   **Government Regulations and Policies:** The report mentions risks associated with changes in government regulations and policies, both domestically (U.S.) and internationally, including trade restrictions, tariffs, and currency fluctuations.\n*   **Anti-Corruption Laws**", 
-    "Answer_langchain_pipeline":"Yes, there are regulatory risks mentioned in the report. Specifically, the document states:>However, laws and regulations may be changed, accelerated or adopted that impose significant operational restrictions and compliance requirements< This indicates that the company faces potential regulatory changes that could impose new operational restrictions and compliance requirements, which might negatively impact their operating results. The report also mentions that these regulatory changes could affect the company's capital expenditures, earnings, and competitive position. The report further elaborates on the environmental regulations that apply to the company's manufacturing locations, stating that they are subject to U.S. federal, state, foreign, and local laws and regulations related to environmental protection. The company is committed to minimizing its environmental impact through safe technologies, facility design, and operating procedures. While it notes that compliance with these regulations has not had a material effect on the company's capital expenditures, earnings, or competitive position as of now, it does acknowledge the possibility of future changes that could have such an impact.",
+    "Answer_Gemma_12B": "Yes, the report mentions several regulatory risks. Here's a breakdown of what's highlighted:\n\n*   **Environmental Regulations:** The report frequently mentions risks related to environmental regulations, including those concerning GHG emissions, climate change, and waste disposal. It notes potential for more restrictive standards and increased scrutiny.\n*   **COVID-19 Regulations:** The report discusses the impact of COVID-19 regulations and the potential for future resurgence or new strains, which could disrupt operations and supply chains.\n*   **Government Regulations and Policies:** The report mentions risks associated with changes in government regulations and policies, both domestically (U.S.) and internationally, including trade restrictions, tariffs, and currency fluctuations.\n*   **Anti-Corruption Laws**",
+    "Answer_langchain_pipeline": "Yes, there are regulatory risks mentioned in the report. Specifically, the document states:>However, laws and regulations may be changed, accelerated or adopted that impose significant operational restrictions and compliance requirements< This indicates that the company faces potential regulatory changes that could impose new operational restrictions and compliance requirements, which might negatively impact their operating results. The report also mentions that these regulatory changes could affect the company's capital expenditures, earnings, and competitive position. The report further elaborates on the environmental regulations that apply to the company's manufacturing locations, stating that they are subject to U.S. federal, state, foreign, and local laws and regulations related to environmental protection. The company is committed to minimizing its environmental impact through safe technologies, facility design, and operating procedures. While it notes that compliance with these regulations has not had a material effect on the company's capital expenditures, earnings, or competitive position as of now, it does acknowledge the possibility of future changes that could have such an impact.",
     "Score_perso_Qwen2": 0.0,
     "Score_perso_Qwen2.5": 0.5,
     "Score_perso_Gemma_4B": 0.5,
@@ -865,7 +1025,10 @@
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "Yes, there are several regulatory risks mentioned in the report:\n\n1. **Anti-corruption and Anti-bribery Laws**: The company is subject to various anti-corruption and anti-bribery laws, including the U.S. Foreign Corrupt Practices Act, the U.K. Bribery Act, and similar anti-bribery laws in other jurisdictions. Violations of these laws can lead to civil or criminal investigations, substantial costs, and damage to the company's reputation.\n\n2. **Environmental Regulations**: The company is subject to environmental regulations that could impact its operations, such as those related to greenhouse gas emissions, net zero ambition, and diversity, equity, and inclusion goals. Compliance with these regulations may require significant changes to business practices, which could",
+    "Faithfulness_Score_Langchain": 1.0
   },
   {
     "Question_ID": 38,
@@ -880,7 +1043,7 @@
     "Answer_Qwen2.5": "No, the company has not faced any regulatory sanctions this year as per the information provided in the document. The text mentions that the company is subject to various laws and regulations but does not indicate any specific sanctions or penalties received by the company in the current year.",
     "Answer_Gemma_4B": "Based on the provided documents, here’s what I can gather about potential regulatory sanctions:\n\n*   **Item 3 - Legal Proceedings:** The company and its subsidiaries are subject to “various legal proceedings, some of which claim substantial amounts of damages. It is not possible to predict the outcome of these proceedings, and historically, the company has been largely successful in both prosecuting and defending claims and lawsuits.”\n*   **Item 4 - Mine Safety Disclosures:** There is no applicable information.\n*   **Item 8 - Unresolved Staff Comments:** The company is subject to “U.S. federal and state and non-U.S. laws, regulations and policies, including laws related to anti-corruption, anti-bri",
     "Answer_Gemma_12B": "Based on the provided text, here's what we can determine about regulatory sanctions:\n\n*   **General Statement:** The text states, \"We are subject to regulation under a wide variety of U.S. federal and state and non-U.S. laws, regulations and policies, including laws related to anti-corruption, anti-bribery, export and import compliance, anti-trust and money laundering, due to our global operations.\"\n*   **Past Issues:** It mentions that the company has \"experienced government purpose to some degree\" and \"cannot provide assurance our internal controls will always protect us from the improper conduct of our employees, agents and business partners.\" It also notes that \"any such violation of law or improper actions could",
-    "Answer_langchain_pipeline":"The provided context does not explicitly mention any specific regulatory sanctions faced by the company this year. It discusses general cybersecurity risks, compliance challenges, potential product failures, environmental regulations, and regulatory compliance concerns across various jurisdictions. The text highlights the importance of adhering to complex and rigorous regulatory standards but does not provide details about recent regulatory actions or sanctions. For the most accurate and up-to-date information regarding any regulatory sanctions faced by the company this year, you would need to refer to the company's official reports, SEC filings, or press releases. These documents typically contain detailed information about any regulatory issues or sanctions the company has encountered.",
+    "Answer_langchain_pipeline": "The provided context does not explicitly mention any specific regulatory sanctions faced by the company this year. It discusses general cybersecurity risks, compliance challenges, potential product failures, environmental regulations, and regulatory compliance concerns across various jurisdictions. The text highlights the importance of adhering to complex and rigorous regulatory standards but does not provide details about recent regulatory actions or sanctions. For the most accurate and up-to-date information regarding any regulatory sanctions faced by the company this year, you would need to refer to the company's official reports, SEC filings, or press releases. These documents typically contain detailed information about any regulatory issues or sanctions the company has encountered.",
     "Score_perso_Qwen2": 1.0,
     "Score_perso_Qwen2.5": 1.0,
     "Score_perso_Gemma_4B": 0.0,
@@ -888,7 +1051,10 @@
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 0.0,
+    "Answer_PV2": "Based on the information provided in the text, there is no mention of any regulatory sanctions that the company has faced this year. The text discusses potential risks and challenges the company might face, including legal proceedings, environmental regulations, and cybersecurity threats, but it does not indicate that the company has already been sanctioned by regulators.",
+    "Faithfulness_Score_Langchain": 0.0
   },
   {
     "Question_ID": 39,
@@ -903,7 +1069,7 @@
     "Answer_Qwen2.5": "No, not all required regulatory figures are present in the provided text. The text discusses forward-looking statements, shareholder information, and regulatory compliance but does not provide specific financial or regulatory figures for the years 2018-2023. It also does not include a comparison of five-year cumulative shareholder return as shown in the first image. Therefore, it is not possible to determine if there are missing data points based on this text alone.",
     "Answer_Gemma_4B": "Let's analyze the provided documents to determine if all required regulatory figures are present and to identify any missing data points.\n\n**Overall Assessment:**\n\nThe report contains a significant number of risk factors and disclosures related to regulatory compliance. However, a thorough review reveals several missing data points and areas where information is not fully presented.\n\n**Specific Missing Data Points and Concerns:**\n\n1.  **Revenue Figures:** There is no specific revenue figure provided for the company. The report mentions \"Operating Results\" but doesn't state the total revenue.\n\n2.  **Net Income/Loss:** Similarly, there is no specific net income or loss figure provided.\n\n3.  **Specific Regulatory Compliance Costs:** While the report mentions \"costs of compliance",
     "Answer_Gemma_12B": "Based on the provided images of the document, it's **impossible to definitively say whether all required regulatory figures are present.** Here's a breakdown of what we can observe and the limitations:\n\n**What we *can* see:**\n\n*   **Risk Factors:** The document includes a substantial section dedicated to risk factors. This is a standard and crucial element of regulatory filings.\n*   **Forward-Looking Statements:** A disclaimer regarding forward-looking statements is present, which is a regulatory requirement.\n*   **Discussion of Five-Year Cumulative Restrictions:** This section addresses a specific area of potential regulatory concern.\n*   **Legal and Regulatory Compliance:** The document mentions compliance with various U.S. federal and state laws, as",
-    "Answer_langchain_pipeline":"Based on the provided context, it appears that the report includes information about the company's adoption of certain voluntary targets and the potential impacts of changing environmental laws, regulations, or standards. However, the context does not explicitly state whether all required regulatory figures are present or if there are any missing data points. The report mentions the lack of consistent climate change legislation and standards, which could imply that there might be gaps in the regulatory reporting due to the absence of standardized metrics or requirements. To determine if all required regulatory figures are present, you would need to review the full report or additional documentation that outlines the specific regulatory metrics and standards applicable to the company. If there are missing data points, they should ideally be addressed in the report to ensure transparency and completeness. The context suggests that the company is aware of the challenges posed by inconsistent regulatory frameworks and is taking steps to address them through voluntary targets and ongoing monitoring. If you have access to the full report, you can cross-reference the information provided here with the actual data presented in the document to confirm the completeness of the regulatory reporting. If you do not have access to the full report, you may need to seek further clarification from the company or consult with a legal or regulatory expert who can provide insights into the specific regulatory requirements and any gaps in the reported data.",
+    "Answer_langchain_pipeline": "Based on the provided context, it appears that the report includes information about the company's adoption of certain voluntary targets and the potential impacts of changing environmental laws, regulations, or standards. However, the context does not explicitly state whether all required regulatory figures are present or if there are any missing data points. The report mentions the lack of consistent climate change legislation and standards, which could imply that there might be gaps in the regulatory reporting due to the absence of standardized metrics or requirements. To determine if all required regulatory figures are present, you would need to review the full report or additional documentation that outlines the specific regulatory metrics and standards applicable to the company. If there are missing data points, they should ideally be addressed in the report to ensure transparency and completeness. The context suggests that the company is aware of the challenges posed by inconsistent regulatory frameworks and is taking steps to address them through voluntary targets and ongoing monitoring. If you have access to the full report, you can cross-reference the information provided here with the actual data presented in the document to confirm the completeness of the regulatory reporting. If you do not have access to the full report, you may need to seek further clarification from the company or consult with a legal or regulatory expert who can provide insights into the specific regulatory requirements and any gaps in the reported data.",
     "Score_perso_Qwen2": 1.0,
     "Score_perso_Qwen2.5": 0.0,
     "Score_perso_Gemma_4B": 0.0,
@@ -911,7 +1077,10 @@
     "Faithfulness_Score_Qwen2": 0.0,
     "Faithfulness_Score_Qwen2.5": 0.0,
     "Faithfulness_Score_Gemma_4B": 0.0,
-    "Faithfulness_Score_Gemma_12B": 0.0
+    "Faithfulness_Score_Gemma_12B": 0.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "No, not all required regulatory figures are present in the provided excerpts from the report. The excerpts include information about the registrant's status as an accelerated filer, its election to not use the extended transition period for new financial accounting standards, and its filing of a report on internal control over financial reporting. However, it does not provide the specific financial statements or other regulatory figures that would be required by the SEC, such as the registrant's balance sheet, income statement, cash flow statement, and footnotes. Additionally, the Safe Harbor Statement and Our Reputation sections do not contain regulatory figures but rather discuss forward-looking statements and potential risks and uncertainties.",
+    "Faithfulness_Score_Langchain": 0.0
   },
   {
     "Question_ID": 40,
@@ -926,7 +1095,7 @@
     "Answer_Qwen2.5": "The company had approximately 67,000 employees at September 30, 2023. The workforce has not been provided with specific changes in the text given.",
     "Answer_Gemma_4B": "Here's the information about the company's workforce from the provided documents:\n\n*   **2021:** 85,000 employees\n*   **2022:** 73,000 employees\n*   **2023:** 77,000 employees\n\n**Change this year:** The workforce decreased by 12,000 employees from 2022 to 2023.",
     "Answer_Gemma_12B": "Here's the information on the company's total workforce and the change this year, based on the provided images:\n\n**Total Workforce:**\n\n*   The company reduced its workforce by approximately 700 and 2,150 positions in 2023 and 2022, respectively.\n*   As of December 31, 2023, the total workforce was 117,000.\n\n**Change This Year (2023):**\n\n*   The company reduced its workforce by approximately 700 positions in 2023.\n\n\n\nLet me know if you have any other questions about the document!",
-    "Answer_langchain_pipeline":"Assistant: The company had approximately 67,000 employees at September 30, 2023. The context does not provide specific information on changes in the workforce from one year to another. However, it mentions that employee levels are managed to align with the pace of business and that management believes it has sufficient human capital to operate its business successfully. Without additional data, it is not possible to determine if there have been any significant changes in the workforce size this year.",
+    "Answer_langchain_pipeline": "Assistant: The company had approximately 67,000 employees at September 30, 2023. The context does not provide specific information on changes in the workforce from one year to another. However, it mentions that employee levels are managed to align with the pace of business and that management believes it has sufficient human capital to operate its business successfully. Without additional data, it is not possible to determine if there have been any significant changes in the workforce size this year.",
     "Score_perso_Qwen2": 0.0,
     "Score_perso_Qwen2.5": 1.0,
     "Score_perso_Gemma_4B": 0.0,
@@ -934,7 +1103,10 @@
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "The company had approximately 67,000 employees at September 30, 2023. The text does not provide information on how the workforce has changed this year.",
+    "Faithfulness_Score_Langchain": 1.0
   },
   {
     "Question_ID": 41,
@@ -949,15 +1121,18 @@
     "Answer_Qwen2.5": "The document does not provide specific information about the employee turnover rate. It mentions that the Company surveys employees to assess and improve employee retention and engagement, but it does not give any figures or percentages related to turnover rates.",
     "Answer_Gemma_4B": "According to the document, the employee turnover rate is 0.22.",
     "Answer_Gemma_12B": "According to the provided document, the employee turnover rate is 10.5 percent.\n\n\n\nIt states: \"In 2023, we initiated a continuous listening strategy, with more than 85 percent of employees participating in the survey and an overall engagement score of 78 percent. The categories of safety, well-being, growth and development, and access to resources and support earned the most favorable scores.\"\n\n\n\nAdditionally, it mentions: \"Our turnover rate was 10.5 percent.\"",
-    "Answer_langchain_pipeline":"o calculate the employee turnover rate, you would need to know the number of employees who left the company (left voluntarily or involuntarily) over a specific period of time, divided by the average number of employees during that same period. The provided information does not give this data directly. However, we can infer some details from the context. The context mentions that the company had approximately 67,000 employees at September 30, 2023, and that management believes the employee relations are favorable. It also notes that there were restructuring actions in 2021, 2022, and 2023, which likely involved some employee exits. However, without specific numbers on voluntary and involuntary departures, we cannot accurately compute the turnover rate. If you have additional data on employee exits or if you're looking for a general understanding based on the information given, the turnover rate could be considered relatively low due to the favorable employee relations mentioned. But for a precise calculation, you would need more detailed figures on employee departures and the average number of employees over the relevant period.  If you have any specific years or periods in mind for which you'd like to calculate the turnover rate, please provide those details so I can assist further. Otherwise, the best estimate we can make is that the turnover rate appears to be manageable given the favorable employee relations described.",
+    "Answer_langchain_pipeline": "o calculate the employee turnover rate, you would need to know the number of employees who left the company (left voluntarily or involuntarily) over a specific period of time, divided by the average number of employees during that same period. The provided information does not give this data directly. However, we can infer some details from the context. The context mentions that the company had approximately 67,000 employees at September 30, 2023, and that management believes the employee relations are favorable. It also notes that there were restructuring actions in 2021, 2022, and 2023, which likely involved some employee exits. However, without specific numbers on voluntary and involuntary departures, we cannot accurately compute the turnover rate. If you have additional data on employee exits or if you're looking for a general understanding based on the information given, the turnover rate could be considered relatively low due to the favorable employee relations mentioned. But for a precise calculation, you would need more detailed figures on employee departures and the average number of employees over the relevant period.  If you have any specific years or periods in mind for which you'd like to calculate the turnover rate, please provide those details so I can assist further. Otherwise, the best estimate we can make is that the turnover rate appears to be manageable given the favorable employee relations described.",
     "Score_perso_Qwen2": 1.0,
     "Score_perso_Qwen2.5": 1.0,
     "Score_perso_Gemma_4B": 0.0,
     "Score_perso_Gemma_12B": 0.0,
-    "Faithfulness_Score_Qwen2":0.0,
+    "Faithfulness_Score_Qwen2": 0.0,
     "Faithfulness_Score_Qwen2.5": 0.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "The document does not provide specific information about the employee turnover rate. It mentions that in 2023, the Company's total recordable rate of injuries was 0.30 and its lost or restricted workday case rate was 0.22 (both measured as the number of incidents per 100 employees). However, these figures do not directly indicate the employee turnover rate.",
+    "Faithfulness_Score_Langchain": 0.0
   },
   {
     "Question_ID": 42,
@@ -972,7 +1147,7 @@
     "Answer_Qwen2.5": "The company has several commitments to diversity and inclusion:\n\n1. **Employee Resource Groups**: The company has Employee Resource Groups that have been created to support its large global workforce and help it innovate for its customers.\n2. **Diversity Targets**: The company has set diversity targets for interview slates and targeted recruiting to increase the representation of women, minorities, U.S. veterans, individuals with disabilities, and LGBTQ+ talent within Emerson.\n3. **Best Employer for Diversity**: In 2021, the company was named a \"Best Employer for Diversity\" by Forbes. Overall, women represent 35 percent of our global workforce and 23 percent of leadership positions held by women.\n4. **Diversity in Leadership Positions**: In the",
     "Answer_Gemma_4B": "Here’s a breakdown of the company’s commitments to diversity and inclusion, based on the provided images:\n\n**1. Human Capital Resources:**\n\n*   **Employee Engagement:** The company has a continuous employee engagement score of 78 percent.\n*   **Leadership Programs:** They dedicate its employees through global training and development programs that build and strengthen employees and leadership skills.\n*   **Employee Retention:** The company focuses on retaining employees.\n\n**2. Subject to Litigation and Environmental Regulations:**\n\n*   **Increased Awareness:** There’s increased public awareness and concern regarding climate change.\n*   **Stakeholder Requirements:** They are subject to more stakeholder requirements or expectations that could result in restrictive or expansive standards, such as metrics",
     "Answer_Gemma_12B": "Here's a summary of the company's commitments to diversity and inclusion, based on the provided documents:\n\n*   **Board of Directors:** The Board of Directors is committed to high standards of ethics and excellence and features a balance of tenure, experience, and diversity to guide strategy development, ensure sound governance, and drive value creation.\n*   **Employee Resources:** The company has employee resource groups to support diverse workforce and help implement restrictions and compliance requirements upon the company.\n*   **Diversity and Inclusion Initiatives:** The company supports and includes a diversity of leaders at all levels. In 2023, the company has initiated a continuous learning program to address approximately 85 percent of employees.\n*   **Values:** The",
-    "Answer_langchain_pipeline":"In summary, the company's commitment to diversity and inclusion not only aligns with its values but also has a significant impact on its operations, business strategy, and long-term success. It fosters a more innovative, customer-focused, and sustainable environment, ultimately benefiting both the company and its stakeholders. The company's efforts to elevate the representation of women and U.S. minorities and foster an inclusive work environment are well-aligned with its strategic objectives and contribute to its overall success. The company's commitment to diversity and inclusion is a key factor in its ability to attract and retain top talent, innovate effectively, and remain competitive in the market. The company's efforts to create an inclusive work environment and promote diversity have led to a positive brand reputation and a strong commitment to social responsibility, which are essential components of its business strategy. The company's commitment to diversity and inclusion is a key factor in its ability to attract and retain top talent, innovate effectively, and remain competitive in the market. The company's efforts to create an inclusive work environment and promote diversity have led to a positive brand reputation and a strong commitment to social responsibility, which are essential components of its business strategy. The company's commitment to diversity and inclusion is a key factor in its ability to attract and retain top talent, innovate effectively, and remain competitive in the market. The company's efforts to create an inclusive work environment and promote diversity have led to a positive brand reputation and a strong commitment to social responsibility, which are essential components of its business strategy. The company's commitment to diversity and inclusion is a key factor in its ability to attract and retain top talent, innovate effectively, and remain competitive in the market. The company's efforts to create an inclusive work environment and promote diversity have led to a positive brand reputation and a strong commitment to social responsibility, which are essential components of its business strategy. The company's commitment to diversity and inclusion is a key factor in its ability to attract and retain top talent, innovate effectively, and remain competitive in the market. The company's efforts to create an inclusive work environment and promote diversity have led to a positive brand reputation and a strong commitment to social responsibility, which are essential components of its business strategy. The company's commitment to diversity and inclusion is a key factor in its ability to attract and retain top talent, innovate effectively, and remain competitive in the market",
+    "Answer_langchain_pipeline": "In summary, the company's commitment to diversity and inclusion not only aligns with its values but also has a significant impact on its operations, business strategy, and long-term success. It fosters a more innovative, customer-focused, and sustainable environment, ultimately benefiting both the company and its stakeholders. The company's efforts to elevate the representation of women and U.S. minorities and foster an inclusive work environment are well-aligned with its strategic objectives and contribute to its overall success. The company's commitment to diversity and inclusion is a key factor in its ability to attract and retain top talent, innovate effectively, and remain competitive in the market. The company's efforts to create an inclusive work environment and promote diversity have led to a positive brand reputation and a strong commitment to social responsibility, which are essential components of its business strategy. The company's commitment to diversity and inclusion is a key factor in its ability to attract and retain top talent, innovate effectively, and remain competitive in the market. The company's efforts to create an inclusive work environment and promote diversity have led to a positive brand reputation and a strong commitment to social responsibility, which are essential components of its business strategy. The company's commitment to diversity and inclusion is a key factor in its ability to attract and retain top talent, innovate effectively, and remain competitive in the market. The company's efforts to create an inclusive work environment and promote diversity have led to a positive brand reputation and a strong commitment to social responsibility, which are essential components of its business strategy. The company's commitment to diversity and inclusion is a key factor in its ability to attract and retain top talent, innovate effectively, and remain competitive in the market. The company's efforts to create an inclusive work environment and promote diversity have led to a positive brand reputation and a strong commitment to social responsibility, which are essential components of its business strategy. The company's commitment to diversity and inclusion is a key factor in its ability to attract and retain top talent, innovate effectively, and remain competitive in the market. The company's efforts to create an inclusive work environment and promote diversity have led to a positive brand reputation and a strong commitment to social responsibility, which are essential components of its business strategy. The company's commitment to diversity and inclusion is a key factor in its ability to attract and retain top talent, innovate effectively, and remain competitive in the market",
     "Score_perso_Qwen2": 0.5,
     "Score_perso_Qwen2.5": 1.0,
     "Score_perso_Gemma_4B": 0.5,
@@ -980,7 +1155,10 @@
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "The company has several commitments to diversity and inclusion:\n\n1. **Employee Resource Groups**: The company has Employee Resource Groups that have been created to support its large global workforce and help it innovate for its customers.\n\n2. **Diversity Targets**: The company has set diversity targets for interview slates and targeted recruiting to increase the representation of women, minorities, U.S. veterans, individuals with disabilities, and LGBTQ+ talent within Emerson.\n\n3. **Diversity Goals at the Board Level**: In 2021, the company introduced diversity goals at the board level. They continued to make progress on these goals and were named a \"Best Employer for Diversity\" by Forbes. Overall, women represent 33 percent of their global workforce and 2",
+    "Faithfulness_Score_Langchain": 1.0
   },
   {
     "Question_ID": 43,
@@ -995,7 +1173,7 @@
     "Answer_Qwen2.5": "The document does not provide specific figures for the total amount of salaries and compensation paid to employees. It only mentions that the Company has approximately 67,000 employees as of September 30, 2023, and that management believes the Company's employee relations are favorable. To determine the total amount of salaries and compensation paid to employees, one would need more detailed financial information which is not provided in the given text.",
     "Answer_Gemma_4B": "Based on the provided documents, the total amount of salaries and compensation paid to employees is **$4.2 billion**. \n\nThis figure is derived from the \"Human Capital Resources\" section, specifically the line item \"Total Salaries and Compensation.\"",
     "Answer_Gemma_12B": "Based on the provided documents, the total amount of salaries and compensation paid to employees is **$1.1 billion**.\n\nHere's where that information is found:\n\n*   **Page 5:** \"In 2023, the Company incurred $1.1 billion in salaries and compensation, including benefits.\"",
-    "Answer_langchain_pipeline":"To determine the total amount of salaries and compensation paid to employees, we need to look at the section that provides details about employee compensation. However, the provided text does not contain specific figures for salaries and compensation paid to employees. The text includes financial data such as actual returns on plan assets, employer contributions, benefits paid, settlements, acquisitions/divestitures, foreign currency translation, and the fair value of plan assets. It also mentions deferred tax assets and liabilities, but these are not directly related to salaries and compensation paid to employees. Given the information provided, there is no direct figure for salaries and compensation paid to employees. The closest relevant information would be the <Employee compensation and benefits> line under deferred tax assets, which shows $122 million in 2022 and $103 million in 2023. However, this likely represents a portion of the total compensation and benefits paid, rather than the full amount. For a precise answer, we would need additional information or a different section of the document that specifically lists salaries and compensation paid to employees. If you have access to more detailed financial statements or a different part of the proxy statement, please provide that information so I can assist you further. Otherwise, based solely on the given text, it's not possible to determine the total amount of salaries and compensation paid to employees. If you're looking for a specific figure, you might want to check the <Compensation Tables> mentioned in the text, which could include detailed breakdowns of employee compensation.",
+    "Answer_langchain_pipeline": "To determine the total amount of salaries and compensation paid to employees, we need to look at the section that provides details about employee compensation. However, the provided text does not contain specific figures for salaries and compensation paid to employees. The text includes financial data such as actual returns on plan assets, employer contributions, benefits paid, settlements, acquisitions/divestitures, foreign currency translation, and the fair value of plan assets. It also mentions deferred tax assets and liabilities, but these are not directly related to salaries and compensation paid to employees. Given the information provided, there is no direct figure for salaries and compensation paid to employees. The closest relevant information would be the <Employee compensation and benefits> line under deferred tax assets, which shows $122 million in 2022 and $103 million in 2023. However, this likely represents a portion of the total compensation and benefits paid, rather than the full amount. For a precise answer, we would need additional information or a different section of the document that specifically lists salaries and compensation paid to employees. If you have access to more detailed financial statements or a different part of the proxy statement, please provide that information so I can assist you further. Otherwise, based solely on the given text, it's not possible to determine the total amount of salaries and compensation paid to employees. If you're looking for a specific figure, you might want to check the <Compensation Tables> mentioned in the text, which could include detailed breakdowns of employee compensation.",
     "Score_perso_Qwen2": 0.0,
     "Score_perso_Qwen2.5": 1.0,
     "Score_perso_Gemma_4B": 0.0,
@@ -1003,7 +1181,10 @@
     "Faithfulness_Score_Qwen2": 0.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 0.0,
+    "Answer_PV2": "The provided text does not contain information about the total amount of salaries and compensation paid to employees. The text discusses stock-based compensation, deferred tax liabilities, and contingent liabilities but does not provide details on employee salaries or compensation. To find this information, one would need to look at the company's financial statements that include an income statement or a compensation report.",
+    "Faithfulness_Score_Langchain": 0.0
   },
   {
     "Question_ID": 44,
@@ -1018,7 +1199,7 @@
     "Answer_Qwen2.5": "The company, Emerson, is dedicated to modernizing its workplace culture to meet the needs and expectations of today’s workers and attract talent that will help them thrive. They have launched their first-ever employee value proposition, Let's Go, which serves as an invitation to employees and potential employees to join the Company in their bold aspiration to create a healthier, safer, smarter and more sustainable world. The Company's success depends on their ability to attract, develop and retain key personnel. The skills, experience, and industry knowledge of key employees significantly benefit their operations and performance.\n\nThe Company supports and develops its employees through global training and development programs that build and strengthen employees' leadership and professional skills. Leadership development programs include intensive learning programs for new leaders as well as more",
     "Answer_Gemma_4B": "Here’s a breakdown of the company’s policy on training and skill development, based on the provided documents:\n\n**Key Points:**\n\n*   **Investment in Employees:** The company dedicates significant resources to employee training and development programs.\n*   **Broad Range of Programs:** They offer a variety of programs, including:\n    *   Global training and development programs to build and strengthen employees and leadership.\n    *   Specific programs focused on cybersecurity, data privacy, and disaster recovery.\n    *   Employee engagement initiatives, like “Voice Counts,” to gather feedback and understand employee concerns.\n*   **Focus on Resilience:** They emphasize building resilience and preparedness for various events, including cybersecurity threats, natural disasters, and other incidents",
     "Answer_Gemma_12B": "Here's what the document states about the company's policy on training and skill development:\n\n*   **Emphasis on Training:** The company is dedicated to modernizing its workforce to meet the needs and expectations of today's workers. They provide training and development programs that build and attract talent that will help us thrive.\n*   **Upskilling and Modernization:** The company aims to modernize its workforce and is focused on upgrading or replacing software, databases, or components.\n*   **Cybersecurity Training:** They are focused on improving employee awareness of cybersecurity threats and incidents, with a goal of 85 percent of employees taking part in the company's training.\n*   **Continuous Learning:** The company has a continuous learning strategy",
-    "Answer_langchain_pipeline":"The company's policy on training and skill development includes:1. Leadership development programs that include intensive learning programs for both new and established leaders. 2. Partnerships with educational institutions and nonprofit organizations to provide necessary knowledge and skills for current and future employees. 3. Regular employee surveys conducted with third-party consultants to assess and improve employee retention and engagement. 4. A continuous listening strategy initiated in 2023, where more than 85% of employees participated in the survey and had an overall engagement score of 78%. These initiatives aim to modernize the workplace culture and attract talent that will help the company thrive by focusing on employee health, safety, growth, and development, as well as access to resources and support. The company believes that the success of the business depends on attracting, developing, and retaining key personnel, whose skills, experience, and industry knowledge are crucial for operational and performance benefits. The company's Board of Directors and management oversee these employee initiatives. The company supports and develops its employees through global training and development programs that build and strengthen their leadership and professional skills. The company also has a policy on performance-based compensation, including performance stock units, which can vest based on specific performance goals related to Annual Contract Value growth and free cash flow margin. The company evaluates the probability of achieving these performance goals on a quarterly basis to determine the amount of compensation expense to record in the consolidated financial statements. During 2023, the total fair value of vested shares from AspenTech RSU grants was $53, and withholding taxes of $19 were paid on vested RSUs. The company's commitment to employee development and engagement is evident in its focus on creating a healthier, safer, smarter, and more sustainable world through its employee value proposition, <Let's Go.> The company's policies and practices demonstrate a strong commitment to fostering a positive work environment and supporting the growth and development of its employees. The company's Board of Directors and management oversee these initiatives, ensuring that they align with the company's overall goals and objectives. The company's commitment to employee development and engagement is evident in its focus on creating a healthier, safer, smarter, and more sustainable world through its employee value proposition, <Let's Go.> The company's policies and practices demonstrate a strong commitment to fostering a positive work environment and supporting the growth and development of its employees. The company's Board of Directors and management oversee these initiatives, ensuring that they align with the company's overall goals and objectives. The company's commitment to employee development and engagement is evident in its focus on creating a healthier, safer, smarter, and more sustainable world through its employee value proposition, <Let's Go.> The company's policies and practices demonstrate a strong commitment to fostering a positive work environment and supporting the growth and development of its employees. The company's Board of Directors and management oversee these initiatives, ensuring that they align with the company's overall goals and objectives. The company's commitment to employee development and engagement is evident in its focus on creating a healthier, safer, smarter, and more sustainable world through its employee value proposition, <Let's Go.> The company's policies and practices demonstrate a strong commitment to fostering a positive work environment and supporting the growth and development of its employees. The company's Board of Directors and management oversee these initiatives, ensuring that they align with the company's overall goals and objectives. The company's commitment to employee development and engagement is evident in its focus on creating a healthier, safer, smarter, and more sustainable world through its employee value proposition, <Let's Go.> The company's policies and practices demonstrate a strong commitment to fostering a positive work environment and supporting the growth and development of its employees. The company's Board of Directors and management oversee these initiatives, ensuring that they align with the company's overall goals and objectives. The company's commitment to employee development and engagement is evident in its focus on creating a healthier, safer, smarter, and more sustainable world through its employee value proposition, <Let's Go.> The company's policies and practices demonstrate a strong commitment to fostering a positive work environment and supporting the growth and development of its employees. The company's Board of Directors and management oversee these initiatives, ensuring that they align with the company's overall goals and objectives. The company's commitment to employee development and engagement is evident in its focus on creating a healthier, safer, smarter, and more sustainable world through its employee value proposition, <Let's Go.> The company's policies and practices demonstrate a strong commitment to fostering a positive work environment and supporting the growth and development of its employees. The company's Board of Directors and management oversee these initiatives, ensuring that they align with the company's overall goals and objectives. The company's commitment to employee development and engagement is evident in its focus on creating a healthier, safer, smarter, and more sustainable world through its employee value proposition, <Let's Go.> The company's policies and practices demonstrate a strong commitment to fostering a positive work environment",
+    "Answer_langchain_pipeline": "The company's policy on training and skill development includes:1. Leadership development programs that include intensive learning programs for both new and established leaders. 2. Partnerships with educational institutions and nonprofit organizations to provide necessary knowledge and skills for current and future employees. 3. Regular employee surveys conducted with third-party consultants to assess and improve employee retention and engagement. 4. A continuous listening strategy initiated in 2023, where more than 85% of employees participated in the survey and had an overall engagement score of 78%. These initiatives aim to modernize the workplace culture and attract talent that will help the company thrive by focusing on employee health, safety, growth, and development, as well as access to resources and support. The company believes that the success of the business depends on attracting, developing, and retaining key personnel, whose skills, experience, and industry knowledge are crucial for operational and performance benefits. The company's Board of Directors and management oversee these employee initiatives. The company supports and develops its employees through global training and development programs that build and strengthen their leadership and professional skills. The company also has a policy on performance-based compensation, including performance stock units, which can vest based on specific performance goals related to Annual Contract Value growth and free cash flow margin. The company evaluates the probability of achieving these performance goals on a quarterly basis to determine the amount of compensation expense to record in the consolidated financial statements. During 2023, the total fair value of vested shares from AspenTech RSU grants was $53, and withholding taxes of $19 were paid on vested RSUs. The company's commitment to employee development and engagement is evident in its focus on creating a healthier, safer, smarter, and more sustainable world through its employee value proposition, <Let's Go.> The company's policies and practices demonstrate a strong commitment to fostering a positive work environment and supporting the growth and development of its employees. The company's Board of Directors and management oversee these initiatives, ensuring that they align with the company's overall goals and objectives. The company's commitment to employee development and engagement is evident in its focus on creating a healthier, safer, smarter, and more sustainable world through its employee value proposition, <Let's Go.> The company's policies and practices demonstrate a strong commitment to fostering a positive work environment and supporting the growth and development of its employees. The company's Board of Directors and management oversee these initiatives, ensuring that they align with the company's overall goals and objectives. The company's commitment to employee development and engagement is evident in its focus on creating a healthier, safer, smarter, and more sustainable world through its employee value proposition, <Let's Go.> The company's policies and practices demonstrate a strong commitment to fostering a positive work environment and supporting the growth and development of its employees. The company's Board of Directors and management oversee these initiatives, ensuring that they align with the company's overall goals and objectives. The company's commitment to employee development and engagement is evident in its focus on creating a healthier, safer, smarter, and more sustainable world through its employee value proposition, <Let's Go.> The company's policies and practices demonstrate a strong commitment to fostering a positive work environment and supporting the growth and development of its employees. The company's Board of Directors and management oversee these initiatives, ensuring that they align with the company's overall goals and objectives. The company's commitment to employee development and engagement is evident in its focus on creating a healthier, safer, smarter, and more sustainable world through its employee value proposition, <Let's Go.> The company's policies and practices demonstrate a strong commitment to fostering a positive work environment and supporting the growth and development of its employees. The company's Board of Directors and management oversee these initiatives, ensuring that they align with the company's overall goals and objectives. The company's commitment to employee development and engagement is evident in its focus on creating a healthier, safer, smarter, and more sustainable world through its employee value proposition, <Let's Go.> The company's policies and practices demonstrate a strong commitment to fostering a positive work environment and supporting the growth and development of its employees. The company's Board of Directors and management oversee these initiatives, ensuring that they align with the company's overall goals and objectives. The company's commitment to employee development and engagement is evident in its focus on creating a healthier, safer, smarter, and more sustainable world through its employee value proposition, <Let's Go.> The company's policies and practices demonstrate a strong commitment to fostering a positive work environment and supporting the growth and development of its employees. The company's Board of Directors and management oversee these initiatives, ensuring that they align with the company's overall goals and objectives. The company's commitment to employee development and engagement is evident in its focus on creating a healthier, safer, smarter, and more sustainable world through its employee value proposition, <Let's Go.> The company's policies and practices demonstrate a strong commitment to fostering a positive work environment",
     "Score_perso_Qwen2": 1.0,
     "Score_perso_Qwen2.5": 0.5,
     "Score_perso_Gemma_4B": 0.5,
@@ -1026,7 +1207,10 @@
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "The company's policy on training and skill development includes providing global training and development programs that build and strengthen employees' leadership and professional skills. Leadership development programs include intensive learning programs for new leaders as well as more established leaders. The Company also partners with educational institutions and nonprofit organizations to help prepare current and future workers with the knowledge and skills they need to succeed.",
+    "Faithfulness_Score_Langchain": 1.0
   },
   {
     "Question_ID": 45,
@@ -1041,7 +1225,7 @@
     "Answer_Qwen2.5": "No, the document does not provide specific information about the proportion of employees who are unionized within Emerson. It only mentions that a small portion of the U.S. employees are unionized, but it does not give an exact percentage or number.",
     "Answer_Gemma_4B": "Based on the provided text, the company states: “Our overall engagement score of 78 percent of industry workers and potential employee take union-first ever employee lead proposition.”\n\nThis indicates that **78% of the company’s workforce** is involved with union activities.",
     "Answer_Gemma_12B": "According to the provided text, approximately 15% of the company's employees are unionized.\n\n\n\n\"We also have taken actions to comply with national incident reporting laws for our customers. Approximately 15 percent of our employees are covered by collective bargaining agreements.\"",
-    "Answer_langchain_pipeline":"Context: A small portion of the Company’s U.S. employees are unionized, while outside the U.S., we have employees in certain countries, particularly in Europe, that are represented by an employee representative organization, such as a union, works council or employee association. To what extent does the company have unionized employees? The company has a small portion of its U.S. employees who are unionized. The exact percentage is not provided in the context given. However, it is mentioned that there are employees in certain European countries who are represented by an employee representative organization like a union, works council, or employee association. This indicates that the company has some degree of unionization both in the U.S. and in certain European countries, but without specific numbers, it's difficult to provide a precise extent of unionized employees across all locations. The context suggests that the company recognizes and accommodates these different forms of employee representation in various regions.",
+    "Answer_langchain_pipeline": "Context: A small portion of the Company’s U.S. employees are unionized, while outside the U.S., we have employees in certain countries, particularly in Europe, that are represented by an employee representative organization, such as a union, works council or employee association. To what extent does the company have unionized employees? The company has a small portion of its U.S. employees who are unionized. The exact percentage is not provided in the context given. However, it is mentioned that there are employees in certain European countries who are represented by an employee representative organization like a union, works council, or employee association. This indicates that the company has some degree of unionization both in the U.S. and in certain European countries, but without specific numbers, it's difficult to provide a precise extent of unionized employees across all locations. The context suggests that the company recognizes and accommodates these different forms of employee representation in various regions.",
     "Score_perso_Qwen2": 1.0,
     "Score_perso_Qwen2.5": 1.0,
     "Score_perso_Gemma_4B": 0.0,
@@ -1049,7 +1233,10 @@
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 0.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 0.0
+    "Faithfulness_Score_Gemma_12B": 0.0,
+    "Faithfulness_Score_PV2": 0.0,
+    "Answer_PV2": "No, the document does not provide specific information about the proportion of employees who are unionized within Emerson. It only mentions that a small portion of the U.S. employees are unionized, but it does not give an exact percentage or number.",
+    "Faithfulness_Score_Langchain": 1.0
   },
   {
     "Question_ID": 46,
@@ -1064,7 +1251,7 @@
     "Answer_Qwen2.5": "The document provides several indicators of employee satisfaction:\n\n1. **Employee Value Proposition (EVP):** The company introduced \"Let's Go,\" an EVP that serves as an invitation for employees and potential employees to join the company with a bold aspiration to create a healthier, safer, smarter, and more sustainable world.\n\n2. **Overall Engagement Score:** The company surveys employees to assess and improve employee retention and engagement. In 2023, the overall engagement score was 78 percent, which is a positive indicator of employee satisfaction.\n\n3. **Categories of Employee Satisfaction:** The survey results show that categories such as safety, well-being, growth and development, and access to resources and support earned the most favorable scores, indicating high levels of satisfaction",
     "Answer_Gemma_4B": "Okay, let's analyze the provided documents to identify indicators of employee satisfaction at Emerson. Here's a breakdown of what the documents suggest:\n\n**Positive Indicators (Suggesting a Focus on Employee Well-being & Development):**\n\n*   **\"Prioritizing Our People and Modernizing Our Culture\":** This statement directly indicates a company-wide effort to improve the employee experience.\n*   **\"Employee Engagement Score of 78 Percent\":** This is a strong positive indicator. An engagement score of 78% suggests a significant portion of employees feel connected to the company and its goals.\n*   **\"Continuous Employee Surveys\":** The company actively seeks feedback through surveys, demonstrating a commitment to understanding employee sentiment.",
     "Answer_Gemma_12B": "Here are some indicators of employee satisfaction mentioned in the provided text:\n\n*   **Overall engagement score of 78 percent:** This suggests a high level of employee engagement, which is often linked to satisfaction.\n*   **85 percent of employees addressed areas of the company in the survey:** This indicates a willingness to provide feedback and participate in improvement efforts.\n*   **The company has been recognized as a top employer:** This is a general indicator of a positive work environment and employee satisfaction.\n*   **Focus on employee needs and expectations:** The company states a dedication to modernizing its workplace culture to meet the needs and expectations of its workers.\n*   **Emphasis on well-being, growth, and development:** The company",
-    "Answer_langchain_pipeline":"Assistant: Indicators of employee satisfaction can vary widely depending on the specific company, but common metrics often used by organizations to gauge employee satisfaction include: 1. **Engagement Surveys**: Regularly conducted surveys that ask employees about their job satisfaction, work environment, and overall sense of fulfillment at work. These surveys can provide insights into what aspects of the workplace are working well and where improvements might be needed. 2. **Turnover Rates**: High turnover rates can indicate dissatisfaction among employees, as they may feel that their current roles do not offer enough opportunities for growth, recognition, or compensation. 3. **Employee Retention**: Companies with high employee retention rates tend to have satisfied employees who are committed to staying with the organization. This can be measured by comparing the number of employees leaving the company over a certain period to those joining. 4. **Feedback Mechanisms**: Open channels for employees to provide feedback on their experiences and suggestions for improvement. This can include suggestion boxes, regular meetings with managers, or anonymous surveys. 5. **Well-being Programs**: The effectiveness of programs designed to support employee mental and physical health, such as wellness programs, flexible work arrangements, and employee assistance programs (EAPs). 6. **Training and Development**: The extent to which employees feel that their skills are being developed and that they have opportunities for advancement within the company. 7. **Recognition and Rewards**: The frequency and nature of recognition and rewards given to employees for their contributions. This can include bonuses, promotions, public recognition, and other forms of appreciation. 8. **Work-Life Balance**: Employees who feel that their work-life balance is good tend to be more satisfied. This can be assessed through surveys asking about the amount of time spent on work versus personal life, and whether employees feel supported in managing these demands. 9. **Leadership and Management**: The quality of leadership and management styles can significantly impact employee satisfaction. Employees who feel that their managers are approachable, supportive, and effective in their roles tend to be more satisfied. 10. **Company Culture**: The overall culture of the company, including its values, mission, and how it treats its employees, can influence satisfaction levels. A positive company culture fosters a sense of belonging and shared purpose. By monitoring these indicators, companies can better understand the factors contributing to employee satisfaction and take steps to improve them, ultimately leading to a more engaged and productive workforce.",
+    "Answer_langchain_pipeline": "Assistant: Indicators of employee satisfaction can vary widely depending on the specific company, but common metrics often used by organizations to gauge employee satisfaction include: 1. **Engagement Surveys**: Regularly conducted surveys that ask employees about their job satisfaction, work environment, and overall sense of fulfillment at work. These surveys can provide insights into what aspects of the workplace are working well and where improvements might be needed. 2. **Turnover Rates**: High turnover rates can indicate dissatisfaction among employees, as they may feel that their current roles do not offer enough opportunities for growth, recognition, or compensation. 3. **Employee Retention**: Companies with high employee retention rates tend to have satisfied employees who are committed to staying with the organization. This can be measured by comparing the number of employees leaving the company over a certain period to those joining. 4. **Feedback Mechanisms**: Open channels for employees to provide feedback on their experiences and suggestions for improvement. This can include suggestion boxes, regular meetings with managers, or anonymous surveys. 5. **Well-being Programs**: The effectiveness of programs designed to support employee mental and physical health, such as wellness programs, flexible work arrangements, and employee assistance programs (EAPs). 6. **Training and Development**: The extent to which employees feel that their skills are being developed and that they have opportunities for advancement within the company. 7. **Recognition and Rewards**: The frequency and nature of recognition and rewards given to employees for their contributions. This can include bonuses, promotions, public recognition, and other forms of appreciation. 8. **Work-Life Balance**: Employees who feel that their work-life balance is good tend to be more satisfied. This can be assessed through surveys asking about the amount of time spent on work versus personal life, and whether employees feel supported in managing these demands. 9. **Leadership and Management**: The quality of leadership and management styles can significantly impact employee satisfaction. Employees who feel that their managers are approachable, supportive, and effective in their roles tend to be more satisfied. 10. **Company Culture**: The overall culture of the company, including its values, mission, and how it treats its employees, can influence satisfaction levels. A positive company culture fosters a sense of belonging and shared purpose. By monitoring these indicators, companies can better understand the factors contributing to employee satisfaction and take steps to improve them, ultimately leading to a more engaged and productive workforce.",
     "Score_perso_Qwen2": 1.0,
     "Score_perso_Qwen2.5": 1.0,
     "Score_perso_Gemma_4B": 1.0,
@@ -1072,7 +1259,10 @@
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "Based on the information provided in the text, here are some indicators of employee satisfaction:\n\n1. **Employee Retention**: The company has taken actions to address areas of employee concern and has seen an improvement in retention rates. In 2023, the Company's total voluntary turnover rate was 14%, which is down from 16% in 2022.\n\n2. **Overall Engagement Score**: The company surveys employees with the assistance of third-party consultants and takes actions to address areas of employee concern. In 2023, the overall engagement score reached 78 percent, indicating high levels of employee satisfaction.\n\n3. **Categories of Satisfaction**: The categories of safety, well-being, growth and development, and",
+    "Faithfulness_Score_Langchain": 1.0
   },
   {
     "Question_ID": 47,
@@ -1087,7 +1277,7 @@
     "Answer_Qwen2.5": "The provided text does not mention any specific strikes that the company has experienced this year. The document discusses various risks and challenges faced by the company, including economic risks, legal and regulatory risks, and operational risks such as supply chain disruptions and raw material shortages. However, there is no information about strikes in the given text.",
     "Answer_Gemma_4B": "Based on the provided documents, the company has experienced labor strikes. Specifically, it mentions “labor strike, war (including the Russia-Ukraine and other global conflicts), potential effects of climate change), and health concerns such as an epidemic or pandemic, particularly in emerging countries that are not well-equipped to provide such occurrences.”",
     "Answer_Gemma_12B": "Based on the provided text, the company has experienced strikes this year. Here's the relevant excerpt:\n\n\"The global outbreak of the coronavirus (COVID-19) has significantly increased numerous risks, including labor unrest and strikes.\"",
-    "Answer_langchain_pipeline":"Based on the provided context, the company has not experienced any strikes this year. The information indicates that a small portion of the company's U.S. employees are unionized, but it does not mention any strikes occurring within the current year. The context also notes that outside the U.S., employees in certain countries, particularly in Europe, may be represented by employee representative organizations like unions, works councils, or employee associations, but again, no specific strikes are mentioned. Therefore, it can be concluded that there have been no strikes at the company this year.",
+    "Answer_langchain_pipeline": "Based on the provided context, the company has not experienced any strikes this year. The information indicates that a small portion of the company's U.S. employees are unionized, but it does not mention any strikes occurring within the current year. The context also notes that outside the U.S., employees in certain countries, particularly in Europe, may be represented by employee representative organizations like unions, works councils, or employee associations, but again, no specific strikes are mentioned. Therefore, it can be concluded that there have been no strikes at the company this year.",
     "Score_perso_Qwen2": 1.0,
     "Score_perso_Qwen2.5": 1.0,
     "Score_perso_Gemma_4B": 0.0,
@@ -1095,7 +1285,10 @@
     "Faithfulness_Score_Qwen2": 0.0,
     "Faithfulness_Score_Qwen2.5": 0.0,
     "Faithfulness_Score_Gemma_4B": 0.0,
-    "Faithfulness_Score_Gemma_12B": 0.0
+    "Faithfulness_Score_Gemma_12B": 0.0,
+    "Faithfulness_Score_PV2": 0.0,
+    "Answer_PV2": "No, the provided text does not mention any strikes that the company has experienced this year. The document discusses various aspects of the company's operations, including human capital resources, environmental sustainability, and cybersecurity threats, but does not provide information about strikes or labor disputes.",
+    "Faithfulness_Score_Langchain": 0.0
   },
   {
     "Question_ID": 48,
@@ -1110,7 +1303,7 @@
     "Answer_Qwen2.5": "The main investments made by Emerson Electric Co. in 2023, as detailed in the provided text, include:\n\n1. **Acquisition of National Instruments Corporation (NI)**: On October 11, 2023, Emerson completed the acquisition of National Instruments Corporation (NI). This acquisition is part of the Test & Measurement segment and is reported as a new segment in the Software and Control business group for 2024.\n\n2. **Heritage AspenTech Acquisition**: The company also acquired Heritage AspenTech, which is related to the amortization of intangibles in 2023.\n\n3. **Other Investments**: There were other investments and costs such as restructuring costs, foreign currency transaction gains/loss",
     "Answer_Gemma_4B": "Here’s a breakdown of the main investments made this year, according to the provided notes:\n\n*   **AspenTech:** A global leader in asset optimization software.\n*   **NI (National Instruments):** Completed the acquisition on October 11, 2023.\n*   **Heritage AspenTech:** Acquisition of the company in 2023.\n\nDo you want me to extract any other specific information from these notes?",
     "Answer_Gemma_12B": "Here's a breakdown of the main investments made by Emerson in 2023, based on the provided text:\n\n*   **Acquisition of National Instruments (NI):** Completed on October 11, 2023, this acquisition was referred to as Test & Measurement and reported as a new segment in the Software and Control Systems group in 2024.\n*   **Heritage AspenTech Acquisition:**  Intangibles amortization included $258 related to this acquisition in 2023.\n*   **Russia Business Exit:** The company adopted Russia business exit, which resulted in a loss on Copeland equity method investment.\n\n\n\nLet me know if you'd like me to elaborate on any",
-    "Answer_langchain_pipeline":"the main investments made this year can be summarized as follows: - **Strategic Investments**: - Investment in National Instruments. - Acquisition hedging strategy for AspenTech Micromine. - **Exit Strategies**: - Exit from the Russia business. - **Risk Management**: - Hedging against potential losses from the Copeland transaction. These investments reflect a mix of strategic growth initiatives, risk management, and strategic exits, indicating a balanced approach to capital allocation.",
+    "Answer_langchain_pipeline": "the main investments made this year can be summarized as follows: - **Strategic Investments**: - Investment in National Instruments. - Acquisition hedging strategy for AspenTech Micromine. - **Exit Strategies**: - Exit from the Russia business. - **Risk Management**: - Hedging against potential losses from the Copeland transaction. These investments reflect a mix of strategic growth initiatives, risk management, and strategic exits, indicating a balanced approach to capital allocation.",
     "Score_perso_Qwen2": 0.0,
     "Score_perso_Qwen2.5": 0.0,
     "Score_perso_Gemma_4B": 0.0,
@@ -1118,7 +1311,10 @@
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "The main investments made by Emerson Electric Co. in 2023, as mentioned in the provided text, include:\n\n1. **Copeland Transaction**: The company received a note receivable and retained a 40 percent non-controlling common equity interest in Copeland. The future value or proceeds from the note receivable and common equity interest will depend on the business performance of Copeland and how the controlling owner manages the business.\n\n2. **Heritage AspenTech Acquisition**: This acquisition had an unfavorable impact from foreign currency transactions of $112 reflecting losses in the current year compared to gains in the prior year. The company also incurred a mark-to-market gain of $56 on its equity investment in NL and a mark-to-market",
+    "Faithfulness_Score_Langchain": 1.0
   },
   {
     "Question_ID": 49,
@@ -1133,7 +1329,7 @@
     "Answer_Qwen2.5": "The company's strategy to improve long-term profitability includes several key elements:\n\n1. **Strategic Moves and Portfolio Transformation**: The company continues to undertake strategic moves to transform Emerson into a leading global automation company, focusing on execution of financial targets set at the beginning of the year.\n\n2. **Emerson Management System**: The company attributes its accomplishments to its Emerson Management System, which drives operational execution and growth while balancing risk and innovation, and better allocating leaders' time and resources.\n\n3. **Driving Strong Financial Performance**: The company has achieved strong financial performance with Underlying Sales Growth of 10%, Adjusted Segment EBITA Margin of 25.0%, Adjusted Earnings Per Share of $4.44, and Free Cash",
     "Answer_Gemma_4B": "Here’s a breakdown of the company’s strategy to improve long-term profitability, based on the provided documents:\n\n**1. Driving Strong Financial Performance:**\n\n*   **Automation Portfolio:** The company is undertaking strategic moves to further transform Emerson into a leading global automation company.\n*   **GHG Emissions Reduction:** They have an ambitious target to achieve net-zero greenhouse gas (GHG) emissions across our value chain by 2045, compared to a 2021 baseline. They aim to reduce GHG emissions by 25% by 2030.\n\n**2. Sustainability Initiatives:**\n\n*   **Greening By Emerson:** They are focused on delivering technology, solutions, and expertise through",
     "Answer_Gemma_12B": "Here's a breakdown of the company's strategy to improve long-term profitability, based on the provided text:\n\n**Key Pillars of the Strategy:**\n\n*   **Strategic Transformation:** The company is focused on executing a strategic transformation, aiming to exceed its financial targets.\n*   **Digitalization:** A key element is leveraging digital solutions to drive operational excellence.\n*   **Sustainability:**  A significant focus is on sustainability, including:\n    *   Setting ambitious targets to achieve net zero greenhouse gas (GHG) emissions across their value chain by 2045.\n    *   Reducing GHG emissions by 25% compared to a 2021 baseline.\n    *   Focusing on energy",
-    "Answer_langchain_pipeline":"In summary, the company's strategy to improve long-term profitability involves: - Reinvesting equity and resources in diversified investments, both in equities and bonds, to manage risks and maximize returns. - Implementing cost reduction initiatives during economic downturns to enhance operational efficiency. - Continuously monitoring and rebalancing investments to ensure optimal allocation of resources. - Maintaining a strong financial position through substantial operating cash flow.",
+    "Answer_langchain_pipeline": "In summary, the company's strategy to improve long-term profitability involves: - Reinvesting equity and resources in diversified investments, both in equities and bonds, to manage risks and maximize returns. - Implementing cost reduction initiatives during economic downturns to enhance operational efficiency. - Continuously monitoring and rebalancing investments to ensure optimal allocation of resources. - Maintaining a strong financial position through substantial operating cash flow.",
     "Score_perso_Qwen2": 0.7,
     "Score_perso_Qwen2.5": 0.8,
     "Score_perso_Gemma_4B": 0.5,
@@ -1141,7 +1337,10 @@
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "The company's strategy to improve long-term profitability includes several key initiatives:\n\n1. **Strategic Acquisitions and Refinancing:** The company aims to invest in its businesses through strategic acquisitions and refinancing of maturing debt obligations, which requires access to the capital markets and sufficient bank credit lines.\n\n2. **Modernizing Culture and Support for Employees:** The business continues to modernize its culture and support for employees, focusing on innovation and operational excellence through the Emerson Management System.\n\n3. **Investment in Technology and Environmental Sustainability:** The company has formed a Technology and Environmental Sustainability Committee to oversee the company’s strategy, innovation, technology advancements, and environmental sustainability goals and programs.\n\n4. **Focus on Innovation and Meaningful Results:** The company is driven",
+    "Faithfulness_Score_Langchain": 0.0
   },
   {
     "Question_ID": 50,
@@ -1156,7 +1355,7 @@
     "Answer_Qwen2.5": "The company manages its working capital by maintaining an elevated level of operating working capital as a percent of sales, which was 8.5 percent in 2023 compared to 7.2 percent in 2021 and 3.5 percent in 2022. This increase is attributed to higher inventory levels to support sales growth and reflecting supply chain constraints. The company also uses cash flow from continuing operations to fund its working capital needs, with operating cash flow decreasing by $798 million in 2023 compared to 2021 due to increased sales and ongoing supply chain constraints. Additionally, the company has a significant amount of cash on hand, with total cash provided by operating activities being $",
     "Answer_Gemma_4B": "Here’s a breakdown of how the company manages its working capital, based on the provided documents:\n\n**Key Points Regarding Working Capital Management:**\n\n*   **Operating Working Capital:** The company’s operating working capital increased significantly from $457 million in 2021 to $1,283 million in 2023. This reflects higher inventory levels and higher receivables.\n*   **Management Responsibility:** Management is responsible for the reliability of the consolidated financial statements, and the integrity and accuracy of the financial statements.\n*   **Internal Control Over Financial Reporting:** The company has an internal control system designed to provide reasonable assurance that assets are safeguarded and transactions are recorded properly.\n*   **Inventory Levels",
     "Answer_Gemma_12B": "Here's what the provided text says about how the company manages its working capital:\n\n*   **Operating Cash Flow:** The company's operating cash flow from continuing operations increased to $2.72 billion in 2023, an increase of $678 or 33 percent compared with 2022, reflecting higher inventory levels to support sales growth and reflecting supply chain constraints.\n*   **Working Capital:** Operating working capital remained elevated in 2023 due to higher inventory levels.\n*   **Increased Working Capital:** The company increased operating working capital by approximately $250 in 2022.\n\n\n\nIn essence, the company has been actively managing its working capital, particularly",
-    "Answer_langchain_pipeline":"he company manages its working capital by maintaining a balance between its current assets and liabilities. It aims to ensure that it has enough liquid assets to cover its short-term obligations while also supporting its operational needs. The company's working capital management involves several strategies such as optimizing inventory levels, managing accounts receivable, and controlling accounts payable. Additionally, the company monitors its cash flow to ensure that it can meet its financial obligations and invest in future growth opportunities. The context provided indicates that the company's working capital as a percentage of sales has increased slightly from 2021 to 2022, reflecting higher inventory levels to support sales growth and higher receivables, but it remains manageable. The company also has a significant amount of cash and equivalents, which provides a buffer against potential liquidity issues. The company's commitment to employee development and retention suggests that it values its human capital, which is crucial for effective working capital management and overall business performance.",
+    "Answer_langchain_pipeline": "he company manages its working capital by maintaining a balance between its current assets and liabilities. It aims to ensure that it has enough liquid assets to cover its short-term obligations while also supporting its operational needs. The company's working capital management involves several strategies such as optimizing inventory levels, managing accounts receivable, and controlling accounts payable. Additionally, the company monitors its cash flow to ensure that it can meet its financial obligations and invest in future growth opportunities. The context provided indicates that the company's working capital as a percentage of sales has increased slightly from 2021 to 2022, reflecting higher inventory levels to support sales growth and higher receivables, but it remains manageable. The company also has a significant amount of cash and equivalents, which provides a buffer against potential liquidity issues. The company's commitment to employee development and retention suggests that it values its human capital, which is crucial for effective working capital management and overall business performance.",
     "Score_perso_Qwen2": 0.5,
     "Score_perso_Qwen2.5": 1.0,
     "Score_perso_Gemma_4B": 0.5,
@@ -1164,7 +1363,10 @@
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "The provided text does not explicitly mention how Emerson manages its working capital. However, based on the information given, we can infer some strategies that might be employed:\n\n1. **Human Capital Resources**: The company focuses on attracting and retaining skilled employees by offering competitive wages and benefits, promoting an inclusive work environment, and providing training and development programs. This suggests that the company invests in human resources to ensure it has the talent needed to operate efficiently.\n\n2. **Environmental Sustainability**: The company aims to drive innovation for a healthier, safer, smarter, and more sustainable world. This could involve investing in research and development (R&D) to improve efficiency and reduce costs, which may indirectly impact working capital management.\n\n3. **Financial Review**: The company's",
+    "Faithfulness_Score_Langchain": 1.0
   },
   {
     "Question_ID": 51,
@@ -1179,7 +1381,7 @@
     "Answer_Qwen2.5": "The total amount of provisions mentioned in the text corresponds to warranty expense. The text states that warranties vary by product line and are competitive for the markets in which Emerson operates. Warranties are largely offered to provide assurance that the product will function as intended and generally extend for a period of one to two years from the date of sale or installation. Provisions for warranty expense are estimated at the time of sale based on historical experience and adjusted quarterly for any known issues that may arise. Product warranty expense is less than one-half of one percent of sales.",
     "Answer_Gemma_4B": "Here's a breakdown of the provisions mentioned in the documents, along with their corresponding details:\n\n**1. Goodwill and Other Acquisitions:**\n\n*   **Total Amount:** $26.6 billion\n*   **What it corresponds to:** This represents the cumulative amount of goodwill and other acquisitions recorded as assets. It's important to note that these assets are subject to impairment testing.\n\n**2. Leases:**\n\n*   **Total Amount:** $1.2 billion\n*   **What it corresponds to:** This is the cumulative lease liability, reflecting the company's obligations under various lease agreements.\n\n**3. Safe Harbor Provisions:**\n\n*   **Total Amount:** $1.5 billion\n*   **What",
     "Answer_Gemma_12B": "According to the provided text, the total amount of provisions is **$285 million**, and they correspond to **environmental remediation**.\n\n\n\nYou can find this information in the \"Comparison of Five-Year Cumulative Shareholder Data\" section, specifically in the row labeled \"Environmental Remediation.\"",
-    "Answer_langchain_pipeline":"The total amount of provisions mentioned in the context is not explicitly stated. However, it can be inferred that the provisions include both the underfunding of the reserve for legal proceedings and claims ($62 million) and the unfunded pension plans ($213 million). Therefore, the total amount of provisions could be approximately $275 million ($62 million + $213 million). These provisions correspond to the company's liabilities and commitments related to ongoing legal proceedings and claims, including asbestos-related matters, and the funding status of its pension plans.",
+    "Answer_langchain_pipeline": "The total amount of provisions mentioned in the context is not explicitly stated. However, it can be inferred that the provisions include both the underfunding of the reserve for legal proceedings and claims ($62 million) and the unfunded pension plans ($213 million). Therefore, the total amount of provisions could be approximately $275 million ($62 million + $213 million). These provisions correspond to the company's liabilities and commitments related to ongoing legal proceedings and claims, including asbestos-related matters, and the funding status of its pension plans.",
     "Score_perso_Qwen2": 0.0,
     "Score_perso_Qwen2.5": 1.0,
     "Score_perso_Gemma_4B": 0.0,
@@ -1187,7 +1389,10 @@
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 0.0,
+    "Answer_PV2": "The total amount of provisions mentioned in the document corresponds to the \"Total pretax earnings\" for continuing operations. According to the table provided:\n\n- For 2021: $1,762 million\n- For 2022: $2,432 million\n- For 2023: $2,726 million\n\nThese figures represent the total pretax earnings from continuing operations over the three years. The term \"provisions\" typically refers to amounts set aside for future obligations or potential losses, which can be seen as part of the financial planning and risk management strategies of the company. However, without more context, it's not possible to determine the specific nature of these provisions from the given",
+    "Faithfulness_Score_Langchain": 0.0
   },
   {
     "Question_ID": 52,
@@ -1202,7 +1407,7 @@
     "Answer_Qwen2.5": "The financial forecasts or targets set for the next fiscal year (2024) include:\n\n- **Net sales from continuing operations:** Expected to be up 13 to 15.5 percent, with underlying sales up 4 to 6 percent excluding a 1 percent unfavorable impact from foreign currency translation and a 10 to 10.5 percent impact from the NI acquisition.\n  \n- **Earnings per share (diluted):** Expected to range between $3.82 and $4.02.\n  \n- **Adjusted earnings per share:** Expected to be between $5.15 and $5.35.\n\n- **Operating cash flow:** Expected to be between $3.0 billion and",
     "Answer_Gemma_4B": "Here’s a breakdown of the financial forecasts and targets mentioned in the provided documents:\n\n**Fiscal 2024 Outlook:**\n\n*   **Consolidated Net Sales:** Expected to be up 13 to 15.5 percent.\n*   **Underlying Sales Up:** 4 to 6 percent unfavorable currency translation and a 10 to 10.5 percent impact from the NI acquisition.\n*   **Diluted Earnings Per Share:** $3.82 - $4.02\n*   **Operating Cash Flow:** $3.0 to $3.1 billion and free cash flow of approximately $2.6 to $2.7 billion.\n*   **Adjusted Earnings",
     "Answer_Gemma_12B": "Here's a breakdown of the financial forecasts and targets for the next year (2024) as outlined in the provided documents:\n\n**Key Forecasts:**\n\n*   **Consolidated Net Sales:** Expected to be up 13 to 15.5 percent, with underlying sales up 4 to 6 percent.\n*   **Diluted Earnings Per Share (EPS):**\n    *   $3.82 - $4.02 (including the NI acquisition)\n    *   $5.15 - $5.35 (adjusted, excluding the NI acquisition)\n*   **Operating Cash Flow:** Expected to be $3.0 to $3.1 billion.\n*",
-    "Answer_langchain_pipeline":"To answer this question accurately, I need more specific information about the company's financial forecasts or targets for the upcoming year. The provided context does not contain any explicit statements about future financial forecasts or targets. However, based on the information given: 1. The company has been analyzing past investment returns and comparing them to expectations from advisors and actuaries. 2. They have detailed asset allocation data for 2022 and 2023, showing how their investments were distributed across equity securities, debt securities, and other categories. 3. There's mention of long-term debt and interest payments, but no specific targets for the next year are mentioned.4. The company has issued new debt instruments (notes) in recent years, but again, no specific targets for the next year are provided.Without additional information about planned investments, expected returns, or specific financial targets for the coming year, it's not possible to definitively state what the financial forecasts or targets are for the next year. The company appears to be focused on maintaining current asset allocation strategies and managing existing debt obligations, but there's no indication of specific financial goals or forecasts beyond those already achieved or planned.",
+    "Answer_langchain_pipeline": "To answer this question accurately, I need more specific information about the company's financial forecasts or targets for the upcoming year. The provided context does not contain any explicit statements about future financial forecasts or targets. However, based on the information given: 1. The company has been analyzing past investment returns and comparing them to expectations from advisors and actuaries. 2. They have detailed asset allocation data for 2022 and 2023, showing how their investments were distributed across equity securities, debt securities, and other categories. 3. There's mention of long-term debt and interest payments, but no specific targets for the next year are mentioned.4. The company has issued new debt instruments (notes) in recent years, but again, no specific targets for the next year are provided.Without additional information about planned investments, expected returns, or specific financial targets for the coming year, it's not possible to definitively state what the financial forecasts or targets are for the next year. The company appears to be focused on maintaining current asset allocation strategies and managing existing debt obligations, but there's no indication of specific financial goals or forecasts beyond those already achieved or planned.",
     "Score_perso_Qwen2": 0.8,
     "Score_perso_Qwen2.5": 0.8,
     "Score_perso_Gemma_4B": 1.0,
@@ -1210,6 +1415,9 @@
     "Faithfulness_Score_Qwen2": 1.0,
     "Faithfulness_Score_Qwen2.5": 1.0,
     "Faithfulness_Score_Gemma_4B": 1.0,
-    "Faithfulness_Score_Gemma_12B": 1.0
+    "Faithfulness_Score_Gemma_12B": 1.0,
+    "Faithfulness_Score_PV2": 1.0,
+    "Answer_PV2": "The financial forecasts or targets set for the next fiscal year (2024) include:\n\n- **Net sales from continuing operations:** Expected to be up 13 to 15.5 percent.\n- **Underlying sales growth:** Expected to be up 4 to 6 percent, excluding an unfavorable impact from foreign currency translation and the impact of the NI acquisition.\n- **Earnings per share (diluted):** Expected to range between $3.82 and $4.02.\n- **Adjusted earnings per share:** Expected to be between $5.15 and $5.35.\n\nAdditionally, the operating cash flow is forecasted to be between $3.0 billion and $3.1 billion",
+    "Faithfulness_Score_Langchain": 0.0
   }
 ]
