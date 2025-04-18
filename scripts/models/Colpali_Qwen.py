@@ -212,6 +212,8 @@ def generate_responses(query: str, relevant_dir: str, top_k: int = 3):
         with open(response_path, "w") as f:
             f.write(output_text)
         logger.info(f"Generated responses saved in {response_path}")
+        
+        return output_text
 
     except Exception as e:
         logger.error(f"An error occurred during response generation: {e}")

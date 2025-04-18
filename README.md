@@ -73,7 +73,7 @@ srun -p gpu_inter -t 00:30:00 --nodelist=sh03 --pty bash
 Execute the main script as follows
 
 ```bash
-python Colpali_Qwen2_5.py
+python main.py
 ```
 
 ### Retriever Evaluation

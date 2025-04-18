@@ -1,0 +1,26 @@
+[
+    {
+        "timestamp": "2025-04-19T00:16:12.990393",
+        "query": "What percentage of women occupy leadership positions in the company in 2023?",
+        "response": "system\nYou are a helpful assistant.\nuser\nUse the following pages to answer the query:\nWhat percentage of women occupy leadership positions in the company in 2023?\n\nassistant\nIn 2023, 21 percent of the company's leadership positions were held by women.",
+        "feedback": "\ud83d\udc4e"
+    },
+    {
+        "timestamp": "2025-04-19T00:21:31.611930",
+        "query": "By what percentage did Emerson\u2019s adjusted EBITA margin increase in 2023 compared to 2022?",
+        "response": "According to the provided documents, Emerson's adjusted EBITA margin increased by **2.3 percentage points** in 2023 compared to 2022. It went from 23.5% in 2022 to 25.8% in 2023.",
+        "feedback": "\ud83d\udc4d"
+    },
+    {
+        "timestamp": "2025-04-19T00:23:25.403967",
+        "query": "Did the company have any consultancy fees, if so what was the amount?",
+        "response": "system\nYou are a helpful assistant.\nuser\nUse the following pages to answer the query:\nDid the company have any consultancy fees, if so what was the amount?\n\nassistant\nThe company did not have any consultancy fees in the given period.",
+        "feedback": "\ud83d\udc4d"
+    },
+    {
+        "timestamp": "2025-04-19T00:27:46.216022",
+        "query": "By what percentage did Emerson\u2019s adjusted EBITA margin increase in 2023 compared to 2022",
+        "response": "According to the 2023 Emerson Annual Report, Emerson\u2019s adjusted EBITA margin increased by 2.3 percentage points from 23.5% in 2022 to 25.8% in 2023.",
+        "feedback": "\ud83d\udc4d"
+    }
+]
