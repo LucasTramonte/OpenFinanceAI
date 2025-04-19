@@ -24,7 +24,7 @@ Open-source project focused on developing a generative AI agent for financial an
   - [Generator](#generator)
 - [Ranking Methods](#ranking-methods)
   - [Borda Count](#borda-count)
-- [Results](#results)
+- [Results](#Results)
   - [JSON Structure](#json-structure)
   - [Evaluation Summary](#evaluation-summary)
     - [Global Metrics Table](#global-metrics-table)
