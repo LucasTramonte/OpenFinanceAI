@@ -352,27 +352,27 @@ Example screenshot of the Streamlit interface:
 
 ## References
 
-[1] Ragas:library to evaluate llm.
-[2] Zhiyu Chen, Wenhu Chen, Charese Smiley, Sameena Shah, Iana Borova, Dylan Langdon, Reema
+- [1] Ragas:library to evaluate llm.
+- [2] Zhiyu Chen, Wenhu Chen, Charese Smiley, Sameena Shah, Iana Borova, Dylan Langdon, Reema
 Moussa, Matt Beane, Ting-Hao Huang, Bryan R Routledge, et al. Finqa: A dataset of numerical
 reasoning over financial data. arXiv preprint arXiv:2109.00122, 2022. Available at https:
 //arxiv.org/pdf/2109.00122.
-[3] Manuel Faysse. Analysis of the colpali: Efficient document retrieval with vision language models
+- [3] Manuel Faysse. Analysis of the colpali: Efficient document retrieval with vision language models
 paper. https://huggingface.co/blog/manu/colpali, 2024. Hugging Face Blog, accessed on
 2024-12-18.
-[4] Manuel Faysse, Hugues Sibille, Tony Wu, Bilel Omrani, Gautier Viaud, Céline Hudelot, and
+- [4] Manuel Faysse, Hugues Sibille, Tony Wu, Bilel Omrani, Gautier Viaud, Céline Hudelot, and
 Pierre Colombo. Colpali: Efficient document retrieval with vision language models. arXiv
 preprint arXiv:2407.01449, 2024. Available at https://arxiv.org/abs/2407.01449.
-[5] N. Bradley Fox, Benjamin Bruyns, et al. Borda count: An evaluation of borda count variations
+- [5] N. Bradley Fox, Benjamin Bruyns, et al. Borda count: An evaluation of borda count variations
 using ranked choice voting data. arXiv preprint arXiv:2501.00618v2, 2022. Available at https:
 //arxiv.org/html/2501.00618v2.
-[6] Omar Khattab and Matei Zaharia. Colbert: Efficient and effective passage search via con-
+- [6] Omar Khattab and Matei Zaharia. Colbert: Efficient and effective passage search via con-
 textualized late interaction over bert. arXiv preprint arXiv:2004.12832, 2020. Available at
 https://arxiv.org/abs/2004.12832.
-[7] Chin-Yew Lin. ROUGE: A package for automatic evaluation of summaries. In Text Summariza-
+- [7] Chin-Yew Lin. ROUGE: A package for automatic evaluation of summaries. In Text Summariza-
 tion Branches Out, pages 74–81, Barcelona, Spain, July 2004. Association for Computational
 Linguistics.
-[8] Chen Ling, Xujiang Zhao, Jiaying Lu, Chengyuan Deng, Can Zheng, Junxiang Wang, Tanmoy
+- [8] Chen Ling, Xujiang Zhao, Jiaying Lu, Chengyuan Deng, Can Zheng, Junxiang Wang, Tanmoy
 Chowdhury, Yun Li, Hejie Cui, Xuchao Zhang, et al. Domain specialization as the key to make
 large language models disruptive: A comprehensive survey. arXiv preprint arXiv:2305.18703, 2023.
 
