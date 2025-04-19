@@ -13,49 +13,26 @@ Open-source project focused on developing a generative AI agent for financial an
 </div>
 
 ## Table of Contents
-- [Overview](#openfinanceai)
-- [Project Structure](#project-structure)
 - [Usage Instructions](#usage-instructions)
+  - [Main Script](#main-script)
+  - [Evaluation Scripts](#evaluation-scripts)
+  - [Retriever Evaluation](#retriever-evaluation)
+  - [FinQA Evaluation](#finqa-evaluation)
 - [Output Files Explained](#output-files-explained)
-- [Problems](#actual-problems)
-- [Next Steps](#future-directions)
-- [Authors](#authors) 
-
-## Project Structure
-
-```plaintext
-OpenFinanceAI/
-
-├── Assets/                         
-│   ├── comptes_rendus/             
-│   ├── data/                           
-│   ├── data_test/                        # Smaller dataset to run to test PDFs
-│       ├── ardian_dataset_test.csv       # CSV file for analyzing pipeline performance
-│   ├── Images/                
-│   ├── output/                           # Directory for generated results
-│       ├── FinQA/                        # Directory for FinQA evaluation results
-│           ├── Qwen2_5VL/                # Results for Qwen2_5VL model
-│           ├── Qwen2VL/                  # Results for Qwen2VL model
-│           └── evaluation_results.txt    # Final comparison results
-│        ├── relevant_documents/          # Stores the top-K most relevant document images
-│        ├── similarity_maps/             # Stores similarity map visualizations
-│        ├── generated_responses.txt      # Final generated responses
-│        ├── similarity_scores.txt        # Similarity scores for each token and document
-│   ├── Presentations/      
-│   ├── report/      
-├── scripts/ 
-│   ├── Colpali_Qwen.py                   # Main script to process PDFs and generate responses with Qwen2-VL-2B-Instruct
-│   ├── Colpali_Qwen_2_5.py               # Main script to process PDFs and generate responses with Qwen/Qwen2.5-VL-7B-Instruct
-│   └── eval_finqa.py                     # Evaluating the Visual Language Model                     
-├── streamlit/                            # Directory containing Streamlit application
-│   ├── output/                           # Output folder for Streamlit results
-│   ├── temp_files/                       # Temporary files generated during Streamlit execution
-│   ├── uploaded_pdfs/                    # Uploaded PDFs from Streamlit app
-│   ├── ardian_dataset_test.csv           # CSV file for analyzing pipeline performance
-│   └── app.py                            # Streamlit Application (CUDA out of memory)
-├── README.md                             # Project documentation
-└── requirements.txt                      # Python dependencies
-```
+- [Metrics for Evaluation](#metrics-for-evaluation)
+  - [Retriever](#retriever)
+  - [Generator](#generator)
+- [Ranking Methods](#ranking-methods)
+  - [Borda Count](#borda-count)
+- [Aggregation](#aggregation)
+  - [JSON Structure](#json-structure)
+  - [Evaluation Summary](#evaluation-summary)
+    - [Global Metrics Table](#global-metrics-table)
+    - [Short Metrics](#short-metrics)
+    - [Long Metrics](#long-metrics)
+- [Streamlit Application](#streamlit-application)
+- [Authors](#authors)
+- [References](#references)
 
 ## Usage Instructions
 
@@ -64,15 +41,47 @@ OpenFinanceAI/
 We are utilizing the [DCE](https://dce.pages.centralesupelec.fr/) GPU (GPU RAM : 24 Gb) provided by CentraleSupélec for training our models .
 
 Install the required packages:
-    ```sh
-    pip install -r requirements.txt
-    ```
+
+```bash
+pip install -r requirements.txt
+```
 
 Execute the main script as follows
 
 ```bash
 python main.py
 ```
+
+### Evaluation Scripts
+1. Evaluates the dataset using various metrics (e.g., ROUGE, BERTScore, numerical accuracy).
+
+```bash
+python eval_data_test.py
+```
+Results are saved in Assets\data_test\ardian_dataset_test_evaluation.json
+
+2. Computes aggregated metrics (e.g., Borda scores) for model evaluation.
+
+```bash
+python generate_metrics.py
+```
+Results are saved in Assets\data_test\agreggation_metrics.json
+
+3. Evaluates the FinQA dataset
+
+```bash
+python eval_finqa.py
+```
+
+Results are saved in Assets\output\FinQA
+
+4. Analyzes metrics and generates visualizations for evaluation.
+
+```bash
+python eval_metrics.py
+```
+Visualizations are saved in Assets\output\metrics
+
 
 ### Retriever Evaluation
 
@@ -195,21 +204,21 @@ For more detailed results, please refer to `comparative_report.md`.
 
 ### Generator
 
-### ROUGE (Recall-Oriented Understudy for Gisting Evaluation)
+#### ROUGE (Recall-Oriented Understudy for Gisting Evaluation)
 - **ROUGE-1**: Measures overlap of unigrams between generated and reference text.  
 - **ROUGE-2**: Measures overlap of bigrams between generated and reference text.  
 - **ROUGE-L**: Measures the longest common subsequence between generated and reference text.  
 
-### BERTScore
+#### BERTScore
 - Computes similarity between generated and reference text using contextual embeddings from BERT.
 
-### Flan-T5 Perplexity
+#### Flan-T5 Perplexity
 - Measures how well the generated text aligns with the expected output using the Flan-T5 model. The score is calculated as the inverse of perplexity (1 / perplexity)
 
-### Numerical Accuracy
+#### Numerical Accuracy
 - Specifically for tabular/chart questions, checks if numerical values in the generated response match the expected values within a **5% tolerance**.
 
-### Multi-modal faithfulness
+#### Multi-modal faithfulness
 - Binary score (0 or 1) that evaluates whether the model's response contains information present in the retrieved documents.
 - 1: The response is faithful and only uses information present in the context (top 3 retrieved documents).
 - 0: The response contains hallucinated information not present in the retrieved documents.
@@ -282,7 +291,7 @@ Each entry in the JSON file contains the following fields:
 | Answer_PV2                |             43 | 78.43%           |
 | Answer_langchain_pipeline |              6 | 65.38%           |
 
-## Short Metrics
+#### Short Metrics
 
 | Model                     | faithfulness | numerical_acc | rouge1  | rouge2  | rougeL  | string_presence |
 |:--------------------------|:-------------|:--------------|:--------|:--------|:--------|:---------------|
@@ -293,7 +302,7 @@ Each entry in the JSON file contains the following fields:
 | Answer_Qwen2.5            | 88.89%       | 66.67%        | 29.45%  | 17.33%  | 26.82%  | 72.22%         |
 | Answer_langchain_pipeline | 77.78%       | 44.44%        | 19.64%  | 7.87%   | 18.21%  | 22.22%         |
 
-## Long metrics
+#### Long metrics
 
 | Model                     | bert    | faithfulness | flan-t5 | rouge1  | rouge2  | rougeL  |
 |:--------------------------|:--------|:-------------|:--------|:--------|:--------|:--------|
@@ -305,25 +314,6 @@ Each entry in the JSON file contains the following fields:
 | Answer_langchain_pipeline | 51.65%  | 58.82%       | 8.92%   | 18.42%  | 3.65%   | 12.28%  |
 
 For more detailed evaluation results, please refer to `tableau_metrics.md`.
-
-## Evaluation Metrics
-
-The `eval_metrics.py` script is used to evaluate the correlation between the **Personal Score** (ground truth) and various metrics for each model. It calculates correlations using both **Spearman** and **Pearson** methods and generates visualizations to compare the results.
-
-### Outputs:
-The script generates the following outputs for each correlation method (**Spearman** and **Pearson**):
-
-1. **Correlation Heatmap**:
-   - Visualizes the correlation matrix between the `Personal_Score` and metrics.
-   - Example:
-     - **Spearman Heatmap**:
-       ![Spearman Correlation Heatmap](Assets/output/metrics/spearman/correlation_heatmap.png)
-     - **Pearson Heatmap**:
-       ![Pearson Correlation Heatmap](Assets/output/metrics/pearson/correlation_heatmap.png)
-
-Between String_presence and personal_score : 
-
-![Correlation plot](Assets/output/metrics/personal_score_vs_string_presence_jittered.png)
 
 ## Streamlit Application
 
