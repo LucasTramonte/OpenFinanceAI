@@ -24,7 +24,7 @@ Open-source project focused on developing a generative AI agent for financial an
   - [Generator](#generator)
 - [Ranking Methods](#ranking-methods)
   - [Borda Count](#borda-count)
-- [Aggregation](#aggregation)
+- [Results](#results)
   - [JSON Structure](#json-structure)
   - [Evaluation Summary](#evaluation-summary)
     - [Global Metrics Table](#global-metrics-table)
@@ -265,7 +265,7 @@ To provide a comprehensive evaluation of our models, we calculate three differen
 
 This multi-faceted evaluation approach allows us to determine which model performs best overall, as well as which models excel at specific types of questions. The faithfulness score is integrated into both short and long answer evaluations to ensure that all models are assessed for their ability to avoid hallucinations and stick to the retrieved context.
 
-## 3. Aggregation
+## 3. Results
 
 ### JSON Structure:
 Each entry in the JSON file contains the following fields:
