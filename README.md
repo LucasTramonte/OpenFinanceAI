@@ -7,7 +7,10 @@ Open-source project focused on developing a generative AI agent for financial an
 
 ---
 
-[[Dataset]](https://huggingface.co/datasets/artefactory/Argimi-Ardian-Finance-10k-text)
+<div style="display: flex; gap: 10px;">
+  <a href="https://huggingface.co/datasets/artefactory/Argimi-Ardian-Finance-10k-text">[Dataset]</a>
+  <a href="https://github.com/LucasTramonte/OpenFinanceAI/blob/main/Assets/report/final_report.pdf">[Report]</a>
+</div>
 
 ## Table of Contents
 - [Overview](#openfinanceai)
@@ -31,7 +34,6 @@ OpenFinanceAI/
 │   ├── Images/                
 │   ├── output/                           # Directory for generated results
 │       ├── FinQA/                        # Directory for FinQA evaluation results
-│           ├── InternVL2_5MPO/           # Results for InternVL2_5-8B-MPO model
 │           ├── Qwen2_5VL/                # Results for Qwen2_5VL model
 │           ├── Qwen2VL/                  # Results for Qwen2VL model
 │           └── evaluation_results.txt    # Final comparison results
@@ -42,8 +44,6 @@ OpenFinanceAI/
 │   ├── Presentations/      
 │   ├── report/      
 ├── scripts/ 
-│   ├── Colpali_InternVL2.5.py            # Main script to process PDFs and generate responses with InternVL2_5-78B-MPO (CUDA out of memory)
-│   ├── Colpali_Qwen_ResponsePerPage.py   # Alternate script for per-page responses (under testing)
 │   ├── Colpali_Qwen.py                   # Main script to process PDFs and generate responses with Qwen2-VL-2B-Instruct
 │   ├── Colpali_Qwen_2_5.py               # Main script to process PDFs and generate responses with Qwen/Qwen2.5-VL-7B-Instruct
 │   └── eval_finqa.py                     # Evaluating the Visual Language Model                     
@@ -59,16 +59,14 @@ OpenFinanceAI/
 
 ## Usage Instructions
 
-### GPU Access
-To request a GPU session:
-```bash
-srun -p gpu_inter -t 00:30:00 --pty bash
-```
-To request a specific GPU node:
+### Main script
 
-```bash
-srun -p gpu_inter -t 00:30:00 --nodelist=sh03 --pty bash
-```
+We are utilizing the [DCE](https://dce.pages.centralesupelec.fr/) GPU (GPU RAM : 24 Gb) provided by CentraleSupélec for training our models .
+
+Install the required packages:
+    ```sh
+    pip install -r requirements.txt
+    ```
 
 Execute the main script as follows
 
@@ -351,4 +349,31 @@ Example screenshot of the Streamlit interface:
 - **Gabriel Trier**  
 - **Lucas Tramonte**  
 - **Rayane Bouaita**  
+
+## References
+
+[1] Ragas:library to evaluate llm.
+[2] Zhiyu Chen, Wenhu Chen, Charese Smiley, Sameena Shah, Iana Borova, Dylan Langdon, Reema
+Moussa, Matt Beane, Ting-Hao Huang, Bryan R Routledge, et al. Finqa: A dataset of numerical
+reasoning over financial data. arXiv preprint arXiv:2109.00122, 2022. Available at https:
+//arxiv.org/pdf/2109.00122.
+[3] Manuel Faysse. Analysis of the colpali: Efficient document retrieval with vision language models
+paper. https://huggingface.co/blog/manu/colpali, 2024. Hugging Face Blog, accessed on
+2024-12-18.
+[4] Manuel Faysse, Hugues Sibille, Tony Wu, Bilel Omrani, Gautier Viaud, Céline Hudelot, and
+Pierre Colombo. Colpali: Efficient document retrieval with vision language models. arXiv
+preprint arXiv:2407.01449, 2024. Available at https://arxiv.org/abs/2407.01449.
+[5] N. Bradley Fox, Benjamin Bruyns, et al. Borda count: An evaluation of borda count variations
+using ranked choice voting data. arXiv preprint arXiv:2501.00618v2, 2022. Available at https:
+//arxiv.org/html/2501.00618v2.
+[6] Omar Khattab and Matei Zaharia. Colbert: Efficient and effective passage search via con-
+textualized late interaction over bert. arXiv preprint arXiv:2004.12832, 2020. Available at
+https://arxiv.org/abs/2004.12832.
+[7] Chin-Yew Lin. ROUGE: A package for automatic evaluation of summaries. In Text Summariza-
+tion Branches Out, pages 74–81, Barcelona, Spain, July 2004. Association for Computational
+Linguistics.
+[8] Chen Ling, Xujiang Zhao, Jiaying Lu, Chengyuan Deng, Can Zheng, Junxiang Wang, Tanmoy
+Chowdhury, Yun Li, Hejie Cui, Xuchao Zhang, et al. Domain specialization as the key to make
+large language models disruptive: A comprehensive survey. arXiv preprint arXiv:2305.18703, 2023.
+
 
